@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE6DE7141B03443C007617BA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE6DE7131B03443C007617BA /* MapKit.framework */; };
+		FE6DE7161B0344E8007617BA /* Waypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6DE7151B0344E8007617BA /* Waypoint.swift */; };
+		FE6DE7181B034606007617BA /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6DE7171B034606007617BA /* Network.swift */; };
 		FE6FB2521AFA1499009AE8ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2511AFA1499009AE8ED /* AppDelegate.swift */; };
 		FE6FB2541AFA1499009AE8ED /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2531AFA1499009AE8ED /* FirstViewController.swift */; };
 		FE6FB2561AFA1499009AE8ED /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2551AFA1499009AE8ED /* SecondViewController.swift */; };
@@ -27,6 +30,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FE6DE7131B03443C007617BA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FE6DE7151B0344E8007617BA /* Waypoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Waypoint.swift; sourceTree = "<group>"; };
+		FE6DE7171B034606007617BA /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		FE6FB24C1AFA1499009AE8ED /* FireflyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireflyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE6FB2501AFA1499009AE8ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE6FB2511AFA1499009AE8ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE6DE7141B03443C007617BA /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +68,7 @@
 		FE6FB2431AFA1499009AE8ED = {
 			isa = PBXGroup;
 			children = (
+				FE6DE7131B03443C007617BA /* MapKit.framework */,
 				FE6FB24E1AFA1499009AE8ED /* FireflyApp */,
 				FE6FB2661AFA1499009AE8ED /* FireflyAppTests */,
 				FE6FB24D1AFA1499009AE8ED /* Products */,
@@ -81,6 +89,8 @@
 			children = (
 				FE6FB2511AFA1499009AE8ED /* AppDelegate.swift */,
 				FE6FB2531AFA1499009AE8ED /* FirstViewController.swift */,
+				FE6DE7151B0344E8007617BA /* Waypoint.swift */,
+				FE6DE7171B034606007617BA /* Network.swift */,
 				FE6FB2551AFA1499009AE8ED /* SecondViewController.swift */,
 				FE6FB2571AFA1499009AE8ED /* Main.storyboard */,
 				FE6FB25A1AFA1499009AE8ED /* Images.xcassets */,
@@ -215,6 +225,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE6DE7181B034606007617BA /* Network.swift in Sources */,
+				FE6DE7161B0344E8007617BA /* Waypoint.swift in Sources */,
 				FE6FB2561AFA1499009AE8ED /* SecondViewController.swift in Sources */,
 				FE6FB2521AFA1499009AE8ED /* AppDelegate.swift in Sources */,
 				FE6FB2541AFA1499009AE8ED /* FirstViewController.swift in Sources */,
@@ -415,6 +427,7 @@
 				FE6FB26F1AFA1499009AE8ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FE6FB2701AFA1499009AE8ED /* Build configuration list for PBXNativeTarget "FireflyAppTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +436,7 @@
 				FE6FB2721AFA1499009AE8ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
