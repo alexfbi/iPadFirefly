@@ -43,13 +43,20 @@
                                     <action selector="startStopButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="u7a-HE-vbF"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="wAM-fy-MpK">
+                                <rect key="frame" x="427" y="28" width="173" height="485"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="173" id="mVm-6I-HYT"/>
+                                </constraints>
+                            </tableView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hdC-qE-Gdb">
-                                <rect key="frame" x="0.0" y="28" width="600" height="485"/>
+                                <rect key="frame" x="0.0" y="28" width="419" height="485"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="hdC-qE-Gdb" secondAttribute="trailing" constant="-16" id="0dR-xm-2fw"/>
+                            <constraint firstItem="wAM-fy-MpK" firstAttribute="leading" secondItem="hdC-qE-Gdb" secondAttribute="trailing" constant="8" id="29w-54-XSW"/>
                             <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="RhY-Jm-4Ey" secondAttribute="bottom" constant="8" id="ASd-8H-Q4r"/>
                             <constraint firstItem="RhY-Jm-4Ey" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="G6g-85-qtT"/>
@@ -60,12 +67,16 @@
                             <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" symbolic="YES" id="cfb-er-3JN"/>
                             <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="e1l-AV-tCB"/>
                             <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="wAM-fy-MpK" secondAttribute="bottom" constant="38" id="lWJ-JL-EtC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wAM-fy-MpK" secondAttribute="trailing" constant="-16" id="ui4-Hw-5La"/>
+                            <constraint firstItem="wAM-fy-MpK" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" id="vqJ-eH-ZHc"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="mapView" destination="hdC-qE-Gdb" id="OIn-S4-Qyu"/>
                         <outlet property="startStopButton" destination="RhY-Jm-4Ey" id="14o-61-D0t"/>
+                        <outlet property="waypointTable" destination="wAM-fy-MpK" id="0LS-JV-ZQK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>

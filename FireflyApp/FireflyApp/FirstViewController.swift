@@ -13,6 +13,8 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var startStopButton: UIButton!
+    @IBOutlet weak var waypointTable: UITableView!
+    
     var locationManager = CLLocationManager()
     var waypointCounter = 0
     var waypoints = [Waypoint]()
@@ -87,12 +89,21 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
             // Delete Button
             let deleteButton:UIButton = UIButton.buttonWithType(.Custom) as! UIButton
             deleteButton.frame.size.width = 60
-            deleteButton.frame.size.height = 55
+            deleteButton.frame.size.height = 44
             deleteButton.backgroundColor = UIColor.redColor()
             deleteButton.setTitle("Delete", forState: .Normal)
             deleteButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
             
             pin.leftCalloutAccessoryView = deleteButton
+            
+            let optionsButton:UIButton = UIButton.buttonWithType(.Custom) as! UIButton
+            optionsButton.frame.size.width = 80
+            optionsButton.frame.size.height = 44
+            optionsButton.backgroundColor = UIColor.blueColor()
+            optionsButton.setTitle("Options", forState: .Normal)
+            optionsButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+            
+            pin.rightCalloutAccessoryView = optionsButton
             
             return pin
         }
@@ -117,11 +128,17 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     }
     
     func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
-        var waypoint:Waypoint = view.annotation as! Waypoint
-        waypoints.removeAtIndex(waypoint.waypointNumber - 1)
-        self.mapView.removeAnnotation(view.annotation)
-        waypointCounter--
-        updateNumeration()
+        if (control == view.leftCalloutAccessoryView) {
+            var waypoint:Waypoint = view.annotation as! Waypoint
+            waypoints.removeAtIndex(waypoint.waypointNumber - 1)
+            self.mapView.removeAnnotation(view.annotation)
+            waypointCounter--
+            updateNumeration()
+        }
+        
+        else if (control == view.rightCalloutAccessoryView) {
+            
+        }
     }
     
     func longPressAction(gestureRecognizer:UIGestureRecognizer) {
@@ -133,7 +150,7 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
             
             var newAnnotation = Waypoint(coordinate: newCoord, waypointNumber: ++waypointCounter)
             newAnnotation.title = "Waypoint " + String(newAnnotation.waypointNumber)
-            newAnnotation.subtitle = "Latitude: " + String(stringInterpolationSegment: newCoord.latitude) + ", Longitude: " + String(stringInterpolationSegment: newCoord.longitude)
+            //newAnnotation.subtitle = "Latitude: " + String(stringInterpolationSegment: newCoord.latitude) + ", Longitude: " + String(stringInterpolationSegment: newCoord.longitude)
             waypoints.insert(newAnnotation, atIndex: waypointCounter-1)
             self.mapView.addAnnotation(newAnnotation)
         }
