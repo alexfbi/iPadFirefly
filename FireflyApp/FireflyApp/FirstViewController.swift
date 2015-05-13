@@ -16,6 +16,7 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     var locationManager = CLLocationManager()
     var waypointCounter = 0
     var waypoints = [Waypoint]()
+    var locationWasSet = false
     
     @IBAction func startStopButtonPressed(sender: AnyObject) {
         var network = Network(waypoints: self.waypoints)
@@ -61,7 +62,10 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     }
     
     func mapView(mapView: MKMapView!, didUpdateUserLocation userLocation: MKUserLocation!) {
-        zoomToUserLocation()
+        if (!locationWasSet) {
+            zoomToUserLocation()
+            locationWasSet = true
+        }
     }
     
     func mapView(mapView: MKMapView!, didAddAnnotationViews views: [AnyObject]!) {
@@ -107,7 +111,6 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
             var droppedAt = view.annotation.coordinate
             var latitudeString = String(stringInterpolationSegment: droppedAt.latitude)
             var longitudeString = String(stringInterpolationSegment: droppedAt.longitude)
-            //println("New Coordinates: " + latitudeString + ", " + longitudeString)
             var annotation = view.annotation as! Waypoint
             annotation.subtitle = "Latitude: \(latitudeString), Longitude: \(longitudeString)"
         }
