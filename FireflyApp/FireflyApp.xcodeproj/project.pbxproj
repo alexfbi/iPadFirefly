@@ -7,12 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE047D9D1B0A12F3003FF9C9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE047D9C1B0A12F3003FF9C9 /* CoreData.framework */; };
+		FE047DA01B0A1338003FF9C9 /* AFC1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE047D9E1B0A1338003FF9C9 /* AFC1.xcdatamodeld */; };
+		FE047DA31B0A15AF003FF9C9 /* Wegpunkt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DA21B0A15AF003FF9C9 /* Wegpunkt.swift */; };
+		FE047DA51B0A15BA003FF9C9 /* Strecke.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DA41B0A15BA003FF9C9 /* Strecke.swift */; };
+		FE047DA71B0A15C2003FF9C9 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DA61B0A15C2003FF9C9 /* Log.swift */; };
+		FE047DA91B0A15CE003FF9C9 /* Eintrag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DA81B0A15CE003FF9C9 /* Eintrag.swift */; };
+		FE047DAB1B0A15D6003FF9C9 /* Bild.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DAA1B0A15D6003FF9C9 /* Bild.swift */; };
+		FE047DEF1B0A269A003FF9C9 /* KategorieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DEE1B0A269A003FF9C9 /* KategorieTableViewController.swift */; };
+		FE047DF61B0A2728003FF9C9 /* BilderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DF01B0A2728003FF9C9 /* BilderViewController.swift */; };
+		FE047DF71B0A2728003FF9C9 /* EintragTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DF11B0A2728003FF9C9 /* EintragTableViewController.swift */; };
+		FE047DF81B0A2728003FF9C9 /* GPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DF21B0A2728003FF9C9 /* GPS.swift */; };
+		FE047DF91B0A2728003FF9C9 /* GPSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DF31B0A2728003FF9C9 /* GPSViewController.swift */; };
+		FE047DFA1B0A2728003FF9C9 /* PlotterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DF41B0A2728003FF9C9 /* PlotterViewController.swift */; };
+		FE047DFB1B0A2728003FF9C9 /* PlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DF51B0A2728003FF9C9 /* PlotView.swift */; };
 		FE6DE7141B03443C007617BA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE6DE7131B03443C007617BA /* MapKit.framework */; };
 		FE6DE7161B0344E8007617BA /* Waypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6DE7151B0344E8007617BA /* Waypoint.swift */; };
 		FE6DE7181B034606007617BA /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6DE7171B034606007617BA /* Network.swift */; };
 		FE6FB2521AFA1499009AE8ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2511AFA1499009AE8ED /* AppDelegate.swift */; };
 		FE6FB2541AFA1499009AE8ED /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2531AFA1499009AE8ED /* FirstViewController.swift */; };
-		FE6FB2561AFA1499009AE8ED /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2551AFA1499009AE8ED /* SecondViewController.swift */; };
+		FE6FB2561AFA1499009AE8ED /* LogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2551AFA1499009AE8ED /* LogTableViewController.swift */; };
 		FE6FB2591AFA1499009AE8ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE6FB2571AFA1499009AE8ED /* Main.storyboard */; };
 		FE6FB25B1AFA1499009AE8ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE6FB25A1AFA1499009AE8ED /* Images.xcassets */; };
 		FE6FB25E1AFA1499009AE8ED /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE6FB25C1AFA1499009AE8ED /* LaunchScreen.xib */; };
@@ -30,6 +44,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FE047D9C1B0A12F3003FF9C9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		FE047D9F1B0A1338003FF9C9 /* AFC1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AFC1.xcdatamodel; sourceTree = "<group>"; };
+		FE047DA21B0A15AF003FF9C9 /* Wegpunkt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wegpunkt.swift; sourceTree = "<group>"; };
+		FE047DA41B0A15BA003FF9C9 /* Strecke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strecke.swift; sourceTree = "<group>"; };
+		FE047DA61B0A15C2003FF9C9 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		FE047DA81B0A15CE003FF9C9 /* Eintrag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Eintrag.swift; sourceTree = "<group>"; };
+		FE047DAA1B0A15D6003FF9C9 /* Bild.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bild.swift; sourceTree = "<group>"; };
+		FE047DEE1B0A269A003FF9C9 /* KategorieTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KategorieTableViewController.swift; sourceTree = "<group>"; };
+		FE047DF01B0A2728003FF9C9 /* BilderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BilderViewController.swift; sourceTree = "<group>"; };
+		FE047DF11B0A2728003FF9C9 /* EintragTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EintragTableViewController.swift; sourceTree = "<group>"; };
+		FE047DF21B0A2728003FF9C9 /* GPS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPS.swift; sourceTree = "<group>"; };
+		FE047DF31B0A2728003FF9C9 /* GPSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPSViewController.swift; sourceTree = "<group>"; };
+		FE047DF41B0A2728003FF9C9 /* PlotterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotterViewController.swift; sourceTree = "<group>"; };
+		FE047DF51B0A2728003FF9C9 /* PlotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotView.swift; sourceTree = "<group>"; };
 		FE6DE7131B03443C007617BA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FE6DE7151B0344E8007617BA /* Waypoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Waypoint.swift; sourceTree = "<group>"; };
 		FE6DE7171B034606007617BA /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -37,7 +65,7 @@
 		FE6FB2501AFA1499009AE8ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE6FB2511AFA1499009AE8ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE6FB2531AFA1499009AE8ED /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		FE6FB2551AFA1499009AE8ED /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		FE6FB2551AFA1499009AE8ED /* LogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTableViewController.swift; sourceTree = "<group>"; };
 		FE6FB2581AFA1499009AE8ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE6FB25A1AFA1499009AE8ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FE6FB25D1AFA1499009AE8ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -51,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE047D9D1B0A12F3003FF9C9 /* CoreData.framework in Frameworks */,
 				FE6DE7141B03443C007617BA /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,9 +94,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE047DA11B0A156D003FF9C9 /* ManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				FE047DA21B0A15AF003FF9C9 /* Wegpunkt.swift */,
+				FE047DA41B0A15BA003FF9C9 /* Strecke.swift */,
+				FE047DA61B0A15C2003FF9C9 /* Log.swift */,
+				FE047DA81B0A15CE003FF9C9 /* Eintrag.swift */,
+				FE047DAA1B0A15D6003FF9C9 /* Bild.swift */,
+			);
+			name = ManagedObjects;
+			sourceTree = "<group>";
+		};
 		FE6FB2431AFA1499009AE8ED = {
 			isa = PBXGroup;
 			children = (
+				FE047D9C1B0A12F3003FF9C9 /* CoreData.framework */,
 				FE6DE7131B03443C007617BA /* MapKit.framework */,
 				FE6FB24E1AFA1499009AE8ED /* FireflyApp */,
 				FE6FB2661AFA1499009AE8ED /* FireflyAppTests */,
@@ -87,15 +129,24 @@
 		FE6FB24E1AFA1499009AE8ED /* FireflyApp */ = {
 			isa = PBXGroup;
 			children = (
+				FE047DF01B0A2728003FF9C9 /* BilderViewController.swift */,
+				FE047DF11B0A2728003FF9C9 /* EintragTableViewController.swift */,
+				FE047DF21B0A2728003FF9C9 /* GPS.swift */,
+				FE047DF31B0A2728003FF9C9 /* GPSViewController.swift */,
+				FE047DF41B0A2728003FF9C9 /* PlotterViewController.swift */,
+				FE047DF51B0A2728003FF9C9 /* PlotView.swift */,
+				FE047DA11B0A156D003FF9C9 /* ManagedObjects */,
+				FE047D9E1B0A1338003FF9C9 /* AFC1.xcdatamodeld */,
 				FE6FB2511AFA1499009AE8ED /* AppDelegate.swift */,
 				FE6FB2531AFA1499009AE8ED /* FirstViewController.swift */,
 				FE6DE7151B0344E8007617BA /* Waypoint.swift */,
 				FE6DE7171B034606007617BA /* Network.swift */,
-				FE6FB2551AFA1499009AE8ED /* SecondViewController.swift */,
+				FE6FB2551AFA1499009AE8ED /* LogTableViewController.swift */,
 				FE6FB2571AFA1499009AE8ED /* Main.storyboard */,
 				FE6FB25A1AFA1499009AE8ED /* Images.xcassets */,
 				FE6FB25C1AFA1499009AE8ED /* LaunchScreen.xib */,
 				FE6FB24F1AFA1499009AE8ED /* Supporting Files */,
+				FE047DEE1B0A269A003FF9C9 /* KategorieTableViewController.swift */,
 			);
 			path = FireflyApp;
 			sourceTree = "<group>";
@@ -226,10 +277,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE6DE7181B034606007617BA /* Network.swift in Sources */,
+				FE047DFB1B0A2728003FF9C9 /* PlotView.swift in Sources */,
+				FE047DF61B0A2728003FF9C9 /* BilderViewController.swift in Sources */,
+				FE047DA51B0A15BA003FF9C9 /* Strecke.swift in Sources */,
+				FE047DA71B0A15C2003FF9C9 /* Log.swift in Sources */,
+				FE047DFA1B0A2728003FF9C9 /* PlotterViewController.swift in Sources */,
 				FE6DE7161B0344E8007617BA /* Waypoint.swift in Sources */,
-				FE6FB2561AFA1499009AE8ED /* SecondViewController.swift in Sources */,
+				FE047DAB1B0A15D6003FF9C9 /* Bild.swift in Sources */,
+				FE6FB2561AFA1499009AE8ED /* LogTableViewController.swift in Sources */,
 				FE6FB2521AFA1499009AE8ED /* AppDelegate.swift in Sources */,
+				FE047DA91B0A15CE003FF9C9 /* Eintrag.swift in Sources */,
+				FE047DA31B0A15AF003FF9C9 /* Wegpunkt.swift in Sources */,
+				FE047DF71B0A2728003FF9C9 /* EintragTableViewController.swift in Sources */,
+				FE047DF91B0A2728003FF9C9 /* GPSViewController.swift in Sources */,
 				FE6FB2541AFA1499009AE8ED /* FirstViewController.swift in Sources */,
+				FE047DA01B0A1338003FF9C9 /* AFC1.xcdatamodeld in Sources */,
+				FE047DEF1B0A269A003FF9C9 /* KategorieTableViewController.swift in Sources */,
+				FE047DF81B0A2728003FF9C9 /* GPS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +507,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FE047D9E1B0A1338003FF9C9 /* AFC1.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FE047D9F1B0A1338003FF9C9 /* AFC1.xcdatamodel */,
+			);
+			currentVersion = FE047D9F1B0A1338003FF9C9 /* AFC1.xcdatamodel */;
+			path = AFC1.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FE6FB2441AFA1499009AE8ED /* Project object */;
 }
