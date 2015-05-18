@@ -26,7 +26,7 @@
 		FE6DE7181B034606007617BA /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6DE7171B034606007617BA /* Network.swift */; };
 		FE6FB2521AFA1499009AE8ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2511AFA1499009AE8ED /* AppDelegate.swift */; };
 		FE6FB2541AFA1499009AE8ED /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2531AFA1499009AE8ED /* FirstViewController.swift */; };
-		FE6FB2561AFA1499009AE8ED /* LogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2551AFA1499009AE8ED /* LogTableViewController.swift */; };
+		FE6FB2561AFA1499009AE8ED /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2551AFA1499009AE8ED /* SecondViewController.swift */; };
 		FE6FB2591AFA1499009AE8ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE6FB2571AFA1499009AE8ED /* Main.storyboard */; };
 		FE6FB25B1AFA1499009AE8ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE6FB25A1AFA1499009AE8ED /* Images.xcassets */; };
 		FE6FB25E1AFA1499009AE8ED /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE6FB25C1AFA1499009AE8ED /* LaunchScreen.xib */; };
@@ -65,7 +65,7 @@
 		FE6FB2501AFA1499009AE8ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE6FB2511AFA1499009AE8ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE6FB2531AFA1499009AE8ED /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		FE6FB2551AFA1499009AE8ED /* LogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTableViewController.swift; sourceTree = "<group>"; };
+		FE6FB2551AFA1499009AE8ED /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		FE6FB2581AFA1499009AE8ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE6FB25A1AFA1499009AE8ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FE6FB25D1AFA1499009AE8ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 				FE6FB2531AFA1499009AE8ED /* FirstViewController.swift */,
 				FE6DE7151B0344E8007617BA /* Waypoint.swift */,
 				FE6DE7171B034606007617BA /* Network.swift */,
-				FE6FB2551AFA1499009AE8ED /* LogTableViewController.swift */,
+				FE6FB2551AFA1499009AE8ED /* SecondViewController.swift */,
 				FE6FB2571AFA1499009AE8ED /* Main.storyboard */,
 				FE6FB25A1AFA1499009AE8ED /* Images.xcassets */,
 				FE6FB25C1AFA1499009AE8ED /* LaunchScreen.xib */,
@@ -284,7 +284,7 @@
 				FE047DFA1B0A2728003FF9C9 /* PlotterViewController.swift in Sources */,
 				FE6DE7161B0344E8007617BA /* Waypoint.swift in Sources */,
 				FE047DAB1B0A15D6003FF9C9 /* Bild.swift in Sources */,
-				FE6FB2561AFA1499009AE8ED /* LogTableViewController.swift in Sources */,
+				FE6FB2561AFA1499009AE8ED /* SecondViewController.swift in Sources */,
 				FE6FB2521AFA1499009AE8ED /* AppDelegate.swift in Sources */,
 				FE047DA91B0A15CE003FF9C9 /* Eintrag.swift in Sources */,
 				FE047DA31B0A15AF003FF9C9 /* Wegpunkt.swift in Sources */,
