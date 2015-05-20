@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE00CBB21B0BC02D00D79628 /* CallOutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE00CBB11B0BC02D00D79628 /* CallOutView.xib */; };
 		FE047D9D1B0A12F3003FF9C9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE047D9C1B0A12F3003FF9C9 /* CoreData.framework */; };
 		FE047DA01B0A1338003FF9C9 /* AFC1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE047D9E1B0A1338003FF9C9 /* AFC1.xcdatamodeld */; };
 		FE047DA31B0A15AF003FF9C9 /* Wegpunkt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DA21B0A15AF003FF9C9 /* Wegpunkt.swift */; };
@@ -21,6 +22,7 @@
 		FE047DF91B0A2728003FF9C9 /* GPSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DF31B0A2728003FF9C9 /* GPSViewController.swift */; };
 		FE047DFA1B0A2728003FF9C9 /* PlotterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DF41B0A2728003FF9C9 /* PlotterViewController.swift */; };
 		FE047DFB1B0A2728003FF9C9 /* PlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DF51B0A2728003FF9C9 /* PlotView.swift */; };
+		FE411DB01B0C72F60079B7C3 /* WaypointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE411DAF1B0C72F60079B7C3 /* WaypointView.swift */; };
 		FE6DE7141B03443C007617BA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE6DE7131B03443C007617BA /* MapKit.framework */; };
 		FE6DE7161B0344E8007617BA /* Waypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6DE7151B0344E8007617BA /* Waypoint.swift */; };
 		FE6DE7181B034606007617BA /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6DE7171B034606007617BA /* Network.swift */; };
@@ -31,6 +33,7 @@
 		FE6FB25B1AFA1499009AE8ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE6FB25A1AFA1499009AE8ED /* Images.xcassets */; };
 		FE6FB25E1AFA1499009AE8ED /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE6FB25C1AFA1499009AE8ED /* LaunchScreen.xib */; };
 		FE6FB26A1AFA1499009AE8ED /* FireflyAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2691AFA1499009AE8ED /* FireflyAppTests.swift */; };
+		FEB3411A1B0BC75D00ACEB41 /* CallOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB341191B0BC75D00ACEB41 /* CallOutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FE00CBB11B0BC02D00D79628 /* CallOutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CallOutView.xib; sourceTree = "<group>"; };
 		FE047D9C1B0A12F3003FF9C9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FE047D9F1B0A1338003FF9C9 /* AFC1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AFC1.xcdatamodel; sourceTree = "<group>"; };
 		FE047DA21B0A15AF003FF9C9 /* Wegpunkt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wegpunkt.swift; sourceTree = "<group>"; };
@@ -58,6 +62,7 @@
 		FE047DF31B0A2728003FF9C9 /* GPSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPSViewController.swift; sourceTree = "<group>"; };
 		FE047DF41B0A2728003FF9C9 /* PlotterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotterViewController.swift; sourceTree = "<group>"; };
 		FE047DF51B0A2728003FF9C9 /* PlotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotView.swift; sourceTree = "<group>"; };
+		FE411DAF1B0C72F60079B7C3 /* WaypointView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaypointView.swift; sourceTree = "<group>"; };
 		FE6DE7131B03443C007617BA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FE6DE7151B0344E8007617BA /* Waypoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Waypoint.swift; sourceTree = "<group>"; };
 		FE6DE7171B034606007617BA /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -72,6 +77,7 @@
 		FE6FB2631AFA1499009AE8ED /* FireflyAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FireflyAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE6FB2681AFA1499009AE8ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE6FB2691AFA1499009AE8ED /* FireflyAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireflyAppTests.swift; sourceTree = "<group>"; };
+		FEB341191B0BC75D00ACEB41 /* CallOutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallOutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +153,9 @@
 				FE6FB25C1AFA1499009AE8ED /* LaunchScreen.xib */,
 				FE6FB24F1AFA1499009AE8ED /* Supporting Files */,
 				FE047DEE1B0A269A003FF9C9 /* KategorieTableViewController.swift */,
+				FE00CBB11B0BC02D00D79628 /* CallOutView.xib */,
+				FEB341191B0BC75D00ACEB41 /* CallOutView.swift */,
+				FE411DAF1B0C72F60079B7C3 /* WaypointView.swift */,
 			);
 			path = FireflyApp;
 			sourceTree = "<group>";
@@ -259,6 +268,7 @@
 				FE6FB2591AFA1499009AE8ED /* Main.storyboard in Resources */,
 				FE6FB25E1AFA1499009AE8ED /* LaunchScreen.xib in Resources */,
 				FE6FB25B1AFA1499009AE8ED /* Images.xcassets in Resources */,
+				FE00CBB21B0BC02D00D79628 /* CallOutView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +288,7 @@
 			files = (
 				FE6DE7181B034606007617BA /* Network.swift in Sources */,
 				FE047DFB1B0A2728003FF9C9 /* PlotView.swift in Sources */,
+				FEB3411A1B0BC75D00ACEB41 /* CallOutView.swift in Sources */,
 				FE047DF61B0A2728003FF9C9 /* BilderViewController.swift in Sources */,
 				FE047DA51B0A15BA003FF9C9 /* Strecke.swift in Sources */,
 				FE047DA71B0A15C2003FF9C9 /* Log.swift in Sources */,
@@ -290,6 +301,7 @@
 				FE047DA31B0A15AF003FF9C9 /* Wegpunkt.swift in Sources */,
 				FE047DF71B0A2728003FF9C9 /* EintragTableViewController.swift in Sources */,
 				FE047DF91B0A2728003FF9C9 /* GPSViewController.swift in Sources */,
+				FE411DB01B0C72F60079B7C3 /* WaypointView.swift in Sources */,
 				FE6FB2541AFA1499009AE8ED /* FirstViewController.swift in Sources */,
 				FE047DA01B0A1338003FF9C9 /* AFC1.xcdatamodeld in Sources */,
 				FE047DEF1B0A269A003FF9C9 /* KategorieTableViewController.swift in Sources */,

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 import CoreData
 
 class EintragTableViewController: UITableViewController {
@@ -22,13 +21,13 @@ class EintragTableViewController: UITableViewController {
         
         super.viewDidLoad()
        
-   title = "Eintrag"
+        title = "Eintrag"
         loadDataFromDB()
     }
     
     func loadDataFromDB(){
         
-       let fetchRequest = NSFetchRequest(entityName: "Eintrag")
+        let fetchRequest = NSFetchRequest(entityName: "Eintrag")
         fetchRequest.predicate = NSPredicate(format: "log = %@", log!)
         eintraege = context?.executeFetchRequest(fetchRequest, error: nil) as! [Eintrag]
         tableView.reloadData()

@@ -132,11 +132,11 @@ class LogTableViewController: UITableViewController {
                 
                 var indexPath  = tableView.indexPathForSelectedRow()!
                 
-                //let kategorieVC = segue.destinationViewController as KategorieTableViewController
+                let kategorieVC = segue.destinationViewController as! KategorieTableViewController
                 
                 let log = logs[ indexPath.row ]
                 
-                //kategorieVC.log = log
+                kategorieVC.log = log
                 
             }
         }

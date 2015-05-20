@@ -13,10 +13,13 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var startStopButton: UIButton!
+    //@IBOutlet var calloutView: CallOutView!
+    
     var locationManager = CLLocationManager()
     var waypointCounter = 0
     var waypoints = [Waypoint]()
     var locationWasSet = false
+    var selectedAnnotationView:MKAnnotationView?
     
     @IBAction func startStopButtonPressed(sender: AnyObject) {
         var network = Network(waypoints: self.waypoints)
@@ -44,6 +47,19 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         longPress.minimumPressDuration = 0.5
         
         mapView.addGestureRecognizer(longPress)
+        
+        //NSBundle.mainBundle().loadNibNamed("CallOutView", owner: self, options: nil)
+        
+//        UIView *viewLeftAccessory = [[UIView alloc] initWithFrame:CGRectMake(0, 0, pinView.frame.size.height, pinView.frame.size.height)]
+//        
+//        UIImageView *temp=[[UIImageView alloc] initWithFrame:CGRectMake(5, 5, pinView.frame.size.height- 10, pinView.frame.size.height -10)];
+//        temp.image = image;
+//        temp.contentMode = UIViewContentModeScaleAspectFit;
+//        
+//        [viewLeftAccessory addView:temp];
+//        
+//        pinView.leftCalloutAccessoryView=viewLeftAccessory;
+        
     }
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
@@ -79,20 +95,22 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         }
             
         else {
-            var pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "myPin")
+            var pin = WaypointView(annotation: annotation, reuseIdentifier: "myPin")
             pin.animatesDrop = true
             pin.draggable = true
-            pin.canShowCallout = true
+            pin.canShowCallout = false
             
             // Delete Button
-            let deleteButton:UIButton = UIButton.buttonWithType(.Custom) as! UIButton
-            deleteButton.frame.size.width = 60
-            deleteButton.frame.size.height = 55
-            deleteButton.backgroundColor = UIColor.redColor()
-            deleteButton.setTitle("Delete", forState: .Normal)
-            deleteButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
-            
-            pin.leftCalloutAccessoryView = deleteButton
+//            let deleteButton:UIButton = UIButton.buttonWithType(.Custom) as! UIButton
+//            deleteButton.frame.size.width = 60
+//            deleteButton.frame.size.height = 55
+//            deleteButton.backgroundColor = UIColor.redColor()
+//            deleteButton.setTitle("Delete", forState: .Normal)
+//            deleteButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+
+            //var viewLeftAccessory = UIView(frame: CGRect(x: 0, y: 0, width: calloutView.frame.size.width, height: calloutView.frame.size.height))
+            //iewLeftAccessory.addSubview(calloutView)
+            //pin.leftCalloutAccessoryView = viewLeftAccessory
             
             return pin
         }
@@ -100,11 +118,17 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     }
     
     func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
-        
+        //view.addSubview(self.calloutView)
+        //self.selectedAnnotationView = view
     }
     
+    func mapView(mapView: MKMapView!, didDeselectAnnotationView view: MKAnnotationView!) {
+        //view.subviews[0].removeFromSuperview()
+    }
     
     func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, didChangeDragState newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState) {
+        
+        //println("didChangeDragState called")
         
         if (newState == MKAnnotationViewDragState.Ending)
         {
@@ -116,13 +140,13 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         }
     }
     
-    func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
-        var waypoint:Waypoint = view.annotation as! Waypoint
-        waypoints.removeAtIndex(waypoint.waypointNumber - 1)
-        self.mapView.removeAnnotation(view.annotation)
-        waypointCounter--
-        updateNumeration()
-    }
+//    func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
+//        var waypoint:Waypoint = view.annotation as! Waypoint
+//        waypoints.removeAtIndex(waypoint.waypointNumber - 1)
+//        self.mapView.removeAnnotation(view.annotation)
+//        waypointCounter--
+//        updateNumeration()
+//    }
     
     func longPressAction(gestureRecognizer:UIGestureRecognizer) {
         
@@ -161,6 +185,16 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         // Dispose of any resources that can be recreated.
     }
 
+    // Methods for CallOutView
+    
+//    @IBAction func deleteButtonPressed(sender: AnyObject) {
+//        println("Delete button pressed")
+//        var waypoint:Waypoint = selectedAnnotationView!.annotation as! Waypoint
+//        waypoints.removeAtIndex(waypoint.waypointNumber - 1)
+//        self.mapView.removeAnnotation(selectedAnnotationView!.annotation)
+//        waypointCounter--
+//        updateNumeration()
+//    }
 
 }
 
