@@ -12,11 +12,10 @@ import CoreData
 
 
 
-class BilderViewController: UIViewController {
+class BilderViewController: ContentViewController {
 
     
-    var log: Log?
-    var imageList = [UIImage]()
+       var imageList = [UIImage]()
     var bilder = [Bild]()
     
     let ANIMATIONDURATION: NSTimeInterval = 0.2

@@ -2,7 +2,7 @@
 //  KategorieTableViewController.swift
 //  FireflyApp
 //
-//  Created by Alexander Zeier on 18.05.15.
+//  Created by ak on 18.05.15.
 //  Copyright (c) 2015 Hochschule Darmstadt. All rights reserved.
 //
 

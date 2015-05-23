@@ -9,9 +9,9 @@
 import UIKit
 import CoreData
 
-class PlotterViewController: UIViewController, PlotViewDataSource {
+class PlotterViewController: ContentViewController, PlotViewDataSource {
 
-    var log: Log?
+    
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var eintraege = [Eintrag]()
     

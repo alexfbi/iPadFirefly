@@ -9,8 +9,6 @@
 import Foundation
 import CoreData
 
-@objc(Log)
-
 class Log: NSManagedObject {
     
     @NSManaged var date: NSDate

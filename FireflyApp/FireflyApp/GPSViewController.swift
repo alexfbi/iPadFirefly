@@ -13,12 +13,11 @@ import CoreData
 
 
 
-class GPSViewController: UIViewController, MKMapViewDelegate  {
+class GPSViewController: ContentViewController, MKMapViewDelegate  {
     
     
 
-    var log: Log?
-    var gpsDaten = [GPS]()
+       var gpsDaten = [GPS]()
     
      let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
    
@@ -148,20 +147,20 @@ class GPSViewController: UIViewController, MKMapViewDelegate  {
 }
 
 
-//   func mapView(mapView: MKMapView!, viewForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
-//    
-//        NSLog("%@" ,"viewForOverlay");
-//        
-//        if (overlay is MKPolyline) {
-//            var pr = MKPolylineRenderer(overlay: overlay);
-//            pr.strokeColor = UIColor.redColor().colorWithAlphaComponent(0.5)
-//            pr.lineWidth = 5
-//            
-//            return pr
-//        }
-//        
-//        return nil
-//    }
+   func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+    
+        NSLog("%@" ,"viewForOverlay");
+    
+        if (overlay is MKPolyline) {
+            var pr = MKPolylineRenderer(overlay: overlay);
+            pr.strokeColor = UIColor.redColor().colorWithAlphaComponent(0.5)
+            pr.lineWidth = 5
+    
+            return pr
+        }
+    
+        return nil
+    }
     
     
     

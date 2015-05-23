@@ -2,7 +2,7 @@
 //  SecondViewController.swift
 //  FireflyApp
 //
-//  Created by Alexander Zeier on 06.05.15.
+//  Created by ak on 06.05.15.
 //  Copyright (c) 2015 Hochschule Darmstadt. All rights reserved.
 //
 
@@ -85,8 +85,8 @@ class LogTableViewController: UITableViewController {
             return "Löschen"
         }
         
-        @IBAction func addLogButtonPressed(sender: AnyObject) {
-            
+    @IBAction func addLogBtnPressed(sender: AnyObject) {
+               
             var alert = UIAlertController(title: "Log anlegen", message: "Name und id eingeben", preferredStyle: .Alert)
             
             alert.addTextFieldWithConfigurationHandler(){

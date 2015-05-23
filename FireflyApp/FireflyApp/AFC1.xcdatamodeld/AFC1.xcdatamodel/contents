@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Bild" representedClassName="Bild" syncable="YES">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Bild" representedClassName="FireflyApp.Bild" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pfad" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="log" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Log" inverseName="bilder" inverseEntity="Log" syncable="YES"/>
     </entity>
-    <entity name="Eintrag" representedClassName="Eintrag" syncable="YES">
+    <entity name="Eintrag" representedClassName="FireflyApp.Eintrag" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -15,14 +15,14 @@
         <attribute name="valueZ" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <relationship name="log" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Log" inverseName="eintraege" inverseEntity="Log" syncable="YES"/>
     </entity>
-    <entity name="GPS" representedClassName="GPS" syncable="YES">
+    <entity name="GPS" representedClassName="FireflyApp.GPS" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="valueX" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="valueY" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="valueZ" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <relationship name="log" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Log" inverseName="gpsDaten" inverseEntity="Log" syncable="YES"/>
     </entity>
-    <entity name="Log" representedClassName="Log" syncable="YES">
+    <entity name="Log" representedClassName="FireflyApp.Log" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -47,10 +47,10 @@
         <relationship name="strecke" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Strecke" inverseName="wegpunkte" inverseEntity="Strecke" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Bild" positionX="115" positionY="-63" width="128" height="105"/>
-        <element name="Eintrag" positionX="115" positionY="53" width="128" height="150"/>
-        <element name="GPS" positionX="115" positionY="224" width="128" height="120"/>
-        <element name="Log" positionX="-128" positionY="9" width="128" height="150"/>
+        <element name="Bild" positionX="115" positionY="-63" width="128" height="103"/>
+        <element name="Eintrag" positionX="115" positionY="53" width="128" height="148"/>
+        <element name="GPS" positionX="115" positionY="224" width="128" height="118"/>
+        <element name="Log" positionX="-128" positionY="9" width="128" height="148"/>
         <element name="Strecke" positionX="-335" positionY="50" width="128" height="103"/>
         <element name="Wegpunkt" positionX="-542" positionY="27" width="128" height="148"/>
     </elements>

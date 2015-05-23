@@ -76,6 +76,8 @@ class EintragTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
         return "Löschen"
     }
+    
+    
     @IBAction func addEIntragButtonPressed(sender: AnyObject) {
         
         
