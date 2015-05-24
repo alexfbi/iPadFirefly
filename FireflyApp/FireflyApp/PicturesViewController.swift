@@ -1,5 +1,5 @@
 //
-//  BilderViewController.swift
+//  PicturesViewController.swift
 //  AFC1
 //
 //  Created by ak on 02.05.15.
@@ -12,13 +12,13 @@ import CoreData
 
 
 
-class BilderViewController: ContentViewController {
+class PicturesViewController: ContentViewController {
 
     
-       var imageList = [UIImage]()
-    var bilder = [Bild]()
+    var imageList = [UIImage]()
+    var pictures  = [Picture]()
     
-    let ANIMATIONDURATION: NSTimeInterval = 0.2
+    let ANIMATIONDURATION: NSTimeInterval = 1
     let fileManager = NSFileManager.defaultManager()
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
@@ -30,7 +30,7 @@ class BilderViewController: ContentViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Bilder"
+        title = "Pictures"
         // Do any additional setup after loading the view, typically from a nib.
     
         deleteAllBilderFromDB()
@@ -44,12 +44,12 @@ class BilderViewController: ContentViewController {
     
     
     func loadDataFromDB(){
-    let fetchRequest = NSFetchRequest(entityName: "Bild")
+    let fetchRequest = NSFetchRequest(entityName: "Picture")
     fetchRequest.predicate = NSPredicate(format: "log = %@", log!)
     
-    bilder = context?.executeFetchRequest(fetchRequest, error: nil) as! [Bild]
+    pictures = context?.executeFetchRequest(fetchRequest, error: nil) as! [Picture]
     
-    NSLog("%@", "Bilder anzahl: \(bilder.count)")
+    NSLog("%@", "Picture count: \(pictures.count)")
    
     }
     
@@ -58,15 +58,15 @@ class BilderViewController: ContentViewController {
         
         imageList.removeAll(keepCapacity: false)
         
-        if ( bilder.count > 0){
-        for i in 0...bilder.count - 1
+        if ( pictures.count > 0){
+        for i in 0...pictures.count - 1
         {
             
-            NSLog("%@", "Bild: \(i + 1 )")
-            let pfad = bilder[i].pfad
-            NSLog("%@", "Bildpfad: \(pfad) ")
+            NSLog("%@", "Picture: \(i + 1 )")
+            let path = pictures[i].path
+            NSLog("%@", "Picture path: \(path) ")
             
-            var image = loadImageFromDocumentsFolder(pfad)
+            var image = loadImageFromDocumentsFolder(path)
             if ( image != nil){
                 imageList.append( image!)
 
@@ -80,9 +80,9 @@ class BilderViewController: ContentViewController {
     func deleteAllBilderFromDB()
     {
         loadDataFromDB()
-        if (bilder.count > 0 ){
-            for i in 0...bilder.count - 1{
-                context?.deleteObject(bilder[i])
+        if (pictures.count > 0 ){
+            for i in 0...pictures.count - 1{
+                context?.deleteObject(pictures[i])
                 context?.save(nil)
             }
         }
@@ -91,16 +91,16 @@ class BilderViewController: ContentViewController {
     }
     
     func writeDataToDB (imageName: String, pathToFile: String){
-        var newBild = NSEntityDescription.insertNewObjectForEntityForName("Bild", inManagedObjectContext: self.context!) as! Bild
+        var newPicture = NSEntityDescription.insertNewObjectForEntityForName("Picture", inManagedObjectContext: self.context!) as! Picture
         
-        newBild.name = imageName
-        NSLog("%@", "Name: \(newBild.name)")
+        newPicture.name = imageName
+        NSLog("%@", "Name: \(newPicture.name)")
         
-        newBild.pfad = pathToFile
-        NSLog("%@", "Pfad: \(newBild.pfad)")
+        newPicture.path = pathToFile
+        NSLog("%@", "Path: \(newPicture.path)")
         
         
-        newBild.log = self.log!
+        newPicture.log = self.log!
         
         
         self.context?.save(nil)
@@ -110,9 +110,23 @@ class BilderViewController: ContentViewController {
     func writeImagesToDBAndFolder(){
         
        
-        let documentsFolder = NSSearchPathForDirectoriesInDomains( .DocumentDirectory, .UserDomainMask , true) [0] as! String
         
-        for i in 1...6
+        let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
+            .UserDomainMask, true)
+        
+        let docsDir = dirPaths[0] as! String
+        let newDir = docsDir.stringByAppendingPathComponent("/Images/\(log.id)")
+        
+        var error: NSError?
+        
+        
+        if !fileManager.createDirectoryAtPath(newDir, withIntermediateDirectories: true, attributes: nil, error: &error) {
+                
+                println("Failed to create dir: \(error!.localizedDescription)")
+        }
+        
+        
+        for i in 1...9
         {
             let imageNameTmp = "\(i)"
             
@@ -124,7 +138,7 @@ class BilderViewController: ContentViewController {
             
             NSLog("%@", "Logname: \(imageName)")
             
-            let pathToFile = documentsFolder.stringByAppendingString( imageName)
+            let pathToFile = newDir.stringByAppendingString( imageName)
             
             
             saveFileToDocumentsFolder( image!, pathToFile: pathToFile)

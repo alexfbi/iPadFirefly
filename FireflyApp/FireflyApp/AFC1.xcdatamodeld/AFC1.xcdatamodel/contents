@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Bild" representedClassName="FireflyApp.Bild" syncable="YES">
+    <entity name="Course" representedClassName="FireflyApp.Course" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="pfad" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="log" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Log" inverseName="bilder" inverseEntity="Log" syncable="YES"/>
+        <relationship name="logs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Log" inverseName="course" inverseEntity="Log" syncable="YES"/>
+        <relationship name="waypoints" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Way_Point" inverseName="course" inverseEntity="Way_Point" syncable="YES"/>
     </entity>
-    <entity name="Eintrag" representedClassName="FireflyApp.Eintrag" syncable="YES">
+    <entity name="Entry" representedClassName="FireflyApp.Entry" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="valueX" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
         <attribute name="valueY" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="valueZ" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="log" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Log" inverseName="eintraege" inverseEntity="Log" syncable="YES"/>
+        <relationship name="log" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Log" inverseName="entries" inverseEntity="Log" syncable="YES"/>
     </entity>
     <entity name="GPS" representedClassName="FireflyApp.GPS" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="valueX" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="valueY" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="valueZ" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="log" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Log" inverseName="gpsDaten" inverseEntity="Log" syncable="YES"/>
+        <relationship name="log" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Log" inverseName="gpsFiles" inverseEntity="Log" syncable="YES"/>
     </entity>
     <entity name="Log" representedClassName="FireflyApp.Log" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="bilder" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bild" inverseName="log" inverseEntity="Bild" syncable="YES"/>
-        <relationship name="eintraege" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Eintrag" inverseName="log" inverseEntity="Eintrag" syncable="YES"/>
-        <relationship name="gpsDaten" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GPS" inverseName="log" inverseEntity="GPS" syncable="YES"/>
-        <relationship name="strecke" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Strecke" inverseName="logs" inverseEntity="Strecke" syncable="YES"/>
+        <relationship name="course" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Course" inverseName="logs" inverseEntity="Course" syncable="YES"/>
+        <relationship name="entries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Entry" inverseName="log" inverseEntity="Entry" syncable="YES"/>
+        <relationship name="gpsFiles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GPS" inverseName="log" inverseEntity="GPS" syncable="YES"/>
+        <relationship name="pictures" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Picture" inverseName="log" inverseEntity="Picture" syncable="YES"/>
     </entity>
-    <entity name="Strecke" representedClassName="Strecke" syncable="YES">
+    <entity name="Picture" representedClassName="FireflyApp.Picture" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="logs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Log" inverseName="strecke" inverseEntity="Log" syncable="YES"/>
-        <relationship name="wegpunkte" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Wegpunkt" inverseName="strecke" inverseEntity="Wegpunkt" syncable="YES"/>
+        <attribute name="path" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="log" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Log" inverseName="pictures" inverseEntity="Log" syncable="YES"/>
     </entity>
-    <entity name="Wegpunkt" representedClassName="Wegpunkt" syncable="YES">
+    <entity name="Way_Point" representedClassName="Way_Point" syncable="YES">
         <attribute name="height" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="wegpunktaktion" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="strecke" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Strecke" inverseName="wegpunkte" inverseEntity="Strecke" syncable="YES"/>
+        <relationship name="course" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Course" inverseName="waypoints" inverseEntity="Course" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Bild" positionX="115" positionY="-63" width="128" height="103"/>
-        <element name="Eintrag" positionX="115" positionY="53" width="128" height="148"/>
-        <element name="GPS" positionX="115" positionY="224" width="128" height="118"/>
-        <element name="Log" positionX="-128" positionY="9" width="128" height="148"/>
-        <element name="Strecke" positionX="-335" positionY="50" width="128" height="103"/>
-        <element name="Wegpunkt" positionX="-542" positionY="27" width="128" height="148"/>
+        <element name="Course" positionX="-351" positionY="95" width="128" height="103"/>
+        <element name="Entry" positionX="70" positionY="-99" width="128" height="148"/>
+        <element name="GPS" positionX="72" positionY="71" width="128" height="118"/>
+        <element name="Log" positionX="-164" positionY="59" width="128" height="148"/>
+        <element name="Picture" positionX="70" positionY="207" width="128" height="103"/>
+        <element name="Way_Point" positionX="-558" positionY="59" width="128" height="148"/>
     </elements>
 </model>

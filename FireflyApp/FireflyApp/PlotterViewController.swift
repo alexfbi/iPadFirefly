@@ -13,7 +13,7 @@ class PlotterViewController: ContentViewController, PlotViewDataSource {
 
     
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    var eintraege = [Eintrag]()
+    var entries = [Entry]()
     
     
     
@@ -45,7 +45,7 @@ class PlotterViewController: ContentViewController, PlotViewDataSource {
         
        
         
-        let eintraegeCount = eintraege.count
+        let eintraegeCount = entries.count
         if eintraegeCount > 0
         {
             
@@ -53,8 +53,8 @@ class PlotterViewController: ContentViewController, PlotViewDataSource {
         for i in 0...eintraegeCount - 1
         {
             
-            let x = CGFloat( eintraege[i].valueX)
-            let y = CGFloat( eintraege[i].valueY)
+            let x = CGFloat( entries[i].valueX)
+            let y = CGFloat( entries[i].valueY)
             let point = CGPoint(x: x, y: y)
            
             listPoints.append(point)
@@ -70,9 +70,9 @@ class PlotterViewController: ContentViewController, PlotViewDataSource {
 
     func loadDataFromDB(){
         
-        let fetchRequest = NSFetchRequest(entityName: "Eintrag")
+        let fetchRequest = NSFetchRequest(entityName: "Entry")
         fetchRequest.predicate = NSPredicate(format: "log = %@", log!)
-        eintraege = context?.executeFetchRequest(fetchRequest, error: nil) as! [Eintrag]
+        entries = context?.executeFetchRequest(fetchRequest, error: nil) as! [Entry]
       
         
     }

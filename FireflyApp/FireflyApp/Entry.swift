@@ -1,22 +1,22 @@
 //
-//  Eintrag.swift
+//  Entry.swift
 //  FireflyApp
 //
-//  Created by Alexander Zeier on 18.05.15.
+//  Created by ak on 24.05.15.
 //  Copyright (c) 2015 Hochschule Darmstadt. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
-class Eintrag: NSManagedObject {
-    
+class Entry: NSManagedObject {
+
     @NSManaged var date: NSDate
     @NSManaged var id: NSNumber
-    @NSManaged var valueZ: NSNumber
+    @NSManaged var name: String
     @NSManaged var valueX: NSNumber
     @NSManaged var valueY: NSNumber
-    @NSManaged var name: String
+    @NSManaged var valueZ: NSNumber
     @NSManaged var log: Log
-    
+
 }

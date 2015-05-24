@@ -31,16 +31,16 @@ class PlotView: UIView {
     override func drawRect(rect: CGRect) {
         
         var path = UIBezierPath()
-        var xAchse = UIBezierPath()
-        var yAchse = UIBezierPath()
+        var xAxis = UIBezierPath()
+        var yAxis = UIBezierPath()
         
         let points = dataSource?.setPoints(self) ?? [CGPoint(x: 0, y: 0)]
         
-        xAchse.moveToPoint(CGPoint(x: 100, y: 700))
-        xAchse.addLineToPoint(CGPoint(x: 600, y: 700))
+        xAxis.moveToPoint(CGPoint(x: 100, y: 700))
+        xAxis.addLineToPoint(CGPoint(x: 600, y: 700))
         
-        yAchse.moveToPoint(CGPoint(x: 150, y: 150))
-        yAchse.addLineToPoint(CGPoint(x: 150, y: 750))
+        yAxis.moveToPoint(CGPoint(x: 150, y: 150))
+        yAxis.addLineToPoint(CGPoint(x: 150, y: 750))
         
         let count =  points.count
         
@@ -64,12 +64,12 @@ class PlotView: UIView {
         
         path.lineWidth = 1
         
-        xAchse.lineWidth = 3
-        yAchse.lineWidth = 3
+        xAxis.lineWidth = 3
+        yAxis.lineWidth = 3
         //  path.fill()
         path.stroke()
-        xAchse.stroke()
-        yAchse.stroke()
+        xAxis.stroke()
+        yAxis.stroke()
         
     }
     

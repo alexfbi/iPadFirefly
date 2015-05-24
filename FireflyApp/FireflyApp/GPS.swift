@@ -1,9 +1,9 @@
 //
 //  GPS.swift
-//  AFC1
+//  FireflyApp
 //
-//  Created by ak on 12.05.15.
-//  Copyright (c) 2015 ak. All rights reserved.
+//  Created by ak on 24.05.15.
+//  Copyright (c) 2015 Hochschule Darmstadt. All rights reserved.
 //
 
 import Foundation
