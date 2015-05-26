@@ -73,6 +73,7 @@ class PlotterViewController: ContentViewController, PlotViewDataSource {
          NSLog("%@", "Plotter : true , ID:\(log.id)")
         let fetchRequest = NSFetchRequest(entityName: "Entry")
         fetchRequest.predicate = NSPredicate(format: "log = %@", log!)
+        
         entries = context?.executeFetchRequest(fetchRequest, error: nil) as! [Entry]
       
         

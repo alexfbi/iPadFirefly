@@ -54,12 +54,28 @@ class CategorieTableViewController: UITableViewController {
             
             EintragTVC.log = log
             
+            
+            
         case "Livemodus" :
             
           NSLog("%@","LIVEMODUS")
-           
+       //   let EintragTVC = segue.destinationViewController as!MissionControlViewController
+          
+          
+       //  let dest = segue.destinationViewController as! UISplitViewController
+          
+     //     if  let nav = dest.navigationController as? UINavigationController {
+            
+      //      dest =
+         // }
+          
+          
+          
+       //   EintragTVC.log = log
            
           
+          
+            
         case "Video" :
          
                 let destination = segue.destinationViewController as!

@@ -18,7 +18,7 @@ class PicturesViewController: ContentViewController {
     var imageList = [UIImage]()
     var pictures  = [Picture]()
     
-    let ANIMATIONDURATION: NSTimeInterval = 20
+    let ANIMATIONDURATION: NSTimeInterval = 10
     let fileManager = NSFileManager.defaultManager()
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 

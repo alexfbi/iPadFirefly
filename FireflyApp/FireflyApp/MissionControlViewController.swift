@@ -11,14 +11,51 @@ import CoreData
 
 
 class MissionControlViewController: UIViewController {
-    @IBOutlet weak var button: UIButton!
+   
     var logs = [Log]()
      var log: Log?
     
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
+
     
     
+    @IBOutlet weak var containerPlotter: UIView!
+    
+
+    @IBOutlet weak var ContainerMap: UIView!
+    
+   
+    @IBOutlet weak var containerPics: UIView!
+    
+    @IBAction func plotterButtonPressed(sender: AnyObject) {
+        
+        containerPics.hidden = true
+        
+        ContainerMap.hidden  = true
+        
+        containerPlotter.hidden = false
+    
+    }
+   
+
+    @IBAction func MapButtonPressed(sender: AnyObject) {
+        containerPics.hidden = true
+        
+        ContainerMap.hidden  = false
+        
+        containerPlotter.hidden = true
+    }
+    
+    @IBAction func PicsButtonPressed(sender: AnyObject) {
+        containerPics.hidden = false
+        
+        ContainerMap.hidden  = true
+        
+        containerPlotter.hidden = true
+    }
+    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -48,6 +85,8 @@ class MissionControlViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
+           loadDataFromDB()
+        
         let ident = String(segue.identifier!)
         
         switch (ident)
@@ -60,17 +99,45 @@ class MissionControlViewController: UIViewController {
             
         
         case "Plotter" :
-            NSLog("%@","Ident Plotter")
-            loadDataFromDB()
-            let EintragTVC = segue.destinationViewController as! TestViewController
+        
+        
             
-         //  EintragTVC.log = logs.last
+         
+            
+          let EintragTVC = segue.destinationViewController as! PlotterViewController
+            
+            
+                     EintragTVC.log = logs.last
 
-        case "Control" :
+        case "Pictures" :
             
+            
+            
+            
+            
+        let EintragTVC = segue.destinationViewController as! PicturesViewController
+            
+            
+            EintragTVC.log = logs.last
+
+        
+        case "Map" :
+            
+            
+        
+            
+            let EintragTVC = segue.destinationViewController as! GPSViewController
+            
+            
+            EintragTVC.log = logs.last
+            
+            
+            
+        case "Control" :
+         
             let EintragTVC = segue.destinationViewController as! SteuerungTableViewController
             
-            EintragTVC.log = logs.first
+            EintragTVC.log = logs.last
             
 
             
