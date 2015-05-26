@@ -13,12 +13,11 @@ import CoreData
 
 
 
-class GPSViewController: UIViewController, MKMapViewDelegate  {
+class GPSViewController: ContentViewController, MKMapViewDelegate  {
     
     
 
-    var log: Log?
-    var gpsDaten = [GPS]()
+    var gpsPositions = [GPS]()
     
      let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
    
@@ -44,9 +43,9 @@ class GPSViewController: UIViewController, MKMapViewDelegate  {
         let fetchRequest = NSFetchRequest(entityName: "GPS")
         fetchRequest.predicate = NSPredicate(format: "log = %@", log!)
         
-        gpsDaten = context?.executeFetchRequest(fetchRequest, error: nil) as! [GPS]
+        gpsPositions = context?.executeFetchRequest(fetchRequest, error: nil) as! [GPS]
         
-        NSLog("%@", "GPS anzahl: \(gpsDaten.count)")
+        NSLog("%@", "GPS count: \(gpsPositions.count)")
         
     }
     
@@ -54,14 +53,14 @@ class GPSViewController: UIViewController, MKMapViewDelegate  {
     {
          NSLog("%@", " deleteAllGpsFromDB")
         loadDataFromDB()
-        if( gpsDaten.count >  0 ){
+        if( gpsPositions.count >  0 ){
            
-            for i in 0...gpsDaten.count - 1{
-                context?.deleteObject(gpsDaten[i])
+            for i in 0...gpsPositions.count - 1{
+                context?.deleteObject(gpsPositions[i])
                 context?.save(nil)
             }
         }
-       gpsDaten.removeAll(keepCapacity: false)
+       gpsPositions.removeAll(keepCapacity: false)
         
     }
     
@@ -116,11 +115,11 @@ class GPSViewController: UIViewController, MKMapViewDelegate  {
     func createPolyline() {
         NSLog("%@", " createPolyLine: ")
 
-        if (gpsDaten.count > 0){
+        if (gpsPositions.count > 0){
             
             let location = CLLocationCoordinate2D(
-                latitude: gpsDaten[0].valueX,
-                longitude: gpsDaten[0].valueY)
+                latitude: gpsPositions[0].valueX,
+                longitude: gpsPositions[0].valueY)
         
             let span = MKCoordinateSpanMake(0.01, 0.01)
             let region = MKCoordinateRegion(center: location, span: span)
@@ -129,9 +128,9 @@ class GPSViewController: UIViewController, MKMapViewDelegate  {
         
             var locations = [CLLocation]()
         
-            for i in 0...gpsDaten.count - 1 {
+            for i in 0...gpsPositions.count - 1 {
         
-                locations += [CLLocation(latitude: gpsDaten[i].valueX, longitude:   gpsDaten[i].valueY)]
+                locations += [CLLocation(latitude: gpsPositions[i].valueX, longitude:   gpsPositions[i].valueY)]
         
             
             }
@@ -148,20 +147,20 @@ class GPSViewController: UIViewController, MKMapViewDelegate  {
 }
 
 
-//   func mapView(mapView: MKMapView!, viewForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
-//    
-//        NSLog("%@" ,"viewForOverlay");
-//        
-//        if (overlay is MKPolyline) {
-//            var pr = MKPolylineRenderer(overlay: overlay);
-//            pr.strokeColor = UIColor.redColor().colorWithAlphaComponent(0.5)
-//            pr.lineWidth = 5
-//            
-//            return pr
-//        }
-//        
-//        return nil
-//    }
+   func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+    
+        NSLog("%@" ,"viewForOverlay");
+    
+        if (overlay is MKPolyline) {
+            var pr = MKPolylineRenderer(overlay: overlay);
+            pr.strokeColor = UIColor.redColor().colorWithAlphaComponent(0.5)
+            pr.lineWidth = 5
+    
+            return pr
+        }
+    
+        return nil
+    }
     
     
     

@@ -7,28 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		414BD53F1B0FF348000E4F1F /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BD53A1B0FF348000E4F1F /* ContentViewController.swift */; };
+		414BD5401B0FF348000E4F1F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BD53B1B0FF348000E4F1F /* PageViewController.swift */; };
+		414BD5411B0FF348000E4F1F /* SteuerungTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BD53C1B0FF348000E4F1F /* SteuerungTableViewController.swift */; };
+		414BD5421B0FF348000E4F1F /* SteuerungTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BD53D1B0FF348000E4F1F /* SteuerungTableViewCell.swift */; };
+		414BD5471B0FF9B9000E4F1F /* MissionControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BD5461B0FF9B9000E4F1F /* MissionControlViewController.swift */; };
+		41EB77041B11531300A1732B /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB77031B11531300A1732B /* Picture.swift */; };
+		41EB77081B11531400A1732B /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB77071B11531400A1732B /* Course.swift */; };
+		41EB770A1B11531400A1732B /* GPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB77091B11531400A1732B /* GPS.swift */; };
+		41EB770C1B11531400A1732B /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB770B1B11531400A1732B /* Entry.swift */; };
+		41EB770E1B11531400A1732B /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB770D1B11531400A1732B /* Log.swift */; };
+		41EB77121B1153C600A1732B /* Waypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB77111B1153C600A1732B /* Waypoint.swift */; };
+		41EB77141B1155D500A1732B /* Way_Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB77131B1155D500A1732B /* Way_Point.swift */; };
+		41EB77161B11574F00A1732B /* GPSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB77151B11574F00A1732B /* GPSViewController.swift */; };
 		FE00CBB21B0BC02D00D79628 /* CallOutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE00CBB11B0BC02D00D79628 /* CallOutView.xib */; };
 		FE047D9D1B0A12F3003FF9C9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE047D9C1B0A12F3003FF9C9 /* CoreData.framework */; };
 		FE047DA01B0A1338003FF9C9 /* AFC1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE047D9E1B0A1338003FF9C9 /* AFC1.xcdatamodeld */; };
-		FE047DA31B0A15AF003FF9C9 /* Wegpunkt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DA21B0A15AF003FF9C9 /* Wegpunkt.swift */; };
-		FE047DA51B0A15BA003FF9C9 /* Strecke.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DA41B0A15BA003FF9C9 /* Strecke.swift */; };
-		FE047DA71B0A15C2003FF9C9 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DA61B0A15C2003FF9C9 /* Log.swift */; };
-		FE047DA91B0A15CE003FF9C9 /* Eintrag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DA81B0A15CE003FF9C9 /* Eintrag.swift */; };
-		FE047DAB1B0A15D6003FF9C9 /* Bild.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DAA1B0A15D6003FF9C9 /* Bild.swift */; };
-		FE047DEF1B0A269A003FF9C9 /* KategorieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DEE1B0A269A003FF9C9 /* KategorieTableViewController.swift */; };
-		FE047DF61B0A2728003FF9C9 /* BilderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DF01B0A2728003FF9C9 /* BilderViewController.swift */; };
-		FE047DF71B0A2728003FF9C9 /* EintragTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DF11B0A2728003FF9C9 /* EintragTableViewController.swift */; };
-		FE047DF81B0A2728003FF9C9 /* GPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DF21B0A2728003FF9C9 /* GPS.swift */; };
-		FE047DF91B0A2728003FF9C9 /* GPSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DF31B0A2728003FF9C9 /* GPSViewController.swift */; };
+		FE047DEF1B0A269A003FF9C9 /* CategorieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DEE1B0A269A003FF9C9 /* CategorieTableViewController.swift */; };
+		FE047DF61B0A2728003FF9C9 /* PicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DF01B0A2728003FF9C9 /* PicturesViewController.swift */; };
+		FE047DF71B0A2728003FF9C9 /* EntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DF11B0A2728003FF9C9 /* EntryTableViewController.swift */; };
 		FE047DFA1B0A2728003FF9C9 /* PlotterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DF41B0A2728003FF9C9 /* PlotterViewController.swift */; };
 		FE047DFB1B0A2728003FF9C9 /* PlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DF51B0A2728003FF9C9 /* PlotView.swift */; };
 		FE411DB01B0C72F60079B7C3 /* WaypointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE411DAF1B0C72F60079B7C3 /* WaypointView.swift */; };
 		FE6DE7141B03443C007617BA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE6DE7131B03443C007617BA /* MapKit.framework */; };
-		FE6DE7161B0344E8007617BA /* Waypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6DE7151B0344E8007617BA /* Waypoint.swift */; };
 		FE6DE7181B034606007617BA /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6DE7171B034606007617BA /* Network.swift */; };
 		FE6FB2521AFA1499009AE8ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2511AFA1499009AE8ED /* AppDelegate.swift */; };
 		FE6FB2541AFA1499009AE8ED /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2531AFA1499009AE8ED /* FirstViewController.swift */; };
-		FE6FB2561AFA1499009AE8ED /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2551AFA1499009AE8ED /* SecondViewController.swift */; };
+		FE6FB2561AFA1499009AE8ED /* LogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2551AFA1499009AE8ED /* LogTableViewController.swift */; };
 		FE6FB2591AFA1499009AE8ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE6FB2571AFA1499009AE8ED /* Main.storyboard */; };
 		FE6FB25B1AFA1499009AE8ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE6FB25A1AFA1499009AE8ED /* Images.xcassets */; };
 		FE6FB25E1AFA1499009AE8ED /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE6FB25C1AFA1499009AE8ED /* LaunchScreen.xib */; };
@@ -47,30 +52,35 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		414BD53A1B0FF348000E4F1F /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		414BD53B1B0FF348000E4F1F /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		414BD53C1B0FF348000E4F1F /* SteuerungTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteuerungTableViewController.swift; sourceTree = "<group>"; };
+		414BD53D1B0FF348000E4F1F /* SteuerungTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteuerungTableViewCell.swift; sourceTree = "<group>"; };
+		414BD5461B0FF9B9000E4F1F /* MissionControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionControlViewController.swift; sourceTree = "<group>"; };
+		41EB77031B11531300A1732B /* Picture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
+		41EB77071B11531400A1732B /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		41EB77091B11531400A1732B /* GPS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPS.swift; sourceTree = "<group>"; };
+		41EB770B1B11531400A1732B /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		41EB770D1B11531400A1732B /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		41EB77111B1153C600A1732B /* Waypoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Waypoint.swift; sourceTree = "<group>"; };
+		41EB77131B1155D500A1732B /* Way_Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Way_Point.swift; sourceTree = "<group>"; };
+		41EB77151B11574F00A1732B /* GPSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPSViewController.swift; sourceTree = "<group>"; };
 		FE00CBB11B0BC02D00D79628 /* CallOutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CallOutView.xib; sourceTree = "<group>"; };
 		FE047D9C1B0A12F3003FF9C9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FE047D9F1B0A1338003FF9C9 /* AFC1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AFC1.xcdatamodel; sourceTree = "<group>"; };
-		FE047DA21B0A15AF003FF9C9 /* Wegpunkt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wegpunkt.swift; sourceTree = "<group>"; };
-		FE047DA41B0A15BA003FF9C9 /* Strecke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strecke.swift; sourceTree = "<group>"; };
-		FE047DA61B0A15C2003FF9C9 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		FE047DA81B0A15CE003FF9C9 /* Eintrag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Eintrag.swift; sourceTree = "<group>"; };
-		FE047DAA1B0A15D6003FF9C9 /* Bild.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bild.swift; sourceTree = "<group>"; };
-		FE047DEE1B0A269A003FF9C9 /* KategorieTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KategorieTableViewController.swift; sourceTree = "<group>"; };
-		FE047DF01B0A2728003FF9C9 /* BilderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BilderViewController.swift; sourceTree = "<group>"; };
-		FE047DF11B0A2728003FF9C9 /* EintragTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EintragTableViewController.swift; sourceTree = "<group>"; };
-		FE047DF21B0A2728003FF9C9 /* GPS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPS.swift; sourceTree = "<group>"; };
-		FE047DF31B0A2728003FF9C9 /* GPSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPSViewController.swift; sourceTree = "<group>"; };
+		FE047DEE1B0A269A003FF9C9 /* CategorieTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorieTableViewController.swift; sourceTree = "<group>"; };
+		FE047DF01B0A2728003FF9C9 /* PicturesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicturesViewController.swift; sourceTree = "<group>"; };
+		FE047DF11B0A2728003FF9C9 /* EntryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryTableViewController.swift; sourceTree = "<group>"; };
 		FE047DF41B0A2728003FF9C9 /* PlotterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotterViewController.swift; sourceTree = "<group>"; };
 		FE047DF51B0A2728003FF9C9 /* PlotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotView.swift; sourceTree = "<group>"; };
 		FE411DAF1B0C72F60079B7C3 /* WaypointView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaypointView.swift; sourceTree = "<group>"; };
 		FE6DE7131B03443C007617BA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		FE6DE7151B0344E8007617BA /* Waypoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Waypoint.swift; sourceTree = "<group>"; };
 		FE6DE7171B034606007617BA /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		FE6FB24C1AFA1499009AE8ED /* FireflyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireflyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE6FB2501AFA1499009AE8ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE6FB2511AFA1499009AE8ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE6FB2531AFA1499009AE8ED /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		FE6FB2551AFA1499009AE8ED /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		FE6FB2551AFA1499009AE8ED /* LogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTableViewController.swift; sourceTree = "<group>"; };
 		FE6FB2581AFA1499009AE8ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE6FB25A1AFA1499009AE8ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FE6FB25D1AFA1499009AE8ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -100,14 +110,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		414BD5441B0FF6DD000E4F1F /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				FE6FB2551AFA1499009AE8ED /* LogTableViewController.swift */,
+				FE047DF01B0A2728003FF9C9 /* PicturesViewController.swift */,
+				FE047DF11B0A2728003FF9C9 /* EntryTableViewController.swift */,
+				FE047DF41B0A2728003FF9C9 /* PlotterViewController.swift */,
+				41EB77151B11574F00A1732B /* GPSViewController.swift */,
+				FE047DF51B0A2728003FF9C9 /* PlotView.swift */,
+				FE047DEE1B0A269A003FF9C9 /* CategorieTableViewController.swift */,
+			);
+			name = Log;
+			sourceTree = "<group>";
+		};
+		414BD5451B0FF6F8000E4F1F /* LiveModus */ = {
+			isa = PBXGroup;
+			children = (
+				414BD53A1B0FF348000E4F1F /* ContentViewController.swift */,
+				414BD53B1B0FF348000E4F1F /* PageViewController.swift */,
+				414BD53C1B0FF348000E4F1F /* SteuerungTableViewController.swift */,
+				414BD53D1B0FF348000E4F1F /* SteuerungTableViewCell.swift */,
+				414BD5461B0FF9B9000E4F1F /* MissionControlViewController.swift */,
+			);
+			name = LiveModus;
+			sourceTree = "<group>";
+		};
 		FE047DA11B0A156D003FF9C9 /* ManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
-				FE047DA21B0A15AF003FF9C9 /* Wegpunkt.swift */,
-				FE047DA41B0A15BA003FF9C9 /* Strecke.swift */,
-				FE047DA61B0A15C2003FF9C9 /* Log.swift */,
-				FE047DA81B0A15CE003FF9C9 /* Eintrag.swift */,
-				FE047DAA1B0A15D6003FF9C9 /* Bild.swift */,
+				41EB77131B1155D500A1732B /* Way_Point.swift */,
+				41EB770D1B11531400A1732B /* Log.swift */,
+				41EB770B1B11531400A1732B /* Entry.swift */,
+				41EB77091B11531400A1732B /* GPS.swift */,
+				41EB77071B11531400A1732B /* Course.swift */,
+				41EB77031B11531300A1732B /* Picture.swift */,
 			);
 			name = ManagedObjects;
 			sourceTree = "<group>";
@@ -135,24 +172,18 @@
 		FE6FB24E1AFA1499009AE8ED /* FireflyApp */ = {
 			isa = PBXGroup;
 			children = (
-				FE047DF01B0A2728003FF9C9 /* BilderViewController.swift */,
-				FE047DF11B0A2728003FF9C9 /* EintragTableViewController.swift */,
-				FE047DF21B0A2728003FF9C9 /* GPS.swift */,
-				FE047DF31B0A2728003FF9C9 /* GPSViewController.swift */,
-				FE047DF41B0A2728003FF9C9 /* PlotterViewController.swift */,
-				FE047DF51B0A2728003FF9C9 /* PlotView.swift */,
+				414BD5451B0FF6F8000E4F1F /* LiveModus */,
+				414BD5441B0FF6DD000E4F1F /* Log */,
 				FE047DA11B0A156D003FF9C9 /* ManagedObjects */,
-				FE047D9E1B0A1338003FF9C9 /* AFC1.xcdatamodeld */,
 				FE6FB2511AFA1499009AE8ED /* AppDelegate.swift */,
 				FE6FB2531AFA1499009AE8ED /* FirstViewController.swift */,
-				FE6DE7151B0344E8007617BA /* Waypoint.swift */,
 				FE6DE7171B034606007617BA /* Network.swift */,
-				FE6FB2551AFA1499009AE8ED /* SecondViewController.swift */,
+				41EB77111B1153C600A1732B /* Waypoint.swift */,
 				FE6FB2571AFA1499009AE8ED /* Main.storyboard */,
+				FE047D9E1B0A1338003FF9C9 /* AFC1.xcdatamodeld */,
 				FE6FB25A1AFA1499009AE8ED /* Images.xcassets */,
 				FE6FB25C1AFA1499009AE8ED /* LaunchScreen.xib */,
 				FE6FB24F1AFA1499009AE8ED /* Supporting Files */,
-				FE047DEE1B0A269A003FF9C9 /* KategorieTableViewController.swift */,
 				FE00CBB11B0BC02D00D79628 /* CallOutView.xib */,
 				FEB341191B0BC75D00ACEB41 /* CallOutView.swift */,
 				FE411DAF1B0C72F60079B7C3 /* WaypointView.swift */,
@@ -286,26 +317,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41EB770C1B11531400A1732B /* Entry.swift in Sources */,
+				41EB77161B11574F00A1732B /* GPSViewController.swift in Sources */,
 				FE6DE7181B034606007617BA /* Network.swift in Sources */,
+				41EB770A1B11531400A1732B /* GPS.swift in Sources */,
 				FE047DFB1B0A2728003FF9C9 /* PlotView.swift in Sources */,
 				FEB3411A1B0BC75D00ACEB41 /* CallOutView.swift in Sources */,
-				FE047DF61B0A2728003FF9C9 /* BilderViewController.swift in Sources */,
-				FE047DA51B0A15BA003FF9C9 /* Strecke.swift in Sources */,
-				FE047DA71B0A15C2003FF9C9 /* Log.swift in Sources */,
+				FE047DF61B0A2728003FF9C9 /* PicturesViewController.swift in Sources */,
+				41EB770E1B11531400A1732B /* Log.swift in Sources */,
+				414BD5401B0FF348000E4F1F /* PageViewController.swift in Sources */,
+				414BD5471B0FF9B9000E4F1F /* MissionControlViewController.swift in Sources */,
 				FE047DFA1B0A2728003FF9C9 /* PlotterViewController.swift in Sources */,
-				FE6DE7161B0344E8007617BA /* Waypoint.swift in Sources */,
-				FE047DAB1B0A15D6003FF9C9 /* Bild.swift in Sources */,
-				FE6FB2561AFA1499009AE8ED /* SecondViewController.swift in Sources */,
+				FE6FB2561AFA1499009AE8ED /* LogTableViewController.swift in Sources */,
 				FE6FB2521AFA1499009AE8ED /* AppDelegate.swift in Sources */,
-				FE047DA91B0A15CE003FF9C9 /* Eintrag.swift in Sources */,
-				FE047DA31B0A15AF003FF9C9 /* Wegpunkt.swift in Sources */,
-				FE047DF71B0A2728003FF9C9 /* EintragTableViewController.swift in Sources */,
-				FE047DF91B0A2728003FF9C9 /* GPSViewController.swift in Sources */,
+				414BD53F1B0FF348000E4F1F /* ContentViewController.swift in Sources */,
+				41EB77081B11531400A1732B /* Course.swift in Sources */,
+				FE047DF71B0A2728003FF9C9 /* EntryTableViewController.swift in Sources */,
+				414BD5411B0FF348000E4F1F /* SteuerungTableViewController.swift in Sources */,
+				41EB77121B1153C600A1732B /* Waypoint.swift in Sources */,
 				FE411DB01B0C72F60079B7C3 /* WaypointView.swift in Sources */,
 				FE6FB2541AFA1499009AE8ED /* FirstViewController.swift in Sources */,
+				41EB77041B11531300A1732B /* Picture.swift in Sources */,
+				41EB77141B1155D500A1732B /* Way_Point.swift in Sources */,
+				414BD5421B0FF348000E4F1F /* SteuerungTableViewCell.swift in Sources */,
 				FE047DA01B0A1338003FF9C9 /* AFC1.xcdatamodeld in Sources */,
-				FE047DEF1B0A269A003FF9C9 /* KategorieTableViewController.swift in Sources */,
-				FE047DF81B0A2728003FF9C9 /* GPS.swift in Sources */,
+				FE047DEF1B0A269A003FF9C9 /* CategorieTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +470,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = FireflyApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
@@ -446,6 +483,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = FireflyApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;

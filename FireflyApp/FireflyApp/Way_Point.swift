@@ -1,23 +1,22 @@
 //
-//  Wegpunkt.swift
+//  Way_Point.swift
 //  FireflyApp
 //
-//  Created by Alexander Zeier on 18.05.15.
+//  Created by ak on 24.05.15.
 //  Copyright (c) 2015 Hochschule Darmstadt. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
-class Wegpunkt: NSManagedObject {
-    
-    @NSManaged var id: NSNumber
+class Way_Point: NSManagedObject {
+
     @NSManaged var height: NSNumber
-    @NSManaged var longitude: NSNumber
+    @NSManaged var id: NSNumber
     @NSManaged var latitude: NSNumber
+    @NSManaged var longitude: NSNumber
     @NSManaged var name: String
     @NSManaged var wegpunktaktion: String
-    @NSManaged var strecke: Strecke
-    
-}
+    @NSManaged var course: Course
 
+}

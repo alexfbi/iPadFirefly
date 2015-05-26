@@ -9,33 +9,33 @@
 import UIKit
 import CoreData
 
-class EintragTableViewController: UITableViewController {
+class EntryTableViewController: UITableViewController {
 
     
     var log: Log?
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    var eintraege = [Eintrag]()
+    var entries = [Entry]()
     
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
        
-        title = "Eintrag"
+        title = "Entries"
         loadDataFromDB()
     }
     
     func loadDataFromDB(){
         
-        let fetchRequest = NSFetchRequest(entityName: "Eintrag")
+        let fetchRequest = NSFetchRequest(entityName: "Entry")
         fetchRequest.predicate = NSPredicate(format: "log = %@", log!)
-        eintraege = context?.executeFetchRequest(fetchRequest, error: nil) as! [Eintrag]
+        entries = context?.executeFetchRequest(fetchRequest, error: nil) as! [Entry]
         tableView.reloadData()
     }
 
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return eintraege.count
+       return entries.count
     }
     
     
@@ -44,11 +44,11 @@ class EintragTableViewController: UITableViewController {
         
         var cell  = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
         
-        let eintrag = eintraege[indexPath.row]
-      //  let id = eintraege[indexPath.row].
-        cell.textLabel?.text = "\(eintrag.name) - \(eintrag.valueX) - \(eintrag.valueY) "
+        let entry = entries[indexPath.row]
+      //  let id = entries[indexPath.row].
+        cell.textLabel?.text = "\(entry.name) - \(entry.valueX) - \(entry.valueY) "
         
-        println(eintrag)
+        println(entry)
         
         
         
@@ -65,7 +65,7 @@ class EintragTableViewController: UITableViewController {
         
         if editingStyle == .Delete {
             
-            context?.deleteObject(eintraege[indexPath.row])
+            context?.deleteObject(entries[indexPath.row])
             context?.save(nil)
             loadDataFromDB()
             
@@ -74,8 +74,10 @@ class EintragTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
-        return "Löschen"
+        return "Delete"
     }
+    
+    
     @IBAction func addEIntragButtonPressed(sender: AnyObject) {
         
         
@@ -105,9 +107,9 @@ class EintragTableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Hinzufügen", style: .Default, handler: {
             action in
             
-            var newEintrag = NSEntityDescription.insertNewObjectForEntityForName("Eintrag", inManagedObjectContext: self.context!) as! Eintrag
+            var newEntry = NSEntityDescription.insertNewObjectForEntityForName("Entry", inManagedObjectContext: self.context!) as! Entry
             
-            newEintrag.name = (alert.textFields![0] as! UITextField).text
+            newEntry.name = (alert.textFields![0] as! UITextField).text
             
            
          
@@ -116,11 +118,11 @@ class EintragTableViewController: UITableViewController {
             let valueY = (alert.textFields![2] as! UITextField).text
             
             
-            newEintrag.valueX = valueX.toInt()!
+            newEntry.valueX = valueX.toInt()!
       
-            newEintrag.valueY = valueY.toInt()!
+            newEntry.valueY = valueY.toInt()!
             
-            newEintrag.log = self.log!
+            newEntry.log = self.log!
           
             
             self.context?.save(nil)
