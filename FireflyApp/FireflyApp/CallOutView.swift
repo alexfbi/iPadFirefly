@@ -19,11 +19,42 @@ class CallOutView: UIView {
     }
     */
     
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//    }
-//
-//    required init(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//    }
+    var waypoint:Waypoint?
+    var mainView:FirstViewController?
+    
+    init(waypoint: Waypoint!, mainView:FirstViewController!) {
+        self.waypoint = waypoint;
+        self.mainView = mainView;
+        super.init(frame: CGRect(x: 0, y: 0, width: 4000, height: 4000))
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    @IBAction func deleteButtonPressed(sender: AnyObject) {
+//        println("Delete pressed!")
+//        self.mainView!.waypoints.removeAtIndex(waypoint!.waypointNumber - 1)
+//        self.mainView!.mapView.removeAnnotation(waypoint)
+//        self.mainView!.waypointCounter--
+//        self.mainView!.updateNumeration()
+    }
+    
+    override func hitTest(var point: CGPoint, withEvent event: UIEvent?) -> UIView? {
+        let viewPoint = superview?.convertPoint(point, toView: self) ?? point
+        
+        let isInsideView = pointInside(viewPoint, withEvent: event)
+        
+        var view = super.hitTest(viewPoint, withEvent: event)
+        
+        return view
+    }
+    
+    override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+        return CGRectContainsPoint(bounds, point)
+    }
 }
