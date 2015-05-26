@@ -2,7 +2,7 @@
 //  SecondViewController.swift
 //  FireflyApp
 //
-//  Created by Alexander Zeier on 06.05.15.
+//  Created by ak on 06.05.15.
 //  Copyright (c) 2015 Hochschule Darmstadt. All rights reserved.
 //
 
@@ -73,21 +73,45 @@ class LogTableViewController: UITableViewController {
             
             if editingStyle == .Delete {
                 
-                context?.deleteObject(logs[indexPath.row])
+                var log:Log = logs[indexPath.row]
+                
+                let fileManager = NSFileManager.defaultManager()
+                
+                
+                let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
+                    .UserDomainMask, true)
+                
+                let docsDir = dirPaths[0] as! String
+                
+                
+                let newDir = docsDir.stringByAppendingPathComponent("/Images/\(log.id)")
+                
+                var error: NSError?
+                
+                if !fileManager.removeItemAtPath(newDir, error: &error) {
+                   NSLog("%@", "Failed to delete directory:\(error!.localizedDescription)")
+                }
+
+                
+                context?.deleteObject(log)
                 context?.save(nil)
                 loadDataFromDB()
+                
+                
+                
+             
                 
                 
             }
         }
         
         override func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
-            return "Löschen"
+            return "Delete"
         }
         
-        @IBAction func addLogButtonPressed(sender: AnyObject) {
-            
-            var alert = UIAlertController(title: "Log anlegen", message: "Name und id eingeben", preferredStyle: .Alert)
+    @IBAction func addLogBtnPressed(sender: AnyObject) {
+               
+            var alert = UIAlertController(title: "Log create", message: "insert Name and ID", preferredStyle: .Alert)
             
             alert.addTextFieldWithConfigurationHandler(){
                 textField in
@@ -104,7 +128,7 @@ class LogTableViewController: UITableViewController {
                 
             }
             
-            alert.addAction(UIAlertAction(title: "Hinzufügen", style: .Default, handler: {
+            alert.addAction(UIAlertAction(title: "ADD", style: .Default, handler: {
                 action in
                 
                 var newLog = NSEntityDescription.insertNewObjectForEntityForName("Log", inManagedObjectContext: self.context!) as! Log
@@ -114,25 +138,25 @@ class LogTableViewController: UITableViewController {
                 newLog.id = ((alert.textFields![1] as! UITextField).text).toInt()!
                 
                 
-                NSLog("%@", " neuer Log hinzugefügt: \(newLog.name)")
+                NSLog("%@", " new Log inserted: \(newLog.name)")
                 
                 self.context?.save(nil)
                 self.loadDataFromDB()
     
             }))
             
-            alert.addAction(UIAlertAction(title: "Abbrechen", style: .Cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
             
             presentViewController(alert, animated: true, completion: nil)
         }
         
         
         override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-            if segue.identifier == "Kategorie" {
+            if segue.identifier == "Categorie" {
                 
                 var indexPath  = tableView.indexPathForSelectedRow()!
                 
-                let kategorieVC = segue.destinationViewController as! KategorieTableViewController
+                let kategorieVC = segue.destinationViewController as! CategorieTableViewController
                 
                 let log = logs[ indexPath.row ]
                 
