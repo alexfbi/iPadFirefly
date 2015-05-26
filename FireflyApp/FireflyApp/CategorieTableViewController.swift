@@ -8,12 +8,14 @@
 
 import Foundation
 import UIKit
+import AVKit
+import AVFoundation
 
 class CategorieTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Categorie"
+        title = "Logs"
     }
     
     var log: Log?
@@ -52,6 +54,21 @@ class CategorieTableViewController: UITableViewController {
             
             EintragTVC.log = log
             
+        case "Livemodus" :
+            
+          NSLog("%@","LIVEMODUS")
+           
+           
+          
+        case "Video" :
+         
+                let destination = segue.destinationViewController as!
+                AVPlayerViewController
+                let url = NSURL(string:
+                    "http://www.ebookfrenzy.com/ios_book/movie/movie.mov")
+                destination.player = AVPlayer(URL: url)
+            
+          
             
         default :
             

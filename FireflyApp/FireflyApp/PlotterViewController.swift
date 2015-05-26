@@ -24,6 +24,7 @@ class PlotterViewController: ContentViewController, PlotViewDataSource {
                 plotView.dataSource = self
             }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,12 +70,13 @@ class PlotterViewController: ContentViewController, PlotViewDataSource {
     
 
     func loadDataFromDB(){
-        
+         NSLog("%@", "Plotter : true , ID:\(log.id)")
         let fetchRequest = NSFetchRequest(entityName: "Entry")
         fetchRequest.predicate = NSPredicate(format: "log = %@", log!)
         entries = context?.executeFetchRequest(fetchRequest, error: nil) as! [Entry]
       
         
+          NSLog("%@", "Entries count: \(entries.count)")
     }
     
     /*

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		410AFD391B144C0E001A34F0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410AFD381B144C0E001A34F0 /* TestViewController.swift */; };
 		414BD53F1B0FF348000E4F1F /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BD53A1B0FF348000E4F1F /* ContentViewController.swift */; };
 		414BD5401B0FF348000E4F1F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BD53B1B0FF348000E4F1F /* PageViewController.swift */; };
 		414BD5411B0FF348000E4F1F /* SteuerungTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BD53C1B0FF348000E4F1F /* SteuerungTableViewController.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		410AFD381B144C0E001A34F0 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		414BD53A1B0FF348000E4F1F /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		414BD53B1B0FF348000E4F1F /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		414BD53C1B0FF348000E4F1F /* SteuerungTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteuerungTableViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				414BD53C1B0FF348000E4F1F /* SteuerungTableViewController.swift */,
 				414BD53D1B0FF348000E4F1F /* SteuerungTableViewCell.swift */,
 				414BD5461B0FF9B9000E4F1F /* MissionControlViewController.swift */,
+				410AFD381B144C0E001A34F0 /* TestViewController.swift */,
 			);
 			name = LiveModus;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				FE047DF71B0A2728003FF9C9 /* EntryTableViewController.swift in Sources */,
 				414BD5411B0FF348000E4F1F /* SteuerungTableViewController.swift in Sources */,
 				41EB77121B1153C600A1732B /* Waypoint.swift in Sources */,
+				410AFD391B144C0E001A34F0 /* TestViewController.swift in Sources */,
 				FE411DB01B0C72F60079B7C3 /* WaypointView.swift in Sources */,
 				FE6FB2541AFA1499009AE8ED /* FirstViewController.swift in Sources */,
 				41EB77041B11531300A1732B /* Picture.swift in Sources */,
@@ -471,11 +475,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = FireflyApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -484,11 +491,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = FireflyApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
