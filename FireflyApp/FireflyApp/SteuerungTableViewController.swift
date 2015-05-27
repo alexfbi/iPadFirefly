@@ -12,6 +12,9 @@ class SteuerungTableViewController: UITableViewController {
 
     var log:Log?
     
+    @IBOutlet weak var startSwitch: UISwitch!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +23,17 @@ class SteuerungTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        self.startSwitch.on = false
+    }
+    
+    @IBAction func startSwitchChanged(sender: AnyObject) {
+        if (self.startSwitch.on) {
+            var network = Network()
+            dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
+                network.startSender()
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

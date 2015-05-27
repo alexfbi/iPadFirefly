@@ -117,7 +117,6 @@ class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationM
             var longitudeString = String(stringInterpolationSegment: droppedAt.longitude)
             var annotation = view.annotation as! Waypoint
             annotation.subtitle = "Latitude: \(latitudeString), Longitude: \(longitudeString)"
-            println("New Position: Latitude: \(latitudeString), Longitude: \(longitudeString)")
         }
     }
     

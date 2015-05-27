@@ -389,59 +389,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="OAq-Lz-toD">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="OAq-Lz-toD">
                                 <rect key="frame" x="221" y="279" width="158" height="42"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by FirstViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Kv-9x-qAb">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loaded by FirstViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Kv-9x-qAb">
                                 <rect key="frame" x="203" y="329" width="195" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99m-Eh-Xge">
-                                <rect key="frame" x="16" y="562" width="33" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Fit-If-L8E"/>
-                                    <constraint firstAttribute="width" constant="33" id="fAs-D3-1vk"/>
-                                </constraints>
-                                <state key="normal" title="Start">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="startStopButtonPressed:" destination="xb3-ph-yVo" eventType="touchUpInside" id="J9d-La-3P0"/>
-                                </connections>
-                            </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qvd-8r-DLg">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="-6" y="20" width="612" height="586"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="vWg-oZ-btR" firstAttribute="top" secondItem="99m-Eh-Xge" secondAttribute="bottom" constant="8" id="AA9-yq-gNG"/>
-                            <constraint firstAttribute="centerX" secondItem="OAq-Lz-toD" secondAttribute="centerX" id="OJi-lN-N6U"/>
-                            <constraint firstItem="8Kv-9x-qAb" firstAttribute="centerX" secondItem="OAq-Lz-toD" secondAttribute="centerX" id="Ppt-7y-XuT"/>
-                            <constraint firstAttribute="centerY" secondItem="OAq-Lz-toD" secondAttribute="centerY" id="alL-Qs-T0g"/>
-                            <constraint firstItem="qvd-8r-DLg" firstAttribute="centerY" secondItem="OAq-Lz-toD" secondAttribute="centerY" id="bqb-h1-ozw"/>
-                            <constraint firstItem="qvd-8r-DLg" firstAttribute="centerX" secondItem="8Kv-9x-qAb" secondAttribute="centerX" id="f4d-u3-1p1"/>
-                            <constraint firstItem="8Kv-9x-qAb" firstAttribute="top" secondItem="OAq-Lz-toD" secondAttribute="bottom" constant="8" symbolic="YES" id="fOV-m3-bUD"/>
-                            <constraint firstItem="99m-Eh-Xge" firstAttribute="leading" secondItem="T4R-Xh-fq8" secondAttribute="leadingMargin" id="nYg-Xi-HF4"/>
-                            <constraint firstItem="qvd-8r-DLg" firstAttribute="leading" secondItem="T4R-Xh-fq8" secondAttribute="leading" id="ver-zP-0CX"/>
-                            <constraint firstItem="qvd-8r-DLg" firstAttribute="bottom" secondItem="vWg-oZ-btR" secondAttribute="top" id="x10-QQ-EqP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qvd-8r-DLg" secondAttribute="trailing" constant="-22" id="AmL-Tb-L2P"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="qvd-8r-DLg" secondAttribute="bottom" constant="-6" id="Tvh-Dh-Vza"/>
+                            <constraint firstItem="qvd-8r-DLg" firstAttribute="leading" secondItem="T4R-Xh-fq8" secondAttribute="leadingMargin" constant="-22" id="VJh-UT-5XC"/>
+                            <constraint firstItem="qvd-8r-DLg" firstAttribute="top" secondItem="JrM-GW-fgc" secondAttribute="bottom" id="hWT-L3-ZEN"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="R7g-lz-an4"/>
                     <connections>
                         <outlet property="mapView" destination="qvd-8r-DLg" id="KCZ-8V-xDQ"/>
-                        <outlet property="startStopButton" destination="99m-Eh-Xge" id="qny-P0-0Gb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hjf-IM-WOl" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3010" y="-189"/>
+            <point key="canvasLocation" x="3036" y="-149"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="3cC-mh-X4o">
@@ -750,6 +730,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uxh-Cw-tUJ">
                                                     <rect key="frame" x="210" y="6" width="52" height="32"/>
+                                                    <connections>
+                                                        <action selector="startSwitchChanged:" destination="Yrd-cB-VcN" eventType="valueChanged" id="ntW-Xv-okH"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -883,6 +866,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="uX1-A5-vxu"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="startSwitch" destination="uxh-Cw-tUJ" id="VWx-oK-ECF"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BVl-0H-c6k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -900,7 +886,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zzB-tG-Pyj"/>
-        <segue reference="AY5-CO-x2k"/>
         <segue reference="63o-2B-76w"/>
+        <segue reference="AY5-CO-x2k"/>
     </inferredMetricsTieBreakers>
 </document>
