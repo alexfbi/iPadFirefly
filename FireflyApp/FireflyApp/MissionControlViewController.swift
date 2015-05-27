@@ -30,6 +30,8 @@ class MissionControlViewController: UIViewController {
     
     @IBAction func plotterButtonPressed(sender: AnyObject) {
         
+        
+        
         containerPics.hidden = true
         
         ContainerMap.hidden  = true

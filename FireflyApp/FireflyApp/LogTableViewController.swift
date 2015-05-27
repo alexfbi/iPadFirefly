@@ -132,6 +132,7 @@ class LogTableViewController: UITableViewController {
                 action in
                 
                 var newLog = NSEntityDescription.insertNewObjectForEntityForName("Log", inManagedObjectContext: self.context!) as! Log
+              
                 
                 newLog.name = (alert.textFields![0] as! UITextField).text
                 
