@@ -7,52 +7,69 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WaypointView" customModule="FireflyApp" customModuleProvider="target">
             <connections>
                 <outlet property="calloutView" destination="iN0-l3-epB" id="DAm-PZ-ZC9"/>
+                <outlet property="heightText" destination="8XX-pQ-k2e" id="iEs-sp-9SN"/>
+                <outlet property="label" destination="hXi-0A-XUI" id="cjd-M0-9BQ"/>
+                <outlet property="speedText" destination="1Yc-8i-CCG" id="nMO-Hy-yog"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CallOutView" customModule="FireflyApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="263" height="149"/>
+        <view alpha="0.94999999999999996" contentMode="scaleToFill" id="iN0-l3-epB" customClass="CallOutView" customModule="FireflyApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="1" width="263" height="187"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Höhe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bH-Sx-BJd">
-                    <rect key="frame" x="8" y="12" width="41" height="21"/>
+                    <rect key="frame" x="8" y="50" width="41" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Geschw." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjQ-uF-aHC">
-                    <rect key="frame" x="8" y="50" width="67" height="21"/>
+                    <rect key="frame" x="8" y="88" width="67" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8XX-pQ-k2e">
-                    <rect key="frame" x="83" y="8" width="172" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Yc-8i-CCG">
                     <rect key="frame" x="83" y="46" width="172" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                    <connections>
+                        <action selector="heightChanged:" destination="-1" eventType="editingDidEnd" id="iv8-Jd-Tm6"/>
+                    </connections>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Yc-8i-CCG">
+                    <rect key="frame" x="83" y="84" width="172" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                    <connections>
+                        <action selector="speedChanged:" destination="-1" eventType="editingDidEnd" id="pji-Y3-O0M"/>
+                    </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtK-Sa-9ae">
-                    <rect key="frame" x="51" y="99" width="160" height="30"/>
-                    <color key="backgroundColor" red="1" green="0.34001343043272769" blue="0.39308414711726947" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="51" y="137" width="160" height="30"/>
+                    <color key="backgroundColor" red="1" green="0.078577287952326547" blue="0.078734348752264149" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                     <state key="normal" title="Delete">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="deleteButtonPressed:" destination="-1" eventType="touchUpInside" id="Al5-cm-gr4"/>
+                        <action selector="deleteButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="3LX-zh-EBC"/>
+                        <action selector="deleteButtonPressed:" destination="-1" eventType="touchUpInside" id="rcb-th-33f"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Waypoint 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXi-0A-XUI">
+                    <rect key="frame" x="88" y="8" width="87" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.030054285246103429" green="0.63478872917143303" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="383.5" y="261.5"/>
+            <point key="canvasLocation" x="383.5" y="242.5"/>
         </view>
     </objects>
 </document>

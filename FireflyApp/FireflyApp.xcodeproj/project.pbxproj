@@ -29,6 +29,9 @@
 		FE047DF71B0A2728003FF9C9 /* EntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DF11B0A2728003FF9C9 /* EntryTableViewController.swift */; };
 		FE047DFA1B0A2728003FF9C9 /* PlotterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DF41B0A2728003FF9C9 /* PlotterViewController.swift */; };
 		FE047DFB1B0A2728003FF9C9 /* PlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE047DF51B0A2728003FF9C9 /* PlotView.swift */; };
+		FE3BB5E01B15B4F10045687C /* ytcpsocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3BB5DF1B15B4F10045687C /* ytcpsocket.swift */; };
+		FE3BB5E21B15B4FB0045687C /* ysocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3BB5E11B15B4FB0045687C /* ysocket.swift */; };
+		FE3BB5E51B15B5290045687C /* ytcpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = FE3BB5E41B15B5290045687C /* ytcpsocket.c */; };
 		FE411DB01B0C72F60079B7C3 /* WaypointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE411DAF1B0C72F60079B7C3 /* WaypointView.swift */; };
 		FE6DE7141B03443C007617BA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE6DE7131B03443C007617BA /* MapKit.framework */; };
 		FE6DE7181B034606007617BA /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6DE7171B034606007617BA /* Network.swift */; };
@@ -75,6 +78,10 @@
 		FE047DF11B0A2728003FF9C9 /* EntryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryTableViewController.swift; sourceTree = "<group>"; };
 		FE047DF41B0A2728003FF9C9 /* PlotterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotterViewController.swift; sourceTree = "<group>"; };
 		FE047DF51B0A2728003FF9C9 /* PlotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotView.swift; sourceTree = "<group>"; };
+		FE3BB5DF1B15B4F10045687C /* ytcpsocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ytcpsocket.swift; sourceTree = "<group>"; };
+		FE3BB5E11B15B4FB0045687C /* ysocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ysocket.swift; sourceTree = "<group>"; };
+		FE3BB5E31B15B5280045687C /* FireflyApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FireflyApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		FE3BB5E41B15B5290045687C /* ytcpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ytcpsocket.c; sourceTree = "<group>"; };
 		FE411DAF1B0C72F60079B7C3 /* WaypointView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaypointView.swift; sourceTree = "<group>"; };
 		FE6DE7131B03443C007617BA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FE6DE7171B034606007617BA /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -190,6 +197,10 @@
 				FE00CBB11B0BC02D00D79628 /* CallOutView.xib */,
 				FEB341191B0BC75D00ACEB41 /* CallOutView.swift */,
 				FE411DAF1B0C72F60079B7C3 /* WaypointView.swift */,
+				FE3BB5DF1B15B4F10045687C /* ytcpsocket.swift */,
+				FE3BB5E11B15B4FB0045687C /* ysocket.swift */,
+				FE3BB5E41B15B5290045687C /* ytcpsocket.c */,
+				FE3BB5E31B15B5280045687C /* FireflyApp-Bridging-Header.h */,
 			);
 			path = FireflyApp;
 			sourceTree = "<group>";
@@ -326,12 +337,14 @@
 				41EB770A1B11531400A1732B /* GPS.swift in Sources */,
 				FE047DFB1B0A2728003FF9C9 /* PlotView.swift in Sources */,
 				FEB3411A1B0BC75D00ACEB41 /* CallOutView.swift in Sources */,
+				FE3BB5E51B15B5290045687C /* ytcpsocket.c in Sources */,
 				FE047DF61B0A2728003FF9C9 /* PicturesViewController.swift in Sources */,
 				41EB770E1B11531400A1732B /* Log.swift in Sources */,
 				414BD5401B0FF348000E4F1F /* PageViewController.swift in Sources */,
 				414BD5471B0FF9B9000E4F1F /* MissionControlViewController.swift in Sources */,
 				FE047DFA1B0A2728003FF9C9 /* PlotterViewController.swift in Sources */,
 				FE6FB2561AFA1499009AE8ED /* LogTableViewController.swift in Sources */,
+				FE3BB5E01B15B4F10045687C /* ytcpsocket.swift in Sources */,
 				FE6FB2521AFA1499009AE8ED /* AppDelegate.swift in Sources */,
 				414BD53F1B0FF348000E4F1F /* ContentViewController.swift in Sources */,
 				41EB77081B11531400A1732B /* Course.swift in Sources */,
@@ -341,6 +354,7 @@
 				410AFD391B144C0E001A34F0 /* TestViewController.swift in Sources */,
 				FE411DB01B0C72F60079B7C3 /* WaypointView.swift in Sources */,
 				FE6FB2541AFA1499009AE8ED /* FirstViewController.swift in Sources */,
+				FE3BB5E21B15B4FB0045687C /* ysocket.swift in Sources */,
 				41EB77041B11531300A1732B /* Picture.swift in Sources */,
 				41EB77141B1155D500A1732B /* Way_Point.swift in Sources */,
 				414BD5421B0FF348000E4F1F /* SteuerungTableViewCell.swift in Sources */,
