@@ -18,15 +18,22 @@ class PicturesViewController: ContentViewController {
     var imageList = [UIImage]()
     var pictures  = [Picture]()
     
-    let ANIMATIONDURATION: NSTimeInterval = 1
+    let ANIMATIONDURATION: NSTimeInterval = 10
     let fileManager = NSFileManager.defaultManager()
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
     
     @IBOutlet weak var myImageView: UIImageView!
-    @IBOutlet weak var animationButton: UIButton!
+   
+    @IBOutlet weak var playButton: UIButton!
  
     
+    
+    @IBAction func playButtonPressed(sender: AnyObject) {
+    
+    startAnimation()
+    }
+   
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,7 +133,7 @@ class PicturesViewController: ContentViewController {
         }
         
         
-        for i in 1...9
+        for i in 1...20
         {
             let imageNameTmp = "\(i)"
             
@@ -204,9 +211,8 @@ class PicturesViewController: ContentViewController {
 
     
     
-    
     @IBAction func animationButtonPressed(sender: AnyObject) {
-        startAnimation()
+      // startAnimation()
     }
 
     func startAnimation() {
@@ -216,7 +222,8 @@ class PicturesViewController: ContentViewController {
             NSLog("%@", "Animation started:  ")
             myImageView.animationImages = imageList
             myImageView.animationDuration = ANIMATIONDURATION
-          
+            
+            playButton.titleLabel?.text = "Stopp"
             myImageView.startAnimating()
         }
         else
@@ -224,6 +231,8 @@ class PicturesViewController: ContentViewController {
             
             myImageView.stopAnimating()
            
+           playButton.titleLabel?.text = "Start"
+
             NSLog("%@", "Animation stopped:  ")
          
         }
