@@ -84,7 +84,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
         if (index == 0){
             var vc: ContentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Map") as! ContentViewController
             
-            vc.log = logs.first
+            vc.log = logs.last
             vc.titelText = self.pageTitel[index] as! String
             vc.pageIndex = index
             return vc
@@ -96,7 +96,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
         if (index == 1){
             var vc: ContentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("GPS") as! ContentViewController
             
-            vc.log = logs.first
+            vc.log = logs.last
             vc.titelText = self.pageTitel[index] as! String
             vc.pageIndex = index
             return vc
@@ -106,7 +106,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
             var vc: ContentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("BilderViewController") as! ContentViewController
             
           
-            vc.log =   logs.first
+            vc.log =   logs.last
             vc.titelText = self.pageTitel[index] as! String
             vc.pageIndex = index
             return vc
@@ -117,7 +117,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
         if (index == 3){
             var vc: ContentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Plotter") as! ContentViewController
             
-            vc.log = logs.first
+            vc.log = logs.last
             vc.titelText = self.pageTitel[index] as! String
             vc.pageIndex = index
             return vc
