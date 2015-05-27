@@ -23,7 +23,9 @@ class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationM
     
     @IBAction func startStopButtonPressed(sender: AnyObject) {
         var network = Network()
-        network.startSender()
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
+            network.startSender()
+        }
     }
     
     override func viewDidLoad() {
