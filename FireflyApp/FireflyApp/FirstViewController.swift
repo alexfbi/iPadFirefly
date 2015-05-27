@@ -22,8 +22,8 @@ class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationM
     var selectedAnnotationView:MKAnnotationView?
     
     @IBAction func startStopButtonPressed(sender: AnyObject) {
-        var network = Network(waypoints: self.waypoints)
-        network.sendWaypoints()
+        var network = Network()
+        network.startSender()
     }
     
     override func viewDidLoad() {
