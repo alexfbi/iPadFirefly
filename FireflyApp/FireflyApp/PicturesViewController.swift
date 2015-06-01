@@ -12,8 +12,9 @@ import CoreData
 
 
 
-class PicturesViewController: ContentViewController {
+class PicturesViewController: UIViewController {
 
+     var log : Log!
     
     var imageList = [UIImage]()
     var pictures  = [Picture]()
