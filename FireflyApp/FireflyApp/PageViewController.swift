@@ -14,16 +14,12 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
     
     var pageViewController: UIPageViewController!
     var pageTitel: NSArray!
-  //  var log: Log  = Log()
-    
     var logs = [Log]()
     
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
-    
-    @IBOutlet weak var restartLabel: UILabel!
-    
-    
+    @IBOutlet weak var showHideButton: UIButton!
+
     func loadDataFromDB(){
         let fetchRequest = NSFetchRequest(entityName: "Log")
         logs = context?.executeFetchRequest(fetchRequest, error: nil) as! [Log]
@@ -35,33 +31,45 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         title = "Live Modus"
-       loadDataFromDB()
-   //     log.name = "a"
-   //     log.id = 1
+        loadDataFromDB()
         
         self.pageTitel = NSArray(objects: "0","1", "2", "3" )
         
         self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! UIPageViewController
-        
-        
         self.pageViewController.dataSource = self
         
-        
         var startVC = self.viewControllerAtindex(0) as ContentViewController
-        
-       // var startVC = self.storyboard?.instantiateViewControllerWithIdentifier("ContentViewController") as SteuerungTableViewController
-        
-        
         var viewControllers = NSArray(object: startVC)
-        
         self.pageViewController.setViewControllers(viewControllers as [AnyObject], direction: .Forward, animated: true, completion: nil)
-        
-        self.pageViewController.view.frame = CGRectMake(0, 30, self.view.frame.width, self.view.frame.size.height - 60)
-        
         
         self.addChildViewController(self.pageViewController)
         self.view.addSubview(self.pageViewController.view)
         self.pageViewController.didMoveToParentViewController(self)
+        
+        self.setupPageControl()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationChanged", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        orientationChanged()
+    }
+    
+    private func setupPageControl() {
+        let appearance = UIPageControl.appearance()
+        appearance.pageIndicatorTintColor = UIColor.lightGrayColor()
+        appearance.currentPageIndicatorTintColor = UIColor.blueColor()
+        appearance.backgroundColor = UIColor.whiteColor()
+    }
+    
+    func orientationChanged()
+    {
+        if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation))
+        {
+            showHideButton.hidden = false
+        }
+        
+        if(UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation))
+        {
+            showHideButton.hidden = true
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -193,6 +201,22 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
     
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
         return 0
+    }
+    
+    
+    @IBAction func showOrHideSidebar(sender: AnyObject) {
+        var button = sender as! UIButton
+        var splitView = self.parentViewController?.parentViewController as! UISplitViewController
+        
+        if (button.currentTitle == "Hide Sidebar") {
+            splitView.preferredDisplayMode = UISplitViewControllerDisplayMode.PrimaryHidden
+            button.setTitle("Show Sidebar", forState: .Normal)
+        }
+        
+        else if (button.currentTitle == "Show Sidebar") {
+            splitView.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
+            button.setTitle("Hide Sidebar", forState: .Normal)
+        }
     }
     
 }

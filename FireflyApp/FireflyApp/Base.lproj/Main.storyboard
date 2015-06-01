@@ -424,26 +424,39 @@
             <point key="canvasLocation" x="3036" y="-149"/>
         </scene>
         <!--Page View Controller-->
-        <scene sceneID="3cC-mh-X4o">
+        <scene sceneID="1ua-XM-B5M">
             <objects>
-                <viewController id="oRU-FC-f95" customClass="PageViewController" customModule="FireflyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="RqI-HR-hvB" customClass="PageViewController" customModule="FireflyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="tak-uN-oNv"/>
-                        <viewControllerLayoutGuide type="bottom" id="0Ly-hI-XB6"/>
+                        <viewControllerLayoutGuide type="top" id="jsp-OO-602"/>
+                        <viewControllerLayoutGuide type="bottom" id="4mO-jF-FWY"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleAspectFit" id="k70-HZ-0nY">
+                    <view key="view" contentMode="scaleToFill" id="y85-ar-Caf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="c4K-Mo-RC2"/>
+                    <navigationItem key="navigationItem" id="rse-BB-YZf">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="b89-e0-uaO">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qlh-bw-ffA">
+                                <rect key="frame" x="-23" y="-15" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Hide Sidebar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showOrHideSidebar:" destination="RqI-HR-hvB" eventType="touchUpInside" id="e69-4j-PQL"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <segue destination="3tq-aL-ogw" kind="show" identifier="Pageview" id="8T5-Oo-5sb"/>
+                        <outlet property="showHideButton" destination="qlh-bw-ffA" id="wB3-Dd-mbf"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XoG-o8-dXk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ODj-1y-QbG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2061" y="716"/>
+            <point key="canvasLocation" x="2043" y="797"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="BYm-a6-kp5">
@@ -639,7 +652,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="oRU-FC-f95" kind="relationship" relationship="rootViewController" id="ZOp-Zu-hDf"/>
+                        <segue destination="RqI-HR-hvB" kind="relationship" relationship="rootViewController" id="5Zl-6z-F1E"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nYM-7I-HdN" userLabel="First Responder" sceneMemberID="firstResponder"/>
