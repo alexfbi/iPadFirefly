@@ -7,12 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		410AFD391B144C0E001A34F0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410AFD381B144C0E001A34F0 /* TestViewController.swift */; };
-		414BD53F1B0FF348000E4F1F /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BD53A1B0FF348000E4F1F /* ContentViewController.swift */; };
-		414BD5401B0FF348000E4F1F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BD53B1B0FF348000E4F1F /* PageViewController.swift */; };
-		414BD5411B0FF348000E4F1F /* SteuerungTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BD53C1B0FF348000E4F1F /* SteuerungTableViewController.swift */; };
-		414BD5421B0FF348000E4F1F /* SteuerungTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BD53D1B0FF348000E4F1F /* SteuerungTableViewCell.swift */; };
-		414BD5471B0FF9B9000E4F1F /* MissionControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BD5461B0FF9B9000E4F1F /* MissionControlViewController.swift */; };
+		415BEC3A1B1BF568001481A0 /* PicturesLiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415BEC391B1BF568001481A0 /* PicturesLiveViewController.swift */; };
 		41EB77041B11531300A1732B /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB77031B11531300A1732B /* Picture.swift */; };
 		41EB77081B11531400A1732B /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB77071B11531400A1732B /* Course.swift */; };
 		41EB770A1B11531400A1732B /* GPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB77091B11531400A1732B /* GPS.swift */; };
@@ -56,12 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		410AFD381B144C0E001A34F0 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
-		414BD53A1B0FF348000E4F1F /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
-		414BD53B1B0FF348000E4F1F /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
-		414BD53C1B0FF348000E4F1F /* SteuerungTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteuerungTableViewController.swift; sourceTree = "<group>"; };
-		414BD53D1B0FF348000E4F1F /* SteuerungTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteuerungTableViewCell.swift; sourceTree = "<group>"; };
-		414BD5461B0FF9B9000E4F1F /* MissionControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionControlViewController.swift; sourceTree = "<group>"; };
+		415BEC391B1BF568001481A0 /* PicturesLiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicturesLiveViewController.swift; sourceTree = "<group>"; };
 		41EB77031B11531300A1732B /* Picture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
 		41EB77071B11531400A1732B /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		41EB77091B11531400A1732B /* GPS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPS.swift; sourceTree = "<group>"; };
@@ -136,14 +126,33 @@
 		414BD5451B0FF6F8000E4F1F /* LiveModus */ = {
 			isa = PBXGroup;
 			children = (
-				414BD53A1B0FF348000E4F1F /* ContentViewController.swift */,
-				414BD53B1B0FF348000E4F1F /* PageViewController.swift */,
-				414BD53C1B0FF348000E4F1F /* SteuerungTableViewController.swift */,
-				414BD53D1B0FF348000E4F1F /* SteuerungTableViewCell.swift */,
-				414BD5461B0FF9B9000E4F1F /* MissionControlViewController.swift */,
-				410AFD381B144C0E001A34F0 /* TestViewController.swift */,
+				415BEC391B1BF568001481A0 /* PicturesLiveViewController.swift */,
 			);
 			name = LiveModus;
+			sourceTree = "<group>";
+		};
+		415BEC3B1B1C15D0001481A0 /* MapRoute */ = {
+			isa = PBXGroup;
+			children = (
+				FE411DAF1B0C72F60079B7C3 /* WaypointView.swift */,
+				41EB77111B1153C600A1732B /* Waypoint.swift */,
+				FE6FB2531AFA1499009AE8ED /* FirstViewController.swift */,
+				FE00CBB11B0BC02D00D79628 /* CallOutView.xib */,
+				FEB341191B0BC75D00ACEB41 /* CallOutView.swift */,
+			);
+			name = MapRoute;
+			sourceTree = "<group>";
+		};
+		415BEC3C1B1C165A001481A0 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FE3BB5DF1B15B4F10045687C /* ytcpsocket.swift */,
+				FE3BB5E11B15B4FB0045687C /* ysocket.swift */,
+				FE3BB5E41B15B5290045687C /* ytcpsocket.c */,
+				FE3BB5E31B15B5280045687C /* FireflyApp-Bridging-Header.h */,
+				FE6DE7171B034606007617BA /* Network.swift */,
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 		FE047DA11B0A156D003FF9C9 /* ManagedObjects */ = {
@@ -185,22 +194,12 @@
 				414BD5451B0FF6F8000E4F1F /* LiveModus */,
 				414BD5441B0FF6DD000E4F1F /* Log */,
 				FE047DA11B0A156D003FF9C9 /* ManagedObjects */,
+				415BEC3B1B1C15D0001481A0 /* MapRoute */,
 				FE6FB2511AFA1499009AE8ED /* AppDelegate.swift */,
-				FE6FB2531AFA1499009AE8ED /* FirstViewController.swift */,
-				FE6DE7171B034606007617BA /* Network.swift */,
-				41EB77111B1153C600A1732B /* Waypoint.swift */,
+				415BEC3C1B1C165A001481A0 /* Network */,
 				FE6FB2571AFA1499009AE8ED /* Main.storyboard */,
 				FE047D9E1B0A1338003FF9C9 /* AFC1.xcdatamodeld */,
-				FE6FB25A1AFA1499009AE8ED /* Images.xcassets */,
-				FE6FB25C1AFA1499009AE8ED /* LaunchScreen.xib */,
 				FE6FB24F1AFA1499009AE8ED /* Supporting Files */,
-				FE00CBB11B0BC02D00D79628 /* CallOutView.xib */,
-				FEB341191B0BC75D00ACEB41 /* CallOutView.swift */,
-				FE411DAF1B0C72F60079B7C3 /* WaypointView.swift */,
-				FE3BB5DF1B15B4F10045687C /* ytcpsocket.swift */,
-				FE3BB5E11B15B4FB0045687C /* ysocket.swift */,
-				FE3BB5E41B15B5290045687C /* ytcpsocket.c */,
-				FE3BB5E31B15B5280045687C /* FireflyApp-Bridging-Header.h */,
 			);
 			path = FireflyApp;
 			sourceTree = "<group>";
@@ -208,6 +207,8 @@
 		FE6FB24F1AFA1499009AE8ED /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FE6FB25C1AFA1499009AE8ED /* LaunchScreen.xib */,
+				FE6FB25A1AFA1499009AE8ED /* Images.xcassets */,
 				FE6FB2501AFA1499009AE8ED /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -333,6 +334,7 @@
 			files = (
 				41EB770C1B11531400A1732B /* Entry.swift in Sources */,
 				41EB77161B11574F00A1732B /* GPSViewController.swift in Sources */,
+				415BEC3A1B1BF568001481A0 /* PicturesLiveViewController.swift in Sources */,
 				FE6DE7181B034606007617BA /* Network.swift in Sources */,
 				41EB770A1B11531400A1732B /* GPS.swift in Sources */,
 				FE047DFB1B0A2728003FF9C9 /* PlotView.swift in Sources */,
@@ -340,24 +342,18 @@
 				FE3BB5E51B15B5290045687C /* ytcpsocket.c in Sources */,
 				FE047DF61B0A2728003FF9C9 /* PicturesViewController.swift in Sources */,
 				41EB770E1B11531400A1732B /* Log.swift in Sources */,
-				414BD5401B0FF348000E4F1F /* PageViewController.swift in Sources */,
-				414BD5471B0FF9B9000E4F1F /* MissionControlViewController.swift in Sources */,
 				FE047DFA1B0A2728003FF9C9 /* PlotterViewController.swift in Sources */,
 				FE6FB2561AFA1499009AE8ED /* LogTableViewController.swift in Sources */,
 				FE3BB5E01B15B4F10045687C /* ytcpsocket.swift in Sources */,
 				FE6FB2521AFA1499009AE8ED /* AppDelegate.swift in Sources */,
-				414BD53F1B0FF348000E4F1F /* ContentViewController.swift in Sources */,
 				41EB77081B11531400A1732B /* Course.swift in Sources */,
 				FE047DF71B0A2728003FF9C9 /* EntryTableViewController.swift in Sources */,
-				414BD5411B0FF348000E4F1F /* SteuerungTableViewController.swift in Sources */,
 				41EB77121B1153C600A1732B /* Waypoint.swift in Sources */,
-				410AFD391B144C0E001A34F0 /* TestViewController.swift in Sources */,
 				FE411DB01B0C72F60079B7C3 /* WaypointView.swift in Sources */,
 				FE6FB2541AFA1499009AE8ED /* FirstViewController.swift in Sources */,
 				FE3BB5E21B15B4FB0045687C /* ysocket.swift in Sources */,
 				41EB77041B11531300A1732B /* Picture.swift in Sources */,
 				41EB77141B1155D500A1732B /* Way_Point.swift in Sources */,
-				414BD5421B0FF348000E4F1F /* SteuerungTableViewCell.swift in Sources */,
 				FE047DA01B0A1338003FF9C9 /* AFC1.xcdatamodeld in Sources */,
 				FE047DEF1B0A269A003FF9C9 /* CategorieTableViewController.swift in Sources */,
 			);

@@ -13,9 +13,9 @@ import CoreData
 
 
 
-class GPSViewController: ContentViewController, MKMapViewDelegate  {
+class GPSViewController: UIViewController, MKMapViewDelegate  {
     
-    
+    var log : Log!
 
     var gpsPositions = [GPS]()
     

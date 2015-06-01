@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var startStopButton: UIButton!
