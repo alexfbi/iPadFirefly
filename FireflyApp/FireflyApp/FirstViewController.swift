@@ -22,9 +22,9 @@ class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationM
     var selectedAnnotationView:MKAnnotationView?
     
     @IBAction func startStopButtonPressed(sender: AnyObject) {
-        var network = Network()
+        var networkSender = NetworkSender()
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
-            network.startSender()
+            networkSender.start()
         }
     }
     

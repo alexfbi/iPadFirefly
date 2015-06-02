@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Akku" representedClassName="PRODUCT_MODULE_NAME.Akku" syncable="YES">
+        <attribute name="akku" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="log" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Log" inverseName="akku" inverseEntity="Log" syncable="YES"/>
+    </entity>
     <entity name="Course" representedClassName="FireflyApp.Course" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="logs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Log" inverseName="course" inverseEntity="Log" syncable="YES"/>
+        <relationship name="log" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Log" inverseName="course" inverseEntity="Log" syncable="YES"/>
         <relationship name="waypoints" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Way_Point" inverseName="course" inverseEntity="Way_Point" syncable="YES"/>
     </entity>
     <entity name="Entry" representedClassName="FireflyApp.Entry" syncable="YES">
@@ -20,15 +26,16 @@
         <attribute name="valueX" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="valueY" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="valueZ" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="log" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Log" inverseName="gpsFiles" inverseEntity="Log" syncable="YES"/>
+        <relationship name="log" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Log" inverseName="gps" inverseEntity="Log" syncable="YES"/>
     </entity>
     <entity name="Log" representedClassName="FireflyApp.Log" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="course" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Course" inverseName="logs" inverseEntity="Course" syncable="YES"/>
+        <relationship name="akku" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Akku" inverseName="log" inverseEntity="Akku" syncable="YES"/>
+        <relationship name="course" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Course" inverseName="log" inverseEntity="Course" syncable="YES"/>
         <relationship name="entries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Entry" inverseName="log" inverseEntity="Entry" syncable="YES"/>
-        <relationship name="gpsFiles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GPS" inverseName="log" inverseEntity="GPS" syncable="YES"/>
+        <relationship name="gps" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GPS" inverseName="log" inverseEntity="GPS" syncable="YES"/>
         <relationship name="pictures" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Picture" inverseName="log" inverseEntity="Picture" syncable="YES"/>
     </entity>
     <entity name="Picture" representedClassName="FireflyApp.Picture" syncable="YES">
@@ -37,6 +44,7 @@
         <attribute name="path" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="log" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Log" inverseName="pictures" inverseEntity="Log" syncable="YES"/>
     </entity>
+    <entity name="Speed" representedClassName="PRODUCT_MODULE_NAME.Speed" syncable="YES"/>
     <entity name="Way_Point" representedClassName="Way_Point" syncable="YES">
         <attribute name="height" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -48,10 +56,12 @@
     </entity>
     <elements>
         <element name="Course" positionX="-351" positionY="95" width="128" height="103"/>
-        <element name="Entry" positionX="70" positionY="-99" width="128" height="148"/>
-        <element name="GPS" positionX="72" positionY="71" width="128" height="118"/>
-        <element name="Log" positionX="-164" positionY="59" width="128" height="148"/>
-        <element name="Picture" positionX="70" positionY="207" width="128" height="103"/>
+        <element name="Entry" positionX="7" positionY="41" width="128" height="148"/>
+        <element name="GPS" positionX="27" positionY="207" width="128" height="118"/>
+        <element name="Log" positionX="-164" positionY="63" width="128" height="163"/>
+        <element name="Picture" positionX="-45" positionY="338" width="128" height="103"/>
         <element name="Way_Point" positionX="-558" positionY="59" width="128" height="148"/>
+        <element name="Speed" positionX="-263" positionY="288" width="128" height="43"/>
+        <element name="Akku" positionX="-11" positionY="-81" width="128" height="103"/>
     </elements>
 </model>

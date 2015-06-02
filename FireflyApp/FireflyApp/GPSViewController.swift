@@ -115,33 +115,33 @@ class GPSViewController: ContentViewController, MKMapViewDelegate  {
     func createPolyline() {
         NSLog("%@", " createPolyLine: ")
 
-        if (gpsPositions.count > 0){
-            
-            let location = CLLocationCoordinate2D(
-                latitude: gpsPositions[0].valueX,
-                longitude: gpsPositions[0].valueY)
-        
-            let span = MKCoordinateSpanMake(0.01, 0.01)
-            let region = MKCoordinateRegion(center: location, span: span)
-        
-            mapKit.setRegion(region, animated: true)
-        
-            var locations = [CLLocation]()
-        
-            for i in 0...gpsPositions.count - 1 {
-        
-                locations += [CLLocation(latitude: gpsPositions[i].valueX, longitude:   gpsPositions[i].valueY)]
-        
-            
-            }
-            var coordinates = locations.map({(location: CLLocation!) -> CLLocationCoordinate2D in return location.coordinate})
-        
-            var polyline = MKPolyline(coordinates: &coordinates, count: locations.count)
-        
-        
-        
-            self.mapKit.addOverlay(polyline)
-        }
+//        if (gpsPositions.count > 0){
+//            
+//            let location = CLLocationCoordinate2D(
+//                latitude: gpsPositions[0].valueX,
+//                longitude: gpsPositions[0].valueY)
+//        
+//            let span = MKCoordinateSpanMake(0.01, 0.01)
+//            let region = MKCoordinateRegion(center: location, span: span)
+//        
+//            mapKit.setRegion(region, animated: true)
+//        
+//            var locations = [CLLocation]()
+//        
+//            for i in 0...gpsPositions.count - 1 {
+//        
+//                locations += [CLLocation(latitude: gpsPositions[i].valueX, longitude:   gpsPositions[i].valueY)]
+//        
+//            
+//            }
+//            var coordinates = locations.map({(location: CLLocation!) -> CLLocationCoordinate2D in return location.coordinate})
+//        
+//            var polyline = MKPolyline(coordinates: &coordinates, count: locations.count)
+//        
+//        
+//        
+//            self.mapKit.addOverlay(polyline)
+//        }
         
       
 }

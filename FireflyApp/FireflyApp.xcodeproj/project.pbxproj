@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0699CF381B1E10C300EF305E /* NetworkReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0699CF371B1E10C300EF305E /* NetworkReceiver.swift */; };
+		0699CF3A1B1E10E500EF305E /* GlobalVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0699CF391B1E10E500EF305E /* GlobalVariable.swift */; };
+		0699CF3C1B1E15C000EF305E /* Akku.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0699CF3B1B1E15C000EF305E /* Akku.swift */; };
+		0699CF3E1B1E15C000EF305E /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0699CF3D1B1E15C000EF305E /* Log.swift */; };
+		0699CF401B1E15C000EF305E /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0699CF3F1B1E15C000EF305E /* Course.swift */; };
+		0699CF421B1E15C000EF305E /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0699CF411B1E15C000EF305E /* Speed.swift */; };
+		0699CF441B1E15C100EF305E /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0699CF431B1E15C100EF305E /* Entry.swift */; };
+		0699CF461B1E15C100EF305E /* GPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0699CF451B1E15C100EF305E /* GPS.swift */; };
+		0699CF481B1E15C100EF305E /* Way_Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0699CF471B1E15C100EF305E /* Way_Point.swift */; };
+		0699CF4A1B1E15C100EF305E /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0699CF491B1E15C100EF305E /* Picture.swift */; };
 		410AFD391B144C0E001A34F0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410AFD381B144C0E001A34F0 /* TestViewController.swift */; };
 		414BD53F1B0FF348000E4F1F /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BD53A1B0FF348000E4F1F /* ContentViewController.swift */; };
 		414BD5401B0FF348000E4F1F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BD53B1B0FF348000E4F1F /* PageViewController.swift */; };
 		414BD5411B0FF348000E4F1F /* SteuerungTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BD53C1B0FF348000E4F1F /* SteuerungTableViewController.swift */; };
 		414BD5421B0FF348000E4F1F /* SteuerungTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BD53D1B0FF348000E4F1F /* SteuerungTableViewCell.swift */; };
 		414BD5471B0FF9B9000E4F1F /* MissionControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BD5461B0FF9B9000E4F1F /* MissionControlViewController.swift */; };
-		41EB77041B11531300A1732B /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB77031B11531300A1732B /* Picture.swift */; };
-		41EB77081B11531400A1732B /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB77071B11531400A1732B /* Course.swift */; };
-		41EB770A1B11531400A1732B /* GPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB77091B11531400A1732B /* GPS.swift */; };
-		41EB770C1B11531400A1732B /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB770B1B11531400A1732B /* Entry.swift */; };
-		41EB770E1B11531400A1732B /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB770D1B11531400A1732B /* Log.swift */; };
 		41EB77121B1153C600A1732B /* Waypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB77111B1153C600A1732B /* Waypoint.swift */; };
-		41EB77141B1155D500A1732B /* Way_Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB77131B1155D500A1732B /* Way_Point.swift */; };
 		41EB77161B11574F00A1732B /* GPSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB77151B11574F00A1732B /* GPSViewController.swift */; };
 		FE00CBB21B0BC02D00D79628 /* CallOutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE00CBB11B0BC02D00D79628 /* CallOutView.xib */; };
 		FE047D9D1B0A12F3003FF9C9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE047D9C1B0A12F3003FF9C9 /* CoreData.framework */; };
@@ -34,7 +38,7 @@
 		FE3BB5E51B15B5290045687C /* ytcpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = FE3BB5E41B15B5290045687C /* ytcpsocket.c */; };
 		FE411DB01B0C72F60079B7C3 /* WaypointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE411DAF1B0C72F60079B7C3 /* WaypointView.swift */; };
 		FE6DE7141B03443C007617BA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE6DE7131B03443C007617BA /* MapKit.framework */; };
-		FE6DE7181B034606007617BA /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6DE7171B034606007617BA /* Network.swift */; };
+		FE6DE7181B034606007617BA /* NetworkSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6DE7171B034606007617BA /* NetworkSender.swift */; };
 		FE6FB2521AFA1499009AE8ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2511AFA1499009AE8ED /* AppDelegate.swift */; };
 		FE6FB2541AFA1499009AE8ED /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2531AFA1499009AE8ED /* FirstViewController.swift */; };
 		FE6FB2561AFA1499009AE8ED /* LogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2551AFA1499009AE8ED /* LogTableViewController.swift */; };
@@ -56,19 +60,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0699CF371B1E10C300EF305E /* NetworkReceiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReceiver.swift; sourceTree = "<group>"; };
+		0699CF391B1E10E500EF305E /* GlobalVariable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariable.swift; sourceTree = "<group>"; };
+		0699CF3B1B1E15C000EF305E /* Akku.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Akku.swift; sourceTree = "<group>"; };
+		0699CF3D1B1E15C000EF305E /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		0699CF3F1B1E15C000EF305E /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		0699CF411B1E15C000EF305E /* Speed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speed.swift; sourceTree = "<group>"; };
+		0699CF431B1E15C100EF305E /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		0699CF451B1E15C100EF305E /* GPS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPS.swift; sourceTree = "<group>"; };
+		0699CF471B1E15C100EF305E /* Way_Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Way_Point.swift; sourceTree = "<group>"; };
+		0699CF491B1E15C100EF305E /* Picture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
 		410AFD381B144C0E001A34F0 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		414BD53A1B0FF348000E4F1F /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		414BD53B1B0FF348000E4F1F /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		414BD53C1B0FF348000E4F1F /* SteuerungTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteuerungTableViewController.swift; sourceTree = "<group>"; };
 		414BD53D1B0FF348000E4F1F /* SteuerungTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteuerungTableViewCell.swift; sourceTree = "<group>"; };
 		414BD5461B0FF9B9000E4F1F /* MissionControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionControlViewController.swift; sourceTree = "<group>"; };
-		41EB77031B11531300A1732B /* Picture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
-		41EB77071B11531400A1732B /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
-		41EB77091B11531400A1732B /* GPS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPS.swift; sourceTree = "<group>"; };
-		41EB770B1B11531400A1732B /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
-		41EB770D1B11531400A1732B /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		41EB77111B1153C600A1732B /* Waypoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Waypoint.swift; sourceTree = "<group>"; };
-		41EB77131B1155D500A1732B /* Way_Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Way_Point.swift; sourceTree = "<group>"; };
 		41EB77151B11574F00A1732B /* GPSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPSViewController.swift; sourceTree = "<group>"; };
 		FE00CBB11B0BC02D00D79628 /* CallOutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CallOutView.xib; sourceTree = "<group>"; };
 		FE047D9C1B0A12F3003FF9C9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -84,7 +92,7 @@
 		FE3BB5E41B15B5290045687C /* ytcpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ytcpsocket.c; sourceTree = "<group>"; };
 		FE411DAF1B0C72F60079B7C3 /* WaypointView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaypointView.swift; sourceTree = "<group>"; };
 		FE6DE7131B03443C007617BA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		FE6DE7171B034606007617BA /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		FE6DE7171B034606007617BA /* NetworkSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSender.swift; sourceTree = "<group>"; };
 		FE6FB24C1AFA1499009AE8ED /* FireflyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireflyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE6FB2501AFA1499009AE8ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE6FB2511AFA1499009AE8ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -149,12 +157,14 @@
 		FE047DA11B0A156D003FF9C9 /* ManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
-				41EB77131B1155D500A1732B /* Way_Point.swift */,
-				41EB770D1B11531400A1732B /* Log.swift */,
-				41EB770B1B11531400A1732B /* Entry.swift */,
-				41EB77091B11531400A1732B /* GPS.swift */,
-				41EB77071B11531400A1732B /* Course.swift */,
-				41EB77031B11531300A1732B /* Picture.swift */,
+				0699CF491B1E15C100EF305E /* Picture.swift */,
+				0699CF471B1E15C100EF305E /* Way_Point.swift */,
+				0699CF451B1E15C100EF305E /* GPS.swift */,
+				0699CF431B1E15C100EF305E /* Entry.swift */,
+				0699CF411B1E15C000EF305E /* Speed.swift */,
+				0699CF3F1B1E15C000EF305E /* Course.swift */,
+				0699CF3D1B1E15C000EF305E /* Log.swift */,
+				0699CF3B1B1E15C000EF305E /* Akku.swift */,
 			);
 			name = ManagedObjects;
 			sourceTree = "<group>";
@@ -187,7 +197,8 @@
 				FE047DA11B0A156D003FF9C9 /* ManagedObjects */,
 				FE6FB2511AFA1499009AE8ED /* AppDelegate.swift */,
 				FE6FB2531AFA1499009AE8ED /* FirstViewController.swift */,
-				FE6DE7171B034606007617BA /* Network.swift */,
+				0699CF371B1E10C300EF305E /* NetworkReceiver.swift */,
+				FE6DE7171B034606007617BA /* NetworkSender.swift */,
 				41EB77111B1153C600A1732B /* Waypoint.swift */,
 				FE6FB2571AFA1499009AE8ED /* Main.storyboard */,
 				FE047D9E1B0A1338003FF9C9 /* AFC1.xcdatamodeld */,
@@ -201,6 +212,7 @@
 				FE3BB5E11B15B4FB0045687C /* ysocket.swift */,
 				FE3BB5E41B15B5290045687C /* ytcpsocket.c */,
 				FE3BB5E31B15B5280045687C /* FireflyApp-Bridging-Header.h */,
+				0699CF391B1E10E500EF305E /* GlobalVariable.swift */,
 			);
 			path = FireflyApp;
 			sourceTree = "<group>";
@@ -331,23 +343,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41EB770C1B11531400A1732B /* Entry.swift in Sources */,
 				41EB77161B11574F00A1732B /* GPSViewController.swift in Sources */,
-				FE6DE7181B034606007617BA /* Network.swift in Sources */,
-				41EB770A1B11531400A1732B /* GPS.swift in Sources */,
+				0699CF3E1B1E15C000EF305E /* Log.swift in Sources */,
+				0699CF421B1E15C000EF305E /* Speed.swift in Sources */,
+				0699CF4A1B1E15C100EF305E /* Picture.swift in Sources */,
+				FE6DE7181B034606007617BA /* NetworkSender.swift in Sources */,
 				FE047DFB1B0A2728003FF9C9 /* PlotView.swift in Sources */,
 				FEB3411A1B0BC75D00ACEB41 /* CallOutView.swift in Sources */,
+				0699CF441B1E15C100EF305E /* Entry.swift in Sources */,
 				FE3BB5E51B15B5290045687C /* ytcpsocket.c in Sources */,
 				FE047DF61B0A2728003FF9C9 /* PicturesViewController.swift in Sources */,
-				41EB770E1B11531400A1732B /* Log.swift in Sources */,
 				414BD5401B0FF348000E4F1F /* PageViewController.swift in Sources */,
+				0699CF461B1E15C100EF305E /* GPS.swift in Sources */,
 				414BD5471B0FF9B9000E4F1F /* MissionControlViewController.swift in Sources */,
+				0699CF401B1E15C000EF305E /* Course.swift in Sources */,
 				FE047DFA1B0A2728003FF9C9 /* PlotterViewController.swift in Sources */,
+				0699CF481B1E15C100EF305E /* Way_Point.swift in Sources */,
 				FE6FB2561AFA1499009AE8ED /* LogTableViewController.swift in Sources */,
 				FE3BB5E01B15B4F10045687C /* ytcpsocket.swift in Sources */,
+				0699CF381B1E10C300EF305E /* NetworkReceiver.swift in Sources */,
+				0699CF3C1B1E15C000EF305E /* Akku.swift in Sources */,
 				FE6FB2521AFA1499009AE8ED /* AppDelegate.swift in Sources */,
 				414BD53F1B0FF348000E4F1F /* ContentViewController.swift in Sources */,
-				41EB77081B11531400A1732B /* Course.swift in Sources */,
+				0699CF3A1B1E10E500EF305E /* GlobalVariable.swift in Sources */,
 				FE047DF71B0A2728003FF9C9 /* EntryTableViewController.swift in Sources */,
 				414BD5411B0FF348000E4F1F /* SteuerungTableViewController.swift in Sources */,
 				41EB77121B1153C600A1732B /* Waypoint.swift in Sources */,
@@ -355,8 +373,6 @@
 				FE411DB01B0C72F60079B7C3 /* WaypointView.swift in Sources */,
 				FE6FB2541AFA1499009AE8ED /* FirstViewController.swift in Sources */,
 				FE3BB5E21B15B4FB0045687C /* ysocket.swift in Sources */,
-				41EB77041B11531300A1732B /* Picture.swift in Sources */,
-				41EB77141B1155D500A1732B /* Way_Point.swift in Sources */,
 				414BD5421B0FF348000E4F1F /* SteuerungTableViewCell.swift in Sources */,
 				FE047DA01B0A1338003FF9C9 /* AFC1.xcdatamodeld in Sources */,
 				FE047DEF1B0A269A003FF9C9 /* CategorieTableViewController.swift in Sources */,

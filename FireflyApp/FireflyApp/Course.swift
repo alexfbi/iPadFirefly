@@ -2,7 +2,7 @@
 //  Course.swift
 //  FireflyApp
 //
-//  Created by ak on 24.05.15.
+//  Created by Christian Adam on 02.06.15.
 //  Copyright (c) 2015 Hochschule Darmstadt. All rights reserved.
 //
 
@@ -13,7 +13,7 @@ class Course: NSManagedObject {
 
     @NSManaged var id: NSNumber
     @NSManaged var name: String
-    @NSManaged var logs: NSSet
+    @NSManaged var log: NSSet
     @NSManaged var waypoints: NSSet
 
 }

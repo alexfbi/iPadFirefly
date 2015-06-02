@@ -1,5 +1,5 @@
 //
-//  Picture.swift
+//  Akku.swift
 //  FireflyApp
 //
 //  Created by Christian Adam on 02.06.15.
@@ -9,11 +9,11 @@
 import Foundation
 import CoreData
 
-class Picture: NSManagedObject {
+class Akku: NSManagedObject {
 
+    @NSManaged var akku: NSNumber
+    @NSManaged var date: NSDate
     @NSManaged var id: NSNumber
-    @NSManaged var name: String
-    @NSManaged var path: String
     @NSManaged var log: Log
 
 }

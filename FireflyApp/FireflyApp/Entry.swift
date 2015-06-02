@@ -2,7 +2,7 @@
 //  Entry.swift
 //  FireflyApp
 //
-//  Created by ak on 24.05.15.
+//  Created by Christian Adam on 02.06.15.
 //  Copyright (c) 2015 Hochschule Darmstadt. All rights reserved.
 //
 
