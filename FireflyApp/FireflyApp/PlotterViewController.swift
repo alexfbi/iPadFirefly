@@ -12,11 +12,12 @@ import CoreData
 class PlotterViewController: ContentViewController, PlotViewDataSource {
 
     
-    let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    var entries = [Entry]()
+  //  let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    var batterieList = [Battery]()
+ //   var log : Log!
     
-    
-    
+     var controlDBModell:ControlDBModel =  ControlDBModel()
+   
     @IBOutlet weak var plotView: PlotView!
         {
             didSet{
@@ -29,8 +30,12 @@ class PlotterViewController: ContentViewController, PlotViewDataSource {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        title = "Plotter"
-        loadDataFromDB()
+        title = "Battery"
+        
+       controlDBModell.loadDataFromDB(log)
+        
+        batterieList  = controlDBModell.batterieList
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,18 +49,21 @@ class PlotterViewController: ContentViewController, PlotViewDataSource {
     {
         var listPoints  = [CGPoint?]()
         
-       
         
-        let eintraegeCount = entries.count
+        
+        let eintraegeCount = batterieList.count
+          NSLog("%@", " eintraegeCount: \(batterieList.count) ")
         if eintraegeCount > 0
         {
             
         
         for i in 0...eintraegeCount - 1
         {
+            var date:NSDate = batterieList[i].date
             
-            let x = CGFloat( entries[i].valueX)
-            let y = CGFloat( entries[i].valueY)
+            let x = CGFloat(i )
+            let y = CGFloat( batterieList[i].value)
+            
             let point = CGPoint(x: x, y: y)
            
             listPoints.append(point)
@@ -63,22 +71,13 @@ class PlotterViewController: ContentViewController, PlotViewDataSource {
         }
     }
     
-        
+          NSLog("%@", " setPointsSize: \(listPoints.count) ")
         return listPoints
         
     }
     
 
-    func loadDataFromDB(){
-         NSLog("%@", "Plotter : true , ID:\(log.id)")
-        let fetchRequest = NSFetchRequest(entityName: "Entry")
-        fetchRequest.predicate = NSPredicate(format: "log = %@", log!)
-        
-        entries = context?.executeFetchRequest(fetchRequest, error: nil) as! [Entry]
-      
-        
-          NSLog("%@", "Entries count: \(entries.count)")
-    }
+   
     
     /*
     // MARK: - Navigation

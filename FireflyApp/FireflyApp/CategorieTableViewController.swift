@@ -29,7 +29,7 @@ class CategorieTableViewController: UITableViewController {
             
         case "Status":
             
-            let EintragTVC = segue.destinationViewController as! EntryTableViewController
+            let EintragTVC = segue.destinationViewController as! BatterieTableViewController
             
             EintragTVC.log = log
             
@@ -59,32 +59,12 @@ class CategorieTableViewController: UITableViewController {
         case "Livemodus" :
             
           NSLog("%@","LIVEMODUS")
-       //   let EintragTVC = segue.destinationViewController as!MissionControlViewController
-          
-          
-       //  let dest = segue.destinationViewController as! UISplitViewController
-          
-     //     if  let nav = dest.navigationController as? UINavigationController {
-            
-      //      dest =
-         // }
-          
-          
-          
-       //   EintragTVC.log = log
+     
            
           
           
             
-        case "Video" :
-         
-                let destination = segue.destinationViewController as!
-                AVPlayerViewController
-                let url = NSURL(string:
-                    "http://www.ebookfrenzy.com/ios_book/movie/movie.mov")
-                destination.player = AVPlayer(URL: url)
             
-          
             
         default :
             

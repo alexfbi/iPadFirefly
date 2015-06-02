@@ -17,17 +17,17 @@
 		412C9FA11B1E205F00C16B79 /* GPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FA01B1E205F00C16B79 /* GPS.swift */; };
 		412C9FA31B1E205F00C16B79 /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FA21B1E205F00C16B79 /* Speed.swift */; };
 		412C9FA51B1E205F00C16B79 /* Battery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FA41B1E205F00C16B79 /* Battery.swift */; };
-		412C9FC01B1E2D0A00C16B79 /* PlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FBF1B1E2D0A00C16B79 /* PlotView.swift */; };
-		412C9FC31B1E2D4B00C16B79 /* ControlDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FC11B1E2D4B00C16B79 /* ControlDBModel.swift */; };
-		412C9FC41B1E2D4B00C16B79 /* ControlTestDatenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FC21B1E2D4B00C16B79 /* ControlTestDatenModel.swift */; };
 		412C9FC61B1E2D5A00C16B79 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FC51B1E2D5A00C16B79 /* ContentViewController.swift */; };
-		412C9FCD1B1E2D9500C16B79 /* BatterieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FC71B1E2D9500C16B79 /* BatterieTableViewController.swift */; };
-		412C9FCE1B1E2D9500C16B79 /* CategorieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FC81B1E2D9500C16B79 /* CategorieTableViewController.swift */; };
-		412C9FCF1B1E2D9500C16B79 /* GPSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FC91B1E2D9500C16B79 /* GPSViewController.swift */; };
-		412C9FD01B1E2D9500C16B79 /* LogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FCA1B1E2D9500C16B79 /* LogTableViewController.swift */; };
-		412C9FD11B1E2D9500C16B79 /* PicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FCB1B1E2D9500C16B79 /* PicturesViewController.swift */; };
-		412C9FD21B1E2D9500C16B79 /* PlotterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FCC1B1E2D9500C16B79 /* PlotterViewController.swift */; };
-		412C9FD41B1E2E8500C16B79 /* ControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FD31B1E2E8500C16B79 /* ControlViewController.swift */; };
+		412C9FDB1B1E388C00C16B79 /* GPSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FD51B1E388C00C16B79 /* GPSViewController.swift */; };
+		412C9FDC1B1E388C00C16B79 /* PicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FD61B1E388C00C16B79 /* PicturesViewController.swift */; };
+		412C9FDD1B1E388C00C16B79 /* PlotterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FD71B1E388C00C16B79 /* PlotterViewController.swift */; };
+		412C9FDE1B1E388C00C16B79 /* ControlDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FD81B1E388C00C16B79 /* ControlDBModel.swift */; };
+		412C9FDF1B1E388C00C16B79 /* ControlTestDatenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FD91B1E388C00C16B79 /* ControlTestDatenModel.swift */; };
+		412C9FE01B1E388C00C16B79 /* BatterieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FDA1B1E388C00C16B79 /* BatterieTableViewController.swift */; };
+		412C9FE21B1E38AD00C16B79 /* PlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FE11B1E38AD00C16B79 /* PlotView.swift */; };
+		412C9FE41B1E38C100C16B79 /* LogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FE31B1E38C100C16B79 /* LogTableViewController.swift */; };
+		412C9FE61B1E38F800C16B79 /* CategorieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FE51B1E38F800C16B79 /* CategorieTableViewController.swift */; };
+		412C9FE81B1E393A00C16B79 /* ControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FE71B1E393A00C16B79 /* ControlViewController.swift */; };
 		414BD5401B0FF348000E4F1F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BD53B1B0FF348000E4F1F /* PageViewController.swift */; };
 		41EB77121B1153C600A1732B /* Waypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB77111B1153C600A1732B /* Waypoint.swift */; };
 		FE00CBB21B0BC02D00D79628 /* CallOutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE00CBB11B0BC02D00D79628 /* CallOutView.xib */; };
@@ -69,17 +69,17 @@
 		412C9FA01B1E205F00C16B79 /* GPS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPS.swift; sourceTree = "<group>"; };
 		412C9FA21B1E205F00C16B79 /* Speed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speed.swift; sourceTree = "<group>"; };
 		412C9FA41B1E205F00C16B79 /* Battery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Battery.swift; sourceTree = "<group>"; };
-		412C9FBF1B1E2D0A00C16B79 /* PlotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlotView.swift; path = ../../../_alt/iPadFirefly1/FireflyApp/FireflyApp/PlotView.swift; sourceTree = "<group>"; };
-		412C9FC11B1E2D4B00C16B79 /* ControlDBModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ControlDBModel.swift; path = ../../../_alt/iPadFirefly1/FireflyApp/FireflyApp/ControlDBModel.swift; sourceTree = "<group>"; };
-		412C9FC21B1E2D4B00C16B79 /* ControlTestDatenModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ControlTestDatenModel.swift; path = ../../../_alt/iPadFirefly1/FireflyApp/FireflyApp/ControlTestDatenModel.swift; sourceTree = "<group>"; };
 		412C9FC51B1E2D5A00C16B79 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentViewController.swift; path = ../../../_alt/iPadFirefly1/FireflyApp/FireflyApp/ContentViewController.swift; sourceTree = "<group>"; };
-		412C9FC71B1E2D9500C16B79 /* BatterieTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BatterieTableViewController.swift; path = ../../../_alt/iPadFirefly1/FireflyApp/FireflyApp/BatterieTableViewController.swift; sourceTree = "<group>"; };
-		412C9FC81B1E2D9500C16B79 /* CategorieTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategorieTableViewController.swift; path = ../../../_alt/iPadFirefly1/FireflyApp/FireflyApp/CategorieTableViewController.swift; sourceTree = "<group>"; };
-		412C9FC91B1E2D9500C16B79 /* GPSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GPSViewController.swift; path = ../../../_alt/iPadFirefly1/FireflyApp/FireflyApp/GPSViewController.swift; sourceTree = "<group>"; };
-		412C9FCA1B1E2D9500C16B79 /* LogTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogTableViewController.swift; path = ../../../_alt/iPadFirefly1/FireflyApp/FireflyApp/LogTableViewController.swift; sourceTree = "<group>"; };
-		412C9FCB1B1E2D9500C16B79 /* PicturesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PicturesViewController.swift; path = ../../../_alt/iPadFirefly1/FireflyApp/FireflyApp/PicturesViewController.swift; sourceTree = "<group>"; };
-		412C9FCC1B1E2D9500C16B79 /* PlotterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlotterViewController.swift; path = ../../../_alt/iPadFirefly1/FireflyApp/FireflyApp/PlotterViewController.swift; sourceTree = "<group>"; };
-		412C9FD31B1E2E8500C16B79 /* ControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlViewController.swift; sourceTree = "<group>"; };
+		412C9FD51B1E388C00C16B79 /* GPSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPSViewController.swift; sourceTree = "<group>"; };
+		412C9FD61B1E388C00C16B79 /* PicturesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicturesViewController.swift; sourceTree = "<group>"; };
+		412C9FD71B1E388C00C16B79 /* PlotterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotterViewController.swift; sourceTree = "<group>"; };
+		412C9FD81B1E388C00C16B79 /* ControlDBModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlDBModel.swift; sourceTree = "<group>"; };
+		412C9FD91B1E388C00C16B79 /* ControlTestDatenModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlTestDatenModel.swift; sourceTree = "<group>"; };
+		412C9FDA1B1E388C00C16B79 /* BatterieTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatterieTableViewController.swift; sourceTree = "<group>"; };
+		412C9FE11B1E38AD00C16B79 /* PlotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotView.swift; sourceTree = "<group>"; };
+		412C9FE31B1E38C100C16B79 /* LogTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogTableViewController.swift; sourceTree = "<group>"; };
+		412C9FE51B1E38F800C16B79 /* CategorieTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorieTableViewController.swift; sourceTree = "<group>"; };
+		412C9FE71B1E393A00C16B79 /* ControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlViewController.swift; sourceTree = "<group>"; };
 		414BD53B1B0FF348000E4F1F /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		41EB77111B1153C600A1732B /* Waypoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Waypoint.swift; sourceTree = "<group>"; };
 		FE00CBB11B0BC02D00D79628 /* CallOutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CallOutView.xib; sourceTree = "<group>"; };
@@ -128,8 +128,8 @@
 		412C9FBC1B1E25B900C16B79 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				412C9FC11B1E2D4B00C16B79 /* ControlDBModel.swift */,
-				412C9FC21B1E2D4B00C16B79 /* ControlTestDatenModel.swift */,
+				412C9FD81B1E388C00C16B79 /* ControlDBModel.swift */,
+				412C9FD91B1E388C00C16B79 /* ControlTestDatenModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -137,7 +137,7 @@
 		412C9FBD1B1E25BE00C16B79 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				412C9FBF1B1E2D0A00C16B79 /* PlotView.swift */,
+				412C9FE11B1E38AD00C16B79 /* PlotView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -154,12 +154,12 @@
 		414BD5441B0FF6DD000E4F1F /* Log */ = {
 			isa = PBXGroup;
 			children = (
-				412C9FC71B1E2D9500C16B79 /* BatterieTableViewController.swift */,
-				412C9FC81B1E2D9500C16B79 /* CategorieTableViewController.swift */,
-				412C9FC91B1E2D9500C16B79 /* GPSViewController.swift */,
-				412C9FCA1B1E2D9500C16B79 /* LogTableViewController.swift */,
-				412C9FCB1B1E2D9500C16B79 /* PicturesViewController.swift */,
-				412C9FCC1B1E2D9500C16B79 /* PlotterViewController.swift */,
+				412C9FD51B1E388C00C16B79 /* GPSViewController.swift */,
+				412C9FD61B1E388C00C16B79 /* PicturesViewController.swift */,
+				412C9FD71B1E388C00C16B79 /* PlotterViewController.swift */,
+				412C9FDA1B1E388C00C16B79 /* BatterieTableViewController.swift */,
+				412C9FE31B1E38C100C16B79 /* LogTableViewController.swift */,
+				412C9FE51B1E38F800C16B79 /* CategorieTableViewController.swift */,
 			);
 			name = Log;
 			sourceTree = "<group>";
@@ -169,7 +169,7 @@
 			children = (
 				414BD53B1B0FF348000E4F1F /* PageViewController.swift */,
 				412C9FC51B1E2D5A00C16B79 /* ContentViewController.swift */,
-				412C9FD31B1E2E8500C16B79 /* ControlViewController.swift */,
+				412C9FE71B1E393A00C16B79 /* ControlViewController.swift */,
 			);
 			name = LiveModus;
 			sourceTree = "<group>";
@@ -364,36 +364,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				412C9FC41B1E2D4B00C16B79 /* ControlTestDatenModel.swift in Sources */,
 				412C9FC61B1E2D5A00C16B79 /* ContentViewController.swift in Sources */,
 				0699CF4A1B1E15C100EF305E /* Picture.swift in Sources */,
-				412C9FD11B1E2D9500C16B79 /* PicturesViewController.swift in Sources */,
 				412C9F9F1B1E205E00C16B79 /* Log.swift in Sources */,
 				FE6DE7181B034606007617BA /* NetworkSender.swift in Sources */,
 				FEB3411A1B0BC75D00ACEB41 /* CallOutView.swift in Sources */,
+				412C9FDC1B1E388C00C16B79 /* PicturesViewController.swift in Sources */,
 				412C9FA51B1E205F00C16B79 /* Battery.swift in Sources */,
 				0699CF441B1E15C100EF305E /* Entry.swift in Sources */,
 				FE3BB5E51B15B5290045687C /* ytcpsocket.c in Sources */,
 				414BD5401B0FF348000E4F1F /* PageViewController.swift in Sources */,
 				0699CF401B1E15C000EF305E /* Course.swift in Sources */,
-				412C9FC01B1E2D0A00C16B79 /* PlotView.swift in Sources */,
-				412C9FD01B1E2D9500C16B79 /* LogTableViewController.swift in Sources */,
 				0699CF481B1E15C100EF305E /* Way_Point.swift in Sources */,
+				412C9FE41B1E38C100C16B79 /* LogTableViewController.swift in Sources */,
+				412C9FE61B1E38F800C16B79 /* CategorieTableViewController.swift in Sources */,
 				FE3BB5E01B15B4F10045687C /* ytcpsocket.swift in Sources */,
 				0699CF381B1E10C300EF305E /* NetworkReceiver.swift in Sources */,
 				FE6FB2521AFA1499009AE8ED /* AppDelegate.swift in Sources */,
+				412C9FDE1B1E388C00C16B79 /* ControlDBModel.swift in Sources */,
 				0699CF3A1B1E10E500EF305E /* GlobalVariable.swift in Sources */,
 				41EB77121B1153C600A1732B /* Waypoint.swift in Sources */,
-				412C9FD21B1E2D9500C16B79 /* PlotterViewController.swift in Sources */,
+				412C9FDB1B1E388C00C16B79 /* GPSViewController.swift in Sources */,
 				412C9FA31B1E205F00C16B79 /* Speed.swift in Sources */,
-				412C9FD41B1E2E8500C16B79 /* ControlViewController.swift in Sources */,
+				412C9FE81B1E393A00C16B79 /* ControlViewController.swift in Sources */,
 				FE411DB01B0C72F60079B7C3 /* WaypointView.swift in Sources */,
-				412C9FC31B1E2D4B00C16B79 /* ControlDBModel.swift in Sources */,
 				FE6FB2541AFA1499009AE8ED /* FirstViewController.swift in Sources */,
+				412C9FDD1B1E388C00C16B79 /* PlotterViewController.swift in Sources */,
 				FE3BB5E21B15B4FB0045687C /* ysocket.swift in Sources */,
-				412C9FCF1B1E2D9500C16B79 /* GPSViewController.swift in Sources */,
-				412C9FCE1B1E2D9500C16B79 /* CategorieTableViewController.swift in Sources */,
-				412C9FCD1B1E2D9500C16B79 /* BatterieTableViewController.swift in Sources */,
+				412C9FE21B1E38AD00C16B79 /* PlotView.swift in Sources */,
+				412C9FDF1B1E388C00C16B79 /* ControlTestDatenModel.swift in Sources */,
+				412C9FE01B1E388C00C16B79 /* BatterieTableViewController.swift in Sources */,
 				FE047DA01B0A1338003FF9C9 /* AFC1.xcdatamodeld in Sources */,
 				412C9FA11B1E205F00C16B79 /* GPS.swift in Sources */,
 			);
