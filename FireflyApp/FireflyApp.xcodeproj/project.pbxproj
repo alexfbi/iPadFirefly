@@ -17,7 +17,6 @@
 		412C9FA11B1E205F00C16B79 /* GPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FA01B1E205F00C16B79 /* GPS.swift */; };
 		412C9FA31B1E205F00C16B79 /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FA21B1E205F00C16B79 /* Speed.swift */; };
 		412C9FA51B1E205F00C16B79 /* Battery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FA41B1E205F00C16B79 /* Battery.swift */; };
-		412C9FC61B1E2D5A00C16B79 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FC51B1E2D5A00C16B79 /* ContentViewController.swift */; };
 		412C9FDB1B1E388C00C16B79 /* GPSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FD51B1E388C00C16B79 /* GPSViewController.swift */; };
 		412C9FDC1B1E388C00C16B79 /* PicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FD61B1E388C00C16B79 /* PicturesViewController.swift */; };
 		412C9FDD1B1E388C00C16B79 /* PlotterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FD71B1E388C00C16B79 /* PlotterViewController.swift */; };
@@ -30,6 +29,7 @@
 		412C9FE81B1E393A00C16B79 /* ControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FE71B1E393A00C16B79 /* ControlViewController.swift */; };
 		414BD5401B0FF348000E4F1F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BD53B1B0FF348000E4F1F /* PageViewController.swift */; };
 		41EB77121B1153C600A1732B /* Waypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB77111B1153C600A1732B /* Waypoint.swift */; };
+		41F9831C1B1E3C0200592590 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F9831B1B1E3C0200592590 /* ContentViewController.swift */; };
 		FE00CBB21B0BC02D00D79628 /* CallOutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE00CBB11B0BC02D00D79628 /* CallOutView.xib */; };
 		FE047D9D1B0A12F3003FF9C9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE047D9C1B0A12F3003FF9C9 /* CoreData.framework */; };
 		FE047DA01B0A1338003FF9C9 /* AFC1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE047D9E1B0A1338003FF9C9 /* AFC1.xcdatamodeld */; };
@@ -69,7 +69,6 @@
 		412C9FA01B1E205F00C16B79 /* GPS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPS.swift; sourceTree = "<group>"; };
 		412C9FA21B1E205F00C16B79 /* Speed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speed.swift; sourceTree = "<group>"; };
 		412C9FA41B1E205F00C16B79 /* Battery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Battery.swift; sourceTree = "<group>"; };
-		412C9FC51B1E2D5A00C16B79 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentViewController.swift; path = ../../../_alt/iPadFirefly1/FireflyApp/FireflyApp/ContentViewController.swift; sourceTree = "<group>"; };
 		412C9FD51B1E388C00C16B79 /* GPSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPSViewController.swift; sourceTree = "<group>"; };
 		412C9FD61B1E388C00C16B79 /* PicturesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicturesViewController.swift; sourceTree = "<group>"; };
 		412C9FD71B1E388C00C16B79 /* PlotterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotterViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +81,7 @@
 		412C9FE71B1E393A00C16B79 /* ControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlViewController.swift; sourceTree = "<group>"; };
 		414BD53B1B0FF348000E4F1F /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		41EB77111B1153C600A1732B /* Waypoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Waypoint.swift; sourceTree = "<group>"; };
+		41F9831B1B1E3C0200592590 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		FE00CBB11B0BC02D00D79628 /* CallOutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CallOutView.xib; sourceTree = "<group>"; };
 		FE047D9C1B0A12F3003FF9C9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FE047D9F1B0A1338003FF9C9 /* AFC1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AFC1.xcdatamodel; sourceTree = "<group>"; };
@@ -168,8 +168,8 @@
 			isa = PBXGroup;
 			children = (
 				414BD53B1B0FF348000E4F1F /* PageViewController.swift */,
-				412C9FC51B1E2D5A00C16B79 /* ContentViewController.swift */,
 				412C9FE71B1E393A00C16B79 /* ControlViewController.swift */,
+				41F9831B1B1E3C0200592590 /* ContentViewController.swift */,
 			);
 			name = LiveModus;
 			sourceTree = "<group>";
@@ -364,7 +364,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				412C9FC61B1E2D5A00C16B79 /* ContentViewController.swift in Sources */,
 				0699CF4A1B1E15C100EF305E /* Picture.swift in Sources */,
 				412C9F9F1B1E205E00C16B79 /* Log.swift in Sources */,
 				FE6DE7181B034606007617BA /* NetworkSender.swift in Sources */,
@@ -381,6 +380,7 @@
 				FE3BB5E01B15B4F10045687C /* ytcpsocket.swift in Sources */,
 				0699CF381B1E10C300EF305E /* NetworkReceiver.swift in Sources */,
 				FE6FB2521AFA1499009AE8ED /* AppDelegate.swift in Sources */,
+				41F9831C1B1E3C0200592590 /* ContentViewController.swift in Sources */,
 				412C9FDE1B1E388C00C16B79 /* ControlDBModel.swift in Sources */,
 				0699CF3A1B1E10E500EF305E /* GlobalVariable.swift in Sources */,
 				41EB77121B1153C600A1732B /* Waypoint.swift in Sources */,
