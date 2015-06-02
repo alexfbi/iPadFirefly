@@ -77,7 +77,7 @@ class WaypointView: MKPinAnnotationView, UITextFieldDelegate {
     }
     
     @IBAction func deleteButtonPressed(sender: AnyObject) {
-        self.mainView!.waypoints.removeAtIndex(waypoint!.waypointNumber - 1)
+        waypointsForMission.removeAtIndex(waypoint!.waypointNumber - 1)
         self.mainView!.mapView.removeAnnotation(waypoint)
         self.mainView!.waypointCounter--
         self.mainView!.updateNumeration()

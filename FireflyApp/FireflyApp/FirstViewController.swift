@@ -17,7 +17,8 @@ class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationM
     
     var locationManager = CLLocationManager()
     var waypointCounter = 0
-    var waypoints = [Waypoint]()
+    //var waypoints = [Waypoint]()
+    //var waypoints = waypointsForMission
     var locationWasSet = false
     var selectedAnnotationView:MKAnnotationView?
     
@@ -49,6 +50,11 @@ class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationM
         longPress.minimumPressDuration = 0.5
         
         mapView.addGestureRecognizer(longPress)
+        
+        // add waypoints after reload
+        for index in 0..<waypointsForMission.count {
+            self.mapView.addAnnotation(waypointsForMission[index])
+        }
     }
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
@@ -129,17 +135,17 @@ class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationM
             var touchPoint = gestureRecognizer.locationInView(self.mapView)
             var newCoord:CLLocationCoordinate2D = mapView.convertPoint(touchPoint, toCoordinateFromView: self.mapView)
             var newAnnotation = Waypoint(coordinate: newCoord, waypointNumber: ++waypointCounter)
-            waypoints.insert(newAnnotation, atIndex: waypointCounter-1)
+            waypointsForMission.insert(newAnnotation, atIndex: waypointCounter-1)
             self.mapView.addAnnotation(newAnnotation)
         }
     }
     
     func updateNumeration() {
-        let count = waypoints.count
+        let count = waypointsForMission.count
         waypointCounter = count
         if (count > 0) {
             for (var index = 0; index < count; index++) {
-                var annotation = waypoints[index] as Waypoint
+                var annotation = waypointsForMission[index] as Waypoint
                 annotation.title = "Waypoint " + String(index+1)
                 annotation.waypointNumber = index+1
             }
