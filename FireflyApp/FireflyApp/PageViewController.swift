@@ -12,8 +12,10 @@ import CoreData
 
 class PageViewController: UIViewController, UIPageViewControllerDataSource {
     
+    @IBOutlet weak var statusLabel: UILabel!
     var pageViewController: UIPageViewController!
     var pageTitel: NSArray!
+    
     var logs = [Log]()
     
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
