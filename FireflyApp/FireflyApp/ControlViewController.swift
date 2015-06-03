@@ -13,7 +13,8 @@ import CoreData
 
 
 
-class ControlViewController: UIViewController {
+class ControlViewController: UIViewController,MissionModelDelegate {
+    
     
     @IBOutlet weak var startSwitch: UISwitch!
     @IBOutlet weak var ImageView: UIImageView!
@@ -24,29 +25,65 @@ class ControlViewController: UIViewController {
     @IBOutlet weak var labelHeight: UILabel!
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var buttonCreateData: UIButton!
-  
+    
     var log:Log?
     
+    var buttonPressed = false
     var controlDBModell:ControlDBModel =  ControlDBModel()
     var controlTestDaten:ControlTestDatenModel = ControlTestDatenModel()
     
     
     var imageList = [UIImage]()
     
+    var countNumber = 1.0
     
-    let ANIMATIONDURATION: NSTimeInterval = 2
+    let ANIMATIONDURATION: NSTimeInterval = 5
     
    
     @IBAction func buttonCreateDataPressed(sender: AnyObject) {
      
         
-        controlTestDaten.createData()
+      //  controlTestDaten.createData()
+        
+      
+  //  }
+  //  @IBAction func buttonPressed(sender: AnyObject) {
+        
+        
+        
+        missionModel.name = "Mission"
+        
+        
+        
+        missionModel.gpsList.append(countNumber)
+        
+        //  var battery:Battery = Battery()
+        //   battery.value = countNumber
+      
+        
+        for i in 1...20{
+            missionModel.batterieList.append(countNumber)
+            missionModel.speedList.append(countNumber)
+            
+            
+            
+            let imageNameTmp = "\(countNumber % 10)"
+            
+            var image =  UIImage(named: imageNameTmp)
+            
+            if ( nil != image){
+                missionModel.imageList.append(image!)
+            }
+            ++countNumber
+  
+        }
+        
+        
     }
-    
     
     @IBAction func refreshButtonPressed(sender: AnyObject) {
         
-        
+   /*
         controlDBModell.loadDataFromDB()
         controlDBModell.loadImagesFromFolder()
         imageList =  controlDBModell.imageList
@@ -55,11 +92,48 @@ class ControlViewController: UIViewController {
         labelGPSx.text = controlDBModell.gpsToString()
         labelSpeed.text = controlDBModell.speedToString()
         
+     */
         
-        startAnimation()
+        
+       
+     //   startAnimation()
     }
     
-
+    
+    
+    var missionModel:MissionModel = MissionModel()
+        {//1 -- instantiate a model object, for didSet need to define
+        didSet{ //any change to the class, but not the properties
+            displayData()
+        }
+    }
+    
+    
+    func displayData() {
+       
+        imageList = missionModel.imageList
+      
+        if( imageList.count == 100 )
+        {
+            startAnimation()
+        }
+        
+        
+        
+        let displayString = missionModel.batterieList.last
+        
+        labelBatterie.text = String(stringInterpolationSegment: displayString)
+        
+        
+        let displayGpsX = missionModel.gpsList.last
+        
+        labelGPSx.text = String(stringInterpolationSegment: displayGpsX)
+        
+        
+        let displaySpeed = missionModel.speedList.last
+        
+        labelSpeed.text = String(stringInterpolationSegment: displaySpeed)
+    }
     
     
     override func viewDidLoad() {
@@ -68,7 +142,7 @@ class ControlViewController: UIViewController {
    
         
         self.startSwitch.on = false
-     
+        missionModel.delegate = self
     }
     
     

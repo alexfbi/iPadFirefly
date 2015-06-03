@@ -20,7 +20,7 @@ class ControlDBModel {
 
     var log : Log?
     
-
+    
    
 
     var pictureCountOld:Int
@@ -30,6 +30,7 @@ class ControlDBModel {
 
     init(){
       
+        self.batterieList = [Battery]()
         self.pictureCountOld = 0
         
         let fetchRequest = NSFetchRequest(entityName: "Log")
@@ -37,8 +38,8 @@ class ControlDBModel {
         log = logs.last
         
         if log != nil{
-            loadDataFromDB(log!)
-            loadImagesFromFolder()
+       //     loadDataFromDB(log!)
+         //   loadImagesFromFolder()
         }
         
     }
@@ -69,22 +70,30 @@ class ControlDBModel {
         fetchRequestSpeed.predicate = NSPredicate(format: "log = %@", log!)
         
         speedList = context?.executeFetchRequest(fetchRequestSpeed, error: nil) as! [Speed]
-        }}
+        }
+        else
+            {
+                NSLog("%@", "loadDataFromDB fehler")
+            }
+    
+    
+    }
 
     func loadDataFromDB(log: Log) -> Bool{
     
     self.log = log
         
-    if (self.log == nil){
+    if (self.log != nil){
         
-    return false
+        loadDataFromDB()
+        
+        return true
         
         
     }
  
-    loadDataFromDB()
-    
-    return true
+  
+         return false
 }
     
     func batterieToString() -> String{

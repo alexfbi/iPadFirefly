@@ -30,6 +30,7 @@
 		414BD5401B0FF348000E4F1F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BD53B1B0FF348000E4F1F /* PageViewController.swift */; };
 		41EB77121B1153C600A1732B /* Waypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB77111B1153C600A1732B /* Waypoint.swift */; };
 		41F9831C1B1E3C0200592590 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F9831B1B1E3C0200592590 /* ContentViewController.swift */; };
+		41F9838F1B1E9F9500592590 /* MissionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F9838E1B1E9F9500592590 /* MissionModel.swift */; };
 		FE00CBB21B0BC02D00D79628 /* CallOutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE00CBB11B0BC02D00D79628 /* CallOutView.xib */; };
 		FE047D9D1B0A12F3003FF9C9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE047D9C1B0A12F3003FF9C9 /* CoreData.framework */; };
 		FE047DA01B0A1338003FF9C9 /* AFC1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE047D9E1B0A1338003FF9C9 /* AFC1.xcdatamodeld */; };
@@ -82,6 +83,7 @@
 		414BD53B1B0FF348000E4F1F /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		41EB77111B1153C600A1732B /* Waypoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Waypoint.swift; sourceTree = "<group>"; };
 		41F9831B1B1E3C0200592590 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		41F9838E1B1E9F9500592590 /* MissionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionModel.swift; sourceTree = "<group>"; };
 		FE00CBB11B0BC02D00D79628 /* CallOutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CallOutView.xib; sourceTree = "<group>"; };
 		FE047D9C1B0A12F3003FF9C9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FE047D9F1B0A1338003FF9C9 /* AFC1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AFC1.xcdatamodel; sourceTree = "<group>"; };
@@ -129,7 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				412C9FD81B1E388C00C16B79 /* ControlDBModel.swift */,
-				412C9FD91B1E388C00C16B79 /* ControlTestDatenModel.swift */,
+				41F9838E1B1E9F9500592590 /* MissionModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -145,15 +147,6 @@
 		412C9FBE1B1E25CB00C16B79 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				414BD5441B0FF6DD000E4F1F /* Log */,
-				414BD5451B0FF6F8000E4F1F /* LiveModus */,
-			);
-			name = Controller;
-			sourceTree = "<group>";
-		};
-		414BD5441B0FF6DD000E4F1F /* Log */ = {
-			isa = PBXGroup;
-			children = (
 				412C9FD51B1E388C00C16B79 /* GPSViewController.swift */,
 				412C9FD61B1E388C00C16B79 /* PicturesViewController.swift */,
 				412C9FD71B1E388C00C16B79 /* PlotterViewController.swift */,
@@ -161,17 +154,70 @@
 				412C9FE31B1E38C100C16B79 /* LogTableViewController.swift */,
 				412C9FE51B1E38F800C16B79 /* CategorieTableViewController.swift */,
 			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		414BD5441B0FF6DD000E4F1F /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				41F983211B1E530C00592590 /* TestDaten */,
+				412C9FBC1B1E25B900C16B79 /* Model */,
+				412C9FBD1B1E25BE00C16B79 /* View */,
+				412C9FBE1B1E25CB00C16B79 /* Controller */,
+			);
 			name = Log;
 			sourceTree = "<group>";
 		};
-		414BD5451B0FF6F8000E4F1F /* LiveModus */ = {
+		41F9831D1B1E50B200592590 /* ControlLiveModus */ = {
+			isa = PBXGroup;
+			children = (
+				41F9831E1B1E50D600592590 /* Controller */,
+			);
+			name = ControlLiveModus;
+			sourceTree = "<group>";
+		};
+		41F9831E1B1E50D600592590 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				414BD53B1B0FF348000E4F1F /* PageViewController.swift */,
 				412C9FE71B1E393A00C16B79 /* ControlViewController.swift */,
 				41F9831B1B1E3C0200592590 /* ContentViewController.swift */,
 			);
-			name = LiveModus;
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		41F9831F1B1E51DE00592590 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				FE6FB2531AFA1499009AE8ED /* FirstViewController.swift */,
+				FE00CBB11B0BC02D00D79628 /* CallOutView.xib */,
+				FEB341191B0BC75D00ACEB41 /* CallOutView.swift */,
+				FE411DAF1B0C72F60079B7C3 /* WaypointView.swift */,
+				41EB77111B1153C600A1732B /* Waypoint.swift */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		41F983201B1E520800592590 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				0699CF391B1E10E500EF305E /* GlobalVariable.swift */,
+				0699CF371B1E10C300EF305E /* NetworkReceiver.swift */,
+				FE6DE7171B034606007617BA /* NetworkSender.swift */,
+				FE3BB5DF1B15B4F10045687C /* ytcpsocket.swift */,
+				FE3BB5E11B15B4FB0045687C /* ysocket.swift */,
+				FE3BB5E41B15B5290045687C /* ytcpsocket.c */,
+				FE3BB5E31B15B5280045687C /* FireflyApp-Bridging-Header.h */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		41F983211B1E530C00592590 /* TestDaten */ = {
+			isa = PBXGroup;
+			children = (
+				412C9FD91B1E388C00C16B79 /* ControlTestDatenModel.swift */,
+			);
+			name = TestDaten;
 			sourceTree = "<group>";
 		};
 		FE047DA11B0A156D003FF9C9 /* ManagedObjects */ = {
@@ -212,25 +258,14 @@
 		FE6FB24E1AFA1499009AE8ED /* FireflyApp */ = {
 			isa = PBXGroup;
 			children = (
-				412C9FBE1B1E25CB00C16B79 /* Controller */,
-				412C9FBD1B1E25BE00C16B79 /* View */,
-				412C9FBC1B1E25B900C16B79 /* Model */,
+				41F9831F1B1E51DE00592590 /* Map */,
+				41F983201B1E520800592590 /* Network */,
+				41F9831D1B1E50B200592590 /* ControlLiveModus */,
+				414BD5441B0FF6DD000E4F1F /* Log */,
 				FE047DA11B0A156D003FF9C9 /* ManagedObjects */,
 				FE6FB2511AFA1499009AE8ED /* AppDelegate.swift */,
-				FE6FB2531AFA1499009AE8ED /* FirstViewController.swift */,
-				0699CF371B1E10C300EF305E /* NetworkReceiver.swift */,
-				FE6DE7171B034606007617BA /* NetworkSender.swift */,
-				41EB77111B1153C600A1732B /* Waypoint.swift */,
 				FE6FB2571AFA1499009AE8ED /* Main.storyboard */,
 				FE6FB24F1AFA1499009AE8ED /* Supporting Files */,
-				FE00CBB11B0BC02D00D79628 /* CallOutView.xib */,
-				FEB341191B0BC75D00ACEB41 /* CallOutView.swift */,
-				FE411DAF1B0C72F60079B7C3 /* WaypointView.swift */,
-				FE3BB5DF1B15B4F10045687C /* ytcpsocket.swift */,
-				FE3BB5E11B15B4FB0045687C /* ysocket.swift */,
-				FE3BB5E41B15B5290045687C /* ytcpsocket.c */,
-				FE3BB5E31B15B5280045687C /* FireflyApp-Bridging-Header.h */,
-				0699CF391B1E10E500EF305E /* GlobalVariable.swift */,
 			);
 			path = FireflyApp;
 			sourceTree = "<group>";
@@ -369,6 +404,7 @@
 				FE6DE7181B034606007617BA /* NetworkSender.swift in Sources */,
 				FEB3411A1B0BC75D00ACEB41 /* CallOutView.swift in Sources */,
 				412C9FDC1B1E388C00C16B79 /* PicturesViewController.swift in Sources */,
+				41F9838F1B1E9F9500592590 /* MissionModel.swift in Sources */,
 				412C9FA51B1E205F00C16B79 /* Battery.swift in Sources */,
 				0699CF441B1E15C100EF305E /* Entry.swift in Sources */,
 				FE3BB5E51B15B5290045687C /* ytcpsocket.c in Sources */,

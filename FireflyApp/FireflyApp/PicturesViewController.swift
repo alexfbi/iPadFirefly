@@ -19,7 +19,7 @@ class PicturesViewController: ContentViewController {
     var imageList = [UIImage]()
     var pictures  = [Picture]()
     
-    let ANIMATIONDURATION: NSTimeInterval = 2
+    let ANIMATIONDURATION: NSTimeInterval = 10
    
     var controlDBModell:ControlDBModel =  ControlDBModel()
 
@@ -31,7 +31,10 @@ class PicturesViewController: ContentViewController {
     
     
     @IBAction func playButtonPressed(sender: AnyObject) {
-    
+        
+        controlDBModell.loadDataFromDB(log)
+        controlDBModell.loadImagesFromFolder()
+        imageList =  controlDBModell.imageList
     startAnimation()
     }
    
@@ -40,9 +43,7 @@ class PicturesViewController: ContentViewController {
         super.viewDidLoad()
         title = "Pictures"
         // Do any additional setup after loading the view, typically from a nib.
-        controlDBModell.loadDataFromDB(log)
-        controlDBModell.loadImagesFromFolder()
-        imageList =  controlDBModell.imageList
+       
      
     }
     
