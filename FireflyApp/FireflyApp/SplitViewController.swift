@@ -13,7 +13,7 @@ class SplitViewController: UISplitViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.viewControllers.append(self.storyboard?.instantiateViewControllerWithIdentifier("masterViewTab") as! UITabBarController)
+        self.viewControllers.append(self.storyboard?.instantiateViewControllerWithIdentifier("masterViewNavigation") as! UINavigationController)
         self.viewControllers.append(self.storyboard?.instantiateViewControllerWithIdentifier("detailView") as! UINavigationController)
     }
     

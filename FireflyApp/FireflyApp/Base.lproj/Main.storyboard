@@ -406,10 +406,27 @@
             </objects>
             <point key="canvasLocation" x="700" y="1007"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vCJ-ZG-Vay">
+            <objects>
+                <navigationController storyboardIdentifier="masterViewNavigation" id="EL8-xr-0Yt" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wz0-ov-iDe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="8n3-Hl-T1H" kind="relationship" relationship="rootViewController" id="1SE-AI-HtH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7OK-jl-gtS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="219" y="-897"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Kj5-jN-JVX">
             <objects>
                 <tabBarController storyboardIdentifier="masterViewTab" id="8n3-Hl-T1H" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ldh-y8-bfk"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="iej-h3-fi1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
