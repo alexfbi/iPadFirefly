@@ -13,3 +13,6 @@ var holdSockets: String = "yes"
 var isDroneInMission: String = "no"
 var droneCommand: String = ""
 var waypointsForMission: [Waypoint] = [Waypoint]()
+var counter: Int = 0
+var pictureCounter: Int = 0
+var ip: String = "141.100.74.221"

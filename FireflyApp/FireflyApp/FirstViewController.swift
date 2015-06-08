@@ -55,6 +55,11 @@ class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationM
         for index in 0..<waypointsForMission.count {
             self.mapView.addAnnotation(waypointsForMission[index])
         }
+    
+    
+     //Linien zeichnen
+        createPolyline()
+
     }
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
