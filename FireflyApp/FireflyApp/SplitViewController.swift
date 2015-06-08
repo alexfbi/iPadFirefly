@@ -3,7 +3,7 @@
 //  FireflyApp
 //
 //  Created by Alexander Zeier on 03.06.15.
-//  Copyright (c) 2015 Hochschule Darmstadt. All rights reserved.
+//  Copyright (c) 2015 Hochschule Darmstadt. All rights reserved...
 //
 
 import UIKit

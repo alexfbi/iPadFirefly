@@ -30,6 +30,7 @@
 		412C9FE61B1E38F800C16B79 /* CategorieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FE51B1E38F800C16B79 /* CategorieTableViewController.swift */; };
 		412C9FE81B1E393A00C16B79 /* ControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FE71B1E393A00C16B79 /* ControlViewController.swift */; };
 		414BD5401B0FF348000E4F1F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BD53B1B0FF348000E4F1F /* PageViewController.swift */; };
+		416D2A621B259D99006A9BF0 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416D2A611B259D99006A9BF0 /* SplitViewController.swift */; };
 		41EB77121B1153C600A1732B /* Waypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB77111B1153C600A1732B /* Waypoint.swift */; };
 		41F9831C1B1E3C0200592590 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F9831B1B1E3C0200592590 /* ContentViewController.swift */; };
 		41F9838F1B1E9F9500592590 /* MissionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F9838E1B1E9F9500592590 /* MissionModel.swift */; };
@@ -84,6 +85,7 @@
 		412C9FE51B1E38F800C16B79 /* CategorieTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorieTableViewController.swift; sourceTree = "<group>"; };
 		412C9FE71B1E393A00C16B79 /* ControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlViewController.swift; sourceTree = "<group>"; };
 		414BD53B1B0FF348000E4F1F /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		416D2A611B259D99006A9BF0 /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		41EB77111B1153C600A1732B /* Waypoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Waypoint.swift; sourceTree = "<group>"; };
 		41F9831B1B1E3C0200592590 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		41F9838E1B1E9F9500592590 /* MissionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionModel.swift; sourceTree = "<group>"; };
@@ -197,10 +199,10 @@
 		41F9831E1B1E50D600592590 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				416D2A611B259D99006A9BF0 /* SplitViewController.swift */,
 				414BD53B1B0FF348000E4F1F /* PageViewController.swift */,
 				412C9FE71B1E393A00C16B79 /* ControlViewController.swift */,
 				41F9831B1B1E3C0200592590 /* ContentViewController.swift */,
-				FE6F3A891B1F156D008B8E06 /* SplitViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -434,6 +436,7 @@
 				412C9FE41B1E38C100C16B79 /* LogTableViewController.swift in Sources */,
 				412C9FE61B1E38F800C16B79 /* CategorieTableViewController.swift in Sources */,
 				FE3BB5E01B15B4F10045687C /* ytcpsocket.swift in Sources */,
+				416D2A621B259D99006A9BF0 /* SplitViewController.swift in Sources */,
 				FE6FB2521AFA1499009AE8ED /* AppDelegate.swift in Sources */,
 				41F9831C1B1E3C0200592590 /* ContentViewController.swift in Sources */,
 				412C9FDE1B1E388C00C16B79 /* ControlDBModel.swift in Sources */,

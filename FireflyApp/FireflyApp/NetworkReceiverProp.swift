@@ -17,7 +17,7 @@ class NetworkRecProp {
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     func start(){
-        var server:TCPServer = TCPServer(addr: "192.168.1.30", port: 50000)
+        var server:TCPServer = TCPServer(addr: "127.0.0.0", port: 50000)
         println("Server started")
         var (success,msg)=server.listen()
         if success{

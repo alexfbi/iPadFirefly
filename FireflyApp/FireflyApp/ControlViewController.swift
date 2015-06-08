@@ -183,7 +183,6 @@ class ControlViewController: UIViewController,MissionModelDelegate,PlotViewDataS
         
     }
     
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         var destination = segue.destinationViewController as? UIViewController
