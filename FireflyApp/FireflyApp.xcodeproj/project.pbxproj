@@ -38,6 +38,7 @@
 		FE3BB5E21B15B4FB0045687C /* ysocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3BB5E11B15B4FB0045687C /* ysocket.swift */; };
 		FE3BB5E51B15B5290045687C /* ytcpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = FE3BB5E41B15B5290045687C /* ytcpsocket.c */; };
 		FE411DB01B0C72F60079B7C3 /* WaypointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE411DAF1B0C72F60079B7C3 /* WaypointView.swift */; };
+		FE5146EE1B25942500F5FA3C /* MasterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5146ED1B25942500F5FA3C /* MasterTableView.swift */; };
 		FE6DE7141B03443C007617BA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE6DE7131B03443C007617BA /* MapKit.framework */; };
 		FE6DE7181B034606007617BA /* NetworkSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6DE7171B034606007617BA /* NetworkSender.swift */; };
 		FE6F3A8A1B1F156D008B8E06 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6F3A891B1F156D008B8E06 /* SplitViewController.swift */; };
@@ -93,6 +94,7 @@
 		FE3BB5E31B15B5280045687C /* FireflyApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FireflyApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		FE3BB5E41B15B5290045687C /* ytcpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ytcpsocket.c; sourceTree = "<group>"; };
 		FE411DAF1B0C72F60079B7C3 /* WaypointView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaypointView.swift; sourceTree = "<group>"; };
+		FE5146ED1B25942500F5FA3C /* MasterTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterTableView.swift; sourceTree = "<group>"; };
 		FE6DE7131B03443C007617BA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FE6DE7171B034606007617BA /* NetworkSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSender.swift; sourceTree = "<group>"; };
 		FE6F3A891B1F156D008B8E06 /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				412C9FE71B1E393A00C16B79 /* ControlViewController.swift */,
 				41F9831B1B1E3C0200592590 /* ContentViewController.swift */,
 				FE6F3A891B1F156D008B8E06 /* SplitViewController.swift */,
+				FE5146ED1B25942500F5FA3C /* MasterTableView.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE5146EE1B25942500F5FA3C /* MasterTableView.swift in Sources */,
 				0699CF4A1B1E15C100EF305E /* Picture.swift in Sources */,
 				412C9F9F1B1E205E00C16B79 /* Log.swift in Sources */,
 				FE6DE7181B034606007617BA /* NetworkSender.swift in Sources */,

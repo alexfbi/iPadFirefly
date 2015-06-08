@@ -137,6 +137,7 @@ class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationM
             var newAnnotation = Waypoint(coordinate: newCoord, waypointNumber: ++waypointCounter)
             waypointsForMission.insert(newAnnotation, atIndex: waypointCounter-1)
             self.mapView.addAnnotation(newAnnotation)
+            NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
         }
     }
     
@@ -150,6 +151,7 @@ class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationM
                 annotation.waypointNumber = index+1
             }
         }
+        NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
     }
 
     override func didReceiveMemoryWarning() {
