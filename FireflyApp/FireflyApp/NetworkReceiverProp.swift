@@ -17,7 +17,7 @@ class NetworkRecProp {
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     func start(){
-        var server:TCPServer = TCPServer(addr: "141.100.74.72", port: 50000)
+        var server:TCPServer = TCPServer(addr: ip, port: 50000)
         println("Server started")
         var (success,msg)=server.listen()
         if success{
@@ -59,6 +59,7 @@ class NetworkRecProp {
             break;
         case "missionover":
             counter = 0
+            pictureCounter = 0
             isDroneInMission = "no"
             break;
         default:
@@ -72,15 +73,9 @@ class NetworkRecProp {
         var gpsArray = coordinates.componentsSeparatedByString(",")
         var newGPS = NSEntityDescription.insertNewObjectForEntityForName("GPS", inManagedObjectContext: self.context!) as! GPS
         newGPS.id = counter
-        
-        var gpsX:NSString = gpsArray[0] as! String
-        
-        newGPS.valueX =  gpsX.doubleValue //5//gpsArray[0] as! Double
-          gpsX = gpsArray[1] as! String
-        
-        newGPS.valueY =  gpsX.doubleValue //gpsArray[1] as! Double
-          gpsX = gpsArray[2] as! String
-        newGPS.valueZ =  gpsX.doubleValue // gpsArray[2] as! Double
+        newGPS.valueX = (gpsArray[0] as! NSString).doubleValue
+        newGPS.valueY = (gpsArray[1] as! NSString).doubleValue
+        newGPS.valueZ = (gpsArray[2] as! NSString).doubleValue
         newGPS.date = NSDate()
         newGPS.log = log
         self.context?.save(nil)

@@ -13,7 +13,7 @@ class NetworkSender {
     var buffersize:Int = 100
     
     func start(){
-        var server:TCPServer = TCPServer(addr: "141.100.74.72", port: 60000)
+        var server:TCPServer = TCPServer(addr: ip, port: 60000)
         println("Server started")
         var (success,msg)=server.listen()
         if success{

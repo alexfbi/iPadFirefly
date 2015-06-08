@@ -12,12 +12,12 @@ import CoreData
 
 class NetworkRecPicture {
     
-    var buffersize:Int = 100000
+    var buffersize:Int = 1000000
     
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     func start(){
-        var server:TCPServer = TCPServer(addr: "192.168.1.30", port: 50001)
+        var server:TCPServer = TCPServer(addr: ip, port: 50001)
         println("Server started")
         var (success,msg)=server.listen()
         if success{
@@ -53,34 +53,27 @@ class NetworkRecPicture {
         
         switch (msgArray[0] as! String) {
         case "picture":
-            //ToDo: save picture
             let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
                 .UserDomainMask, true)
-            
             let docsDir = dirPaths[0] as! String
             let newDir = docsDir.stringByAppendingPathComponent("/Images/\(log.id)")
+            let imageName = "/\(pictureCounter).png"
+            let pathToFile = newDir.stringByAppendingString(imageName)
             
+            let fileManager = NSFileManager.defaultManager()
+            fileManager.createDirectoryAtPath(newDir, withIntermediateDirectories: true, attributes: nil, error: nil)
             
-            // bild einlesen
-//            var image =  UIImage(named: imageNameTmp)
-            
-            
-//            let imageName = "/\(imageNameTmp).png"
-            
-            
-//            NSLog("%@", "ImageLogname: \(imageName)")
-            
-//            let pathToFile = newDir.stringByAppendingString( imageName)
-            
-            
+            var image = UIImage(data: msgArray[1] as! NSData)
+            var file = UIImagePNGRepresentation(image)
+            file.writeToFile(pathToFile, atomically: true)
             
             var newPicture = NSEntityDescription.insertNewObjectForEntityForName("Picture", inManagedObjectContext: self.context!) as! Picture
-            var str: String = msgArray[2] as! String
-            newPicture.id = str.toInt()!
+            newPicture.id = (msgArray[2] as! String).toInt()!
             newPicture.name = log.name
-            newPicture.path = ""
+            newPicture.path = pathToFile
             newPicture.log = log
             self.context?.save(nil)
+            pictureCounter++
             break;
         default:
             println("error in parser")
@@ -88,61 +81,4 @@ class NetworkRecPicture {
         }
     }
     
-    
-    private func writeImagesToFolder(log: Log){
-        
-        let fileManager = NSFileManager.defaultManager()
-        
-        
-        
-        let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-            .UserDomainMask, true)
-        
-        let docsDir = dirPaths[0] as! String
-        let newDir = docsDir.stringByAppendingPathComponent("/Images/\(log.id)")
-        
-        var error: NSError?
-        
-        
-        if !fileManager.createDirectoryAtPath(newDir, withIntermediateDirectories: true, attributes: nil, error: &error) {
-            
-            println("Failed to create dir: \(error!.localizedDescription)")
-        }
-        
-        
-//        var image =  UIImage(named: imageNameTmp)
-        
-        
-//        let imageName = "/\(imageNameTmp).png"
-        
-        
-//        NSLog("%@", "Logname: \(imageName)")
-        
-//        let pathToFile = newDir.stringByAppendingString( imageName)
-        
-        
-//        saveFileToDocumentsFolder( image!, pathToFile: pathToFile)
-    }
-    
-    private   func saveFileToDocumentsFolder(image: UIImage, pathToFile: String){
-        let fileManager = NSFileManager.defaultManager()
-        
-        
-        if (!fileManager.fileExistsAtPath(pathToFile) ) {
-            
-            var file = UIImagePNGRepresentation(image)
-            
-            let fileToBeWritten = file.writeToFile(pathToFile, atomically: true)
-            
-            
-            NSLog("%@", "file save true: \(fileToBeWritten)")
-            
-        }else
-        {
-            NSLog("%@", "file save false: \(pathToFile) ")
-            
-        }
-        
-        
-    }
 }
