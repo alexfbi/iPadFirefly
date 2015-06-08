@@ -42,15 +42,15 @@ class ControlViewController: UIViewController,MissionModelDelegate,PlotViewDataS
     
     let ANIMATIONDURATION: NSTimeInterval = 5
     
-   
+    
     @IBAction func buttonCreateDataPressed(sender: AnyObject) {
-     
         
-      //  controlTestDaten.createData()
         
-      
-  //  }
-  //  @IBAction func buttonPressed(sender: AnyObject) {
+        //  controlTestDaten.createData()
+        
+        
+        //  }
+        //  @IBAction func buttonPressed(sender: AnyObject) {
         
         
         
@@ -62,7 +62,7 @@ class ControlViewController: UIViewController,MissionModelDelegate,PlotViewDataS
         
         //  var battery:Battery = Battery()
         //   battery.value = countNumber
-      
+        
         
         for i in 1...20{
             missionModel.batterieList.append(countNumber)
@@ -78,7 +78,7 @@ class ControlViewController: UIViewController,MissionModelDelegate,PlotViewDataS
                 missionModel.imageList.append(image!)
             }
             ++countNumber
-  
+            
         }
         
         
@@ -102,7 +102,7 @@ class ControlViewController: UIViewController,MissionModelDelegate,PlotViewDataS
     
     
     func displayData() {
-       
+        
         imageList = missionModel.imageList
       
         if( imageList.count >= 100 )
@@ -147,7 +147,7 @@ class ControlViewController: UIViewController,MissionModelDelegate,PlotViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Control"
-   
+        
         
         self.startSwitch.on = false
         missionModel.delegate = self
@@ -169,12 +169,20 @@ class ControlViewController: UIViewController,MissionModelDelegate,PlotViewDataS
                 dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
                     networkSender.start()
                 }
+                var networkRecProp = NetworkRecProp()
+                dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
+                    networkRecProp.start()
+                }
+                var networkRecPicture = NetworkRecPicture()
+                dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
+                    networkRecPicture.start()
+                }
             }
-
+            
         }
-
+        
     }
-
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
@@ -202,18 +210,18 @@ class ControlViewController: UIViewController,MissionModelDelegate,PlotViewDataS
     
     
     func startAnimation() {
-            
-            NSLog("%@", "ANIMATIONDURATION: \(ANIMATIONDURATION) ")
-            NSLog("%@", "Animation started:  ")
-            ImageView.animationImages = imageList
-            ImageView.animationDuration = ANIMATIONDURATION
-            
-            
-            ImageView.animationRepeatCount = 1
         
-            ImageView.startAnimating()
-            
-    
+        NSLog("%@", "ANIMATIONDURATION: \(ANIMATIONDURATION) ")
+        NSLog("%@", "Animation started:  ")
+        ImageView.animationImages = imageList
+        ImageView.animationDuration = ANIMATIONDURATION
+        
+        
+        ImageView.animationRepeatCount = 1
+        
+        ImageView.startAnimating()
+        
+        
     }
 
 

@@ -13,3 +13,4 @@ var holdSockets: String = "yes"
 var isDroneInMission: String = "no"
 var droneCommand: String = ""
 var waypointsForMission: [Waypoint] = [Waypoint]()
+var counter: Int = 0
