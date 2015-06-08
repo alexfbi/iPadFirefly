@@ -17,7 +17,7 @@ class NetworkRecProp {
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     func start(){
-        var server:TCPServer = TCPServer(addr: "127.0.0.0", port: 50000)
+        var server:TCPServer = TCPServer(addr: "141.100.74.72", port: 50000)
         println("Server started")
         var (success,msg)=server.listen()
         if success{
@@ -72,9 +72,15 @@ class NetworkRecProp {
         var gpsArray = coordinates.componentsSeparatedByString(",")
         var newGPS = NSEntityDescription.insertNewObjectForEntityForName("GPS", inManagedObjectContext: self.context!) as! GPS
         newGPS.id = counter
-        newGPS.valueX = gpsArray[0] as! Double
-        newGPS.valueY = gpsArray[1] as! Double
-        newGPS.valueZ = gpsArray[2] as! Double
+        
+        var gpsX:NSString = gpsArray[0] as! String
+        
+        newGPS.valueX =  gpsX.doubleValue //5//gpsArray[0] as! Double
+          gpsX = gpsArray[1] as! String
+        
+        newGPS.valueY =  gpsX.doubleValue //gpsArray[1] as! Double
+          gpsX = gpsArray[2] as! String
+        newGPS.valueZ =  gpsX.doubleValue // gpsArray[2] as! Double
         newGPS.date = NSDate()
         newGPS.log = log
         self.context?.save(nil)
@@ -82,8 +88,8 @@ class NetworkRecProp {
     
     func saveBattery(charge: NSString, log: Log){
         var newBattery = NSEntityDescription.insertNewObjectForEntityForName("Battery", inManagedObjectContext: self.context!) as! Battery
-        var str: String = charge as! String
-        newBattery.value = str.toInt()!
+        var str: NSString = charge
+        newBattery.value = str.doubleValue
         newBattery.date = NSDate()
         newBattery.id = counter
         newBattery.log = log

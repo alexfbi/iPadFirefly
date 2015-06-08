@@ -73,7 +73,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VYA-8o-Mjk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2215.5" y="1527"/>
+            <point key="canvasLocation" x="-130.5" y="907.5"/>
         </scene>
         <!--Batterie Table View Controller-->
         <scene sceneID="rt2-rG-hfi">
@@ -422,7 +422,13 @@
             <objects>
                 <tabBarController storyboardIdentifier="masterViewTab" id="8n3-Hl-T1H" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ldh-y8-bfk">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="LGY-CS-kq0"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="LGY-CS-kq0">
+                            <connections>
+                                <segue destination="bNv-X5-ruF" kind="popoverPresentation" popoverAnchorBarButtonItem="LGY-CS-kq0" id="XWA-kY-i5e">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="iej-h3-fi1">
