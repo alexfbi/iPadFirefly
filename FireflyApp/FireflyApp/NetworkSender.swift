@@ -62,6 +62,7 @@ class NetworkSender {
         }
         c.send(str: message)
         counter = 0
+        pictureCounter = 0
         isDroneInMission = "yes"
     }
     

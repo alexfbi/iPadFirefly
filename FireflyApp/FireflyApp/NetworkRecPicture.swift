@@ -73,12 +73,12 @@ class NetworkRecPicture {
             newPicture.path = pathToFile
             newPicture.log = log
             self.context?.save(nil)
-            pictureCounter++
             break;
         default:
             println("error in parser")
             break;
         }
+        pictureCounter++
     }
     
 }
