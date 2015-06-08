@@ -39,15 +39,15 @@ class ControlViewController: UIViewController,MissionModelDelegate {
     
     let ANIMATIONDURATION: NSTimeInterval = 5
     
-   
+    
     @IBAction func buttonCreateDataPressed(sender: AnyObject) {
-     
         
-      //  controlTestDaten.createData()
         
-      
-  //  }
-  //  @IBAction func buttonPressed(sender: AnyObject) {
+        //  controlTestDaten.createData()
+        
+        
+        //  }
+        //  @IBAction func buttonPressed(sender: AnyObject) {
         
         
         
@@ -59,7 +59,7 @@ class ControlViewController: UIViewController,MissionModelDelegate {
         
         //  var battery:Battery = Battery()
         //   battery.value = countNumber
-      
+        
         
         for i in 1...20{
             missionModel.batterieList.append(countNumber)
@@ -75,7 +75,7 @@ class ControlViewController: UIViewController,MissionModelDelegate {
                 missionModel.imageList.append(image!)
             }
             ++countNumber
-  
+            
         }
         
         
@@ -83,7 +83,7 @@ class ControlViewController: UIViewController,MissionModelDelegate {
     
     @IBAction func refreshButtonPressed(sender: AnyObject) {
         
-   /*
+        /*
         controlDBModell.loadDataFromDB()
         controlDBModell.loadImagesFromFolder()
         imageList =  controlDBModell.imageList
@@ -92,11 +92,11 @@ class ControlViewController: UIViewController,MissionModelDelegate {
         labelGPSx.text = controlDBModell.gpsToString()
         labelSpeed.text = controlDBModell.speedToString()
         
-     */
+        */
         
         
-       
-     //   startAnimation()
+        
+        //   startAnimation()
     }
     
     
@@ -110,9 +110,9 @@ class ControlViewController: UIViewController,MissionModelDelegate {
     
     
     func displayData() {
-       
+        
         imageList = missionModel.imageList
-      
+        
         if( imageList.count == 100 )
         {
             startAnimation()
@@ -139,7 +139,7 @@ class ControlViewController: UIViewController,MissionModelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Control"
-   
+        
         
         self.startSwitch.on = false
         missionModel.delegate = self
@@ -161,25 +161,33 @@ class ControlViewController: UIViewController,MissionModelDelegate {
                 dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
                     networkSender.start()
                 }
+                var networkRecProp = NetworkRecProp()
+                dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
+                    networkRecProp.start()
+                }
+                var networkRecPicture = NetworkRecPicture()
+                dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
+                    networkRecPicture.start()
+                }
             }
-
+            
         }
-
+        
     }
-
+    
     
     func startAnimation() {
-            
-            NSLog("%@", "ANIMATIONDURATION: \(ANIMATIONDURATION) ")
-            NSLog("%@", "Animation started:  ")
-            ImageView.animationImages = imageList
-            ImageView.animationDuration = ANIMATIONDURATION
-            
-            
-            ImageView.animationRepeatCount = 1
         
-            ImageView.startAnimating()
-            
-    
+        NSLog("%@", "ANIMATIONDURATION: \(ANIMATIONDURATION) ")
+        NSLog("%@", "Animation started:  ")
+        ImageView.animationImages = imageList
+        ImageView.animationDuration = ANIMATIONDURATION
+        
+        
+        ImageView.animationRepeatCount = 1
+        
+        ImageView.startAnimating()
+        
+        
     }
 }
