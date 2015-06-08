@@ -133,7 +133,6 @@
 			isa = PBXGroup;
 			children = (
 				412C9FD81B1E388C00C16B79 /* ControlDBModel.swift */,
-				41F9838E1B1E9F9500592590 /* MissionModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -170,9 +169,26 @@
 			name = Log;
 			sourceTree = "<group>";
 		};
+		41D35E171B252FC8000303B4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				41F9838E1B1E9F9500592590 /* MissionModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		41D35E181B253025000303B4 /* Vew */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Vew;
+			sourceTree = "<group>";
+		};
 		41F9831D1B1E50B200592590 /* ControlLiveModus */ = {
 			isa = PBXGroup;
 			children = (
+				41D35E171B252FC8000303B4 /* Model */,
+				41D35E181B253025000303B4 /* Vew */,
 				41F9831E1B1E50D600592590 /* Controller */,
 			);
 			name = ControlLiveModus;

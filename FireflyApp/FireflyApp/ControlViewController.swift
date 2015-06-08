@@ -13,7 +13,7 @@ import CoreData
 
 
 
-class ControlViewController: UIViewController,MissionModelDelegate {
+class ControlViewController: UIViewController,MissionModelDelegate,PlotViewDataSource  {
     
     
     @IBOutlet weak var startSwitch: UISwitch!
@@ -27,6 +27,9 @@ class ControlViewController: UIViewController,MissionModelDelegate {
     @IBOutlet weak var buttonCreateData: UIButton!
     
     var log:Log?
+    
+    var batterieList = [Double]()
+    var gpsList = [GPS_Struct]()
     
     var buttonPressed = false
     var controlDBModell:ControlDBModel =  ControlDBModel()
@@ -55,7 +58,7 @@ class ControlViewController: UIViewController,MissionModelDelegate {
         
         
         
-        missionModel.gpsList.append(countNumber)
+        missionModel.gpsList.append(GPS_Struct(x: countNumber * 0.01, y: countNumber * 0.01, z:countNumber * 0.01))
         
         //  var battery:Battery = Battery()
         //   battery.value = countNumber
@@ -83,20 +86,9 @@ class ControlViewController: UIViewController,MissionModelDelegate {
     
     @IBAction func refreshButtonPressed(sender: AnyObject) {
         
-   /*
-        controlDBModell.loadDataFromDB()
-        controlDBModell.loadImagesFromFolder()
-        imageList =  controlDBModell.imageList
-        
-        labelBatterie.text = controlDBModell.batterieToString()
-        labelGPSx.text = controlDBModell.gpsToString()
-        labelSpeed.text = controlDBModell.speedToString()
-        
-     */
-        
-        
+ 
        
-     //   startAnimation()
+        startAnimation()
     }
     
     
@@ -113,7 +105,7 @@ class ControlViewController: UIViewController,MissionModelDelegate {
        
         imageList = missionModel.imageList
       
-        if( imageList.count == 100 )
+        if( imageList.count >= 100 )
         {
             startAnimation()
         }
@@ -125,13 +117,29 @@ class ControlViewController: UIViewController,MissionModelDelegate {
         labelBatterie.text = String(stringInterpolationSegment: displayString)
         
         
+        batterieList = missionModel.batterieList
+        
+        plotView.setNeedsDisplay()
+        
+        
+        
+        
         let displayGpsX = missionModel.gpsList.last
         
-        labelGPSx.text = String(stringInterpolationSegment: displayGpsX)
+        labelGPSx.text = String(stringInterpolationSegment: displayGpsX?.x)
         
+         labelGPSy.text = String(stringInterpolationSegment: displayGpsX?.y)
+       
+        labelHeight.text = String(stringInterpolationSegment: displayGpsX?.z)
+        
+        gpsList = missionModel.gpsList
+     
+        performSegueWithIdentifier("SetMap", sender: nil)
         
         let displaySpeed = missionModel.speedList.last
         
+        
+     
         labelSpeed.text = String(stringInterpolationSegment: displaySpeed)
     }
     
@@ -168,6 +176,31 @@ class ControlViewController: UIViewController,MissionModelDelegate {
     }
 
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        var destination = segue.destinationViewController as? UIViewController
+        if let navCon = destination as? UINavigationController {
+            destination = navCon.visibleViewController
+        }
+        
+        if let map = destination as? FirstViewController {
+            
+            if let identifier = segue.identifier {
+                switch identifier {
+                case "SetMap": map.gpsPositions = gpsList
+                    
+                default:
+                    NSLog("%@", "Fehler Segue SetMAP")
+ 
+                }
+               
+            }
+            
+        }
+        
+    }
+    
+    
     func startAnimation() {
             
             NSLog("%@", "ANIMATIONDURATION: \(ANIMATIONDURATION) ")
@@ -182,4 +215,65 @@ class ControlViewController: UIViewController,MissionModelDelegate {
             
     
     }
+
+
+
+    
+    
+    
+    
+    
+    @IBOutlet weak var plotView: PlotView!
+        {
+        didSet{
+              plotView.dataSource = self
+        }
+    }
+
+
+
+    //Im release rausnehmen
+  //  var oldeintraegeCount:Int = 0
+    
+    
+    func setPoints(sender: PlotView) -> [CGPoint?]
+        
+    {
+        var listPoints  = [CGPoint?]()
+        
+        
+        
+        let eintraegeCount = batterieList.count
+      
+        NSLog("%@", " eintraegeCount: \(batterieList.count) ")
+        if eintraegeCount > 0
+        {
+            
+            
+            for i in 0...eintraegeCount - 1
+            {
+             //   var date:NSDate = batterieList[i].date
+                
+                let x = CGFloat(i )
+                let y = CGFloat(  batterieList[i]   )
+                
+                let point = CGPoint(x: x, y: y)
+                
+                listPoints.append(point)
+                
+            }
+        }
+        
+     //   oldeintraegeCount = eintraegeCount
+        
+        NSLog("%@", " setPointsSize: \(listPoints.count) ")
+        return listPoints
+        
+    }
+    
+    
+    
+
+    
 }
+

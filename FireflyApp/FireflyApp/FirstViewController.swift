@@ -10,7 +10,17 @@ import UIKit
 import MapKit
 
 class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationManagerDelegate {
-
+    //
+    var gpsPositions:[GPS_Struct] = [GPS_Struct](){
+        
+        didSet{
+        //    gpsPositions =
+            
+            updateUI()
+        }
+        
+    }
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var startStopButton: UIButton!
     //@IBOutlet var calloutView: CallOutView!
@@ -55,6 +65,11 @@ class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationM
         for index in 0..<waypointsForMission.count {
             self.mapView.addAnnotation(waypointsForMission[index])
         }
+    
+    
+     //Linien zeichnen
+        createPolyline()
+
     }
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
@@ -156,6 +171,61 @@ class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationM
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+  
+    
+    func createPolyline() {
+        NSLog("%@", " createPolyLine: ")
+        
+        if (gpsPositions.count > 0){
+            
+            let location = CLLocationCoordinate2D(
+                latitude: gpsPositions[0].x,
+                longitude: gpsPositions[0].y)
+            
+            let span = MKCoordinateSpanMake(0.01, 0.01)
+            let region = MKCoordinateRegion(center: location, span: span)
+            
+            mapView.setRegion(region, animated: true)
+            
+            var locations = [CLLocation]()
+            
+            for i in 0...gpsPositions.count - 1 {
+                
+                locations += [CLLocation(latitude: gpsPositions[i].x, longitude:   gpsPositions[i].y)]
+                
+                
+            }
+            var coordinates = locations.map({(location: CLLocation!) -> CLLocationCoordinate2D in return location.coordinate})
+            
+            var polyline = MKPolyline(coordinates: &coordinates, count: locations.count)
+            
+            
+            
+            self.mapView.addOverlay(polyline)
+        }
+        
+        
+    }
+    
+    
+    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+        
+        NSLog("%@" ,"viewForOverlay");
+        
+        if (overlay is MKPolyline) {
+            var pr = MKPolylineRenderer(overlay: overlay);
+            pr.strokeColor = UIColor.redColor().colorWithAlphaComponent(0.5)
+            pr.lineWidth = 5
+            
+            return pr
+        }
+        
+        return nil
+    }
+    
+    func updateUI(){
+        
+        mapView?.setNeedsDisplay()
+    }
 }
 

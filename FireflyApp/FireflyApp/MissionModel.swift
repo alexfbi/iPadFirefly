@@ -15,7 +15,11 @@ protocol MissionModelDelegate{
     func displayData()
 }
 
-
+struct GPS_Struct{
+    var x:Double
+    var y:Double
+    var z:Double
+}
 
 class MissionModel:NSObject{
     
@@ -40,7 +44,9 @@ class MissionModel:NSObject{
             }
         }
     }
-    var gpsList:[Double] = [Double](){
+    
+    
+    var gpsList:[GPS_Struct] = [GPS_Struct](){
         didSet{
             delegate?.displayData()
         }
@@ -48,7 +54,13 @@ class MissionModel:NSObject{
     }
     var batterieList:[Double] = [Double](){
         didSet{
-            delegate?.displayData()
+            //delegate?.displayData()
+            
+            if batterieList.count == 100
+            {
+                delegate?.displayData()
+               batterieList.removeAll(keepCapacity: true)
+            }
         }
 
     }
