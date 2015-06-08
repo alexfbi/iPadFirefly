@@ -184,6 +184,7 @@
 				414BD53B1B0FF348000E4F1F /* PageViewController.swift */,
 				412C9FE71B1E393A00C16B79 /* ControlViewController.swift */,
 				41F9831B1B1E3C0200592590 /* ContentViewController.swift */,
+				FE6F3A891B1F156D008B8E06 /* SplitViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
