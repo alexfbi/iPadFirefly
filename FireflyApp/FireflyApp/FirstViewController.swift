@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationManagerDelegate, WaypointTableDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var startStopButton: UIButton!
@@ -157,6 +157,15 @@ class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationM
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // From WaypointTableDelegate
+    func deleteWaypoint(waypointNumber: Int) {
+        println("deleteWaypoint was called")
+    }
+    
+    func waypointWasSelected(waypointNumber: Int) {
+        mapView.selectAnnotation(waypointsForMission[waypointNumber], animated: true)
     }
 
 }

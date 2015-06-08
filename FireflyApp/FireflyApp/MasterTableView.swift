@@ -9,14 +9,16 @@
 import UIKit
 import MapKit
 
-//protocol waypointTableDelegate {
-//    func registerMapViewDelegate(view: MasterTableView);
-//}
+protocol WaypointTableDelegate: class {
+    func deleteWaypoint(waypointNumber: Int)
+    func waypointWasSelected(waypointNumber: Int)
+}
 
 class MasterTableView: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var tableView: UITableView!
     var refreshControl:UIRefreshControl!
+    weak var waypointTableDelegate:WaypointTableDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,5 +51,9 @@ class MasterTableView: UIViewController, UITableViewDelegate, UITableViewDataSou
     func refreshTable(notification: NSNotification) {
         println("Refreshing Table")
         self.tableView.reloadData()
+    }
+    
+    func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
+        waypointTableDelegate!.waypointWasSelected(indexPath.row)
     }
 }

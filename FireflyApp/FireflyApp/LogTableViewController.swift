@@ -153,17 +153,11 @@ class LogTableViewController: UITableViewController {
         
         
         override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-            if segue.identifier == "Categorie" {
                 
-                var indexPath  = tableView.indexPathForSelectedRow()!
-                
-                let kategorieVC = segue.destinationViewController as! CategorieTableViewController
-                
-                let log = logs[ indexPath.row ]
-                
-                kategorieVC.log = log
-                
-            }
+            var indexPath  = tableView.indexPathForSelectedRow()!
+            let kategorieVC = segue.destinationViewController as! SplitViewController
+            let log = logs[indexPath.row]
+            kategorieVC.log = log
         }
 }
 

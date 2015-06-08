@@ -50,7 +50,6 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
         
         self.setupPageControl()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationChanged", name: UIDeviceOrientationDidChangeNotification, object: nil)
-        orientationChanged()
     }
     
     private func setupPageControl() {
@@ -58,20 +57,6 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
         appearance.pageIndicatorTintColor = UIColor.lightGrayColor()
         appearance.currentPageIndicatorTintColor = UIColor.blueColor()
         appearance.backgroundColor = UIColor.whiteColor()
-    }
-    
-    func orientationChanged()
-    {
-        if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation))
-        {
-            showHideButton.hidden = false
-        }
-        
-        if(UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation))
-        {
-            showHideButton.hidden = true
-        }
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -83,55 +68,61 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
     func viewControllerAtindex(index: Int)  -> ContentViewController{
         
         
-        if((self.pageTitel.count == 0 )) || (index >= self.pageTitel.count)
-        {
-          
-            return ContentViewController()
-            
-        }
+//        if((self.pageTitel.count == 0 )) || (index >= self.pageTitel.count)
+//        {
         
-        
-        if (index == 0){
+            //return ContentViewController()
             var vc: ContentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Map") as! ContentViewController
             
             vc.log = logs.last
             vc.titelText = self.pageTitel[index] as! String
             vc.pageIndex = index
             return vc
-        }
-
+            
+        //}
         
         
-            
-        if (index == 1){
-            var vc: ContentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("GPS") as! ContentViewController
-            
-            vc.log = logs.last
-            vc.titelText = self.pageTitel[index] as! String
-            vc.pageIndex = index
-            return vc
-            
-        }
-        if (index == 2){
-            var vc: ContentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("BilderViewController") as! ContentViewController
-            
-          
-            vc.log =   logs.last
-            vc.titelText = self.pageTitel[index] as! String
-            vc.pageIndex = index
-            return vc
-            
-        }
-        
-        
-        if (index == 3){
-            var vc: ContentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Plotter") as! ContentViewController
-            
-            vc.log = logs.last
-            vc.titelText = self.pageTitel[index] as! String
-            vc.pageIndex = index
-            return vc
-        }
+//        if (index == 0){
+//            var vc: ContentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Map") as! ContentViewController
+//            
+//            vc.log = logs.last
+//            vc.titelText = self.pageTitel[index] as! String
+//            vc.pageIndex = index
+//            return vc
+//        }
+//
+//        
+//        
+//            
+//        if (index == 1){
+//            var vc: ContentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("GPS") as! ContentViewController
+//            
+//            vc.log = logs.last
+//            vc.titelText = self.pageTitel[index] as! String
+//            vc.pageIndex = index
+//            return vc
+//            
+//        }
+//        if (index == 2){
+//            var vc: ContentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("BilderViewController") as! ContentViewController
+//            
+//          
+//            vc.log =   logs.last
+//            vc.titelText = self.pageTitel[index] as! String
+//            vc.pageIndex = index
+//            return vc
+//            
+//        }
+//        
+//        
+//        if (index == 3){
+//            var vc: ContentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Plotter") as! ContentViewController
+//            
+//            vc.log = logs.last
+//            vc.titelText = self.pageTitel[index] as! String
+//            vc.pageIndex = index
+//            return vc
+//        }
         
       /*  if (index == 4){
             var vc: ContentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Status") as! ContentViewController
@@ -144,12 +135,12 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
 */
 
         
-        var vc: ContentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ContentViewController") as! ContentViewController
-        
-        
-        vc.titelText = self.pageTitel[index] as! String
-        vc.pageIndex = index
-        return vc
+//        var vc: ContentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ContentViewController") as! ContentViewController
+//        
+//        
+//        vc.titelText = self.pageTitel[index] as! String
+//        vc.pageIndex = index
+//        return vc
         
     }
  
