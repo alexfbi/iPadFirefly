@@ -23,6 +23,7 @@ class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationM
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var startStopButton: UIButton!
+    @IBOutlet weak var picturesFromDrone: UIImageView!
     //@IBOutlet var calloutView: CallOutView!
     
     var locationManager = CLLocationManager()

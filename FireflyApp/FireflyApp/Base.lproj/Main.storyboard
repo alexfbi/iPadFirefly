@@ -378,12 +378,21 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qvd-8r-DLg">
                                 <rect key="frame" x="-6" y="20" width="612" height="586"/>
                             </mapView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="11" translatesAutoresizingMaskIntoConstraints="NO" id="vdi-6a-cYY">
+                                <rect key="frame" x="360" y="64" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="11w-Ps-M55"/>
+                                    <constraint firstAttribute="height" constant="128" id="PwG-Uw-aIC"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="qvd-8r-DLg" secondAttribute="trailing" constant="-22" id="AmL-Tb-L2P"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vdi-6a-cYY" secondAttribute="trailing" constant="-16" id="O9T-Y9-x53"/>
                             <constraint firstAttribute="bottomMargin" secondItem="qvd-8r-DLg" secondAttribute="bottom" constant="-6" id="Tvh-Dh-Vza"/>
                             <constraint firstItem="qvd-8r-DLg" firstAttribute="leading" secondItem="T4R-Xh-fq8" secondAttribute="leadingMargin" constant="-22" id="VJh-UT-5XC"/>
+                            <constraint firstItem="vdi-6a-cYY" firstAttribute="top" secondItem="JrM-GW-fgc" secondAttribute="bottom" id="fyZ-5h-Yjy"/>
                             <constraint firstItem="qvd-8r-DLg" firstAttribute="top" secondItem="JrM-GW-fgc" secondAttribute="bottom" id="hWT-L3-ZEN"/>
                         </constraints>
                     </view>
@@ -391,6 +400,7 @@
                     <navigationItem key="navigationItem" id="04g-oR-hRd"/>
                     <connections>
                         <outlet property="mapView" destination="qvd-8r-DLg" id="KCZ-8V-xDQ"/>
+                        <outlet property="picturesFromDrone" destination="vdi-6a-cYY" id="KyI-eq-cZh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hjf-IM-WOl" sceneMemberID="firstResponder"/>
@@ -804,6 +814,7 @@
     </scenes>
     <resources>
         <image name="1" width="65" height="146"/>
+        <image name="11" width="650" height="405"/>
         <image name="3" width="54" height="141"/>
         <image name="6" width="63" height="176"/>
         <image name="7" width="75" height="153"/>
