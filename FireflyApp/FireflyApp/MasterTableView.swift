@@ -12,6 +12,7 @@ import MapKit
 protocol WaypointTableDelegate: class {
     func deleteWaypoint(waypointNumber: Int)
     func waypointWasSelected(waypointNumber: Int)
+    func waypointsWereReordered(waypointNumber: Int, toPosition: Int)
 }
 
 class MasterTableView: UIViewController, UITableViewDelegate, UITableViewDataSource{
@@ -26,6 +27,8 @@ class MasterTableView: UIViewController, UITableViewDelegate, UITableViewDataSou
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshTable:", name:"refresh", object: nil)
+        
+        self.tableView.setEditing(true, animated: true)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,4 +59,27 @@ class MasterTableView: UIViewController, UITableViewDelegate, UITableViewDataSou
     func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
         waypointTableDelegate!.waypointWasSelected(indexPath.row)
     }
+    
+    // Delete the waypoint item
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            waypointTableDelegate?.deleteWaypoint(indexPath.row)
+        }
+    }
+    
+    // Reorder the waypoint items
+    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        waypointTableDelegate?.waypointsWereReordered(sourceIndexPath.row, toPosition: destinationIndexPath.row)
+        self.tableView.reloadData()
+    }
+    
+    
 }

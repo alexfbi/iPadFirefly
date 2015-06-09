@@ -73,7 +73,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VYA-8o-Mjk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-130.5" y="907.5"/>
+            <point key="canvasLocation" x="-1355" y="787"/>
         </scene>
         <!--Batterie Table View Controller-->
         <scene sceneID="rt2-rG-hfi">
@@ -329,7 +329,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1N5-tv-rha" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-603" y="-1698"/>
+            <point key="canvasLocation" x="-1827" y="-2738"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="HbO-Kt-HSe">
@@ -348,7 +348,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yia-3C-5ol" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2241" y="695"/>
+            <point key="canvasLocation" x="2929" y="-225"/>
         </scene>
         <!--First-->
         <scene sceneID="QkK-eT-mQ4">
@@ -395,7 +395,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hjf-IM-WOl" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2438" y="1529"/>
+            <point key="canvasLocation" x="2929" y="721"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="FXw-lf-dWy">
@@ -414,7 +414,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="piX-mZ-82Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-26.25" y="1722"/>
+            <point key="canvasLocation" x="-1419" y="1722"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vCJ-ZG-Vay">
@@ -458,7 +458,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uhz-dv-MOX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1017" y="2"/>
+            <point key="canvasLocation" x="439" y="18"/>
         </scene>
         <!--Item-->
         <scene sceneID="saS-92-Ppo">
@@ -606,8 +606,20 @@
                                     <rect key="frame" x="104" y="549" width="96" height="22"/>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akn-gO-Ac4">
+                                <rect key="frame" x="251" y="194" width="47" height="30"/>
+                                <state key="normal" title="refresh">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="215" y="431" width="48" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="refreshButtonPressed:" destination="Mz8-WE-dfm" eventType="touchUpInside" id="8Cd-iu-u17"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qzy-vP-4mF" customClass="PlotView" customModule="FireflyApp" customModuleProvider="target">
-                                <rect key="frame" x="15" y="276" width="295" height="227"/>
+                                <rect key="frame" x="63" y="268" width="295" height="227"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="16" y="276" width="262" height="98"/>
@@ -687,18 +699,6 @@
                                     <rect key="frame" x="16" y="400" width="262" height="29"/>
                                 </variation>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akn-gO-Ac4">
-                                <rect key="frame" x="251" y="194" width="47" height="30"/>
-                                <state key="normal" title="refresh">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="215" y="431" width="48" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="refreshButtonPressed:" destination="Mz8-WE-dfm" eventType="touchUpInside" id="8Cd-iu-u17"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -745,9 +745,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Tg-Wd-FFV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1389" y="1377"/>
+            <point key="canvasLocation" x="989" y="1417"/>
         </scene>
-        <!--Item-->
+        <!--Waypoints-->
         <scene sceneID="6fT-8F-8Ia">
             <objects>
                 <viewController storyboardIdentifier="masterTableView" id="6Iq-Hg-Wr1" customClass="MasterTableView" customModule="FireflyApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -776,14 +776,14 @@
                             <constraint firstItem="MzD-66-WPN" firstAttribute="leading" secondItem="iM2-rK-8Jp" secondAttribute="leadingMargin" constant="-16" id="gCX-PG-sO2"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="ZGB-cG-IPT"/>
+                    <tabBarItem key="tabBarItem" title="Waypoints" image="second" id="ZGB-cG-IPT"/>
                     <connections>
                         <outlet property="tableView" destination="MzD-66-WPN" id="t11-7m-ohI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZI8-1d-YQv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="615" y="943"/>
+            <point key="canvasLocation" x="-49" y="1447"/>
         </scene>
     </scenes>
     <resources>

@@ -173,12 +173,6 @@ class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationM
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-  
-    
-    // From WaypointTableDelegate
-    func deleteWaypoint(waypointNumber: Int) {
-        println("deleteWaypoint was called")
-    }
     
     func createPolyline() {
         NSLog("%@", " createPolyLine: ")
@@ -212,10 +206,6 @@ class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationM
         }
     }
     
-    func waypointWasSelected(waypointNumber: Int) {
-        mapView.selectAnnotation(waypointsForMission[waypointNumber], animated: true)
-    }
-    
     func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
         
         NSLog("%@" ,"viewForOverlay");
@@ -230,11 +220,31 @@ class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationM
         
         return nil
     }
-
+    
     
     func updateUI(){
         
         mapView?.setNeedsDisplay()
+    }
+    
+    // From WaypointTableDelegate
+    func deleteWaypoint(waypointNumber: Int) {
+        self.mapView.removeAnnotation(waypointsForMission[waypointNumber])
+        self.waypointCounter--
+        waypointsForMission.removeAtIndex(waypointNumber)
+        self.updateNumeration()
+        
+    }
+    
+    func waypointWasSelected(waypointNumber: Int) {
+        mapView.selectAnnotation(waypointsForMission[waypointNumber], animated: true)
+    }
+    
+    func waypointsWereReordered(waypointNumber: Int, toPosition: Int) {
+        var reorderedWaypoint = waypointsForMission[waypointNumber]
+        waypointsForMission.removeAtIndex(waypointNumber)
+        waypointsForMission.insert(reorderedWaypoint, atIndex: toPosition)
+        self.updateNumeration()
     }
 }
 
