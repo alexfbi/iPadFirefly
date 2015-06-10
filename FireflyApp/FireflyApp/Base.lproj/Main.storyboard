@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bNv-X5-ruF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ero-Kv-a04">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -34,7 +34,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="ero-Kv-a04" kind="showDetail" identifier="" id="nNG-Jt-WDJ"/>
+                                    <segue destination="eqt-0V-xz9" kind="show" identifier="Categorie" id="CiM-n7-1Kh"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -56,7 +56,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ern-3Z-kWK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1563" y="-1693"/>
+            <point key="canvasLocation" x="-1563" y="-1819.5"/>
         </scene>
         <!--Item-->
         <scene sceneID="Aea-vB-ZEC">
@@ -73,7 +73,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VYA-8o-Mjk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1355" y="787"/>
+            <point key="canvasLocation" x="-2341.5" y="-1807.5"/>
         </scene>
         <!--Batterie Table View Controller-->
         <scene sceneID="rt2-rG-hfi">
@@ -101,7 +101,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2js-fh-vtU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1939.5" y="-3127.5"/>
+            <point key="canvasLocation" x="575" y="-2600"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="OIs-Xy-fc5">
@@ -115,8 +115,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TYB-nE-AcD">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TYB-nE-AcD">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                    <rect key="frame" x="-1" y="20" width="800" height="780"/>
+                                </variation>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -139,7 +142,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w9d-oh-chS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-737.25" y="-3151.5"/>
+            <point key="canvasLocation" x="-1419" y="-3620"/>
         </scene>
         <!--Plotter View Controller-->
         <scene sceneID="2mX-jk-88H">
@@ -160,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xuu-Bl-drW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1029" y="-3139.5"/>
+            <point key="canvasLocation" x="677" y="-3564"/>
         </scene>
         <!--Pictures View Controller-->
         <scene sceneID="FFO-gs-APm">
@@ -174,8 +177,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pYw-4c-DYg">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pYw-4c-DYg">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                    <rect key="frame" x="1" y="20" width="800" height="780"/>
+                                </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBh-ji-gbF">
                                 <rect key="frame" x="285" y="285" width="30" height="30"/>
@@ -206,7 +212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="21s-kk-Y7Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="163" y="-3139"/>
+            <point key="canvasLocation" x="-441" y="-3663"/>
         </scene>
         <!--Title-->
         <scene sceneID="Jt1-8U-qSe">
@@ -324,12 +330,16 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="Xxw-EH-SWw">
-                        <barButtonItem key="rightBarButtonItem" title="Livemodus" id="TlL-Bm-33T"/>
+                        <barButtonItem key="rightBarButtonItem" title="Livemodus" id="TlL-Bm-33T">
+                            <connections>
+                                <segue destination="ero-Kv-a04" kind="presentation" identifier="LiveModus" id="KoW-6V-SLf"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1N5-tv-rha" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1827" y="-2738"/>
+            <point key="canvasLocation" x="-714" y="-1851"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="HbO-Kt-HSe">
@@ -397,25 +407,6 @@
             </objects>
             <point key="canvasLocation" x="2929" y="721"/>
         </scene>
-        <!--Item 2-->
-        <scene sceneID="FXw-lf-dWy">
-            <objects>
-                <viewController id="EbX-MR-xrI" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="lqa-OE-SDa"/>
-                        <viewControllerLayoutGuide type="bottom" id="UHd-Ew-ZhY"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="wYU-Iz-QP5">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="8NE-XA-qWM"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="piX-mZ-82Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1419" y="1722"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="vCJ-ZG-Vay">
             <objects>
@@ -437,11 +428,9 @@
             <objects>
                 <tabBarController storyboardIdentifier="masterViewTab" id="8n3-Hl-T1H" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ldh-y8-bfk">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="LGY-CS-kq0">
+                        <barButtonItem key="leftBarButtonItem" title="Missions" id="LGY-CS-kq0">
                             <connections>
-                                <segue destination="bNv-X5-ruF" kind="popoverPresentation" popoverAnchorBarButtonItem="LGY-CS-kq0" id="XWA-kY-i5e">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
+                                <segue destination="bNv-X5-ruF" kind="presentation" id="XWA-kY-i5e"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -499,7 +488,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GPS x" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46Y-Xb-gcV">
-                                <rect key="frame" x="43" y="427" width="36" height="21"/>
+                                <rect key="frame" x="16" y="387" width="148" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -508,7 +497,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Speed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGf-KM-Wpz">
-                                <rect key="frame" x="43" y="456" width="50" height="21"/>
+                                <rect key="frame" x="16" y="431" width="50" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -517,7 +506,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Batterie" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z09-11-htC">
-                                <rect key="frame" x="43" y="485" width="60" height="21"/>
+                                <rect key="frame" x="16" y="466" width="60" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -526,7 +515,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVD-nc-0gS">
-                                <rect key="frame" x="128" y="485" width="82" height="21"/>
+                                <rect key="frame" x="128" y="466" width="82" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -534,14 +523,8 @@
                                     <rect key="frame" x="117" y="584" width="82" height="22"/>
                                 </variation>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E7c-Lw-FPk">
-                                <rect key="frame" x="16" y="82" width="262" height="186"/>
-                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="82" width="262" height="186"/>
-                                </variation>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Start/Stopp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrc-dc-JcO">
-                                <rect key="frame" x="43" y="530" width="90" height="21"/>
+                                <rect key="frame" x="16" y="516" width="90" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -550,7 +533,7 @@
                                 </variation>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HMD-M7-M7E">
-                                <rect key="frame" x="213" y="525" width="51" height="31"/>
+                                <rect key="frame" x="213" y="506" width="51" height="31"/>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="202" y="624" width="51" height="31"/>
                                 </variation>
@@ -559,7 +542,7 @@
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="km/h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tT-Ob-r0n">
-                                <rect key="frame" x="223" y="450" width="39" height="21"/>
+                                <rect key="frame" x="223" y="431" width="39" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -568,7 +551,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSY-O8-CH6">
-                                <rect key="frame" x="244" y="479" width="29" height="43"/>
+                                <rect key="frame" x="249" y="455" width="29" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -576,20 +559,8 @@
                                     <rect key="frame" x="212" y="573" width="51" height="44"/>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pan-LE-bES">
-                                <rect key="frame" x="223" y="221" width="75" height="30"/>
-                                <state key="normal" title="createData">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="131" y="431" width="76" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="buttonCreateDataPressed:" destination="Mz8-WE-dfm" eventType="touchUpInside" id="CKb-Te-u24"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcM-9l-Ri0">
-                                <rect key="frame" x="87" y="416" width="123" height="32"/>
+                                <rect key="frame" x="61" y="382" width="149" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -598,7 +569,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKT-QO-qwa">
-                                <rect key="frame" x="115" y="450" width="95" height="21"/>
+                                <rect key="frame" x="115" y="431" width="95" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -606,25 +577,6 @@
                                     <rect key="frame" x="104" y="549" width="96" height="22"/>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akn-gO-Ac4">
-                                <rect key="frame" x="251" y="194" width="47" height="30"/>
-                                <state key="normal" title="refresh">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="215" y="431" width="48" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="refreshButtonPressed:" destination="Mz8-WE-dfm" eventType="touchUpInside" id="8Cd-iu-u17"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qzy-vP-4mF" customClass="PlotView" customModule="FireflyApp" customModuleProvider="target">
-                                <rect key="frame" x="63" y="268" width="295" height="227"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="276" width="262" height="98"/>
-                                </variation>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPS y" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jb-5r-3R7">
                                 <rect key="frame" x="43" y="427" width="36" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -688,6 +640,36 @@
                                     <rect key="frame" x="212" y="519" width="40" height="22"/>
                                 </variation>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E7c-Lw-FPk">
+                                <rect key="frame" x="16" y="72" width="262" height="186"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="5" y="82" width="303" height="186"/>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pan-LE-bES">
+                                <rect key="frame" x="213" y="266" width="75" height="30"/>
+                                <state key="normal" title="createData">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="131" y="431" width="76" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="buttonCreateDataPressed:" destination="Mz8-WE-dfm" eventType="touchUpInside" id="CKb-Te-u24"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akn-gO-Ac4">
+                                <rect key="frame" x="225" y="304" width="47" height="30"/>
+                                <state key="normal" title="refresh">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="215" y="431" width="48" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="refreshButtonPressed:" destination="Mz8-WE-dfm" eventType="touchUpInside" id="8Cd-iu-u17"/>
+                                </connections>
+                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tbL-lo-ife">
                                 <rect key="frame" x="-61" y="-14" width="123" height="29"/>
                                 <segments>
@@ -696,9 +678,16 @@
                                     <segment title="Height"/>
                                 </segments>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="400" width="262" height="29"/>
+                                    <rect key="frame" x="0.0" y="386" width="308" height="29"/>
                                 </variation>
                             </segmentedControl>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qzy-vP-4mF" customClass="PlotView" customModule="FireflyApp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="266" width="135" height="113"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="94" y="276" width="117" height="95"/>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -745,7 +734,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Tg-Wd-FFV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="989" y="1417"/>
+            <point key="canvasLocation" x="988.5" y="1416.75"/>
         </scene>
         <!--Waypoints-->
         <scene sceneID="6fT-8F-8Ia">

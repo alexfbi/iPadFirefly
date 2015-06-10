@@ -52,15 +52,16 @@ class MissionModel:NSObject{
         }
 
     }
-    var batterieList:[Double] = [Double](){
+    
+   dynamic var batterieList:[Double] = [Double](){
         didSet{
             //delegate?.displayData()
             
-            if batterieList.count == 100
-            {
+        //    if batterieList.count == 100
+        //    {
                 delegate?.displayData()
-               batterieList.removeAll(keepCapacity: true)
-            }
+        //       batterieList.removeAll(keepCapacity: true)
+       //     }
         }
 
     }

@@ -75,14 +75,12 @@ class PlotView: UIView {
         yAxis.addLineToPoint(CGPoint(x: xPosMin , y: yPosMax))
         
         let count =  points.count
+        NSLog("%@", " Point count: \(points.count)")
         
         if count > 0
             
         {
          
-            NSLog("%@", " Point count: \(points.count)")
-            
-          
             
             var maxY:CGFloat = 0.0
             var maxX:CGFloat = 0.0

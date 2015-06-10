@@ -12,9 +12,12 @@ import Foundation
 import CoreData
 
 
+private var myContext = 0
 
-class ControlViewController: UIViewController,MissionModelDelegate,PlotViewDataSource  {
+class ControlViewController:  UIViewController, NetworkModelDelegate, MissionModelDelegate,PlotViewDataSource  {
     
+    var timer = NSTimer()
+    var timerCount = 0
     
     @IBOutlet weak var startSwitch: UISwitch!
     @IBOutlet weak var ImageView: UIImageView!
@@ -32,8 +35,8 @@ class ControlViewController: UIViewController,MissionModelDelegate,PlotViewDataS
     var gpsList = [GPS_Struct]()
     
     var buttonPressed = false
-    var controlDBModell:ControlDBModel =  ControlDBModel()
-    var controlTestDaten:ControlTestDatenModel = ControlTestDatenModel()
+ //   var controlDBModell:ControlDBModel =  ControlDBModel()
+ //   var controlTestDaten:ControlTestDatenModel = ControlTestDatenModel()
     
     
     var imageList = [UIImage]()
@@ -42,6 +45,71 @@ class ControlViewController: UIViewController,MissionModelDelegate,PlotViewDataS
     
     let ANIMATIONDURATION: NSTimeInterval = 5
     
+   
+    func display()
+    {
+        
+        var battery:[Double] = networkRecProp.getBattery()
+        
+        
+        var string:String = ""
+        
+        if battery.last != nil {
+            batterieList = battery
+            var batteryDouble:Double = battery.last!
+            string =  "\(batteryDouble)"
+            
+            NSLog("%@", " Data Batterie \(string)")
+            labelBatterie.text = string
+            
+            plotView.setNeedsDisplay()
+           
+        }
+        
+        
+        if let speed =  networkRecProp.speedList.last {
+            
+            string =  "\(speed)"
+            
+            NSLog("%@", " Data Speed \(string)")
+          
+            labelSpeed.text = string
+        //    plotView.setNeedsDisplay()
+            
+        }
+
+        if let gps =  networkRecProp.gpsList.last {
+            
+            let stringX =  "\(gps.x)"
+            let stringY =  "\(gps.y)"
+            let stringZ =  "\(gps.z)"
+            
+            NSLog("%@", " Data \(stringX)")
+            
+            labelGPSx.text = stringX
+            labelGPSy.text = stringY
+            labelHeight.text = stringZ
+            //    plotView.setNeedsDisplay()
+            
+        }
+ 
+        
+        if let image =  networkRecProp.imageList.last {
+            var imageListTmp:[UIImage] = [UIImage]()
+            
+            imageListTmp.append(image)
+            
+            imageList = imageListTmp
+            
+            startAnimation()
+          
+            
+            
+        }
+
+      
+    }
+    
     
     @IBAction func buttonCreateDataPressed(sender: AnyObject) {
         
@@ -49,28 +117,22 @@ class ControlViewController: UIViewController,MissionModelDelegate,PlotViewDataS
         //  controlTestDaten.createData()
         
         
-        //  }
-        //  @IBAction func buttonPressed(sender: AnyObject) {
+        
+        missionModel.name = "MissionName"
         
         
         
-        missionModel.name = "Mission"
-        
-        
-        
+     
         missionModel.gpsList.append(GPS_Struct(x: countNumber * 0.01, y: countNumber * 0.01, z:countNumber * 0.01))
         
-        //  var battery:Battery = Battery()
-        //   battery.value = countNumber
-        
-        
+    
         for i in 1...20{
             missionModel.batterieList.append(countNumber)
             missionModel.speedList.append(countNumber)
             
             
             
-            let imageNameTmp = "\(countNumber % 10)"
+            let imageNameTmp = "\(countNumber % 20)"
             
             var image =  UIImage(named: imageNameTmp)
             
@@ -81,13 +143,15 @@ class ControlViewController: UIViewController,MissionModelDelegate,PlotViewDataS
             
         }
         
+     
         
+        
+       
     }
     
     @IBAction func refreshButtonPressed(sender: AnyObject) {
         
- 
-       
+        
         startAnimation()
     }
     
@@ -101,7 +165,15 @@ class ControlViewController: UIViewController,MissionModelDelegate,PlotViewDataS
     }
     
     
+    var networkRecProp = NetworkRecProp()
+        {//1 -- instantiate a model object, for didSet need to define
+        didSet{ //any change to the class, but not the properties
+            displayData()
+        }
+    }
+    
     func displayData() {
+         NSLog("%@", "Display Data ")
         
         imageList = missionModel.imageList
       
@@ -110,7 +182,7 @@ class ControlViewController: UIViewController,MissionModelDelegate,PlotViewDataS
             startAnimation()
         }
         
-        
+
         
         let displayString = missionModel.batterieList.last
         
@@ -149,8 +221,18 @@ class ControlViewController: UIViewController,MissionModelDelegate,PlotViewDataS
         title = "Control"
         
         
+      //Observer
+        networkRecProp.addObserver(self, forKeyPath: "batterieList", options: .New, context: &myContext)
+        
         self.startSwitch.on = false
+        
+        //Delegates
+        networkRecProp.delegate = self
         missionModel.delegate = self
+        
+          //Timer
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("display"), userInfo: nil, repeats: true)
+        
     }
     
     
@@ -169,9 +251,9 @@ class ControlViewController: UIViewController,MissionModelDelegate,PlotViewDataS
                 dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
                     networkSender.start()
                 }
-                var networkRecProp = NetworkRecProp()
+           //     var networkRecProp = NetworkRecProp()
                 dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
-                    networkRecProp.start()
+                    self.networkRecProp.start()
                 }
                 var networkRecPicture = NetworkRecPicture()
                 dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
@@ -189,6 +271,8 @@ class ControlViewController: UIViewController,MissionModelDelegate,PlotViewDataS
         if let navCon = destination as? UINavigationController {
             destination = navCon.visibleViewController
         }
+        
+      
         
         if let map = destination as? FirstViewController {
             
@@ -239,21 +323,17 @@ class ControlViewController: UIViewController,MissionModelDelegate,PlotViewDataS
 
 
 
-    //Im release rausnehmen
-  //  var oldeintraegeCount:Int = 0
-    
     
     func setPoints(sender: PlotView) -> [CGPoint?]
         
     {
         var listPoints  = [CGPoint?]()
         
-        
-        
         let eintraegeCount = batterieList.count
       
         NSLog("%@", " eintraegeCount: \(batterieList.count) ")
-        if eintraegeCount > 0
+      
+        if eintraegeCount > 1
         {
             
             
@@ -269,18 +349,61 @@ class ControlViewController: UIViewController,MissionModelDelegate,PlotViewDataS
                 listPoints.append(point)
                 
             }
+             //   oldeintraegeCount = eintraegeCount
+            
         }
+        else{
         
-     //   oldeintraegeCount = eintraegeCount
+    
         
         NSLog("%@", " setPointsSize: \(listPoints.count) ")
-        return listPoints
         
+        }
+        return listPoints
     }
     
     
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [NSObject : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+       
+        if context == &myContext {
+        
+            if let newValue:AnyObject = change?[NSKeyValueChangeNewKey] {
+                var val: [Double] = newValue as! [Double]
+                 NSLog("%@", "Value battery changed size: \(val.count) ")
+              
+            
+//                labelBatterie.text = String(stringInterpolationSegment: val.last)
+//                labelBatterie.
+//                missionModel.batterieList = networkRecProp.batteryList
+//               
+//                batterieList = missionModel.batterieList
+//                
+                
+             //   plotView.setNeedsDisplay()
     
+//                var battery:[Double] = val
+//                
+//                var string:String = ""
+//                
+//                if battery.last != nil {
+//                    var batteryDouble:Double = battery.last!
+//                    string =  "\(batteryDouble)"
+//                    
+//                    NSLog("%@", " Data Obersver: \(string)")
+//                    labelBatterie.text = string
+//                }
+                
 
+                
+            }
+        } else {
+            super.observeValueForKeyPath(keyPath!, ofObject: object!, change: change!, context: context)
+        }
+    }
+    
+    deinit {
+        networkRecProp.removeObserver(self, forKeyPath: "batterieList", context: &myContext)
+    }
     
 }
 

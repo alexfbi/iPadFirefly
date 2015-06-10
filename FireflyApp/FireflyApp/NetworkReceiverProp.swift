@@ -10,7 +10,13 @@ import Foundation
 import UIKit
 import CoreData
 
-class NetworkRecProp {
+protocol NetworkModelDelegate{
+    func displayData()
+}
+
+class NetworkRecProp:NSObject {
+    
+   // dynamic var batteryList = [Double]()
     
     var buffersize:Int = 1000
     
@@ -79,6 +85,11 @@ class NetworkRecProp {
         newGPS.date = NSDate()
         newGPS.log = log
         self.context?.save(nil)
+        
+        
+        var gps:GPS_Struct = GPS_Struct(x: newGPS.valueX ,y: newGPS.valueY, z:  newGPS.valueZ)
+        
+        gpsList.append(gps)
     }
     
     func saveBattery(charge: NSString, log: Log){
@@ -89,6 +100,9 @@ class NetworkRecProp {
         newBattery.id = counter
         newBattery.log = log
         self.context?.save(nil)
+        
+        batterieList.append(Double(newBattery.value))
+       // println(batterieList.count)
     }
     
     func saveSpeed(speed: NSString, log: Log){
@@ -99,6 +113,55 @@ class NetworkRecProp {
         newSpeed.id = counter
         newSpeed.log = log
         self.context?.save(nil)
+        
+        speedList.append(Double(newSpeed.value))
+    }
+    
+    
+    var delegate:NetworkModelDelegate? = nil
+    
+    
+    var imageList:[UIImage] = [UIImage](){
+             
+        
+        didSet
+        {
+            if imageList.count == 100
+            {
+                delegate?.displayData()
+                imageList.removeAll(keepCapacity: true)
+            }
+        }
+    }
+    
+    
+    var gpsList:[GPS_Struct] = [GPS_Struct](){
+        didSet{
+            delegate?.displayData()
+        }
+        
+    }
+    
+   dynamic var batterieList:[Double] = [Double](){
+        didSet{
+                      delegate?.displayData()
+           
+        }
+        
+    }
+    
+    
+    var speedList:[Double] = [Double]() {
+        didSet{
+            delegate?.displayData()
+        }
+        
+    }
+    
+    
+    func getBattery() -> [Double]{
+        
+        return batterieList
     }
     
 }
