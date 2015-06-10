@@ -14,6 +14,10 @@ import CoreData
 
 private var myContext = 0
 
+protocol ControlViewDelegate {
+    func drawLine(gpsList: [GPS_Struct])
+}
+
 class ControlViewController:  UIViewController, NetworkModelDelegate, MissionModelDelegate,PlotViewDataSource  {
     
     var timer = NSTimer()
@@ -44,6 +48,8 @@ class ControlViewController:  UIViewController, NetworkModelDelegate, MissionMod
     var countNumber = 1.0
     
     let ANIMATIONDURATION: NSTimeInterval = 5
+    
+    var delegate:ControlViewDelegate?
     
    
     func display()
@@ -206,7 +212,8 @@ class ControlViewController:  UIViewController, NetworkModelDelegate, MissionMod
         
         gpsList = missionModel.gpsList
      
-        performSegueWithIdentifier("SetMap", sender: nil)
+        //performSegueWithIdentifier("SetMap", sender: nil)
+        delegate?.drawLine(gpsList)
         
         let displaySpeed = missionModel.speedList.last
         
@@ -229,9 +236,6 @@ class ControlViewController:  UIViewController, NetworkModelDelegate, MissionMod
         //Delegates
         networkRecProp.delegate = self
         missionModel.delegate = self
-        
-          //Timer
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("display"), userInfo: nil, repeats: true)
         
     }
     

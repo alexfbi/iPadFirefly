@@ -26,10 +26,12 @@ class SplitViewController: UISplitViewController {
         
         let masterView = masterNavigationView.viewControllers.first as! UITabBarController
         let masterTableView = masterView.viewControllers?.last as! MasterTableView
+        let masterControlView = masterView.viewControllers?.first as! ControlViewController
         
         let mapView = detailNavigationView.viewControllers?.first as! FirstViewController
         
         masterTableView.waypointTableDelegate = mapView
+        masterControlView.delegate = mapView
     }
     
 }

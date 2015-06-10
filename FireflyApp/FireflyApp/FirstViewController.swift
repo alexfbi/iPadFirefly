@@ -9,14 +9,15 @@
 import UIKit
 import MapKit
 
-class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationManagerDelegate, WaypointTableDelegate {
+class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationManagerDelegate, WaypointTableDelegate, ControlViewDelegate {
     //
     var gpsPositions:[GPS_Struct] = [GPS_Struct](){
         
         didSet{
-        //    gpsPositions =
-            
-            updateUI()
+            //updateUI()
+            if (mapView != nil) {
+                createPolyline()
+            }
         }
         
     }
@@ -71,6 +72,10 @@ class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationM
      //Linien zeichnen
         createPolyline()
 
+    }
+    
+    func drawLine(gpsList: [GPS_Struct]) {
+        self.gpsPositions = gpsList
     }
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
