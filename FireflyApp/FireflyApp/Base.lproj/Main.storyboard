@@ -341,25 +341,6 @@
             </objects>
             <point key="canvasLocation" x="-714" y="-1851"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="HbO-Kt-HSe">
-            <objects>
-                <tabBarController id="PA2-f0-ezc" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="8Xd-in-03n"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="FtO-n3-baH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="xb3-ph-yVo" kind="relationship" relationship="viewControllers" id="Eq6-AV-uCB"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yia-3C-5ol" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2929" y="-225"/>
-        </scene>
         <!--First-->
         <scene sceneID="QkK-eT-mQ4">
             <objects>
@@ -388,12 +369,21 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qvd-8r-DLg">
                                 <rect key="frame" x="-6" y="20" width="612" height="586"/>
                             </mapView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="11" translatesAutoresizingMaskIntoConstraints="NO" id="vdi-6a-cYY">
+                                <rect key="frame" x="360" y="64" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="11w-Ps-M55"/>
+                                    <constraint firstAttribute="height" constant="128" id="PwG-Uw-aIC"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="qvd-8r-DLg" secondAttribute="trailing" constant="-22" id="AmL-Tb-L2P"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vdi-6a-cYY" secondAttribute="trailing" constant="-16" id="O9T-Y9-x53"/>
                             <constraint firstAttribute="bottomMargin" secondItem="qvd-8r-DLg" secondAttribute="bottom" constant="-6" id="Tvh-Dh-Vza"/>
                             <constraint firstItem="qvd-8r-DLg" firstAttribute="leading" secondItem="T4R-Xh-fq8" secondAttribute="leadingMargin" constant="-22" id="VJh-UT-5XC"/>
+                            <constraint firstItem="vdi-6a-cYY" firstAttribute="top" secondItem="JrM-GW-fgc" secondAttribute="bottom" id="fyZ-5h-Yjy"/>
                             <constraint firstItem="qvd-8r-DLg" firstAttribute="top" secondItem="JrM-GW-fgc" secondAttribute="bottom" id="hWT-L3-ZEN"/>
                         </constraints>
                     </view>
@@ -401,11 +391,12 @@
                     <navigationItem key="navigationItem" id="04g-oR-hRd"/>
                     <connections>
                         <outlet property="mapView" destination="qvd-8r-DLg" id="KCZ-8V-xDQ"/>
+                        <outlet property="picturesFromDrone" destination="vdi-6a-cYY" id="KyI-eq-cZh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hjf-IM-WOl" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2929" y="721"/>
+            <point key="canvasLocation" x="2909" y="-225"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vCJ-ZG-Vay">
@@ -468,7 +459,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="PA2-f0-ezc" kind="relationship" relationship="rootViewController" id="XDu-Dr-OeJ"/>
+                        <segue destination="xb3-ph-yVo" kind="relationship" relationship="rootViewController" id="mcq-h3-tZA"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nYM-7I-HdN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -749,24 +740,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="MzD-66-WPN">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="441"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="6Iq-Hg-Wr1" id="WrV-SY-nJD"/>
                                     <outlet property="delegate" destination="6Iq-Hg-Wr1" id="wQs-31-KXC"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y56-5O-wRf">
+                                <rect key="frame" x="16" y="513" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="KQp-Bi-pty"/>
+                                    <constraint firstAttribute="width" constant="97" id="Ugj-1G-msx"/>
+                                </constraints>
+                                <state key="normal" title="Change Order">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeOrderButtonPressed:" destination="6Iq-Hg-Wr1" eventType="touchUpInside" id="88O-Dy-oOK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yyy-1Z-d9K" firstAttribute="top" secondItem="MzD-66-WPN" secondAttribute="bottom" id="2jd-0Q-t8U"/>
+                            <constraint firstItem="yyy-1Z-d9K" firstAttribute="top" secondItem="y56-5O-wRf" secondAttribute="bottom" constant="8" id="0Tg-gu-2b0"/>
+                            <constraint firstItem="y56-5O-wRf" firstAttribute="leading" secondItem="iM2-rK-8Jp" secondAttribute="leadingMargin" id="PUY-wv-3la"/>
                             <constraint firstItem="MzD-66-WPN" firstAttribute="top" secondItem="BSg-Wn-sBX" secondAttribute="bottom" id="caZ-DN-8Ch"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MzD-66-WPN" secondAttribute="trailing" constant="-16" id="eNz-eu-RmU"/>
                             <constraint firstItem="MzD-66-WPN" firstAttribute="leading" secondItem="iM2-rK-8Jp" secondAttribute="leadingMargin" constant="-16" id="gCX-PG-sO2"/>
+                            <constraint firstItem="y56-5O-wRf" firstAttribute="top" secondItem="MzD-66-WPN" secondAttribute="bottom" constant="8" id="x7b-fX-efR"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Waypoints" image="second" id="ZGB-cG-IPT"/>
                     <connections>
+                        <outlet property="changeOrderButton" destination="y56-5O-wRf" id="GOC-vs-sZJ"/>
                         <outlet property="tableView" destination="MzD-66-WPN" id="t11-7m-ohI"/>
                     </connections>
                 </viewController>
@@ -777,6 +784,7 @@
     </scenes>
     <resources>
         <image name="1" width="65" height="146"/>
+        <image name="11" width="650" height="405"/>
         <image name="3" width="54" height="141"/>
         <image name="6" width="63" height="176"/>
         <image name="7" width="75" height="153"/>

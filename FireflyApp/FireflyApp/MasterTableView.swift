@@ -18,6 +18,7 @@ protocol WaypointTableDelegate: class {
 class MasterTableView: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var changeOrderButton: UIButton!
     var refreshControl:UIRefreshControl!
     weak var waypointTableDelegate:WaypointTableDelegate?
     
@@ -27,8 +28,6 @@ class MasterTableView: UIViewController, UITableViewDelegate, UITableViewDataSou
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshTable:", name:"refresh", object: nil)
-        
-        self.tableView.setEditing(true, animated: true)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,6 +71,16 @@ class MasterTableView: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     // Reorder the waypoint items
+    @IBAction func changeOrderButtonPressed(sender: AnyObject) {
+        if (changeOrderButton.titleLabel!.text == "Change Order") {
+            self.tableView.setEditing(true, animated: true)
+            changeOrderButton.setTitle("Done", forState: .Normal)
+        } else {
+            self.tableView.setEditing(false, animated: true)
+            changeOrderButton.setTitle("Change Order", forState: .Normal)
+        }
+    }
+    
     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
