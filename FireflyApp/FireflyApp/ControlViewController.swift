@@ -212,7 +212,6 @@ class ControlViewController:  UIViewController, NetworkModelDelegate, MissionMod
         
         gpsList = missionModel.gpsList
      
-        //performSegueWithIdentifier("SetMap", sender: nil)
         delegate?.drawLine(gpsList)
         
         let displaySpeed = missionModel.speedList.last
@@ -225,7 +224,7 @@ class ControlViewController:  UIViewController, NetworkModelDelegate, MissionMod
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Control"
+//        title = "Control"
         
         
       //Observer

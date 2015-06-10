@@ -36,14 +36,6 @@ class CallOutView: UIView {
         super.init(coder: aDecoder)
     }
     
-    @IBAction func deleteButtonPressed(sender: AnyObject) {
-//        println("Delete pressed!")
-//        self.mainView!.waypoints.removeAtIndex(waypoint!.waypointNumber - 1)
-//        self.mainView!.mapView.removeAnnotation(waypoint)
-//        self.mainView!.waypointCounter--
-//        self.mainView!.updateNumeration()
-    }
-    
     override func hitTest(var point: CGPoint, withEvent event: UIEvent?) -> UIView? {
         let viewPoint = superview?.convertPoint(point, toView: self) ?? point
         

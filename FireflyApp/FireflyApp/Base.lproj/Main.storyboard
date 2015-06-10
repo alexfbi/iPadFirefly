@@ -402,6 +402,7 @@
         <scene sceneID="vCJ-ZG-Vay">
             <objects>
                 <navigationController storyboardIdentifier="masterViewNavigation" id="EL8-xr-0Yt" sceneMemberID="viewController">
+                    <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wz0-ov-iDe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -426,6 +427,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="iej-h3-fi1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -466,7 +468,7 @@
             </objects>
             <point key="canvasLocation" x="1976" y="-225"/>
         </scene>
-        <!--Item-->
+        <!--Control-->
         <scene sceneID="aT6-si-E7J">
             <objects>
                 <viewController id="Mz8-WE-dfm" customClass="ControlViewController" customModule="FireflyApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -706,9 +708,10 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Jtf-ON-cEq"/>
+                    <tabBarItem key="tabBarItem" title="Control" image="first" id="Kno-AJ-Cbu"/>
                     <toolbarItems/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="ImageView" destination="E7c-Lw-FPk" id="iYH-UK-KvH"/>
                         <outlet property="buttonCreateData" destination="Pan-LE-bES" id="hOZ-rs-A5D"/>
@@ -720,7 +723,6 @@
                         <outlet property="plotView" destination="Qzy-vP-4mF" id="7bW-DA-oEL"/>
                         <outlet property="refreshButton" destination="akn-gO-Ac4" id="Sj1-DY-lWD"/>
                         <outlet property="startSwitch" destination="HMD-M7-M7E" id="VVf-JA-bfp"/>
-                        <segue destination="3cR-bw-aiJ" kind="showDetail" identifier="SetMap" id="ddQ-lV-Kjb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Tg-Wd-FFV" userLabel="First Responder" sceneMemberID="firstResponder"/>

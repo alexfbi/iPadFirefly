@@ -10,29 +10,20 @@ import UIKit
 import MapKit
 
 class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationManagerDelegate, WaypointTableDelegate, ControlViewDelegate {
-    //
-    var gpsPositions:[GPS_Struct] = [GPS_Struct](){
-        
-        didSet{
-            //updateUI()
-            if (mapView != nil) {
-                createPolyline()
-            }
-        }
-        
-    }
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var startStopButton: UIButton!
     @IBOutlet weak var picturesFromDrone: UIImageView!
-    //@IBOutlet var calloutView: CallOutView!
     
     var locationManager = CLLocationManager()
     var waypointCounter = 0
-    //var waypoints = [Waypoint]()
-    //var waypoints = waypointsForMission
     var locationWasSet = false
     var selectedAnnotationView:MKAnnotationView?
+    var gpsPositions:[GPS_Struct] = [GPS_Struct](){
+        didSet{
+            createPolyline()
+        }
+    }
     
     @IBAction func startStopButtonPressed(sender: AnyObject) {
         var networkSender = NetworkSender()
@@ -121,10 +112,6 @@ class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationM
             
             return pin
         }
-        
-    }
-    
-    func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
     }
     
     func mapView(mapView: MKMapView!, didDeselectAnnotationView view: MKAnnotationView!) {
