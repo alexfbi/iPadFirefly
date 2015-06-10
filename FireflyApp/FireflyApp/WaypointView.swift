@@ -20,14 +20,6 @@ class WaypointView: MKPinAnnotationView, UITextFieldDelegate {
     var waypoint:Waypoint?
     var mainView:FirstViewController?
     
-//    init!(annotation: MKAnnotation!, reuseIdentifier: String!, mainView:FirstViewController!) {
-//        self.mainView = mainView
-//        self.waypoint = annotation as? Waypoint
-//        calloutView = CallOutView(waypoint: waypoint, mainView: mainView)
-//        super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
-//        NSBundle.mainBundle().loadNibNamed("CallOutView", owner: self, options: nil)
-//    }
-    
     override init!(annotation: MKAnnotation!, reuseIdentifier: String!) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         NSBundle.mainBundle().loadNibNamed("CallOutView", owner: self, options: nil)
