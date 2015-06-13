@@ -9,12 +9,6 @@
 import UIKit
 import MapKit
 
-protocol WaypointTableDelegate: class {
-    func deleteWaypoint(waypointNumber: Int)
-    func waypointWasSelected(waypointNumber: Int)
-    func waypointsWereReordered(waypointNumber: Int, toPosition: Int)
-}
-
 class MasterTableView: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var tableView: UITableView!

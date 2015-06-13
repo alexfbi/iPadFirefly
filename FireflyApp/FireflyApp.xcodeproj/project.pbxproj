@@ -49,6 +49,7 @@
 		FE6FB25E1AFA1499009AE8ED /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE6FB25C1AFA1499009AE8ED /* LaunchScreen.xib */; };
 		FE6FB26A1AFA1499009AE8ED /* FireflyAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2691AFA1499009AE8ED /* FireflyAppTests.swift */; };
 		FEB3411A1B0BC75D00ACEB41 /* CallOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB341191B0BC75D00ACEB41 /* CallOutView.swift */; };
+		FEC531171B2C5B2F00F038F6 /* WaypointTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC531161B2C5B2F00F038F6 /* WaypointTableDelegate.swift */; };
 		FEC79DE51B262C7500E9028B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEC79DE31B262C7500E9028B /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +111,7 @@
 		FE6FB2681AFA1499009AE8ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE6FB2691AFA1499009AE8ED /* FireflyAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireflyAppTests.swift; sourceTree = "<group>"; };
 		FEB341191B0BC75D00ACEB41 /* CallOutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallOutView.swift; sourceTree = "<group>"; };
+		FEC531161B2C5B2F00F038F6 /* WaypointTableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaypointTableDelegate.swift; sourceTree = "<group>"; };
 		FEC79DE41B262C7500E9028B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,6 +208,7 @@
 				412C9FE71B1E393A00C16B79 /* ControlViewController.swift */,
 				41F9831B1B1E3C0200592590 /* ContentViewController.swift */,
 				FE5146ED1B25942500F5FA3C /* MasterTableView.swift */,
+				FEC531161B2C5B2F00F038F6 /* WaypointTableDelegate.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				412C9FDD1B1E388C00C16B79 /* PlotterViewController.swift in Sources */,
 				FE3BB5E21B15B4FB0045687C /* ysocket.swift in Sources */,
 				412C9FE21B1E38AD00C16B79 /* PlotView.swift in Sources */,
+				FEC531171B2C5B2F00F038F6 /* WaypointTableDelegate.swift in Sources */,
 				412C9FDF1B1E388C00C16B79 /* ControlTestDatenModel.swift in Sources */,
 				412C9FE01B1E388C00C16B79 /* BatterieTableViewController.swift in Sources */,
 				FE047DA01B0A1338003FF9C9 /* AFC1.xcdatamodeld in Sources */,

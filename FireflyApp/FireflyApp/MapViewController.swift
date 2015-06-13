@@ -11,9 +11,13 @@ import MapKit
 
 class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationManagerDelegate, WaypointTableDelegate, ControlViewDelegate {
     
+    // MARK: - Outlets
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var startStopButton: UIButton!
     @IBOutlet weak var picturesFromDrone: UIImageView!
+    
+    // MARK: - Variables
     
     var locationManager = CLLocationManager()
     var waypointCounter = 0
@@ -24,6 +28,8 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
             createPolyline()
         }
     }
+    
+    // MARK:
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +60,6 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
     
         //Linien zeichnen
         createPolyline()
-
     }
     
     override func didReceiveMemoryWarning() {
@@ -62,9 +67,7 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
         // Dispose of any resources that can be recreated.
     }
     
-    func drawLine(gpsList: [GPS_Struct]) {
-        self.gpsPositions = gpsList
-    }
+    // MARK: - Show user location
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         switch status {
@@ -75,6 +78,9 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
         }
     }
     
+    /**
+    Zooms to the location of the iPad
+    */
     func zoomToUserLocation() {
         let userLocation = mapView.userLocation
         let region = MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate, 400, 400)
@@ -88,9 +94,7 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
         }
     }
     
-    func mapView(mapView: MKMapView!, didAddAnnotationViews views: [AnyObject]!) {
-        
-    }
+    // MARK: - Set and edit annotations
     
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         
@@ -130,7 +134,7 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
             annotation.subtitle = "Latitude: \(latitudeString), Longitude: \(longitudeString)"
         }
     }
-
+    
     /**
     Action to place a waypoint. Triggerd by a long tap.
     */
@@ -161,6 +165,12 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
             }
         }
         NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
+    }
+    
+    // MARK: - Draw route of drone
+    
+    func drawLine(gpsList: [GPS_Struct]) {
+        self.gpsPositions = gpsList
     }
     
     func createPolyline() {
@@ -210,13 +220,18 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
         return nil
     }
     
-    
     func updateUI(){
         
         mapView?.setNeedsDisplay()
     }
     
-    // From WaypointTableDelegate
+    // MARK: - Implement WaypointTableDelegate
+    
+    /**
+    Delete waypoint.
+    
+    :param: waypointNumber  Number of waypoint to delete.
+    */
     func deleteWaypoint(waypointNumber: Int) {
         self.mapView.removeAnnotation(waypointsForMission[waypointNumber])
         self.waypointCounter--
@@ -224,10 +239,21 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
         self.updateNumeration()
     }
     
+    /**
+    Select waypoint.
+    
+    :param: wayointNumber   Number of waypoint to select.
+    */
     func waypointWasSelected(waypointNumber: Int) {
         mapView.selectAnnotation(waypointsForMission[waypointNumber], animated: true)
     }
     
+    /**
+    Reorder waypoints.
+    
+    :param: waypointNumber  Number of reordered waypoint.
+    :param: toPosition  New position of reordered waypoint.
+    */
     func waypointsWereReordered(waypointNumber: Int, toPosition: Int) {
         var reorderedWaypoint = waypointsForMission[waypointNumber]
         waypointsForMission.removeAtIndex(waypointNumber)
