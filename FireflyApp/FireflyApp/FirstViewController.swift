@@ -25,13 +25,6 @@ class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationM
         }
     }
     
-    @IBAction func startStopButtonPressed(sender: AnyObject) {
-        var networkSender = NetworkSender()
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
-            networkSender.start()
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -54,15 +47,19 @@ class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationM
         
         mapView.addGestureRecognizer(longPress)
         
-        // add waypoints after reload
+        // add waypoints of existing mission or after reload
         for index in 0..<waypointsForMission.count {
             self.mapView.addAnnotation(waypointsForMission[index])
         }
     
-    
-     //Linien zeichnen
+        //Linien zeichnen
         createPolyline()
 
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     func drawLine(gpsList: [GPS_Struct]) {
@@ -133,9 +130,10 @@ class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationM
             annotation.subtitle = "Latitude: \(latitudeString), Longitude: \(longitudeString)"
         }
     }
-    
 
-    
+    /**
+    Action to place a waypoint. Triggerd by a long tap.
+    */
     func longPressAction(gestureRecognizer:UIGestureRecognizer) {
         
         if (gestureRecognizer.state == UIGestureRecognizerState.Ended) {
@@ -149,6 +147,9 @@ class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationM
         }
     }
     
+    /**
+    Updates the sequence of waypoints in the waypointsForMission array and posts the "refresh" notification
+    */
     func updateNumeration() {
         let count = waypointsForMission.count
         waypointCounter = count
@@ -160,11 +161,6 @@ class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationM
             }
         }
         NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func createPolyline() {
@@ -226,7 +222,6 @@ class FirstViewController: ContentViewController, MKMapViewDelegate, CLLocationM
         self.waypointCounter--
         waypointsForMission.removeAtIndex(waypointNumber)
         self.updateNumeration()
-        
     }
     
     func waypointWasSelected(waypointNumber: Int) {
