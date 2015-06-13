@@ -277,7 +277,7 @@ class ControlViewController:  UIViewController, NetworkModelDelegate, MissionMod
         
       
         
-        if let map = destination as? FirstViewController {
+        if let map = destination as? MapViewController {
             
             if let identifier = segue.identifier {
                 switch identifier {

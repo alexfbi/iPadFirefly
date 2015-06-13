@@ -344,7 +344,7 @@
         <!--First-->
         <scene sceneID="QkK-eT-mQ4">
             <objects>
-                <viewController storyboardIdentifier="Map" id="xb3-ph-yVo" customClass="FirstViewController" customModule="FireflyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Map" id="xb3-ph-yVo" customClass="MapViewController" customModule="FireflyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JrM-GW-fgc"/>
                         <viewControllerLayoutGuide type="bottom" id="vWg-oZ-btR"/>

@@ -18,7 +18,7 @@ class WaypointView: MKPinAnnotationView, UITextFieldDelegate {
     
     var hitOutside:Bool = true
     var waypoint:Waypoint?
-    var mainView:FirstViewController?
+    var mainView:MapViewController?
     
     override init!(annotation: MKAnnotation!, reuseIdentifier: String!) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)

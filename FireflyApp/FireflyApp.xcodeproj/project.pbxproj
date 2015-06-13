@@ -44,7 +44,7 @@
 		FE5146EE1B25942500F5FA3C /* MasterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5146ED1B25942500F5FA3C /* MasterTableView.swift */; };
 		FE6DE7141B03443C007617BA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE6DE7131B03443C007617BA /* MapKit.framework */; };
 		FE6FB2521AFA1499009AE8ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2511AFA1499009AE8ED /* AppDelegate.swift */; };
-		FE6FB2541AFA1499009AE8ED /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2531AFA1499009AE8ED /* FirstViewController.swift */; };
+		FE6FB2541AFA1499009AE8ED /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2531AFA1499009AE8ED /* MapViewController.swift */; };
 		FE6FB25B1AFA1499009AE8ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE6FB25A1AFA1499009AE8ED /* Images.xcassets */; };
 		FE6FB25E1AFA1499009AE8ED /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE6FB25C1AFA1499009AE8ED /* LaunchScreen.xib */; };
 		FE6FB26A1AFA1499009AE8ED /* FireflyAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2691AFA1499009AE8ED /* FireflyAppTests.swift */; };
@@ -103,7 +103,7 @@
 		FE6FB24C1AFA1499009AE8ED /* FireflyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireflyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE6FB2501AFA1499009AE8ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE6FB2511AFA1499009AE8ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FE6FB2531AFA1499009AE8ED /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		FE6FB2531AFA1499009AE8ED /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FE6FB25A1AFA1499009AE8ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FE6FB25D1AFA1499009AE8ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		FE6FB2631AFA1499009AE8ED /* FireflyAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FireflyAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,7 +205,6 @@
 				414BD53B1B0FF348000E4F1F /* PageViewController.swift */,
 				412C9FE71B1E393A00C16B79 /* ControlViewController.swift */,
 				41F9831B1B1E3C0200592590 /* ContentViewController.swift */,
-				FE6F3A891B1F156D008B8E06 /* SplitViewController.swift */,
 				FE5146ED1B25942500F5FA3C /* MasterTableView.swift */,
 			);
 			name = Controller;
@@ -214,7 +213,7 @@
 		41F9831F1B1E51DE00592590 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				FE6FB2531AFA1499009AE8ED /* FirstViewController.swift */,
+				FE6FB2531AFA1499009AE8ED /* MapViewController.swift */,
 				FE00CBB11B0BC02D00D79628 /* CallOutView.xib */,
 				FEB341191B0BC75D00ACEB41 /* CallOutView.swift */,
 				FE411DAF1B0C72F60079B7C3 /* WaypointView.swift */,
@@ -453,7 +452,7 @@
 				412C9FE81B1E393A00C16B79 /* ControlViewController.swift in Sources */,
 				063F8E4B1B1F105000F1CEFD /* GlobalVariable.swift in Sources */,
 				FE411DB01B0C72F60079B7C3 /* WaypointView.swift in Sources */,
-				FE6FB2541AFA1499009AE8ED /* FirstViewController.swift in Sources */,
+				FE6FB2541AFA1499009AE8ED /* MapViewController.swift in Sources */,
 				412C9FDD1B1E388C00C16B79 /* PlotterViewController.swift in Sources */,
 				FE3BB5E21B15B4FB0045687C /* ysocket.swift in Sources */,
 				412C9FE21B1E38AD00C16B79 /* PlotView.swift in Sources */,

@@ -20,9 +20,9 @@ class CallOutView: UIView {
     */
     
     var waypoint:Waypoint?
-    var mainView:FirstViewController?
+    var mainView:MapViewController?
     
-    init(waypoint: Waypoint!, mainView:FirstViewController!) {
+    init(waypoint: Waypoint!, mainView:MapViewController!) {
         self.waypoint = waypoint;
         self.mainView = mainView;
         super.init(frame: CGRect(x: 0, y: 0, width: 4000, height: 4000))
