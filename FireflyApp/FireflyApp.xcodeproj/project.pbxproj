@@ -287,12 +287,12 @@
 			isa = PBXGroup;
 			children = (
 				FEC79DE31B262C7500E9028B /* Main.storyboard */,
+				FE6FB2511AFA1499009AE8ED /* AppDelegate.swift */,
 				41F9831F1B1E51DE00592590 /* Map */,
 				41F983201B1E520800592590 /* Network */,
 				41F9831D1B1E50B200592590 /* ControlLiveModus */,
 				414BD5441B0FF6DD000E4F1F /* Log */,
 				FE047DA11B0A156D003FF9C9 /* ManagedObjects */,
-				FE6FB2511AFA1499009AE8ED /* AppDelegate.swift */,
 				FE6FB24F1AFA1499009AE8ED /* Supporting Files */,
 			);
 			path = FireflyApp;

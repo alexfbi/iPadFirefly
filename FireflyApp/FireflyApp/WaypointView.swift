@@ -11,15 +11,19 @@ import MapKit
 
 class WaypointView: MKPinAnnotationView, UITextFieldDelegate {
     
+    // MARK: - Outlets
     @IBOutlet var calloutView:CallOutView?
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var heightText: UITextField!
     @IBOutlet weak var speedText: UITextField!
     
+    // MARK: - Variables
+    // TODO: mainView as attribute? Or better delegate to call delete function?
     var hitOutside:Bool = true
     var waypoint:Waypoint?
     var mainView:MapViewController?
     
+    // MARK:
     override init!(annotation: MKAnnotation!, reuseIdentifier: String!) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         NSBundle.mainBundle().loadNibNamed("CallOutView", owner: self, options: nil)
@@ -36,10 +40,31 @@ class WaypointView: MKPinAnnotationView, UITextFieldDelegate {
         super.init(coder: aDecoder)
     }
     
-    var preventDeselection:Bool {
-        return !hitOutside
+    // MARK: - Actions
+    @IBAction func deleteButtonPressed(sender: AnyObject) {
+        waypointsForMission.removeAtIndex(waypoint!.waypointNumber - 1)
+        self.mainView!.mapView.removeAnnotation(waypoint)
+        self.mainView!.waypointCounter--
+        self.mainView!.updateNumeration()
     }
     
+    @IBAction func heightChanged(sender: AnyObject) {
+        var heightMilli = self.heightText.text.toInt()
+        var height = heightMilli!*1000
+        waypoint!.height = height
+    }
+    
+    @IBAction func speedChanged(sender: AnyObject) {
+        waypoint!.speed = self.speedText.text.toInt()!
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
+    }
+    
+    // MARK: - Show the callout view 
     override func setSelected(selected: Bool, animated: Bool) {
                 
         let calloutViewAdded = calloutView?.superview != nil
@@ -68,29 +93,6 @@ class WaypointView: MKPinAnnotationView, UITextFieldDelegate {
         }
     }
     
-    @IBAction func deleteButtonPressed(sender: AnyObject) {
-        waypointsForMission.removeAtIndex(waypoint!.waypointNumber - 1)
-        self.mainView!.mapView.removeAnnotation(waypoint)
-        self.mainView!.waypointCounter--
-        self.mainView!.updateNumeration()
-    }
-    
-    @IBAction func heightChanged(sender: AnyObject) {
-        var heightMilli = self.heightText.text.toInt()
-        var height = heightMilli!*1000
-        waypoint!.height = height
-    }
-    
-    @IBAction func speedChanged(sender: AnyObject) {
-        waypoint!.speed = self.speedText.text.toInt()!
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        
-        return true
-    }
-    
     override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
         var hitView = super.hitTest(point, withEvent: event)
         
@@ -103,5 +105,9 @@ class WaypointView: MKPinAnnotationView, UITextFieldDelegate {
         hitOutside = hitView == nil
         
         return hitView;
+    }
+    
+    var preventDeselection:Bool {
+        return !hitOutside
     }
 }

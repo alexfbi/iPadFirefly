@@ -35,30 +35,30 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        // Setting delegates
         self.mapView.delegate = self
+        self.locationManager.delegate = self
+        
+        // Setting mapType to hybrid (sattelite image with road information)
         self.mapView.mapType = MKMapType.Hybrid
         
-        self.locationManager.delegate = self
+        // The location manager shows the actual position of the iOS device
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
         
-        self.mapView.showsBuildings = true
-        
-        let doubleTap = UITapGestureRecognizer(target: self, action: "doubleTapAction:")
-        doubleTap.numberOfTapsRequired = 2
+        self.mapView.showsBuildings = false
         
         // Long press to add a waypoint
         let longPress = UILongPressGestureRecognizer(target: self, action: "longPressAction:")
         longPress.minimumPressDuration = 0.5
-        
         mapView.addGestureRecognizer(longPress)
         
-        // add waypoints of existing mission or after reload
+        // Add waypoints of existing mission or after reload
         for index in 0..<waypointsForMission.count {
             self.mapView.addAnnotation(waypointsForMission[index])
         }
     
-        //Linien zeichnen
+        // Draw line for the route
         createPolyline()
     }
     
@@ -98,6 +98,7 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
     
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         
+        // The user location should not be shown as a pin of type WaypointView
         if (annotation is MKUserLocation) {
             return nil
         }
