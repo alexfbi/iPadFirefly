@@ -12,8 +12,6 @@ import CoreData
 
 class NetworkRecPicture {
     
-    var buffersize:Int = 1000000
-    
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     func start(){
@@ -36,9 +34,9 @@ class NetworkRecPicture {
     
     func receiveControll(client c:TCPClient){
         while("yes" == holdSockets){
-            var recMessage = c.read(buffersize)
-            var cleanedMessage = NSString(bytes: recMessage!, length: recMessage!.count, encoding: NSUTF8StringEncoding)
-            parser(message: cleanedMessage!)
+            var recSize = c.read(100)
+            var recMessage = c.read((NSString(bytes: recSize!, length: recSize!.count, encoding: NSUTF8StringEncoding) as! String).toInt()!)
+            parser(message: NSString(bytes: recMessage!, length: recMessage!.count, encoding: NSUTF8StringEncoding)!)
         }
         c.close()
     }
