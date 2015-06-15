@@ -14,6 +14,7 @@ class MasterTableView: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var changeOrderButton: UIButton!
     var refreshControl:UIRefreshControl!
+    var waypoints:[Waypoint]?
     weak var waypointTableDelegate:WaypointTableDelegate?
     
     override func viewDidLoad() {
@@ -25,7 +26,8 @@ class MasterTableView: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return waypointsForMission.count
+        waypoints = waypointTableDelegate?.getWaypoints()
+        return waypoints!.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -35,7 +37,7 @@ class MasterTableView: UIViewController, UITableViewDelegate, UITableViewDataSou
             cell = UITableViewCell(style: .Default, reuseIdentifier: "cell")
         }
         
-        cell!.textLabel?.text = "Waypoint \(waypointsForMission[indexPath.row].waypointNumber)"
+        cell!.textLabel?.text = "Waypoint \(self.waypoints![indexPath.row].waypointNumber)"
         
         return cell!
     }

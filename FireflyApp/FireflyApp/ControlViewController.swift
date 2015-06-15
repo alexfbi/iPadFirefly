@@ -16,6 +16,7 @@ private var myContext = 0
 
 protocol ControlViewDelegate {
     func drawLine(gpsList: [GPS_Struct])
+    func getWaypoints() -> [Waypoint]
 }
 
 class ControlViewController:  UIViewController, NetworkModelDelegate, MissionModelDelegate,PlotViewDataSource  {
@@ -266,7 +267,7 @@ class ControlViewController:  UIViewController, NetworkModelDelegate, MissionMod
     
     @IBAction func startSwitchChanged(sender: AnyObject) {
         if (self.startSwitch.on) {
-            self.networkSender?.sendWaypoints()
+            self.networkSender?.sendWaypoints(delegate!.getWaypoints())
         }
     }
     
