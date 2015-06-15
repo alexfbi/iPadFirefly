@@ -267,7 +267,7 @@ class ControlViewController:  UIViewController, NetworkModelDelegate, MissionMod
     
     @IBAction func startSwitchChanged(sender: AnyObject) {
         if (self.startSwitch.on) {
-            self.networkSender?.sendWaypoints(delegate!.getWaypoints())
+            self.networkSender?.sendMission(delegate!.getWaypoints())
         }
     }
     
