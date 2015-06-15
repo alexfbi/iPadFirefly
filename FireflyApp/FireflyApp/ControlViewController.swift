@@ -51,6 +51,24 @@ class ControlViewController:  UIViewController, NetworkModelDelegate, MissionMod
     
     var delegate:ControlViewDelegate?
     
+    var networkSender:NetworkSender?
+    var networkRecPicture:NetworkRecPicture?
+    
+    var missionModel:MissionModel = MissionModel()
+        {//1 -- instantiate a model object, for didSet need to define
+        didSet{ //any change to the class, but not the properties
+            displayData()
+        }
+    }
+    
+    
+    var networkRecProp = NetworkRecProp()
+        {//1 -- instantiate a model object, for didSet need to define
+        didSet{ //any change to the class, but not the properties
+            displayData()
+        }
+    }
+    
    
     func display()
     {
@@ -161,23 +179,6 @@ class ControlViewController:  UIViewController, NetworkModelDelegate, MissionMod
         startAnimation()
     }
     
-    
-    
-    var missionModel:MissionModel = MissionModel()
-        {//1 -- instantiate a model object, for didSet need to define
-        didSet{ //any change to the class, but not the properties
-            displayData()
-        }
-    }
-    
-    
-    var networkRecProp = NetworkRecProp()
-        {//1 -- instantiate a model object, for didSet need to define
-        didSet{ //any change to the class, but not the properties
-            displayData()
-        }
-    }
-    
     func displayData() {
          NSLog("%@", "Display Data ")
         
@@ -227,7 +228,7 @@ class ControlViewController:  UIViewController, NetworkModelDelegate, MissionMod
 //        title = "Control"
         
         
-      //Observer
+        //Observer
         networkRecProp.addObserver(self, forKeyPath: "batterieList", options: .New, context: &myContext)
         
         self.startSwitch.on = false
@@ -236,6 +237,21 @@ class ControlViewController:  UIViewController, NetworkModelDelegate, MissionMod
         networkRecProp.delegate = self
         missionModel.delegate = self
         
+        // Starting the network sever
+        networkSender = NetworkSender()
+        networkRecPicture = NetworkRecPicture()
+        
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
+            self.networkSender!.start()
+        }
+        //     var networkRecProp = NetworkRecProp()
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
+            self.networkRecProp.start()
+        }
+        
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
+            self.networkRecPicture!.start()
+        }
     }
     
     
@@ -247,25 +263,9 @@ class ControlViewController:  UIViewController, NetworkModelDelegate, MissionMod
     
     
     @IBAction func startSwitchChanged(sender: AnyObject) {
-        
         if (self.startSwitch.on) {
-            if (self.startSwitch.on) {
-                var networkSender = NetworkSender()
-                dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
-                    networkSender.start()
-                }
-           //     var networkRecProp = NetworkRecProp()
-                dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
-                    self.networkRecProp.start()
-                }
-                var networkRecPicture = NetworkRecPicture()
-                dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
-                    networkRecPicture.start()
-                }
-            }
-            
+            self.networkSender?.sendWaypoints()
         }
-        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
