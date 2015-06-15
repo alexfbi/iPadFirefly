@@ -450,7 +450,7 @@
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3BM-ob-Zro" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1384" y="-1040"/>
+            <point key="canvasLocation" x="1376" y="-1104"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Hub-2X-eVv">

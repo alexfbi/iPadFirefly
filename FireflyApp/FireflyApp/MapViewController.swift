@@ -21,6 +21,7 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
     
     var locationManager = CLLocationManager()
     var waypointCounter = 0
+    var waypoints:[Waypoint] = [Waypoint]()
     var locationWasSet = false
     var selectedAnnotationView:MKAnnotationView?
     var gpsPositions:[GPS_Struct] = [GPS_Struct](){
@@ -52,11 +53,6 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
         let longPress = UILongPressGestureRecognizer(target: self, action: "longPressAction:")
         longPress.minimumPressDuration = 0.5
         mapView.addGestureRecognizer(longPress)
-        
-        // Add waypoints after reload
-        for index in 0..<waypointsForMission.count {
-            self.mapView.addAnnotation(waypointsForMission[index])
-        }
         
         // TODO: Add waypoints of existing mission from database
     
@@ -148,21 +144,21 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
             var touchPoint = gestureRecognizer.locationInView(self.mapView)
             var newCoord:CLLocationCoordinate2D = mapView.convertPoint(touchPoint, toCoordinateFromView: self.mapView)
             var newAnnotation = Waypoint(coordinate: newCoord, waypointNumber: ++waypointCounter)
-            waypointsForMission.insert(newAnnotation, atIndex: waypointCounter-1)
+            waypoints.insert(newAnnotation, atIndex: waypointCounter-1)
             self.mapView.addAnnotation(newAnnotation)
             NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
         }
     }
     
     /**
-    Updates the sequence of waypoints in the waypointsForMission array and posts the "refresh" notification
+    Updates the sequence of waypoints in the waypoints array and posts the "refresh" notification
     */
     func updateNumeration() {
-        let count = waypointsForMission.count
+        let count = waypoints.count
         waypointCounter = count
         if (count > 0) {
             for (var index = 0; index < count; index++) {
-                var annotation = waypointsForMission[index] as Waypoint
+                var annotation = waypoints[index] as Waypoint
                 annotation.title = "Waypoint " + String(index+1)
                 annotation.waypointNumber = index+1
             }
@@ -236,9 +232,9 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
     :param: waypointNumber  Number of waypoint to delete.
     */
     func deleteWaypoint(waypointNumber: Int) {
-        self.mapView.removeAnnotation(waypointsForMission[waypointNumber])
+        self.mapView.removeAnnotation(waypoints[waypointNumber])
         self.waypointCounter--
-        waypointsForMission.removeAtIndex(waypointNumber)
+        waypoints.removeAtIndex(waypointNumber)
         self.updateNumeration()
     }
     
@@ -248,7 +244,7 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
     :param: wayointNumber   Number of waypoint to select.
     */
     func waypointWasSelected(waypointNumber: Int) {
-        mapView.selectAnnotation(waypointsForMission[waypointNumber], animated: true)
+        mapView.selectAnnotation(waypoints[waypointNumber], animated: true)
     }
     
     /**
@@ -258,10 +254,15 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
     :param: toPosition  New position of reordered waypoint.
     */
     func waypointsWereReordered(waypointNumber: Int, toPosition: Int) {
-        var reorderedWaypoint = waypointsForMission[waypointNumber]
-        waypointsForMission.removeAtIndex(waypointNumber)
-        waypointsForMission.insert(reorderedWaypoint, atIndex: toPosition)
+        var reorderedWaypoint = waypoints[waypointNumber]
+        waypoints.removeAtIndex(waypointNumber)
+        waypoints.insert(reorderedWaypoint, atIndex: toPosition)
         self.updateNumeration()
+    }
+    
+    // MARK: - Implement ControlViewDelegate
+    func getWaypoints() -> [Waypoint] {
+        return self.waypoints
     }
 }
 

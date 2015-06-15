@@ -74,7 +74,7 @@ class NetworkSender {
         self.client!.send(str: message)
     }
     
-    func sendWaypoints(){
+    func sendWaypoints(waypoints: [Waypoint]){
         // TODO: 
     }
     

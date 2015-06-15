@@ -37,7 +37,7 @@
 		FE00CBB21B0BC02D00D79628 /* CallOutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE00CBB11B0BC02D00D79628 /* CallOutView.xib */; };
 		FE047D9D1B0A12F3003FF9C9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE047D9C1B0A12F3003FF9C9 /* CoreData.framework */; };
 		FE047DA01B0A1338003FF9C9 /* AFC1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE047D9E1B0A1338003FF9C9 /* AFC1.xcdatamodeld */; };
-		FE3BB5E01B15B4F10045687C /* ytcpsocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3BB5DF1B15B4F10045687C /* ytcpsocket.swift */; };
+		FE3BB5E01B15B4F10045687C /* TCPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3BB5DF1B15B4F10045687C /* TCPClient.swift */; };
 		FE3BB5E21B15B4FB0045687C /* ysocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3BB5E11B15B4FB0045687C /* ysocket.swift */; };
 		FE3BB5E51B15B5290045687C /* ytcpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = FE3BB5E41B15B5290045687C /* ytcpsocket.c */; };
 		FE411DB01B0C72F60079B7C3 /* WaypointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE411DAF1B0C72F60079B7C3 /* WaypointView.swift */; };
@@ -94,7 +94,7 @@
 		FE00CBB11B0BC02D00D79628 /* CallOutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CallOutView.xib; sourceTree = "<group>"; };
 		FE047D9C1B0A12F3003FF9C9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FE047D9F1B0A1338003FF9C9 /* AFC1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AFC1.xcdatamodel; sourceTree = "<group>"; };
-		FE3BB5DF1B15B4F10045687C /* ytcpsocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ytcpsocket.swift; sourceTree = "<group>"; };
+		FE3BB5DF1B15B4F10045687C /* TCPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCPClient.swift; sourceTree = "<group>"; };
 		FE3BB5E11B15B4FB0045687C /* ysocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ysocket.swift; sourceTree = "<group>"; };
 		FE3BB5E31B15B5280045687C /* FireflyApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FireflyApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		FE3BB5E41B15B5290045687C /* ytcpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ytcpsocket.c; sourceTree = "<group>"; };
@@ -232,7 +232,7 @@
 				063F8E461B1F101F00F1CEFD /* NetworkRecPicture.swift */,
 				063F8E481B1F103100F1CEFD /* NetworkSender.swift */,
 				063F8E4A1B1F105000F1CEFD /* GlobalVariable.swift */,
-				FE3BB5DF1B15B4F10045687C /* ytcpsocket.swift */,
+				FE3BB5DF1B15B4F10045687C /* TCPClient.swift */,
 				FE3BB5E11B15B4FB0045687C /* ysocket.swift */,
 				FE3BB5E41B15B5290045687C /* ytcpsocket.c */,
 				FE3BB5E31B15B5280045687C /* FireflyApp-Bridging-Header.h */,
@@ -442,7 +442,7 @@
 				063F8E491B1F103100F1CEFD /* NetworkSender.swift in Sources */,
 				412C9FE41B1E38C100C16B79 /* LogTableViewController.swift in Sources */,
 				412C9FE61B1E38F800C16B79 /* CategorieTableViewController.swift in Sources */,
-				FE3BB5E01B15B4F10045687C /* ytcpsocket.swift in Sources */,
+				FE3BB5E01B15B4F10045687C /* TCPClient.swift in Sources */,
 				416D2A621B259D99006A9BF0 /* SplitViewController.swift in Sources */,
 				FE6FB2521AFA1499009AE8ED /* AppDelegate.swift in Sources */,
 				41F9831C1B1E3C0200592590 /* ContentViewController.swift in Sources */,
