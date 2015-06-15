@@ -53,10 +53,12 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
         longPress.minimumPressDuration = 0.5
         mapView.addGestureRecognizer(longPress)
         
-        // Add waypoints of existing mission or after reload
+        // Add waypoints after reload
         for index in 0..<waypointsForMission.count {
             self.mapView.addAnnotation(waypointsForMission[index])
         }
+        
+        // TODO: Add waypoints of existing mission from database
     
         // Draw line for the route
         createPolyline()
