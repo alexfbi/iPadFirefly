@@ -16,41 +16,38 @@ protocol NetworkModelDelegate{
 
 class NetworkRecProp:NSObject {
     
-   // dynamic var batteryList = [Double]()
+    // dynamic var batteryList = [Double]()
     
-    var buffersize:Int = 1000
-    
+    var buffersize:Int = 100
+    var client:TCPClient?
+    var status:String?
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
-    func start(){
+    //temp
+    var counter = 0
+    
+    
+    func start(ip: String){
         var server:TCPServer = TCPServer(addr: ip, port: 50000)
         println("Server started")
         var (success,msg)=server.listen()
         if success{
-            while true{
-                if var client=server.accept(){
-                    println("connection etablished")
-                    receiveControll(client: client)
-                }else{
-                    println("accept error")
-                }
+            client = server.accept()
+            if client != nil {
+                println("connection etablished")
+            }else{
+                println("accept error")
             }
         }else{
             println(msg)
         }
     }
     
-    func receiveControll(client c:TCPClient){
-        while("yes" == holdSockets){
-            var recMessage = c.read(buffersize)
-            var cleanedMessage = NSString(bytes: recMessage!, length: recMessage!.count, encoding: NSUTF8StringEncoding)
-            parser(message: cleanedMessage!)
-        }
-        c.close()
-    }
-    
-    func parser(message msg: NSString){
-        var msgArray = msg.componentsSeparatedByString(";")
+    func receiveAndSaveStatusInformations(){
+        var recMessage = client!.read(100)
+        var cleanedMessage = NSString(bytes: recMessage!, length: recMessage!.count, encoding: NSUTF8StringEncoding)
+        
+        var msgArray = cleanedMessage!.componentsSeparatedByString(";")
         
         let fetchRequest = NSFetchRequest(entityName: "Log")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
@@ -59,23 +56,21 @@ class NetworkRecProp:NSObject {
         
         switch (msgArray[0] as! String) {
         case "status":
+            status = "inMission"
             saveGPS(msgArray[1] as! NSString, log: log)
             saveBattery(msgArray[2] as! NSString, log: log)
             saveSpeed(msgArray[3] as! NSString, log: log)
             break;
         case "missionover":
-            counter = 0
-            pictureCounter = 0
-            isDroneInMission = "no"
+            status = ""
             break;
         default:
-            println("error in parser")
+            println("error in message-worker")
             break;
         }
-        counter++
     }
     
-    func saveGPS(coordinates: NSString, log: Log){
+    private func saveGPS(coordinates: NSString, log: Log){
         var gpsArray = coordinates.componentsSeparatedByString(",")
         var newGPS = NSEntityDescription.insertNewObjectForEntityForName("GPS", inManagedObjectContext: self.context!) as! GPS
         newGPS.id = counter
@@ -86,13 +81,11 @@ class NetworkRecProp:NSObject {
         newGPS.log = log
         self.context?.save(nil)
         
-        
         var gps:GPS_Struct = GPS_Struct(x: newGPS.valueX ,y: newGPS.valueY, z:  newGPS.valueZ)
-        
         gpsList.append(gps)
     }
     
-    func saveBattery(charge: NSString, log: Log){
+    private func saveBattery(charge: NSString, log: Log){
         var newBattery = NSEntityDescription.insertNewObjectForEntityForName("Battery", inManagedObjectContext: self.context!) as! Battery
         var str: NSString = charge
         newBattery.value = str.doubleValue
@@ -102,10 +95,10 @@ class NetworkRecProp:NSObject {
         self.context?.save(nil)
         
         batterieList.append(Double(newBattery.value))
-       // println(batterieList.count)
+        // println(batterieList.count)
     }
     
-    func saveSpeed(speed: NSString, log: Log){
+    private func saveSpeed(speed: NSString, log: Log){
         var newSpeed = NSEntityDescription.insertNewObjectForEntityForName("Speed", inManagedObjectContext: self.context!) as! Speed
         var str: String = speed as! String
         newSpeed.value = str.toInt()!
@@ -122,7 +115,7 @@ class NetworkRecProp:NSObject {
     
     
     var imageList:[UIImage] = [UIImage](){
-             
+        
         
         didSet
         {
@@ -142,10 +135,10 @@ class NetworkRecProp:NSObject {
         
     }
     
-   dynamic var batterieList:[Double] = [Double](){
+    dynamic var batterieList:[Double] = [Double](){
         didSet{
-                      delegate?.displayData()
-           
+            delegate?.displayData()
+            
         }
         
     }
