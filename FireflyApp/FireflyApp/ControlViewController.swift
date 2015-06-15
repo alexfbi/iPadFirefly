@@ -243,7 +243,7 @@ class ControlViewController:  UIViewController, NetworkModelDelegate, MissionMod
         networkRecPicture = NetworkRecPicture()
         
         
-        // ToDo: threading nicht mehr nötig
+        // ToDo: threading nicht mehr nötig, aber empfholen, da sonst verklemmungen auftreten könnten
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
             self.networkSender!.start("127.0.0.1")
         }
