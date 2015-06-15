@@ -18,11 +18,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        let splitViewController = self.window!.rootViewController as! UISplitViewController
+//        let splitViewController = self.window!.rootViewController as! UISplitViewController
+//        
+//        splitViewController.viewControllers.append(splitViewController.storyboard?.instantiateViewControllerWithIdentifier("masterViewNavigation") as! UINavigationController)
+//        splitViewController.viewControllers.append(splitViewController.storyboard?.instantiateViewControllerWithIdentifier("detailView") as! UINavigationController)
         
-        splitViewController.viewControllers.append(splitViewController.storyboard?.instantiateViewControllerWithIdentifier("masterViewNavigation") as! UINavigationController)
-        splitViewController.viewControllers.append(splitViewController.storyboard?.instantiateViewControllerWithIdentifier("detailView") as! UINavigationController)
-                
+//        let masterNavigationView = splitViewController.viewControllers.first as! UINavigationController
+//        let detailNavigationView = splitViewController.viewControllers.last as! UINavigationController
+//        
+//        let masterView = masterNavigationView.viewControllers.first as! UITabBarController
+//        let masterTableView = masterView.viewControllers?.last as! MasterTableView
+//        let masterControlView = masterView.viewControllers?.first as! ControlViewController
+//        
+//        let mapView = detailNavigationView.viewControllers?.first as! MapViewController
+//        
+//        masterTableView.waypointTableDelegate = mapView
+//        masterControlView.delegate = mapView
+        
         return true
     }
 
