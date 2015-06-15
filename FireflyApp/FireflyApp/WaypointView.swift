@@ -41,19 +41,39 @@ class WaypointView: MKPinAnnotationView, UITextFieldDelegate {
     }
     
     // MARK: - Actions
+    
+    /**
+    Called when the delelte button is pressed.
+    Deletes the corresponding waypoint to this view.
+    
+    :param: sender  The object sending the action.
+    */
     @IBAction func deleteButtonPressed(sender: AnyObject) {
+        // TODO: don't use global array
         waypointsForMission.removeAtIndex(waypoint!.waypointNumber - 1)
         self.mainView!.mapView.removeAnnotation(waypoint)
         self.mainView!.waypointCounter--
         self.mainView!.updateNumeration()
     }
     
+    /**
+    Called when the height value was changed. 
+    Changes the height of the corresponding waypoint.
+    
+    :param: sender  The object sending the action.
+    */
     @IBAction func heightChanged(sender: AnyObject) {
         var heightMilli = self.heightText.text.toInt()
         var height = heightMilli!*1000
         waypoint!.height = height
     }
     
+    /**
+    Called when the speed value was changed.
+    Changes the speed of the corresponding waypoint.
+    
+    :param: sender  The object sending the action.
+    */
     @IBAction func speedChanged(sender: AnyObject) {
         waypoint!.speed = self.speedText.text.toInt()!
     }
@@ -69,6 +89,7 @@ class WaypointView: MKPinAnnotationView, UITextFieldDelegate {
                 
         let calloutViewAdded = calloutView?.superview != nil
         
+        
         if (selected || !selected && hitOutside) {
             super.setSelected(selected, animated: animated)
         }
@@ -79,15 +100,21 @@ class WaypointView: MKPinAnnotationView, UITextFieldDelegate {
             calloutView = CallOutView()
         }
         
+        // Show the callout view if selected and not already shown
         if (self.selected && !calloutViewAdded) {
+            // Get the view to the right position
             calloutView!.frame.origin.x = -100
             calloutView!.frame.origin.y = -200
+            
+            // Show the waypoint information
             self.label.text = "Waypoint \(waypoint!.waypointNumber)"
             self.heightText.text = "\(waypoint!.height/1000)"
             self.speedText.text = "\(waypoint!.speed)"
+            
             addSubview(calloutView!)
         }
         
+        // Remove the view if not selected
         if (!self.selected) {
             calloutView?.removeFromSuperview()
         }
