@@ -30,4 +30,6 @@ protocol WaypointTableDelegate: class {
     :param: toPosition  New position of reordered waypoint.
     */
     func waypointsWereReordered(waypointNumber: Int, toPosition: Int)
+    
+    func getWaypoints() -> [Waypoint]
 }
