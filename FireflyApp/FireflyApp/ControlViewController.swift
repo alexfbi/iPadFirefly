@@ -242,16 +242,18 @@ class ControlViewController:  UIViewController, NetworkModelDelegate, MissionMod
         networkSender = NetworkSender()
         networkRecPicture = NetworkRecPicture()
         
+        
+        // ToDo: threading nicht mehr nötig
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
-            self.networkSender!.start()
+            self.networkSender!.start("127.0.0.1")
         }
         //     var networkRecProp = NetworkRecProp()
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
-            self.networkRecProp.start()
+            self.networkRecProp.start("127.0.0.1")
         }
         
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
-            self.networkRecPicture!.start()
+            self.networkRecPicture!.start("127.0.0.1")
         }
     }
     

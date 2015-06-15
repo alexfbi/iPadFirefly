@@ -10,7 +10,6 @@
 		063F8E451B1F100400F1CEFD /* NetworkReceiverProp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063F8E441B1F100400F1CEFD /* NetworkReceiverProp.swift */; };
 		063F8E471B1F101F00F1CEFD /* NetworkRecPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063F8E461B1F101F00F1CEFD /* NetworkRecPicture.swift */; };
 		063F8E491B1F103100F1CEFD /* NetworkSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063F8E481B1F103100F1CEFD /* NetworkSender.swift */; };
-		063F8E4B1B1F105000F1CEFD /* GlobalVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063F8E4A1B1F105000F1CEFD /* GlobalVariable.swift */; };
 		0699CF401B1E15C000EF305E /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0699CF3F1B1E15C000EF305E /* Course.swift */; };
 		0699CF441B1E15C100EF305E /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0699CF431B1E15C100EF305E /* Entry.swift */; };
 		0699CF481B1E15C100EF305E /* Way_Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0699CF471B1E15C100EF305E /* Way_Point.swift */; };
@@ -67,7 +66,6 @@
 		063F8E441B1F100400F1CEFD /* NetworkReceiverProp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReceiverProp.swift; sourceTree = "<group>"; };
 		063F8E461B1F101F00F1CEFD /* NetworkRecPicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRecPicture.swift; sourceTree = "<group>"; };
 		063F8E481B1F103100F1CEFD /* NetworkSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSender.swift; sourceTree = "<group>"; };
-		063F8E4A1B1F105000F1CEFD /* GlobalVariable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalVariable.swift; path = ../GlobalVariable.swift; sourceTree = "<group>"; };
 		0699CF3F1B1E15C000EF305E /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		0699CF431B1E15C100EF305E /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		0699CF471B1E15C100EF305E /* Way_Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Way_Point.swift; sourceTree = "<group>"; };
@@ -231,8 +229,7 @@
 				063F8E441B1F100400F1CEFD /* NetworkReceiverProp.swift */,
 				063F8E461B1F101F00F1CEFD /* NetworkRecPicture.swift */,
 				063F8E481B1F103100F1CEFD /* NetworkSender.swift */,
-				063F8E4A1B1F105000F1CEFD /* GlobalVariable.swift */,
-				FE3BB5DF1B15B4F10045687C /* TCPClient.swift */,
+				FE3BB5DF1B15B4F10045687C /* ytcpsocket.swift */,
 				FE3BB5E11B15B4FB0045687C /* ysocket.swift */,
 				FE3BB5E41B15B5290045687C /* ytcpsocket.c */,
 				FE3BB5E31B15B5280045687C /* FireflyApp-Bridging-Header.h */,
@@ -453,7 +450,6 @@
 				063F8E471B1F101F00F1CEFD /* NetworkRecPicture.swift in Sources */,
 				412C9FA31B1E205F00C16B79 /* Speed.swift in Sources */,
 				412C9FE81B1E393A00C16B79 /* ControlViewController.swift in Sources */,
-				063F8E4B1B1F105000F1CEFD /* GlobalVariable.swift in Sources */,
 				FE411DB01B0C72F60079B7C3 /* WaypointView.swift in Sources */,
 				FE6FB2541AFA1499009AE8ED /* MapViewController.swift in Sources */,
 				412C9FDD1B1E388C00C16B79 /* PlotterViewController.swift in Sources */,
