@@ -43,7 +43,7 @@ class NetworkRecProp:NSObject {
         }
     }
     
-    func receiveAndSaveStatusInformations(){
+    func receiveMessage(){
         var recMessage = client!.read(100)
         var cleanedMessage = NSString(bytes: recMessage!, length: recMessage!.count, encoding: NSUTF8StringEncoding)
         
