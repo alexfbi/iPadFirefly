@@ -69,6 +69,7 @@ class MasterTableView: UIViewController, UITableViewDelegate, UITableViewDataSou
     // Reorder the waypoint items
     @IBAction func changeOrderButtonPressed(sender: AnyObject) {
         if (changeOrderButton.titleLabel!.text == "Change Order") {
+            waypointTableDelegate!.deselectWaypoints()
             self.tableView.setEditing(true, animated: true)
             changeOrderButton.setTitle("Done", forState: .Normal)
         } else {

@@ -9,6 +9,15 @@
 import Foundation
 import MapKit
 
+protocol WaypointViewDelegate {
+    /**
+    Calls the delegate to delete the waypoint from the array
+    
+    :param: waypointNumber  Number of waypoint to delete
+    */
+    func deleteWaypoint(waypointNumber: Int)
+}
+
 class WaypointView: MKPinAnnotationView, UITextFieldDelegate {
     
     // MARK: - Outlets
@@ -18,10 +27,9 @@ class WaypointView: MKPinAnnotationView, UITextFieldDelegate {
     @IBOutlet weak var speedText: UITextField!
     
     // MARK: - Variables
-    // TODO: mainView as attribute? Or better delegate to call delete function?
     var hitOutside:Bool = true
     var waypoint:Waypoint?
-    var mainView:MapViewController?
+    var waypointViewDelegate:WaypointViewDelegate?
     
     // MARK:
     override init!(annotation: MKAnnotation!, reuseIdentifier: String!) {
@@ -30,6 +38,9 @@ class WaypointView: MKPinAnnotationView, UITextFieldDelegate {
         
         self.heightText.delegate = self
         self.speedText.delegate = self
+        
+        waypoint = self.annotation as? Waypoint
+        self.label.text = "Waypoint \(self.waypoint!.waypointNumber)"
     }
     
     override init(frame: CGRect) {
@@ -49,11 +60,7 @@ class WaypointView: MKPinAnnotationView, UITextFieldDelegate {
     :param: sender  The object sending the action.
     */
     @IBAction func deleteButtonPressed(sender: AnyObject) {
-        // TODO: don't use global array
-        //waypointsForMission.removeAtIndex(waypoint!.waypointNumber - 1)
-        self.mainView!.mapView.removeAnnotation(waypoint)
-        self.mainView!.waypointCounter--
-        self.mainView!.updateNumeration()
+        waypointViewDelegate!.deleteWaypoint(waypoint!.waypointNumber - 1)
     }
     
     /**

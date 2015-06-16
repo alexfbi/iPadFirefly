@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationManagerDelegate, WaypointTableDelegate, ControlViewDelegate {
+class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationManagerDelegate, WaypointTableDelegate, ControlViewDelegate, WaypointViewDelegate {
     
     // MARK: - Outlets
     
@@ -86,6 +86,7 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
     }
     
     func mapView(mapView: MKMapView!, didUpdateUserLocation userLocation: MKUserLocation!) {
+        // Just zoom to the user location once when the app was started. Otherwise you can't scroll the map.
         if (!locationWasSet) {
             zoomToUserLocation()
             locationWasSet = true
@@ -96,16 +97,14 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
     
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         
-        // The user location should not be shown as a pin of type WaypointView
+        // The user location should not be shown as a pin of type WaypointView. nil gives the blue dot.
         if (annotation is MKUserLocation) {
             return nil
         }
             
         else {
-            var pin = WaypointView(annotation: annotation, reuseIdentifier: "myPin"/*, mainView: self*/)
-            pin.mainView = self
-            pin.waypoint = annotation as? Waypoint
-            pin.label.text = "Waypoint \(pin.waypoint!.waypointNumber)"
+            var pin = WaypointView(annotation: annotation, reuseIdentifier: "myPin")
+            pin.waypointViewDelegate = self
             pin.animatesDrop = true
             pin.draggable = true
             pin.canShowCallout = false
@@ -115,6 +114,7 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
     }
     
     func mapView(mapView: MKMapView!, didDeselectAnnotationView view: MKAnnotationView!) {
+        // Prevents the callout view from dissapearing when tapping inside.
         if let mapPin = view as? WaypointView {
             if mapPin.preventDeselection {
                 mapView.selectAnnotation(view.annotation, animated: false)
@@ -122,6 +122,8 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
         }
     }
     
+    // TODO: Just needed if the coordinates were shown
+    /*
     func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, didChangeDragState newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState) {
         
         if (newState == MKAnnotationViewDragState.Ending)
@@ -132,7 +134,7 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
             var annotation = view.annotation as! Waypoint
             annotation.subtitle = "Latitude: \(latitudeString), Longitude: \(longitudeString)"
         }
-    }
+    } */
     
     /**
     Action to place a waypoint. Triggerd by a long tap.
@@ -141,11 +143,16 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
         
         if (gestureRecognizer.state == UIGestureRecognizerState.Ended) {
             
+            // Translate the touch point into coordiantes
             var touchPoint = gestureRecognizer.locationInView(self.mapView)
             var newCoord:CLLocationCoordinate2D = mapView.convertPoint(touchPoint, toCoordinateFromView: self.mapView)
+            
+            // Create a new annotation and add it to the map and into the waypoints array
             var newAnnotation = Waypoint(coordinate: newCoord, waypointNumber: ++waypointCounter)
             waypoints.insert(newAnnotation, atIndex: waypointCounter-1)
             self.mapView.addAnnotation(newAnnotation)
+            
+            // Notify the observers
             NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
         }
     }
@@ -156,13 +163,15 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
     func updateNumeration() {
         let count = waypoints.count
         waypointCounter = count
-        if (count > 0) {
-            for (var index = 0; index < count; index++) {
-                var annotation = waypoints[index] as Waypoint
-                annotation.title = "Waypoint " + String(index+1)
-                annotation.waypointNumber = index+1
-            }
+        
+        // Update the numeration of all waypoints inside the array
+        for (var index = 0; index < count; index++) {
+            var annotation = waypoints[index] as Waypoint
+            annotation.title = "Waypoint " + String(index+1)
+            annotation.waypointNumber = index+1
         }
+        
+        // Notify the observers
         NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
     }
     
@@ -224,7 +233,7 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
         mapView?.setNeedsDisplay()
     }
     
-    // MARK: - Implement WaypointTableDelegate
+    // MARK: - Implement delegates
     
     /**
     Delete waypoint.
@@ -264,5 +273,13 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
     func getWaypoints() -> [Waypoint] {
         return self.waypoints
     }
+    
+    func deselectWaypoints() {
+        var selectedWaypoints = self.mapView.selectedAnnotations as! [Waypoint]
+        for selectedWaypoint in selectedWaypoints {
+            self.mapView.deselectAnnotation(selectedWaypoint, animated: true)
+        }
+    }
+    
 }
 

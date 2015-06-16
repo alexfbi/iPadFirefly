@@ -32,4 +32,6 @@ protocol WaypointTableDelegate: class {
     func waypointsWereReordered(waypointNumber: Int, toPosition: Int)
     
     func getWaypoints() -> [Waypoint]
+    
+    func deselectWaypoints()
 }
