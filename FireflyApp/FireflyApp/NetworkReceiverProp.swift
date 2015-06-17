@@ -10,13 +10,52 @@ import Foundation
 import UIKit
 import CoreData
 
-protocol NetworkModelDelegate{
-    func displayData()
-}
+
 
 class NetworkRecProp:NSObject {
     
-    // dynamic var batteryList = [Double]()
+    
+    
+    
+    var gpsList:[GPS_Struct] = [GPS_Struct](){
+        didSet{
+            
+            if gpsList.count > 10
+            {
+                
+                gpsList.removeAll(keepCapacity: false)
+            }
+        
+            
+        }
+        
+    }
+    
+    var batteryList:[Double] = [Double](){
+        didSet{
+            
+            
+            if batteryList.count > 10{
+                batteryList.removeAll(keepCapacity: false)
+                
+            }
+        }
+        
+    }
+    
+    
+    var speedList:[Double] = [Double]() {
+        didSet{
+            if speedList.count > 10{
+                speedList.removeAll(keepCapacity: false)
+                
+            }
+            
+
+        }
+    }
+        
+    
     
     var buffersize:Int = 100
     var client:TCPClient?
@@ -35,6 +74,9 @@ class NetworkRecProp:NSObject {
             client = server.accept()
             if client != nil {
                 println("connection etablished")
+                
+                //hinzugefügt
+                receiveMessage()
             }else{
                 println("accept error")
             }
@@ -60,6 +102,9 @@ class NetworkRecProp:NSObject {
             saveGPS(msgArray[1] as! NSString, log: log)
             saveBattery(msgArray[2] as! NSString, log: log)
             saveSpeed(msgArray[3] as! NSString, log: log)
+        
+            //Broadcast change
+            notify()
             break;
         case "missionover":
             status = ""
@@ -81,8 +126,12 @@ class NetworkRecProp:NSObject {
         newGPS.log = log
         self.context?.save(nil)
         
+        
+        
         var gps:GPS_Struct = GPS_Struct(x: newGPS.valueX ,y: newGPS.valueY, z:  newGPS.valueZ)
         gpsList.append(gps)
+        
+  
     }
     
     private func saveBattery(charge: NSString, log: Log){
@@ -94,8 +143,9 @@ class NetworkRecProp:NSObject {
         newBattery.log = log
         self.context?.save(nil)
         
-        batterieList.append(Double(newBattery.value))
-        // println(batterieList.count)
+        batteryList.append(Double(newBattery.value))
+
+       //println(batteryList.count)
     }
     
     private func saveSpeed(speed: NSString, log: Log){
@@ -108,53 +158,18 @@ class NetworkRecProp:NSObject {
         self.context?.save(nil)
         
         speedList.append(Double(newSpeed.value))
-    }
+      }
     
     
-    var delegate:NetworkModelDelegate? = nil
     
-    
-    var imageList:[UIImage] = [UIImage](){
+    /**
+        Broadcast about changes
+        @brief  NSNotification: MissionUpdate
+    */
+ 
+    func notify(){
         
-        
-        didSet
-        {
-            if imageList.count == 100
-            {
-                delegate?.displayData()
-                imageList.removeAll(keepCapacity: true)
-            }
-        }
-    }
-    
-    
-    var gpsList:[GPS_Struct] = [GPS_Struct](){
-        didSet{
-            delegate?.displayData()
-        }
-        
-    }
-    
-    dynamic var batterieList:[Double] = [Double](){
-        didSet{
-            delegate?.displayData()
-            
-        }
-        
-    }
-    
-    
-    var speedList:[Double] = [Double]() {
-        didSet{
-            delegate?.displayData()
-        }
-        
-    }
-    
-    
-    func getBattery() -> [Double]{
-        
-        return batterieList
+    NSNotificationCenter.defaultCenter().postNotificationName("MissionUpdate", object: self )
     }
     
 }

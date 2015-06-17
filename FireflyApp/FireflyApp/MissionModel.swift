@@ -1,19 +1,14 @@
 //
-//  MissionModel.swift
+//  MissionModel1.swift
 //  FireflyApp
 //
-//  Created by ak on 03.06.15.
+//  Created by ak on 14.06.15.
 //  Copyright (c) 2015 Hochschule Darmstadt. All rights reserved.
 //
 
 import Foundation
-
-
 import UIKit
 
-protocol MissionModelDelegate{
-    func displayData()
-}
 
 struct GPS_Struct{
     var x:Double
@@ -23,54 +18,63 @@ struct GPS_Struct{
 
 class MissionModel:NSObject{
     
-    
-    
-    
-    var delegate:MissionModelDelegate? = nil
-    
-    
-    var imageList:[UIImage] = [UIImage](){
-     //   didSet{
-    //        delegate?.displayData()
-   //     }
 
-        
+    var imageList:[UIImage] = [UIImage](){
+       
         didSet
         {
-            if imageList.count == 100
+            notify()
+            if imageList.count > 10
             {
-                 delegate?.displayData()
-                imageList.removeAll(keepCapacity: true)
+               
+
+                imageList.removeAll(keepCapacity: false)
             }
+            
         }
     }
     
     
     var gpsList:[GPS_Struct] = [GPS_Struct](){
         didSet{
-            delegate?.displayData()
+            notify()
+            if gpsList.count > 10
+            {
+                
+                
+                gpsList.removeAll(keepCapacity: false)
+            }
+            
+            
         }
-
+        
     }
     
-   dynamic var batterieList:[Double] = [Double](){
+     var batterieList:[Double] = [Double](){
         didSet{
-            //delegate?.displayData()
-            
-        //    if batterieList.count == 100
-        //    {
-                delegate?.displayData()
-        //       batterieList.removeAll(keepCapacity: true)
-       //     }
-        }
+           
+           notify()
+            if batterieList.count > 10{
+                batterieList.removeAll(keepCapacity: false)
 
+            }
+
+        }
+        
     }
-   
+    
     
     var speedList:[Double] = [Double]() {
         didSet{
-            delegate?.displayData()
-        }
+             notify()
+            
+            if speedList.count > 10{
+                speedList.removeAll(keepCapacity: false)
+                
+            }
+            
+           
+                    }
         
     }
     
@@ -78,14 +82,27 @@ class MissionModel:NSObject{
     
     var value:Double = 0.0{
         didSet{
-            delegate?.displayData()
+           notify()
         }
     }
     
     var name:String = "Mission"{
         didSet{
-            delegate?.displayData()
+           notify()
         }
+    }
+    
+    
+    
+    /**
+        Broadcast about changes
+        @brief  NSNotification: MissionUpdate
+    */
+    
+  private func notify(){
+        NSLog("%@", "Notify Observers")
+    
+        NSNotificationCenter.defaultCenter().postNotificationName("Mission", object: self, userInfo: ["mission": self])
     }
     
 }

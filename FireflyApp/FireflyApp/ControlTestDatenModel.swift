@@ -19,7 +19,10 @@ class ControlTestDatenModel {
     var pictureCountOld:Int
     
     var log:Log?
+   
+    /**
     
+    */
     init(){
         self.countCreateData = 1
         self.pictureCountOld = 0
@@ -42,7 +45,9 @@ class ControlTestDatenModel {
     
     
     
+    /**
     
+    */
     
    private func writeImagesToFolder(){
         
@@ -90,7 +95,12 @@ class ControlTestDatenModel {
         
         
     }
- private   func saveFileToDocumentsFolder(image: UIImage, pathToFile: String){
+    
+    /**
+    
+    */
+    
+    private   func saveFileToDocumentsFolder(image: UIImage, pathToFile: String){
         let fileManager = NSFileManager.defaultManager()
         
         
@@ -111,7 +121,9 @@ class ControlTestDatenModel {
         
         
     }
-  
+    /**
+    
+    */
     
     func createData(){
         
@@ -132,7 +144,9 @@ class ControlTestDatenModel {
          ++countCreateData
         
     }
-   
+    /**
+    
+    */
     private func createTestDatenLog(){
         
         var newLog = NSEntityDescription.insertNewObjectForEntityForName("Log", inManagedObjectContext: self.context!) as! Log
@@ -147,7 +161,9 @@ class ControlTestDatenModel {
         
         self.context?.save(nil)
     }
+    /**
     
+    */
   private  func createTestDatenSpeed(){
         var speed = NSEntityDescription.insertNewObjectForEntityForName("Speed", inManagedObjectContext: self.context!) as! Speed
         
@@ -164,7 +180,9 @@ class ControlTestDatenModel {
 
         
     }
+    /**
     
+    */
   private  func createTestDatenImage(){
         let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
@@ -200,6 +218,10 @@ class ControlTestDatenModel {
         self.context?.save(nil)
         
     }
+    
+    /**
+    
+    */
  private   func createTestDatenBatterie(){
         
         var battery = NSEntityDescription.insertNewObjectForEntityForName("Battery", inManagedObjectContext: self.context!) as! Battery
@@ -219,7 +241,9 @@ class ControlTestDatenModel {
 
         
     }
+    /**
     
+    */
  private func createTestGPSDataToDB(x: Double, y: Double, z: Double){
         NSLog("%@", " saveTestDataToDB")
         
@@ -238,5 +262,43 @@ class ControlTestDatenModel {
         }
         
     
+    //    @IBAction func buttonCreateDataPressed(sender: AnyObject) {
+    //
+    //
+    //        //  controlTestDaten.createData()
+    //
+    //
+    //
+    //        missionModel.name = "MissionName"
+    //
+    //
+    //
+    //
+    //        missionModel.gpsList.append(GPS_Struct(x: countNumber * 0.01, y: countNumber * 0.01, z:countNumber * 0.01))
+    //
+    //
+    //        for i in 1...20{
+    //            missionModel.batterieList.append(countNumber)
+    //            missionModel.speedList.append(countNumber)
+    //
+    //
+    //
+    //            let imageNameTmp = "\(countNumber % 20)"
+    //
+    //            var image =  UIImage(named: imageNameTmp)
+    //
+    //            if ( nil != image){
+    //                missionModel.imageList.append(image!)
+    //            }
+    //            ++countNumber
+    //            
+    //        }
+    //        
+    //     
+    //        
+    //        
+    //       
+    //    }
+
 
 }
