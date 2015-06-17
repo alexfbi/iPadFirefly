@@ -165,6 +165,7 @@ public class TCPServer:YSocket{
             if let addr=String(CString: buff, encoding: NSUTF8StringEncoding){
                 tcpClient.addr=addr
             }
+            NSLog("%@", "return the tcp client")
             return tcpClient
         }
         return nil

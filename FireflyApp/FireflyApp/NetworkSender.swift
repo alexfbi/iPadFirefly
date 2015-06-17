@@ -18,7 +18,7 @@ class NetworkSender {
         println("Server started")
         var (success,msg)=server.listen()
         if success{
-            client = server.accept()
+            self.client = server.accept()
             if client != nil {
                 println("connection etablished")
             }else{

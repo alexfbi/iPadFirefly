@@ -53,8 +53,6 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
         let longPress = UILongPressGestureRecognizer(target: self, action: "longPressAction:")
         longPress.minimumPressDuration = 0.5
         mapView.addGestureRecognizer(longPress)
-        
-        // TODO: Add waypoints of existing mission from database
     
         // Draw line for the route
         createPolyline()
@@ -77,7 +75,7 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
     }
     
     /**
-    Zooms to the location of the iPad
+    Zooms to the location of the device
     */
     func zoomToUserLocation() {
         let userLocation = mapView.userLocation
@@ -122,7 +120,7 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
         }
     }
     
-    // TODO: Just needed if the coordinates were shown
+    // TODO: Just needed if the coordinates were shown as text
     /*
     func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, didChangeDragState newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState) {
         
@@ -231,7 +229,6 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
     }
     
     func updateUI(){
-        
         mapView?.setNeedsDisplay()
     }
     
