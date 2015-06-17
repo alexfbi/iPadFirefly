@@ -275,9 +275,11 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
     }
     
     func deselectWaypoints() {
-        var selectedWaypoints = self.mapView.selectedAnnotations as! [Waypoint]
-        for selectedWaypoint in selectedWaypoints {
-            self.mapView.deselectAnnotation(selectedWaypoint, animated: true)
+        if (self.mapView.selectedAnnotations != nil) {
+            var selectedWaypoints = self.mapView.selectedAnnotations as! [Waypoint]
+            for selectedWaypoint in selectedWaypoints {
+                self.mapView.deselectAnnotation(selectedWaypoint, animated: true)
+            }
         }
     }
     
