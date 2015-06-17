@@ -67,19 +67,28 @@ class ControlViewController:  UIViewController, PlotViewDataSource  {
     func displayData()
     {
         
+        NSLog("%@", "Display Data")
+        
         var string:String = ""
+        
+        NSLog("%@", "Battery")
         
         if let  battery =  mission.batterieList.last {
           
             string =  "\(battery)"
             
             NSLog("%@", " Data Batterie \(string)")
-            labelBatterie.text = string
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                self.labelBatterie.text = string
+            }
+            
             
            
            
         }
         
+        NSLog("%@", "Speed")
         
         if let speed =  mission.speedList.last {
             
@@ -87,10 +96,15 @@ class ControlViewController:  UIViewController, PlotViewDataSource  {
             
             NSLog("%@", " Data Speed \(string)")
           
-            labelSpeed.text = string
+            dispatch_async(dispatch_get_main_queue()) {
+                self.labelSpeed.text = string
+            }
+            
             
         }
 
+        NSLog("%@", "GPS")
+        
         if let gps =  mission.gpsList.last {
             
             let stringX =  "\(gps.x)"
@@ -99,13 +113,16 @@ class ControlViewController:  UIViewController, PlotViewDataSource  {
             
             NSLog("%@", " Data \(stringX)")
             
-            labelGPSx.text = stringX
-            labelGPSy.text = stringY
-            labelHeight.text = stringZ
-           
+            dispatch_async(dispatch_get_main_queue()) {
+                self.labelGPSx.text = stringX
+                self.labelGPSy.text = stringY
+                self.labelHeight.text = stringZ
+            }
+            
             delegate?.drawLine(mission.gpsList)
         }
  
+        NSLog("%@", "Image")
         
         if let image =  mission.imageList.last {
             var imageListTmp:[UIImage] = [UIImage]()
@@ -115,23 +132,22 @@ class ControlViewController:  UIViewController, PlotViewDataSource  {
             imageList = imageListTmp
             
             startAnimation()
-          
-            
-            
         }
+        
+        NSLog("%@", "Output")
+        
+        
 
-       plotView.setNeedsDisplay()
+        plotView.setNeedsDisplay()
+        
+        NSLog("%@", "Finished display")
     }
     
     /**
         Shows data on Screen after notification
     */
     func displayAfterNotification(notification: NSNotification){
-        
-        
         displayData()
-        
-        
     }
     
 

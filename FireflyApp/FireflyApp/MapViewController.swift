@@ -210,7 +210,7 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
             
             
             self.mapView.addOverlay(polyline)
-        }
+      }
     }
     
     func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
