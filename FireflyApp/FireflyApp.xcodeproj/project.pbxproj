@@ -587,7 +587,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/crushotep/Documents/developer/PSE/iPadApp/FireflyApp/FireflyApp/FireflyApp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "FireflyApp/FireflyApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -604,7 +604,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/crushotep/Documents/developer/PSE/iPadApp/FireflyApp/FireflyApp/FireflyApp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "FireflyApp/FireflyApp-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
