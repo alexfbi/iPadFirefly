@@ -217,6 +217,9 @@ class ControlViewController:  UIViewController, PlotViewDataSource  {
            //  var networkRecProp = NetworkRecProp()
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
             self.networkRecProp!.start("127.0.0.1")
+            while (true) {
+                self.networkRecProp!.receiveMessage()
+            }
         }
         
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {

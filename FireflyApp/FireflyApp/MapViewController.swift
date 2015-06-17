@@ -208,8 +208,10 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
             var polyline = MKPolyline(coordinates: &coordinates, count: locations.count)
             
             
+            dispatch_async(dispatch_get_main_queue()) {
+                self.mapView.addOverlay(polyline)
+            }
             
-            self.mapView.addOverlay(polyline)
       }
     }
     

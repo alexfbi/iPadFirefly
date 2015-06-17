@@ -74,9 +74,6 @@ class NetworkRecProp:NSObject {
             client = server.accept()
             if client != nil {
                 println("connection etablished")
-                
-                //hinzugefügt
-                receiveMessage()
             }else{
                 println("accept error")
             }
