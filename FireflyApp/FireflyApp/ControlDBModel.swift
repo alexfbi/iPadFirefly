@@ -20,10 +20,6 @@ class ControlDBModel {
 
     var log : Log?
     
-    
-   
-
-    var pictureCountOld:Int
 
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
@@ -31,22 +27,12 @@ class ControlDBModel {
     init(){
       
         self.batterieList = [Battery]()
-        self.pictureCountOld = 0
-        
-        let fetchRequest = NSFetchRequest(entityName: "Log")
-        var logs = context?.executeFetchRequest(fetchRequest, error: nil) as! [Log]
-        log = logs.last
-        
-        if log != nil{
-       //     loadDataFromDB(log!)
-         //   loadImagesFromFolder()
-        }
         
     }
     
     func loadDataFromDB() {
         if log != nil{
-        NSLog("%@", "loadDataFromDB")
+        NSLog("%@", "loadDataFromDB log ID:\(log!.id)")
         
         let fetchRequestPicture = NSFetchRequest(entityName: "Picture")
         fetchRequestPicture.predicate = NSPredicate(format: "log = %@", log!)
@@ -96,104 +82,16 @@ class ControlDBModel {
          return false
 }
     
-    func batterieToString() -> String{
-       
-        var batterie: Battery?
-        NSLog("%@", "Count Batterie:  \(batterieList.count)")
-        
-        batterie = batterieList.last
-        
-        if (batterie != nil){
-            var number = batterie!.value
-            
-            var str  = String( stringInterpolationSegment: number)
-            
-          return    str
-        }
-        
-        return String("")
-    }
-    
-
-    func speedToString() -> String{
-        NSLog("%@", "Count Speed: \(speedList.count)")
-         var speed: Speed?
-        speed = speedList.last
-        
-        if (speed != nil){
-            var number = speed!.value
-            
-            var str  = String( stringInterpolationSegment: number)
-            
-           return  str
-        }
-        
-        return ""
-
-    }
-    
-    
-    func gpsToString() ->  String {
-    
-        NSLog("%@", "Count GPS: \(gpsList.count)")
-        
-        var gps = gpsList.last
-        
-        if (gps != nil){
-            var height = gps!.valueZ
-            var gpsX = gps!.valueX
-            var gpsY = gps!.valueY
-            
-           
-             var str = ""
-            
-            var str1  = String( stringInterpolationSegment: gpsX)
-            str += " "
-            str += str1
-            
-            str1  = String( stringInterpolationSegment: gpsY)
-             str += " "
-            str += str1
-             str1 = String( stringInterpolationSegment: height)
-            str += " "
-            str += str1
-            
-        return str
-        }
-        
-        return String( "")
-    }
-    
-    
-    
-    func getImageList() -> [UIImage]{
-    
-    
-    return imageList
-    }
-    
-    func getGPSList() -> [GPS]{
-        
-        
-        return gpsList
-    }
-    
-    func getBatterieList() -> [Battery]{
-        
-        
-        return batterieList
-    }
-
 
 
 func loadImagesFromFolder(){
     NSLog("%@", "Load image from Folder")
     
-    if ( pictures.count > pictureCountOld){
+    if ( pictures.count > 0){
         
         imageList.removeAll(keepCapacity: false)
         
-        for i in pictureCountOld...pictures.count - 1
+        for i in 0...pictures.count - 1
         {
             
             NSLog("%@", "Picture: \(i )")
@@ -209,13 +107,8 @@ func loadImagesFromFolder(){
             
         }
         NSLog("%@", "Picture count: \(pictures.count)")
-        pictureCountOld = pictures.count
     }
-    else
-    {
-        
-        NSLog("%@", "Picture Count  \(pictures.count) < PictureCountOld")
-    }
+   
     
 }
 

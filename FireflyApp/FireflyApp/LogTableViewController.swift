@@ -11,6 +11,8 @@ import CoreData
 
 class LogTableViewController: UITableViewController {
         
+    
+    
         var logs = [Log]()
         
         let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -39,7 +41,7 @@ class LogTableViewController: UITableViewController {
             return logs.count
         }
         
-        
+        /*Table view output*/
         override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
             
             
@@ -67,7 +69,8 @@ class LogTableViewController: UITableViewController {
             return true
         }
         
-        
+        /* Deletes a Log form filesystem and Database
+        */
         override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
             
             
@@ -96,68 +99,16 @@ class LogTableViewController: UITableViewController {
                 context?.deleteObject(log)
                 context?.save(nil)
                 loadDataFromDB()
-                
-                
-                
-             
-                
-                
+                 
             }
         }
         
         override func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
             return "Delete"
         }
-        
-    @IBAction func addLogBtnPressed(sender: AnyObject) {
-               
-            var alert = UIAlertController(title: "Log create", message: "insert Name and ID", preferredStyle: .Alert)
-            
-            alert.addTextFieldWithConfigurationHandler(){
-                textField in
-                textField.placeholder = "Name"
-                textField.becomeFirstResponder()
-                
-            }
-            
-            
-            
-            alert.addTextFieldWithConfigurationHandler(){
-                textField in
-                textField.placeholder = "ID"
-                
-            }
-            
-            alert.addAction(UIAlertAction(title: "ADD", style: .Default, handler: {
-                action in
-                
-                var newLog = NSEntityDescription.insertNewObjectForEntityForName("Log", inManagedObjectContext: self.context!) as! Log
-              
-                
-                newLog.name = (alert.textFields![0] as! UITextField).text
-                
-                newLog.id = ((alert.textFields![1] as! UITextField).text).toInt()!
-                
-                
-                NSLog("%@", " new Log inserted: \(newLog.name)")
-                
-                self.context?.save(nil)
-                self.loadDataFromDB()
     
-            }))
-            
-            alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-            
-            presentViewController(alert, animated: true, completion: nil)
-        }
-        
         
         override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-                
-        //    var indexPath  = tableView.indexPathForSelectedRow()!
-        //    let kategorieVC = segue.destinationViewController as! SplitViewController
-         //   let log = logs[indexPath.row]
-       //     kategorieVC.log = log
             
             
             if segue.identifier == "Categorie" {
@@ -171,7 +122,9 @@ class LogTableViewController: UITableViewController {
                 kategorieVC.log = log
                 
             }
-        }
+            
+        
+    }
 }
 
 

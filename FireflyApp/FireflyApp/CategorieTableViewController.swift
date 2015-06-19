@@ -29,10 +29,17 @@ class CategorieTableViewController: UITableViewController {
             
         case "Status":
             
-            let EintragTVC = segue.destinationViewController as! BatterieTableViewController
+            var destination = segue.destinationViewController as? UIViewController
+            if let navCon = destination as? UINavigationController {
+                destination = navCon.visibleViewController
+            }
             
-            EintragTVC.log = log
             
+            
+            if let eintragTVC = destination as? BatterieTableViewController {
+                  eintragTVC.log = log
+            }
+                  
             
             
         case "Pictures":
@@ -54,17 +61,7 @@ class CategorieTableViewController: UITableViewController {
             
             EintragTVC.log = log
             
-            
-            
-        case "Livemodus" :
-            
-          NSLog("%@","LIVEMODUS")
-     
-           
-          
-          
-            
-            
+       
             
         default :
             

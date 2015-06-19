@@ -31,5 +31,6 @@ class SplitViewController: UISplitViewController {
         masterTableView.waypointTableDelegate = mapView
         masterControlView.delegate = mapView
     }
+   
     
 }

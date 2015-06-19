@@ -84,33 +84,36 @@ class NetworkRecProp:NSObject {
     
     func receiveMessage(){
         var recMessage = client!.read(100)
-        var cleanedMessage = NSString(bytes: recMessage!, length: recMessage!.count, encoding: NSUTF8StringEncoding)
-        
-        var msgArray = cleanedMessage!.componentsSeparatedByString(";")
-        
-        let fetchRequest = NSFetchRequest(entityName: "Log")
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
-        fetchRequest.fetchLimit = 1
-        let log: Log = (context?.executeFetchRequest(fetchRequest, error: nil) as! [Log])[0]
-        
-        switch (msgArray[0] as! String) {
-        case "status":
-            status = "inMission"
-            saveGPS(msgArray[1] as! NSString, log: log)
-            saveBattery(msgArray[2] as! NSString, log: log)
-            saveSpeed(msgArray[3] as! NSString, log: log)
-        
-            //Broadcast change
-            notify()
-            break;
-        case "missionover":
-            status = ""
-            break;
-        default:
-            println("error in message-worker")
-            break;
+        if recMessage != nil{
+            var cleanedMessage = NSString(bytes: recMessage!, length: recMessage!.count, encoding: NSUTF8StringEncoding)
+            
+            var msgArray = cleanedMessage!.componentsSeparatedByString(";")
+            
+            let fetchRequest = NSFetchRequest(entityName: "Log")
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+            fetchRequest.fetchLimit = 1
+            let log: Log = (context?.executeFetchRequest(fetchRequest, error: nil) as! [Log])[0]
+            
+            switch (msgArray[0] as! String) {
+            case "status":
+                status = "inMission"
+                saveGPS(msgArray[1] as! NSString, log: log)
+                saveBattery(msgArray[2] as! NSString, log: log)
+                saveSpeed(msgArray[3] as! NSString, log: log)
+                
+                //send Broadcast about change
+                notify()
+                break;
+            case "missionover":
+                status = ""
+                break;
+            default:
+                println("error in message-worker")
+                break;
+            }
+  
         }
-    }
+           }
     
     private func saveGPS(coordinates: NSString, log: Log){
         var gpsArray = coordinates.componentsSeparatedByString(",")

@@ -12,6 +12,8 @@ import CoreData
 
 class NetworkRecPicture {
     
+    
+    var imageList:[UIImage] = [UIImage]()
     var client:TCPClient?
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
@@ -35,34 +37,66 @@ class NetworkRecPicture {
     }
     
     func receiveAndSavePicture(){
+        
+        var recPicture:[UInt8]!
+        
         let fetchRequest = NSFetchRequest(entityName: "Log")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         fetchRequest.fetchLimit = 1
         var log: Log = (context?.executeFetchRequest(fetchRequest, error: nil) as! [Log])[0]
 
         var size = client!.read(100)
-        var recPicture = client!.read((NSString(bytes: size!, length: size!.count, encoding: NSUTF8StringEncoding) as! String).toInt()!)
+      
         
-        let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-            .UserDomainMask, true)
-        let docsDir = dirPaths[0] as! String
-        let newDir = docsDir.stringByAppendingPathComponent("/Images/\(log.id)")
-        let imageName = "/\(counter).png"
-        let pathToFile = newDir.stringByAppendingString(imageName)
+       if size != nil {
+           var int = (NSString(bytes: size!, length: size!.count, encoding: NSUTF8StringEncoding) as! String).toInt()!
         
-        let fileManager = NSFileManager.defaultManager()
-        fileManager.createDirectoryAtPath(newDir, withIntermediateDirectories: true, attributes: nil, error: nil)
+            recPicture = client!.read(int)
+        }
+       
+      
+        if recPicture != nil{
+            let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
+                .UserDomainMask, true)
+            let docsDir = dirPaths[0] as! String
+            let newDir = docsDir.stringByAppendingPathComponent("/Images/\(log.id)")
+            let imageName = "/\(counter).png"
+            let pathToFile = newDir.stringByAppendingString(imageName)
+            
+            
+            let fileManager = NSFileManager.defaultManager()
+            fileManager.createDirectoryAtPath(newDir, withIntermediateDirectories: true, attributes: nil, error: nil)
+            
+
+            var image = UIImage( data: NSData(bytes: recPicture!, length: recPicture!.count))
+            var file = UIImagePNGRepresentation(image)
+            file.writeToFile(pathToFile, atomically: true)
+            
+            
+            
+            
+            var newPicture = NSEntityDescription.insertNewObjectForEntityForName("Picture", inManagedObjectContext: self.context!) as! Picture
+            newPicture.id = counter
+            newPicture.name = log.name
+            newPicture.path = pathToFile
+            newPicture.log = log
+            
+            
+            
+            
+            self.context?.save(nil)
+            
+            imageList.append(image!)
+            notify()
+        }
         
-        var image = UIImage(data: NSData(bytes: recPicture!, length: recPicture!.count))
-        var file = UIImagePNGRepresentation(image)
-        file.writeToFile(pathToFile, atomically: true)
+      
+
+    }
+    
+    func notify(){
         
-        var newPicture = NSEntityDescription.insertNewObjectForEntityForName("Picture", inManagedObjectContext: self.context!) as! Picture
-        newPicture.id = counter
-        newPicture.name = log.name
-        newPicture.path = pathToFile
-        newPicture.log = log
-        self.context?.save(nil)
+        NSNotificationCenter.defaultCenter().postNotificationName("MissionUpdate", object: self )
     }
     
 }

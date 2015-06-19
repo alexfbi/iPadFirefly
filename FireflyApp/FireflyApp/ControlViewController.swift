@@ -22,7 +22,7 @@ class ControlViewController:  UIViewController, PlotViewDataSource  {
     
       // MARK: - Variables
     let ANIMATIONDURATION: NSTimeInterval = 5
-    
+    let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var timer = NSTimer()
     var log:Log?
     var batterieList = [Double]()
@@ -37,7 +37,7 @@ class ControlViewController:  UIViewController, PlotViewDataSource  {
     
     var mission:MissionModel = MissionModel()
 
-    
+   
     
      // MARK: - Outlets
     @IBOutlet weak var startSwitch: UISwitch!
@@ -129,16 +129,17 @@ class ControlViewController:  UIViewController, PlotViewDataSource  {
             imageListTmp.append(image)
             
             imageList = imageListTmp
-            
-            startAnimation()
+             dispatch_async(dispatch_get_main_queue()) {
+                self.startAnimation()
+            }
         }
         
         NSLog("%@", "Output")
         
         
-
-        plotView.setNeedsDisplay()
-        
+ dispatch_async(dispatch_get_main_queue()) {
+        self.plotView.setNeedsDisplay()
+        }
         NSLog("%@", "Finished display")
     }
     
@@ -161,7 +162,7 @@ class ControlViewController:  UIViewController, PlotViewDataSource  {
     mission.batterieList = networkRecProp!.batteryList
         NSLog("%@", " new Data battery count: \(mission.batterieList.count)")
     mission.gpsList = networkRecProp!.gpsList
-   // mission.imageList = networkRecProp.imageList
+    mission.imageList = networkRecPicture!.imageList
    
         
  
@@ -212,11 +213,13 @@ class ControlViewController:  UIViewController, PlotViewDataSource  {
         // ToDo: threading nicht mehr nötig, aber empfholen, da sonst verklemmungen auftreten könnten
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
             //self.networkSender!.start("141.100.75.214")
+            
             self.networkSender!.start(self.getIFAddresses().last!)
         }
            //  var networkRecProp = NetworkRecProp()
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
             //self.networkRecProp!.start("141.100.75.214")
+          
             self.networkRecProp!.start(self.getIFAddresses().last!)
             while (true) {
                 self.networkRecProp!.receiveMessage()
@@ -225,7 +228,11 @@ class ControlViewController:  UIViewController, PlotViewDataSource  {
         
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
             //self.networkRecPicture!.start("141.100.75.214")
+            
             self.networkRecPicture!.start(self.getIFAddresses().last!)
+             while (true) {
+                self.networkRecPicture!.receiveAndSavePicture()
+            }
         }
     }
     
@@ -237,13 +244,38 @@ class ControlViewController:  UIViewController, PlotViewDataSource  {
     }
     
     /**
-    
+    Sets a new mission entry into database and sends the waypoints to the reciever
     */
     @IBAction func startSwitchChanged(sender: AnyObject) {
         if (self.startSwitch.on) {
-            self.networkSender?.sendMission(delegate!.getWaypoints())
-            // TODO: Waypoints in Datenbank schreiben
+           self.networkSender?.sendMission(delegate!.getWaypoints())
+//            // TODO: Waypoints in Datenbank schreiben
+            
+            let fetchRequestSpeed = NSFetchRequest(entityName: "Log")
+            
+            
+            var log = context?.executeFetchRequest(fetchRequestSpeed, error: nil) as! [Log]
+            
+            var id = log.count + 1
+            
+            var newLog = NSEntityDescription.insertNewObjectForEntityForName("Log", inManagedObjectContext: self.context!) as! Log
+            
+            
+            newLog.name = "Mission \(id)"
+            newLog.id = id
+            
+            
+            NSLog("%@", " new Log inserted: \(newLog.name)")
+            
+            self.context?.save(nil)
+
         }
+        else{
+              NSLog("%@", " Switch turned off")
+        }
+        
+        
+        
     }
     
     
@@ -288,6 +320,7 @@ class ControlViewController:  UIViewController, PlotViewDataSource  {
         ImageView.animationImages = imageList
         ImageView.animationDuration = ANIMATIONDURATION
         ImageView.animationRepeatCount = 1
+       
         ImageView.startAnimating()
         
         
@@ -307,9 +340,9 @@ class ControlViewController:  UIViewController, PlotViewDataSource  {
     {
         var listPoints  = [CGPoint?]()
         
-        let eintraegeCount = batterieList.count
+        let eintraegeCount = mission.batterieList.count
       
-        NSLog("%@", " eintraegeCount: \(batterieList.count) ")
+        NSLog("%@", " eintraegeCount: \(eintraegeCount) ")
       
         if eintraegeCount > 1
         {
@@ -320,7 +353,7 @@ class ControlViewController:  UIViewController, PlotViewDataSource  {
              
                 
                 let x = CGFloat(i )
-                let y = CGFloat(  batterieList[i]   )
+                let y = CGFloat(  mission.batterieList[i]   )
                 
                 let point = CGPoint(x: x, y: y)
                 

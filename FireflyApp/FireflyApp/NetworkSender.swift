@@ -35,13 +35,17 @@ class NetworkSender {
             while(message.dataUsingEncoding(NSUTF8StringEncoding)?.length < buffersize){
                 message.append(" " as Character)
             }
-            self.client!.send(str: message)
+            if client != nil {
+                self.client!.send(str: message)
+            }
         }
         var message: String = "mission;start;end"
         while(message.dataUsingEncoding(NSUTF8StringEncoding)?.length < buffersize){
             message.append(" " as Character)
         }
+         if client != nil {
         self.client!.send(str: message)
+        }
     }
     
     func sendCommand(message: String){
@@ -49,7 +53,10 @@ class NetworkSender {
         while(message.dataUsingEncoding(NSUTF8StringEncoding)?.length < buffersize){
             message.append(" " as Character)
         }
-        self.client!.send(str: message)
+        if client != nil {
+            self.client!.send(str: message)
+        }
+        
     }
     
 }
