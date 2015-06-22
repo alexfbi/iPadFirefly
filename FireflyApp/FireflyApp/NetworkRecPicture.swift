@@ -36,6 +36,7 @@ class NetworkRecPicture {
         }
     }
     
+    var size:[UInt8] = [UInt8]()
     func receiveAndSavePicture(){
         
         var recPicture:[UInt8]!
@@ -44,18 +45,28 @@ class NetworkRecPicture {
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         fetchRequest.fetchLimit = 1
         var log: Log = (context?.executeFetchRequest(fetchRequest, error: nil) as! [Log])[0]
+        
+       
 
-        var size = client!.read(100)
-      
+  //  size = client!.read(100)!
+   //         println(size.count)
+ 
         
-       if size != nil {
-           var int = (NSString(bytes: size!, length: size!.count, encoding: NSUTF8StringEncoding) as! String).toInt()!
+//  var int = (NSString(bytes: size, length: size.count, encoding: NSUTF8StringEncoding) as! String).toInt()!
         
+            var int = 342892
+        while(recPicture == nil ){
             recPicture = client!.read(int)
+            
         }
+        
+    
+        
+        
+      
        
       
-        if recPicture != nil{
+        if recPicture != nil && recPicture.count == 342892 {
             let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
                 .UserDomainMask, true)
             let docsDir = dirPaths[0] as! String
@@ -87,6 +98,7 @@ class NetworkRecPicture {
             self.context?.save(nil)
             
             imageList.append(image!)
+            recPicture.removeAll(keepCapacity: false)
             notify()
         }
         

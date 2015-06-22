@@ -84,6 +84,7 @@ class NetworkRecProp:NSObject {
     
     func receiveMessage(){
         var recMessage = client!.read(100)
+       
         if recMessage != nil{
             var cleanedMessage = NSString(bytes: recMessage!, length: recMessage!.count, encoding: NSUTF8StringEncoding)
             
