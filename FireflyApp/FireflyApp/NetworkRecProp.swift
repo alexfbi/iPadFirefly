@@ -61,8 +61,6 @@ class NetworkRecProp:NSObject {
     var client:TCPClient?
     var status:String?
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    
-    //temp
     var counter = 0
     
     
@@ -101,6 +99,7 @@ class NetworkRecProp:NSObject {
                 saveGPS(msgArray[1] as! NSString, log: log)
                 saveBattery(msgArray[2] as! NSString, log: log)
                 saveSpeed(msgArray[3] as! NSString, log: log)
+                counter++
                 
                 //send Broadcast about change
                 notify()
@@ -114,6 +113,10 @@ class NetworkRecProp:NSObject {
             }
             
         }
+    }
+    
+    func resetCounter(){
+        counter = 0
     }
     
     private func saveGPS(coordinates: NSString, log: Log){

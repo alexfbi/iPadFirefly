@@ -16,8 +16,6 @@ class NetworkRecPicture {
     var imageList:[UIImage] = [UIImage]()
     var client:TCPClient?
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    
-    //temp
     var counter = 0
     
     func start(ip: String){
@@ -38,9 +36,6 @@ class NetworkRecPicture {
     
     var size:[UInt8] = [UInt8]()
     func receiveAndSavePicture(){
-        
-        var recPicture:[UInt8]!
-        
         let fetchRequest = NSFetchRequest(entityName: "Log")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         fetchRequest.fetchLimit = 1
@@ -72,7 +67,7 @@ class NetworkRecPicture {
             fileManager.createDirectoryAtPath(newDir, withIntermediateDirectories: true, attributes: nil, error: nil)
             
             
-            var image = UIImage( data: NSData(bytes: recPicture!, length: recPicture!.count))
+            var image = UIImage( data: NSData(bytes: recPicture, length: recPicture.count))
             var file = UIImagePNGRepresentation(image)
             file.writeToFile(pathToFile, atomically: true)
             
@@ -84,19 +79,18 @@ class NetworkRecPicture {
             newPicture.name = log.name
             newPicture.path = pathToFile
             newPicture.log = log
-            
-            
-            
-            
             self.context?.save(nil)
+            
+            counter++
             
             imageList.append(image!)
             recPicture.removeAll(keepCapacity: false)
             notify()
         }
-        
-        
-        
+    }
+    
+    func resetCounter(){
+        counter = 0
     }
     
     func notify(){
