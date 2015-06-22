@@ -1,5 +1,5 @@
 //
-//  NetworkReceiver.swift
+//  NetworkRecPicture.swift
 //  FireflyApp
 //
 //  Created by Christian Adam on 27.05.15.
@@ -44,17 +44,17 @@ class NetworkRecPicture {
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         fetchRequest.fetchLimit = 1
         var log: Log = (context?.executeFetchRequest(fetchRequest, error: nil) as! [Log])[0]
-
+        
         var size = client!.read(100)
-      
         
-       if size != nil {
-           var int = (NSString(bytes: size!, length: size!.count, encoding: NSUTF8StringEncoding) as! String).toInt()!
         
+        if size != nil {
+            var int = (NSString(bytes: size!, length: size!.count, encoding: NSUTF8StringEncoding) as! String).toInt()!
+            
             recPicture = client!.read(int)
         }
-       
-      
+        
+        
         if recPicture != nil{
             let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
                 .UserDomainMask, true)
@@ -67,7 +67,7 @@ class NetworkRecPicture {
             let fileManager = NSFileManager.defaultManager()
             fileManager.createDirectoryAtPath(newDir, withIntermediateDirectories: true, attributes: nil, error: nil)
             
-
+            
             var image = UIImage( data: NSData(bytes: recPicture!, length: recPicture!.count))
             var file = UIImagePNGRepresentation(image)
             file.writeToFile(pathToFile, atomically: true)
@@ -90,8 +90,8 @@ class NetworkRecPicture {
             notify()
         }
         
-      
-
+        
+        
     }
     
     func notify(){

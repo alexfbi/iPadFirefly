@@ -1,5 +1,5 @@
 //
-//  Network.swift
+//  NetworkSender.swift
 //  FireflyApp
 //
 //  Created by Christian Adam on 13.05.15.
@@ -43,8 +43,8 @@ class NetworkSender {
         while(message.dataUsingEncoding(NSUTF8StringEncoding)?.length < buffersize){
             message.append(" " as Character)
         }
-         if client != nil {
-        self.client!.send(str: message)
+        if client != nil {
+            self.client!.send(str: message)
         }
     }
     
