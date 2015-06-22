@@ -5,11 +5,27 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="7DA-ul-nBx">
+            <objects>
+                <navigationController storyboardIdentifier="LogNavigationView" id="ksX-Vh-9qW" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bjM-lR-Zb9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="VpR-Je-EZH" kind="relationship" relationship="rootViewController" id="hc9-1q-dwk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hkf-7W-lhL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1117" y="1762"/>
+        </scene>
         <!--Missions-->
         <scene sceneID="bzh-df-6C6">
             <objects>
-                <tableViewController id="VpR-Je-EZH" customClass="LogTableViewController" customModule="FireflyApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="22" sectionFooterHeight="22" id="D6C-lo-gGf">
+                <tableViewController storyboardIdentifier="LogTableView" id="VpR-Je-EZH" customClass="LogTableViewController" customModule="FireflyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="LogTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="22" sectionFooterHeight="22" id="D6C-lo-gGf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -48,15 +64,13 @@
                     <navigationItem key="navigationItem" title="Missions" id="dSj-Wk-H3a">
                         <barButtonItem key="leftBarButtonItem" title="Livemodus" id="K0c-G3-H7z">
                             <connections>
-                                <action selector="testButton:" destination="VpR-Je-EZH" id="RvK-eI-s5Q"/>
-                                <segue destination="qhc-b3-LnL" kind="unwind" unwindAction="unwindFromLogTableView:" id="6Bw-hZ-w8D"/>
+                                <action selector="livemodusButtonPressed:" destination="VpR-Je-EZH" id="COs-A4-W54"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ern-3Z-kWK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="qhc-b3-LnL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-1123" y="2700"/>
         </scene>
@@ -232,7 +246,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="FAW-6E-oYX" kind="showDetail" identifier="Status" id="rGV-qW-mDR"/>
+                                            <segue destination="FAW-6E-oYX" kind="show" identifier="Status" id="rGV-qW-mDR"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BilderKategorie" textLabel="LNV-sX-CNq" detailTextLabel="AdE-Hj-MHb" rowHeight="78" style="IBUITableViewCellStyleSubtitle" id="kYG-c4-chq">
@@ -255,7 +269,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="GCS-ue-Tcr" kind="showDetail" identifier="PlotStatus" id="1HG-Wd-9Or"/>
+                                            <segue destination="GCS-ue-Tcr" kind="show" identifier="PlotStatus" id="1HG-Wd-9Or"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BilderKategorie" textLabel="tld-zM-0DM" rowHeight="78" style="IBUITableViewCellStyleDefault" id="QPU-hK-mz2">
@@ -272,7 +286,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="70j-hf-YUt" kind="showDetail" identifier="Pictures" id="jeB-uC-Z3t"/>
+                                            <segue destination="70j-hf-YUt" kind="show" identifier="Pictures" id="jeB-uC-Z3t"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BilderKategorie" textLabel="IQY-Cs-OhX" rowHeight="78" style="IBUITableViewCellStyleDefault" id="hi7-tw-at5">
@@ -289,7 +303,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="vdi-hq-JcA" kind="showDetail" identifier="GPS" id="GDP-EE-0qv"/>
+                                            <segue destination="vdi-hq-JcA" kind="show" identifier="GPS" id="GDP-EE-0qv"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -362,7 +376,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hjf-IM-WOl" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2365" y="1703"/>
+            <point key="canvasLocation" x="1896" y="1314"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vCJ-ZG-Vay">
@@ -388,7 +402,7 @@
                     <navigationItem key="navigationItem" id="ldh-y8-bfk">
                         <barButtonItem key="leftBarButtonItem" title="Missions" id="LGY-CS-kq0">
                             <connections>
-                                <segue destination="VpR-Je-EZH" kind="show" id="J0g-Jb-SbE"/>
+                                <action selector="missionsButtonPressed:" destination="8n3-Hl-T1H" id="eHp-Eq-bqR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -402,7 +416,6 @@
                     <connections>
                         <segue destination="Mz8-WE-dfm" kind="relationship" relationship="viewControllers" id="EzT-Mu-OtR"/>
                         <segue destination="6Iq-Hg-Wr1" kind="relationship" relationship="viewControllers" id="gbC-XG-Vuk"/>
-                        <segue destination="3cR-bw-aiJ" kind="showDetail" identifier="MapDetail" id="3ZN-bK-kbi"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uhz-dv-MOX" userLabel="First Responder" sceneMemberID="firstResponder"/>

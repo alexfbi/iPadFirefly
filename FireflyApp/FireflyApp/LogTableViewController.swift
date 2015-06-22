@@ -40,7 +40,7 @@ class LogTableViewController: UITableViewController {
             
             return logs.count
         }
-        
+    
         /*Table view output*/
         override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
             
@@ -125,6 +125,12 @@ class LogTableViewController: UITableViewController {
             
         
     }
+    
+    @IBAction func livemodusButtonPressed(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
 }
 
 
