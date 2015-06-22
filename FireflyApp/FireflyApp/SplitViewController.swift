@@ -16,9 +16,6 @@ class SplitViewController: UISplitViewController {
         super.viewDidLoad()
         self.preferredDisplayMode = UISplitViewControllerDisplayMode.PrimaryHidden
         
-        self.viewControllers.append(self.storyboard?.instantiateViewControllerWithIdentifier("masterViewNavigation") as! UINavigationController)
-        self.viewControllers.append(self.storyboard?.instantiateViewControllerWithIdentifier("detailView") as! UINavigationController)
-        
         let masterNavigationView = self.viewControllers.first as! UINavigationController
         let detailNavigationView = self.viewControllers.last as! UINavigationController
         
