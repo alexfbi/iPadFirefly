@@ -46,27 +46,20 @@ class NetworkRecPicture {
         fetchRequest.fetchLimit = 1
         var log: Log = (context?.executeFetchRequest(fetchRequest, error: nil) as! [Log])[0]
         
-       
-
-  //  size = client!.read(100)!
-   //         println(size.count)
- 
+        var size = client!.read(100)
         
 //  var int = (NSString(bytes: size, length: size.count, encoding: NSUTF8StringEncoding) as! String).toInt()!
         
-            var int = 342892
-        while(recPicture == nil ){
+        if size != nil {
+            var int = (NSString(bytes: size!, length: size!.count, encoding: NSUTF8StringEncoding) as! String).toInt()!
+            
             recPicture = client!.read(int)
             
         }
         
     
         
-        
-      
-       
-      
-        if recPicture != nil && recPicture.count == 342892 {
+        if recPicture != nil{
             let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
                 .UserDomainMask, true)
             let docsDir = dirPaths[0] as! String
