@@ -34,6 +34,7 @@ class NetworkRecPicture {
         }
     }
     
+    var size:[UInt8] = [UInt8]()
     func receiveAndSavePicture(){
         let fetchRequest = NSFetchRequest(entityName: "Log")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
@@ -53,6 +54,8 @@ class NetworkRecPicture {
                 recPicture += client!.read(cleanedSize%1024)!
             }
         }
+        
+    
         
         
         if recPicture.count > 0{
@@ -85,6 +88,7 @@ class NetworkRecPicture {
             counter++
             
             imageList.append(image!)
+            recPicture.removeAll(keepCapacity: false)
             notify()
         }
     }

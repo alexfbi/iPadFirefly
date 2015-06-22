@@ -8,25 +8,26 @@
 
 import UIKit
 
-protocol PlotViewDataSource: class{
-    func setPoints( sender: PlotView) -> ([CGPoint?], Double, Double)
+protocol PlotMultiViewDataSource: class{
+    func setPoints( sender: PlotMultiView) -> ([CGPoint],[CGPoint], [CGPoint], Double, Double)
     
 }
 
 //Scale to MAX fullscreen
 // MAX = 2
-var scale:CGFloat = 1.5
 
-class PlotView: UIView {
+
+class PlotMultiView: UIView {
     
     
     
-    weak var dataSource: PlotViewDataSource?
+    weak var dataSource: PlotMultiViewDataSource?
     
     
     
     override func drawRect(rect: CGRect) {
         
+        var pathList:[UIBezierPath] = [UIBezierPath()]
         var path = UIBezierPath()
         var xAxis = UIBezierPath()
         var yAxis = UIBezierPath()
@@ -51,11 +52,17 @@ class PlotView: UIView {
         //  var maximum:CGFloat { return max(boundsize.height, boundsize.width) / 2 * scale}
         //  NSLog("%@", " Boundsize max: \(maximum)")
         
-        let pointsData = dataSource?.setPoints(self) ?? ([CGPoint(x: 0, y:0)], 0.0, 0.0)
+        let pointsData = dataSource?.setPoints(self) ?? ([CGPoint(x: 0, y:0)],[CGPoint(x: 0, y:0)],[CGPoint(x: 0, y:0)], 0.0, 0.0)
         
-        var points = pointsData.0
-        var maxY:CGFloat = CGFloat(pointsData.2)
-        var maxX:CGFloat = CGFloat(pointsData.1)
+       
+        
+        var pointsDataMulti:[Int :[CGPoint]] = [0 : pointsData.0, 1 : pointsData.1, 2: pointsData.2]
+        
+        
+      //  var points = pointsData.0
+        
+        var maxY:CGFloat = CGFloat(pointsData.4)
+        var maxX:CGFloat = CGFloat(pointsData.3)
         
         var xPosMin = centerX - (minimum / 2)
         var xPosMax = centerX + (minimum / 2)
@@ -66,8 +73,8 @@ class PlotView: UIView {
         var xDiff = xPosMax - xPosMin
         var yDiff = yPosMin - yPosMax
         
-     //   var maxY:CGFloat = 0.0
-     //   var maxX:CGFloat = 0.0
+        //   var maxY:CGFloat = 0.0
+        //   var maxX:CGFloat = 0.0
         
         
         
@@ -87,21 +94,28 @@ class PlotView: UIView {
         
         
         
-        let count =  points.count
+   //     let count =  points.count
         //  NSLog("%@", " Point count: \(points.count)")
         
-
-        
-        // createlines
-        for i in 0..<count
+        for j in 0...2
         {
             
-            var point1: CGPoint = points[i]!
+        var points: [CGPoint] = pointsDataMulti[j]!
+
+         
+        // createlines
+        for i in 0..<points.count
+        {
+            var point1 = points[i]
+            
             var pointCount:Int = points.count
             
             if (maxY == 0)
             {
                 maxY = 1
+            }
+            if (maxX == 0){
+                maxX = 1
             }
             var point = CGPoint( x: xPosMin + ( point1.x * xDiff / maxX  )  , y: yPosMin - (point1.y * yDiff / maxY  ))
             
@@ -118,19 +132,21 @@ class PlotView: UIView {
             
             
         }
-        
-    
-        
-        // Draws line and set Color
-        
-        UIColor.greenColor().setFill()
-        UIColor.greenColor().setStroke()
-        
-        path.lineWidth = 1
-        path.stroke()
+        pathList.append(path)
         
         
+        // Draws line
+            
+            
+                UIColor.redColor().setStroke()
+                
+       
         
+        pathList[j].lineWidth = 1
+        pathList[j].stroke()
+        
+        
+        }
     }
     
     
