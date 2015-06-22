@@ -1,5 +1,5 @@
 //
-//  NetworkReceiver.swift
+//  NetworkRecPicture.swift
 //  FireflyApp
 //
 //  Created by Christian Adam on 27.05.15.
@@ -78,7 +78,7 @@ class NetworkRecPicture {
             let fileManager = NSFileManager.defaultManager()
             fileManager.createDirectoryAtPath(newDir, withIntermediateDirectories: true, attributes: nil, error: nil)
             
-
+            
             var image = UIImage( data: NSData(bytes: recPicture!, length: recPicture!.count))
             var file = UIImagePNGRepresentation(image)
             file.writeToFile(pathToFile, atomically: true)
@@ -102,8 +102,8 @@ class NetworkRecPicture {
             notify()
         }
         
-      
-
+        
+        
     }
     
     func notify(){

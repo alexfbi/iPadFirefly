@@ -9,10 +9,15 @@
 import UIKit
 
 class LivemodusTabBarController: UITabBarController {
-    @IBAction func unwindFromLogTableView(segue: UIStoryboardSegue){
+    /*@IBAction func unwindFromLogTableView(segue: UIStoryboardSegue){
         
         performSegueWithIdentifier("MapDetail", sender: nil)
         
+    }*/
+    
+    
+    @IBAction func missionsButtonPressed(sender: AnyObject) {
+        var overlay = storyboard!.instantiateViewControllerWithIdentifier("LogNavigationView") as! UINavigationController
+        self.presentViewController(overlay, animated: true, completion: nil)
     }
-
 }

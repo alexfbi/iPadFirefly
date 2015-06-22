@@ -1,5 +1,5 @@
 //
-//  NetworkReceiver.swift
+//  NetworkRecProp.swift
 //  FireflyApp
 //
 //  Created by Christian Adam on 27.05.15.
@@ -25,7 +25,7 @@ class NetworkRecProp:NSObject {
                 
                 gpsList.removeAll(keepCapacity: false)
             }
-        
+            
             
         }
         
@@ -51,10 +51,10 @@ class NetworkRecProp:NSObject {
                 
             }
             
-
+            
         }
     }
-        
+    
     
     
     var buffersize:Int = 100
@@ -112,9 +112,9 @@ class NetworkRecProp:NSObject {
                 println("error in message-worker")
                 break;
             }
-  
+            
         }
-           }
+    }
     
     private func saveGPS(coordinates: NSString, log: Log){
         var gpsArray = coordinates.componentsSeparatedByString(",")
@@ -132,7 +132,7 @@ class NetworkRecProp:NSObject {
         var gps:GPS_Struct = GPS_Struct(x: newGPS.valueX ,y: newGPS.valueY, z:  newGPS.valueZ)
         gpsList.append(gps)
         
-  
+        
     }
     
     private func saveBattery(charge: NSString, log: Log){
@@ -145,8 +145,8 @@ class NetworkRecProp:NSObject {
         self.context?.save(nil)
         
         batteryList.append(Double(newBattery.value))
-
-       //println(batteryList.count)
+        
+        //println(batteryList.count)
     }
     
     private func saveSpeed(speed: NSString, log: Log){
@@ -159,18 +159,18 @@ class NetworkRecProp:NSObject {
         self.context?.save(nil)
         
         speedList.append(Double(newSpeed.value))
-      }
+    }
     
     
     
     /**
-        Broadcast about changes
-        @brief  NSNotification: MissionUpdate
+    Broadcast about changes
+    @brief  NSNotification: MissionUpdate
     */
- 
+    
     func notify(){
         
-    NSNotificationCenter.defaultCenter().postNotificationName("MissionUpdate", object: self )
+        NSNotificationCenter.defaultCenter().postNotificationName("MissionUpdate", object: self )
     }
     
 }
