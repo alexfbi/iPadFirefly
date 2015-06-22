@@ -10,22 +10,23 @@
 import UIKit
 import Foundation
 import CoreData
-
+import CoreLocation
 
 protocol ControlViewDelegate {
     func drawLine(gpsList: [GPS_Struct])
     func getWaypoints() -> [Waypoint]
 }
 
-class ControlViewController:  UIViewController, PlotViewDataSource  {
+class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocationManagerDelegate  {
    
+    
     
       // MARK: - Variables
     let ANIMATIONDURATION: NSTimeInterval = 5
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var timer = NSTimer()
     var log:Log?
-    var batterieList = [Double]()
+    //var batterieList = [Double]()
     var gpsList = [GPS_Struct]()
     var imageList = [UIImage]()
     
@@ -36,7 +37,7 @@ class ControlViewController:  UIViewController, PlotViewDataSource  {
     var networkRecPicture:NetworkRecPicture?
     
     var mission:MissionModel = MissionModel()
-
+    var locationManager  = CLLocationManager()
    
     
      // MARK: - Outlets
@@ -52,7 +53,7 @@ class ControlViewController:  UIViewController, PlotViewDataSource  {
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var buttonCreateData: UIButton!
     
-    @IBOutlet weak var plotView: PlotView!
+    @IBOutlet weak var plotView: PlotMultiView!
         {
         didSet{
             plotView.dataSource = self
@@ -91,7 +92,7 @@ class ControlViewController:  UIViewController, PlotViewDataSource  {
         
         if let speed =  mission.speedList.last {
             
-            string =  "\(speed)"
+             var string =  "\(speed)"
             
             NSLog("%@", " Data Speed \(string)")
           
@@ -121,12 +122,13 @@ class ControlViewController:  UIViewController, PlotViewDataSource  {
             delegate?.drawLine(mission.gpsList)
         }
  
-        NSLog("%@", "Image")
+        NSLog("%@", "Image Count \(mission.imageList.count)")
         
         if let image =  mission.imageList.last {
             var imageListTmp:[UIImage] = [UIImage]()
             
             imageListTmp.append(image)
+            
             
             imageList = imageListTmp
              dispatch_async(dispatch_get_main_queue()) {
@@ -185,7 +187,12 @@ class ControlViewController:  UIViewController, PlotViewDataSource  {
     */
     override func viewDidLoad() {
         super.viewDidLoad()
-
+     
+       
+        locationManager.delegate = self;
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
         
         self.startSwitch.on = false
         
@@ -243,6 +250,31 @@ class ControlViewController:  UIViewController, PlotViewDataSource  {
         // Dispose of any resources that can be recreated.
     }
     
+    func saveWayPointsInDB(waypoints: [Waypoint]){
+        
+    }
+    
+    func saveNewMissionOnDB() {
+        
+        let fetchRequestSpeed = NSFetchRequest(entityName: "Log")
+        
+        
+        var log = context?.executeFetchRequest(fetchRequestSpeed, error: nil) as! [Log]
+        
+        var id = log.count + 1
+        
+        var newLog = NSEntityDescription.insertNewObjectForEntityForName("Log", inManagedObjectContext: self.context!) as! Log
+        
+        
+        newLog.name = "Mission \(id)"
+        newLog.id = id
+        newLog.date = NSDate()
+        
+        NSLog("%@", " new Log inserted: \(newLog.name)")
+        
+        self.context?.save(nil)
+    }
+    
     /**
     Sets a new mission entry into database and sends the waypoints to the reciever
     */
@@ -250,28 +282,17 @@ class ControlViewController:  UIViewController, PlotViewDataSource  {
         if (self.startSwitch.on) {
            self.networkSender?.sendMission(delegate!.getWaypoints())
 //            // TODO: Waypoints in Datenbank schreiben
-            
-            let fetchRequestSpeed = NSFetchRequest(entityName: "Log")
-            
-            
-            var log = context?.executeFetchRequest(fetchRequestSpeed, error: nil) as! [Log]
-            
-            var id = log.count + 1
-            
-            var newLog = NSEntityDescription.insertNewObjectForEntityForName("Log", inManagedObjectContext: self.context!) as! Log
-            
-            
-            newLog.name = "Mission \(id)"
-            newLog.id = id
-            
-            
-            NSLog("%@", " new Log inserted: \(newLog.name)")
-            
-            self.context?.save(nil)
+            saveWayPointsInDB(delegate!.getWaypoints())
+            saveNewMissionOnDB()
 
         }
         else{
               NSLog("%@", " Switch turned off")
+            
+//ToDO Welche Befehle ?????
+            self.networkSender?.sendCommand("Stop")
+            
+
         }
         
         
@@ -335,29 +356,52 @@ class ControlViewController:  UIViewController, PlotViewDataSource  {
     PlotviewDataSourece protocol implementation
     */
     
-    func setPoints(sender: PlotView) -> [CGPoint?]
+    func setPoints(sender: PlotMultiView) -> ([CGPoint],[CGPoint],[CGPoint], Double, Double)
         
     {
-        var listPoints  = [CGPoint?]()
+        var points = [CGPoint]()
+        var output:[Int : [CGPoint] ]  = [0: [CGPoint](), 1 : [CGPoint](), 2: [CGPoint]()]
         
-        let eintraegeCount = mission.batterieList.count
+//        let eintraegeCount = mission.batterieList.count
+//        
+//      var  batterieList = mission.batterieList
       
-        NSLog("%@", " eintraegeCount: \(eintraegeCount) ")
+        var valuesStatus:[Int : [Double]] = [0: mission.batterieList, 1: mission.speedList, 2: mission.speedList]
+       
+        
+        
+    //    NSLog("%@", " eintraegeCount: \(eintraegeCount) ")
       
-        if eintraegeCount > 1
+        var maxX = 0.0
+        var maxY = 0.0
+        for j in 0...2
         {
+         maxX = Double(valuesStatus[j]!.count)
+         maxY = 0.0
+       
+        var status = valuesStatus[j]!
+        
+        if status.count > 1
+        {
+           
             
-            
-            for i in 0...eintraegeCount - 1
+            for i in 0...status.count - 1
             {
              
+              
+                if ( maxY < status[i] )
+                {
+                    maxY = status[i]
+                }
                 
+                
+
                 let x = CGFloat(i )
-                let y = CGFloat(  mission.batterieList[i]   )
+                let y = CGFloat( status[i]   )
                 
                 let point = CGPoint(x: x, y: y)
                 
-                listPoints.append(point)
+                output[j]!.append(point)
                 
             }
             
@@ -365,12 +409,14 @@ class ControlViewController:  UIViewController, PlotViewDataSource  {
         }
         else{
         
-    
+           
         
-        NSLog("%@", "Points size: \(listPoints.count) ")
+        NSLog("%@", "Points size: \(output[0]!.count) ")
         
         }
-        return listPoints
+        }
+        
+        return (output[0]!,output[1]!,output[2]!, maxX, maxY)
     }
     
     /**
@@ -411,6 +457,39 @@ class ControlViewController:  UIViewController, PlotViewDataSource  {
         
         return addresses
     }
-   
+    
+    
+    @IBOutlet weak var haunterModeSwitch: UISwitch!
+    
+    
+    @IBAction func haunterModeChanged(sender: AnyObject) {
+        if (haunterModeSwitch.on){
+            haunterMode = true
+            saveNewMissionOnDB()
+        }
+        else{
+            haunterMode = false
+        }
+        
+    }
+    
+    var haunterMode = false
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+       
+        if ( haunterMode == true){
+             let location = locations[0] as! CLLocation
+            
+                println(location.coordinate.latitude)
+                println(location.coordinate.longitude)
+                var str = "\(location.coordinate.latitude) , \(location.coordinate.longitude)"
+        
+            
+            self.networkSender?.sendCommand(str)
+        }
+        
+        
+    
+          }
 }
 
