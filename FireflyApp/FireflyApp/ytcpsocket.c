@@ -133,7 +133,7 @@ int ytcpsocket_listen(const char *addr,int port){
         return -1;//bind error
     }
 }
-//return client socket fd
+// return client socket fd
 int ytcpsocket_accept(int onsocketfd,char *remoteip,int* remoteport){
     socklen_t clilen;
     struct sockaddr_in  cli_addr;

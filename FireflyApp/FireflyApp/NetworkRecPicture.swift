@@ -16,8 +16,6 @@ class NetworkRecPicture {
     var imageList:[UIImage] = [UIImage]()
     var client:TCPClient?
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    
-    //temp
     var counter = 0
     
     func start(ip: String){
@@ -36,26 +34,31 @@ class NetworkRecPicture {
         }
     }
     
+    var size:[UInt8] = [UInt8]()
     func receiveAndSavePicture(){
-        
-        var recPicture:[UInt8]!
-        
         let fetchRequest = NSFetchRequest(entityName: "Log")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         fetchRequest.fetchLimit = 1
         var log: Log = (context?.executeFetchRequest(fetchRequest, error: nil) as! [Log])[0]
         
-        var size = client!.read(100)
-        
+        var size = client!.read(5)
+        var recPicture:[UInt8] = [UInt8]()
         
         if size != nil {
-            var int = (NSString(bytes: size!, length: size!.count, encoding: NSUTF8StringEncoding) as! String).toInt()!
-            
-            recPicture = client!.read(int)
+            var cleanedSize = (NSString(bytes: size!, length: size!.count, encoding: NSUTF8StringEncoding) as! String).toInt()!
+            if(cleanedSize > 0){
+                var packets: Int = cleanedSize/1024
+                for(var i:Int = 0; i<packets; i++){
+                    recPicture += client!.read(1024)!
+                }
+                recPicture += client!.read(cleanedSize%1024)!
+            }
         }
         
+    
         
-        if recPicture != nil{
+        
+        if recPicture.count > 0{
             let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
                 .UserDomainMask, true)
             let docsDir = dirPaths[0] as! String
@@ -68,7 +71,7 @@ class NetworkRecPicture {
             fileManager.createDirectoryAtPath(newDir, withIntermediateDirectories: true, attributes: nil, error: nil)
             
             
-            var image = UIImage( data: NSData(bytes: recPicture!, length: recPicture!.count))
+            var image = UIImage( data: NSData(bytes: recPicture, length: recPicture.count))
             var file = UIImagePNGRepresentation(image)
             file.writeToFile(pathToFile, atomically: true)
             
@@ -80,18 +83,18 @@ class NetworkRecPicture {
             newPicture.name = log.name
             newPicture.path = pathToFile
             newPicture.log = log
-            
-            
-            
-            
             self.context?.save(nil)
             
+            counter++
+            
             imageList.append(image!)
+            recPicture.removeAll(keepCapacity: false)
             notify()
         }
-        
-        
-        
+    }
+    
+    func resetCounter(){
+        counter = 0
     }
     
     func notify(){

@@ -44,8 +44,7 @@ class PlotterViewController: ContentViewController, PlotViewDataSource {
     }
     
     
-    func setPoints(sender: PlotView) -> [CGPoint?]
-    
+   func setPoints(sender: PlotView) -> ([CGPoint?], Double, Double)
     {
         var listPoints  = [CGPoint?]()
         
@@ -53,40 +52,39 @@ class PlotterViewController: ContentViewController, PlotViewDataSource {
         
         let eintraegeCount = batterieList.count
           NSLog("%@", " eintraegeCount: \(batterieList.count) ")
-        if eintraegeCount > 0
-        {
-            
+      
+        var maxX:Double = Double(batterieList.count)
+        var maxY:Double = 0.0
         
-        for i in 0...eintraegeCount - 1
+        if eintraegeCount > 1
         {
-            var date:NSDate = batterieList[i].date
             
-            let x = CGFloat(i )
-            let y = CGFloat( batterieList[i].value)
+            for i in 0...eintraegeCount - 1
+            {
+                
+                if ( maxY < Double(batterieList[i].value) )
+                {
+                    maxY = Double(batterieList[i].value)
+                }
+                
+                let x = CGFloat(i )
+                let y = CGFloat( Double(batterieList[i].value ) )
+                
+                let point = CGPoint(x: x, y: y)
+                
+                listPoints.append(point)
+                
+            }
             
-            let point = CGPoint(x: x, y: y)
-           
-            listPoints.append(point)
             
         }
+        else{
+            
+            
+            
+            NSLog("%@", "Points size: \(listPoints.count) ")
+            
+        }
+        return (listPoints, maxX, maxY)
     }
-    
-          NSLog("%@", " setPointsSize: \(listPoints.count) ")
-        return listPoints
-        
-    }
-    
-
-   
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

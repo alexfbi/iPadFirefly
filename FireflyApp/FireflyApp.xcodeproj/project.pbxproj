@@ -15,6 +15,7 @@
 		0699CF481B1E15C100EF305E /* Way_Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0699CF471B1E15C100EF305E /* Way_Point.swift */; };
 		0699CF4A1B1E15C100EF305E /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0699CF491B1E15C100EF305E /* Picture.swift */; };
 		4102B0341B30E4110080C597 /* MissionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102B0331B30E4110080C597 /* MissionModel.swift */; };
+		4125E2E91B379AF000E3FDB4 /* PlotMultiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4125E2E81B379AF000E3FDB4 /* PlotMultiView.swift */; };
 		412C9F9F1B1E205E00C16B79 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9F9E1B1E205E00C16B79 /* Log.swift */; };
 		412C9FA11B1E205F00C16B79 /* GPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FA01B1E205F00C16B79 /* GPS.swift */; };
 		412C9FA31B1E205F00C16B79 /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9FA21B1E205F00C16B79 /* Speed.swift */; };
@@ -72,6 +73,7 @@
 		0699CF471B1E15C100EF305E /* Way_Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Way_Point.swift; sourceTree = "<group>"; };
 		0699CF491B1E15C100EF305E /* Picture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
 		4102B0331B30E4110080C597 /* MissionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionModel.swift; sourceTree = "<group>"; };
+		4125E2E81B379AF000E3FDB4 /* PlotMultiView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotMultiView.swift; sourceTree = "<group>"; };
 		412C9F9E1B1E205E00C16B79 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		412C9FA01B1E205F00C16B79 /* GPS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPS.swift; sourceTree = "<group>"; };
 		412C9FA21B1E205F00C16B79 /* Speed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speed.swift; sourceTree = "<group>"; };
@@ -135,6 +137,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4125E2EA1B37AE8F00E3FDB4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4125E2E81B379AF000E3FDB4 /* PlotMultiView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		412C9FBC1B1E25B900C16B79 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +196,7 @@
 		41F9831D1B1E50B200592590 /* ControlLiveModus */ = {
 			isa = PBXGroup;
 			children = (
+				4125E2EA1B37AE8F00E3FDB4 /* View */,
 				41D35E171B252FC8000303B4 /* Model */,
 				41F9831E1B1E50D600592590 /* Controller */,
 			);
@@ -456,6 +467,7 @@
 				412C9FE01B1E388C00C16B79 /* BatterieTableViewController.swift in Sources */,
 				FE047DA01B0A1338003FF9C9 /* AFC1.xcdatamodeld in Sources */,
 				412C9FA11B1E205F00C16B79 /* GPS.swift in Sources */,
+				4125E2E91B379AF000E3FDB4 /* PlotMultiView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
