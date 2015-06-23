@@ -13,7 +13,7 @@ import UIKit
 struct GPS_Struct{
     var x:Double
     var y:Double
-    var z:Double
+  //  var z:Double
 }
 
 class MissionModel:NSObject{
@@ -77,7 +77,19 @@ class MissionModel:NSObject{
                     }
         
     }
-    
+    var altitudeList:[Double] = [Double]() {
+        didSet{
+            notify()
+            
+            if altitudeList.count > 10{
+                altitudeList.removeAll(keepCapacity: false)
+                
+            }
+            
+            
+        }
+        
+    }
     
     
     var value:Double = 0.0{

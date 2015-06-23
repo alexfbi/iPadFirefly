@@ -55,7 +55,7 @@ class LogTableViewController: UITableViewController {
             
             
             NSLog("%@", "Logname: \(logname)")
-            cell.textLabel?.text = "\(logname) \(logID) "
+            cell.textLabel?.text = "\(logname) "
             
             
             

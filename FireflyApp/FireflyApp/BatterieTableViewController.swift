@@ -42,7 +42,7 @@ class BatterieTableViewController: UITableViewController {
         
         let entry = batterieList[indexPath.row]
         //  let id = entries[indexPath.row].
-        cell.textLabel?.text = "\(entry.id)   - \(entry.value)   - \(entry.date)"
+        cell.textLabel?.text = "ID: \(entry.id) - Value: \(entry.value) - Date: \(entry.date)"
         
         println(entry)
         

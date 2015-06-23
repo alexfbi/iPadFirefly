@@ -29,16 +29,9 @@ class CategorieTableViewController: UITableViewController {
             
         case "Status":
             
-            var destination = segue.destinationViewController as? UIViewController
-            if let navCon = destination as? UINavigationController {
-                destination = navCon.visibleViewController
-            }
+            let EintragTVC = segue.destinationViewController as! BatterieTableViewController
             
-            
-            
-            if let eintragTVC = destination as? BatterieTableViewController {
-                  eintragTVC.log = log
-            }
+            EintragTVC.log = log
                   
             
             

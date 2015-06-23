@@ -36,25 +36,34 @@ class NetworkRecPicture {
     
     var size:[UInt8] = [UInt8]()
     func receiveAndSavePicture(){
-        let fetchRequest = NSFetchRequest(entityName: "Log")
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
-        fetchRequest.fetchLimit = 1
-        var log: Log = (context?.executeFetchRequest(fetchRequest, error: nil) as! [Log])[0]
-        
-        var size = client!.read(100)
+       
+     //   var size = client!.read(5)
+        var recPicture:[UInt8] = [UInt8]()
         
 //  var int = (NSString(bytes: size, length: size.count, encoding: NSUTF8StringEncoding) as! String).toInt()!
+         var cleanedSize = 342892
+ //       if size != nil {
+//            cleanedSize = (NSString(bytes: size!, length: size!.count, encoding: NSUTF8StringEncoding) as! String).toInt()!
+//            if(cleanedSize > 0){
+//                var packets: Int = cleanedSize/1024
+//                for(var i:Int = 0; i<packets; i++){
+//                    recPicture += client!.read(1024)!
+//                }
+//                recPicture += client!.read(cleanedSize%1024)!
+//            }//
+      //  }
         
-        if size != nil {
-            var int = (NSString(bytes: size!, length: size!.count, encoding: NSUTF8StringEncoding) as! String).toInt()!
-            
-            recPicture = client!.read(int)
-            
+        if client != nil {
+        recPicture = client!.read(cleanedSize)!
         }
         
-    
-        
-        if recPicture != nil{
+        if recPicture.count == cleanedSize{
+            
+            let fetchRequest = NSFetchRequest(entityName: "Log")
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+            fetchRequest.fetchLimit = 1
+            var log: Log = (context?.executeFetchRequest(fetchRequest, error: nil) as! [Log])[0]
+            
             let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
                 .UserDomainMask, true)
             let docsDir = dirPaths[0] as! String

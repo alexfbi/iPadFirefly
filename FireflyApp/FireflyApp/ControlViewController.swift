@@ -52,6 +52,8 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
     
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var buttonCreateData: UIButton!
+    @IBOutlet weak var labelHauntedMode: UILabel!
+    @IBOutlet weak var labelRouteMode: UILabel!
     
     @IBOutlet weak var plotView: PlotMultiView!
         {
@@ -109,18 +111,28 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
             
             let stringX =  "\(gps.x)"
             let stringY =  "\(gps.y)"
-            let stringZ =  "\(gps.z)"
+         //   let stringZ =  "\(gps.z)"
             
             NSLog("%@", " Data \(stringX)")
             
             dispatch_async(dispatch_get_main_queue()) {
                 self.labelGPSx.text = stringX
                 self.labelGPSy.text = stringY
-                self.labelHeight.text = stringZ
+       //         self.labelHeight.text = stringZ
             }
             
             delegate?.drawLine(mission.gpsList)
         }
+        
+        if let altitude =  mission.altitudeList.last {
+            var string =  "\(altitude)"
+            
+            NSLog("%@", " Data Speed \(string)")
+         
+            dispatch_async(dispatch_get_main_queue()) {
+               self.labelHeight.text = string            }
+        }
+        
  
         NSLog("%@", "Image Count \(mission.imageList.count)")
         
@@ -165,7 +177,7 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
         NSLog("%@", " new Data battery count: \(mission.batterieList.count)")
     mission.gpsList = networkRecProp!.gpsList
     mission.imageList = networkRecPicture!.imageList
-   
+    mission.altitudeList = networkRecProp!.altitudeList
         
  
     }
@@ -285,6 +297,9 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
             saveWayPointsInDB(delegate!.getWaypoints())
             saveNewMissionOnDB()
 
+            haunterModeSwitch.hidden = true
+            labelHauntedMode.hidden = true
+            
         }
         else{
               NSLog("%@", " Switch turned off")
@@ -292,7 +307,8 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
 //ToDO Welche Befehle ?????
             self.networkSender?.sendCommand("Stop")
             
-
+            haunterModeSwitch.hidden = false
+            labelHauntedMode.hidden = false
         }
         
         
@@ -366,7 +382,7 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
 //        
 //      var  batterieList = mission.batterieList
       
-        var valuesStatus:[Int : [Double]] = [0: mission.batterieList, 1: mission.speedList, 2: mission.speedList]
+        var valuesStatus:[Int : [Double]] = [0: mission.batterieList, 1: mission.speedList, 2: mission.altitudeList]
        
         
         
@@ -376,10 +392,12 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
         var maxY = 0.0
         for j in 0...2
         {
-         maxX = Double(valuesStatus[j]!.count)
-         maxY = 0.0
-       
+            
         var status = valuesStatus[j]!
+         maxX = Double(status.count)
+       
+       
+        
         
         if status.count > 1
         {
@@ -466,9 +484,15 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
         if (haunterModeSwitch.on){
             haunterMode = true
             saveNewMissionOnDB()
+            
+            startSwitch.hidden = true
+            labelRouteMode.hidden = true
         }
         else{
             haunterMode = false
+            
+            startSwitch.hidden = false
+            labelRouteMode.hidden = false
         }
         
     }

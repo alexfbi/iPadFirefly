@@ -55,7 +55,19 @@ class NetworkRecProp:NSObject {
         }
     }
     
+    var altitudeList:[Double] = [Double]() {
+        didSet{
     
+            
+            if altitudeList.count > 10{
+                altitudeList.removeAll(keepCapacity: false)
+                
+            }
+            
+            
+        }
+        
+    }
     
     var buffersize:Int = 100
     var client:TCPClient?
@@ -81,9 +93,13 @@ class NetworkRecProp:NSObject {
     }
     
     func receiveMessage(){
-        var recMessage = client!.read(100)
-       
-        if recMessage != nil{
+        var recMessage:[UInt8]!
+ 
+        if ( client != nil) {
+         recMessage = client!.read(100)!
+        }
+        
+        if recMessage != nil {
             var cleanedMessage = NSString(bytes: recMessage!, length: recMessage!.count, encoding: NSUTF8StringEncoding)
             
             var msgArray = cleanedMessage!.componentsSeparatedByString(";")
@@ -132,9 +148,9 @@ class NetworkRecProp:NSObject {
         
         
         
-        var gps:GPS_Struct = GPS_Struct(x: newGPS.valueX ,y: newGPS.valueY, z:  newGPS.valueZ)
+        var gps:GPS_Struct = GPS_Struct(x: newGPS.valueX ,y: newGPS.valueY)
         gpsList.append(gps)
-        
+        altitudeList.append(Double(newGPS.valueZ))
         
     }
     
