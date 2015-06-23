@@ -57,12 +57,8 @@ class NetworkRecProp:NSObject {
     
     
     
-    var buffersize:Int = 100
     var client:TCPClient?
-    var status:String?
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    var counter = 0
-    
     
     func start(ip: String){
         var server:TCPServer = TCPServer(addr: ip, port: 50000)
@@ -82,7 +78,7 @@ class NetworkRecProp:NSObject {
     
     func receiveMessage(){
         var recMessage = client!.read(100)
-       
+        
         if recMessage != nil{
             var cleanedMessage = NSString(bytes: recMessage!, length: recMessage!.count, encoding: NSUTF8StringEncoding)
             
@@ -95,34 +91,31 @@ class NetworkRecProp:NSObject {
             
             switch (msgArray[0] as! String) {
             case "status":
-                status = "inMission"
                 saveGPS(msgArray[1] as! NSString, log: log)
                 saveBattery(msgArray[2] as! NSString, log: log)
                 saveSpeed(msgArray[3] as! NSString, log: log)
-                counter++
+                statusCounter++
                 
                 //send Broadcast about change
                 notify()
                 break;
             case "missionover":
                 status = ""
+                statusCounter = 0
+                pictureCounter = 0
                 break;
             default:
                 println("error in message-worker")
                 break;
             }
-            
         }
-    }
-    
-    func resetCounter(){
-        counter = 0
     }
     
     private func saveGPS(coordinates: NSString, log: Log){
         var gpsArray = coordinates.componentsSeparatedByString(",")
+        
         var newGPS = NSEntityDescription.insertNewObjectForEntityForName("GPS", inManagedObjectContext: self.context!) as! GPS
-        newGPS.id = counter
+        newGPS.id = statusCounter
         newGPS.valueX = (gpsArray[0] as! NSString).doubleValue
         newGPS.valueY = (gpsArray[1] as! NSString).doubleValue
         newGPS.valueZ = (gpsArray[2] as! NSString).doubleValue
@@ -130,12 +123,8 @@ class NetworkRecProp:NSObject {
         newGPS.log = log
         self.context?.save(nil)
         
-        
-        
         var gps:GPS_Struct = GPS_Struct(x: newGPS.valueX ,y: newGPS.valueY, z:  newGPS.valueZ)
         gpsList.append(gps)
-        
-        
     }
     
     private func saveBattery(charge: NSString, log: Log){
@@ -143,13 +132,11 @@ class NetworkRecProp:NSObject {
         var str: NSString = charge
         newBattery.value = str.doubleValue
         newBattery.date = NSDate()
-        newBattery.id = counter
+        newBattery.id = statusCounter
         newBattery.log = log
         self.context?.save(nil)
         
         batteryList.append(Double(newBattery.value))
-        
-        //println(batteryList.count)
     }
     
     private func saveSpeed(speed: NSString, log: Log){
@@ -157,7 +144,7 @@ class NetworkRecProp:NSObject {
         var str: String = speed as! String
         newSpeed.value = str.toInt()!
         newSpeed.date = NSDate()
-        newSpeed.id = counter
+        newSpeed.id = statusCounter
         newSpeed.log = log
         self.context?.save(nil)
         
