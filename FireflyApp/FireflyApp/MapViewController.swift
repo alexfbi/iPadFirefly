@@ -29,6 +29,7 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
             createPolyline()
         }
     }
+    var currentDronePosition:MKPointAnnotation?
     
     // MARK:
     
@@ -98,6 +99,13 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
         // The user location should not be shown as a pin of type WaypointView. nil gives the blue dot.
         if (annotation is MKUserLocation) {
             return nil
+        }
+            
+        if (annotation is MKPointAnnotation) {
+            var pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "dronePosition")
+            pin.pinColor = MKPinAnnotationColor.Purple
+            pin.canShowCallout = true
+            return pin
         }
             
         else {
@@ -177,6 +185,9 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
     
     func drawLine(gpsList: [GPS_Struct]) {
         self.gpsPositions = gpsList
+        dispatch_async(dispatch_get_main_queue()) {
+            self.setDronePosition()
+        }
     }
     
     func createPolyline() {
@@ -184,14 +195,14 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
         
         if (gpsPositions.count > 0){
             
-            let location = CLLocationCoordinate2D(
-                latitude: gpsPositions[0].x,
-                longitude: gpsPositions[0].y)
-            
-            let span = MKCoordinateSpanMake(0.01, 0.01)
-            let region = MKCoordinateRegion(center: location, span: span)
-            
-            mapView.setRegion(region, animated: true)
+//            let location = CLLocationCoordinate2D(
+//                latitude: gpsPositions[0].x,
+//                longitude: gpsPositions[0].y)
+//            
+//            let span = MKCoordinateSpanMake(0.01, 0.01)
+//            let region = MKCoordinateRegion(center: location, span: span)
+//            
+//            mapView.setRegion(region, animated: true)
             
             var locations = [CLLocation]()
             
@@ -211,6 +222,17 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
             }
             
       }
+    }
+    
+    func setDronePosition() {
+        if (gpsPositions.count > 0) {
+            self.mapView.removeAnnotation(self.currentDronePosition)
+            var dronePosition = MKPointAnnotation()
+            dronePosition.coordinate = CLLocationCoordinate2D(latitude: gpsPositions.last!.x, longitude: gpsPositions.last!.y)
+            dronePosition.title = "Current position of the drone"
+            currentDronePosition = dronePosition
+            self.mapView.addAnnotation(dronePosition)
+        }
     }
     
     func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {

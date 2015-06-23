@@ -14,6 +14,7 @@
 		0699CF441B1E15C100EF305E /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0699CF431B1E15C100EF305E /* Entry.swift */; };
 		0699CF481B1E15C100EF305E /* Way_Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0699CF471B1E15C100EF305E /* Way_Point.swift */; };
 		0699CF4A1B1E15C100EF305E /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0699CF491B1E15C100EF305E /* Picture.swift */; };
+		06C1E18E1B398DE400BF41DD /* GlobalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1E18D1B398DE400BF41DD /* GlobalVars.swift */; };
 		4102B0341B30E4110080C597 /* MissionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102B0331B30E4110080C597 /* MissionModel.swift */; };
 		4125E2E91B379AF000E3FDB4 /* PlotMultiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4125E2E81B379AF000E3FDB4 /* PlotMultiView.swift */; };
 		412C9F9F1B1E205E00C16B79 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C9F9E1B1E205E00C16B79 /* Log.swift */; };
@@ -72,6 +73,7 @@
 		0699CF431B1E15C100EF305E /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		0699CF471B1E15C100EF305E /* Way_Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Way_Point.swift; sourceTree = "<group>"; };
 		0699CF491B1E15C100EF305E /* Picture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
+		06C1E18D1B398DE400BF41DD /* GlobalVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVars.swift; sourceTree = "<group>"; };
 		4102B0331B30E4110080C597 /* MissionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionModel.swift; sourceTree = "<group>"; };
 		4125E2E81B379AF000E3FDB4 /* PlotMultiView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotMultiView.swift; sourceTree = "<group>"; };
 		412C9F9E1B1E205E00C16B79 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				FE3BB5E11B15B4FB0045687C /* ysocket.swift */,
 				FE3BB5E41B15B5290045687C /* ytcpsocket.c */,
 				FE3BB5E31B15B5280045687C /* FireflyApp-Bridging-Header.h */,
+				06C1E18D1B398DE400BF41DD /* GlobalVars.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				063F8E491B1F103100F1CEFD /* NetworkSender.swift in Sources */,
 				412C9FE41B1E38C100C16B79 /* LogTableViewController.swift in Sources */,
 				412C9FE61B1E38F800C16B79 /* CategorieTableViewController.swift in Sources */,
+				06C1E18E1B398DE400BF41DD /* GlobalVars.swift in Sources */,
 				FE3BB5E01B15B4F10045687C /* TCPClient.swift in Sources */,
 				416D2A621B259D99006A9BF0 /* SplitViewController.swift in Sources */,
 				FE6FB2521AFA1499009AE8ED /* AppDelegate.swift in Sources */,

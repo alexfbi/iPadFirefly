@@ -12,7 +12,6 @@ import CoreData
 
 class NetworkRecPicture {
     
-    
     var imageList:[UIImage] = [UIImage]()
     var client:TCPClient?
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -34,7 +33,6 @@ class NetworkRecPicture {
         }
     }
     
-    var size:[UInt8] = [UInt8]()
     func receiveAndSavePicture(){
        
      //   var size = client!.read(5)
@@ -71,17 +69,12 @@ class NetworkRecPicture {
             let imageName = "/\(counter).png"
             let pathToFile = newDir.stringByAppendingString(imageName)
             
-            
             let fileManager = NSFileManager.defaultManager()
             fileManager.createDirectoryAtPath(newDir, withIntermediateDirectories: true, attributes: nil, error: nil)
-            
             
             var image = UIImage( data: NSData(bytes: recPicture, length: recPicture.count))
             var file = UIImagePNGRepresentation(image)
             file.writeToFile(pathToFile, atomically: true)
-            
-            
-            
             
             var newPicture = NSEntityDescription.insertNewObjectForEntityForName("Picture", inManagedObjectContext: self.context!) as! Picture
             newPicture.id = counter
