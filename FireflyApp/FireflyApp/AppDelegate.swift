@@ -18,10 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-//        let splitViewController = self.window!.rootViewController as! UISplitViewController
-//        
-//        splitViewController.viewControllers.append(splitViewController.storyboard?.instantiateViewControllerWithIdentifier("masterViewNavigation") as! UINavigationController)
-//        splitViewController.viewControllers.append(splitViewController.storyboard?.instantiateViewControllerWithIdentifier("detailView") as! UINavigationController)
+        let splitViewController = self.window!.rootViewController as! UISplitViewController
+        
+        splitViewController.viewControllers.append(splitViewController.storyboard?.instantiateViewControllerWithIdentifier("masterViewNavigation") as! UINavigationController)
+        splitViewController.viewControllers.append(splitViewController.storyboard?.instantiateViewControllerWithIdentifier("detailView") as! UINavigationController)
         
 //        let masterNavigationView = splitViewController.viewControllers.first as! UINavigationController
 //        let detailNavigationView = splitViewController.viewControllers.last as! UINavigationController
