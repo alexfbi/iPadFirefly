@@ -17,57 +17,11 @@ class NetworkRecProp:NSObject {
     
     
     
-    var gpsList:[GPS_Struct] = [GPS_Struct](){
-        didSet{
-            
-            if gpsList.count > 10
-            {
-                
-                gpsList.removeAll(keepCapacity: false)
-            }
-            
-            
-        }
-        
-    }
+    var gpsList:[GPS_Struct] = [GPS_Struct]()
+    var batteryList:[Double] = [Double]()
     
-    var batteryList:[Double] = [Double](){
-        didSet{
-            
-            
-            if batteryList.count > 10{
-                batteryList.removeAll(keepCapacity: false)
-                
-            }
-        }
-        
-    }
-    
-    
-    var speedList:[Double] = [Double]() {
-        didSet{
-            if speedList.count > 10{
-                speedList.removeAll(keepCapacity: false)
-                
-            }
-            
-            
-        }
-    }
-    
-    var altitudeList:[Double] = [Double]() {
-        didSet{
-    
-            
-            if altitudeList.count > 10{
-                altitudeList.removeAll(keepCapacity: false)
-                
-            }
-            
-            
-        }
-        
-    }
+    var speedList:[Double] = [Double]()
+    var altitudeList:[Double] = [Double]()
     
     var client:TCPClient?
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -89,13 +43,15 @@ class NetworkRecProp:NSObject {
     }
     
     func receiveMessage(){
-        var recMessage:[UInt8]!
- 
-        if ( client != nil) {
-         recMessage = client!.read(100)!
+        
+        if(client == nil){
+            println("Fehler client")
+            return;
         }
         
-        if recMessage != nil {
+        var recMessage = client!.read(100)
+        
+        if recMessage != nil{
             var cleanedMessage = NSString(bytes: recMessage!, length: recMessage!.count, encoding: NSUTF8StringEncoding)
             
             var msgArray = cleanedMessage!.componentsSeparatedByString(";")

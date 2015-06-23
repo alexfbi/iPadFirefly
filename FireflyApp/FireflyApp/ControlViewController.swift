@@ -24,7 +24,7 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
       // MARK: - Variables
     let ANIMATIONDURATION: NSTimeInterval = 5
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    var timer = NSTimer()
+   // var timer = NSTimer()
     var log:Log?
     //var batterieList = [Double]()
     var gpsList = [GPS_Struct]()
@@ -38,7 +38,7 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
     
     var mission:MissionModel = MissionModel()
     var locationManager  = CLLocationManager()
-   
+    var haunterMode = false
     
      // MARK: - Outlets
     @IBOutlet weak var startSwitch: UISwitch!
@@ -151,9 +151,10 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
         NSLog("%@", "Output")
         
         
- dispatch_async(dispatch_get_main_queue()) {
-        self.plotView.setNeedsDisplay()
+        dispatch_async(dispatch_get_main_queue()) {
+            self.plotView.setNeedsDisplay()
         }
+        
         NSLog("%@", "Finished display")
     }
     
@@ -171,13 +172,39 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
     */
     func updateMissionModel(notification: NSNotification){
     
-    mission.speedList = networkRecProp!.speedList
-        NSLog("%@", " old Data battery count: \(mission.batterieList.count)")
-    mission.batterieList = networkRecProp!.batteryList
-        NSLog("%@", " new Data battery count: \(mission.batterieList.count)")
-    mission.gpsList = networkRecProp!.gpsList
-    mission.imageList = networkRecPicture!.imageList
-    mission.altitudeList = networkRecProp!.altitudeList
+        
+        if ( networkRecProp!.speedList.count > 0)
+        {
+            mission.speedList.append(networkRecProp!.speedList.last!)
+            networkRecProp!.speedList.removeAll(keepCapacity: false)
+        }
+     
+        
+        if ( networkRecProp!.batteryList.count > 0 )
+        {
+            mission.batterieList.append(networkRecProp!.batteryList.last!)
+            networkRecProp!.batteryList.removeAll(keepCapacity: false)
+        }
+        
+        if ( networkRecProp!.gpsList.count > 0)
+        {
+            mission.gpsList.append(networkRecProp!.gpsList.last!)
+            networkRecProp!.gpsList.removeAll(keepCapacity: false)
+        }
+        
+     
+        if ( networkRecProp!.altitudeList.count > 0)
+        {
+            mission.altitudeList.append(networkRecProp!.altitudeList.last!)
+            networkRecProp!.altitudeList.removeAll(keepCapacity: false)
+        }
+        
+        if (networkRecPicture!.imageList.count > 0){
+            
+            mission.imageList.append(networkRecPicture!.imageList.last!)
+            networkRecPicture!.imageList.removeAll(keepCapacity: false)
+        }
+        
         
  
     }
@@ -200,6 +227,7 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
     override func viewDidLoad() {
         super.viewDidLoad()
      
+        //Startring GPS localization
        
         locationManager.delegate = self;
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -264,14 +292,16 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
     
     func saveWayPointsInDB(waypoints: [Waypoint]){
         
-    }
+        
+         }
+   
     
     func saveNewMissionOnDB() {
         
         let fetchRequestSpeed = NSFetchRequest(entityName: "Log")
         
         
-        var log = context?.executeFetchRequest(fetchRequestSpeed, error: nil) as! [Log]
+         var log = context?.executeFetchRequest(fetchRequestSpeed, error: nil) as! [Log]
         
         var id = log.count + 1
         
@@ -293,7 +323,7 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
     @IBAction func startSwitchChanged(sender: AnyObject) {
         if (self.startSwitch.on) {
            self.networkSender?.sendMission(delegate!.getWaypoints())
-//            // TODO: Waypoints in Datenbank schreiben
+            
             saveWayPointsInDB(delegate!.getWaypoints())
             saveNewMissionOnDB()
 
@@ -304,7 +334,7 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
         else{
               NSLog("%@", " Switch turned off")
             
-//ToDO Welche Befehle ?????
+            //ToDO Welche Befehle, wie sind die Befehle aufgebaut ?????
             self.networkSender?.sendCommand("Stop")
             
             haunterModeSwitch.hidden = false
@@ -382,6 +412,11 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
 //        
 //      var  batterieList = mission.batterieList
       
+        
+        
+        
+    //    var batteries = getXLastStatusEntries(1, count: 1)
+        
         var valuesStatus:[Int : [Double]] = [0: mission.batterieList, 1: mission.speedList, 2: mission.altitudeList]
        
         
@@ -497,7 +532,7 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
         
     }
     
-    var haunterMode = false
+   
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
        
@@ -511,9 +546,22 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
             
             self.networkSender?.sendCommand(str)
         }
-        
-        
+    }
     
-          }
+    
+    func getXLastStatusEntries(startIndex: Int, count: Int) -> [Double] {
+        var running:Bool = true
+        
+        
+        while( running){
+        }
+        
+         
+
+        
+        
+        
+        }
+    
 }
 

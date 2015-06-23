@@ -34,34 +34,40 @@ class NetworkRecPicture {
     }
     
     func receiveAndSavePicture(){
+        let fetchRequest = NSFetchRequest(entityName: "Log")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        fetchRequest.fetchLimit = 1
+        
+        var logs = context?.executeFetchRequest(fetchRequest, error: nil) as! [Log]
        
-     //   var size = client!.read(5)
-        var recPicture:[UInt8] = [UInt8]()
+        var log:Log!
         
-//  var int = (NSString(bytes: size, length: size.count, encoding: NSUTF8StringEncoding) as! String).toInt()!
-         var cleanedSize = 342892
- //       if size != nil {
-//            cleanedSize = (NSString(bytes: size!, length: size!.count, encoding: NSUTF8StringEncoding) as! String).toInt()!
-//            if(cleanedSize > 0){
-//                var packets: Int = cleanedSize/1024
-//                for(var i:Int = 0; i<packets; i++){
-//                    recPicture += client!.read(1024)!
-//                }
-//                recPicture += client!.read(cleanedSize%1024)!
-//            }//
-      //  }
-        
-        if client != nil {
-        recPicture = client!.read(cleanedSize)!
+        if (logs.count > 0)
+        {
+        log = logs.last!
+        }
+        else{
+            return
         }
         
-        if recPicture.count == cleanedSize{
-            
-            let fetchRequest = NSFetchRequest(entityName: "Log")
-            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
-            fetchRequest.fetchLimit = 1
-            var log: Log = (context?.executeFetchRequest(fetchRequest, error: nil) as! [Log])[0]
-            
+       
+        
+        if client == nil {
+            println("Fehler Client pictures")
+            return
+        }
+        
+        var size = client!.read(5)
+        var recPicture:[UInt8] = [UInt8]()
+        
+        if size != nil {
+            var cleanedSize = (NSString(bytes: size!, length: size!.count, encoding: NSUTF8StringEncoding) as! String).toInt()!
+            if(cleanedSize > 0){
+                recPicture += client!.read(cleanedSize)!
+            }
+        }
+        
+        if recPicture.count > 0{
             let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
                 .UserDomainMask, true)
             let docsDir = dirPaths[0] as! String

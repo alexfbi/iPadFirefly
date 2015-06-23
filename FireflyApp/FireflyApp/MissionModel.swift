@@ -24,7 +24,7 @@ class MissionModel:NSObject{
         didSet
         {
             notify()
-            if imageList.count > 10
+            if imageList.count > 1
             {
                
 
@@ -38,13 +38,13 @@ class MissionModel:NSObject{
     var gpsList:[GPS_Struct] = [GPS_Struct](){
         didSet{
             notify()
-            if gpsList.count > 10
-            {
-                
-                
-                gpsList.removeAll(keepCapacity: false)
-            }
-            
+//            if gpsList.count > 10
+//            {
+//                
+//                
+//                gpsList.removeAll(keepCapacity: false)
+//            }
+//            
             
         }
         
@@ -54,10 +54,10 @@ class MissionModel:NSObject{
         didSet{
            
            notify()
-            if batterieList.count > 10{
-                batterieList.removeAll(keepCapacity: false)
-
-            }
+//            if batterieList.count > 10{
+//                batterieList.removeAll(keepCapacity: false)
+//
+//            }
 
         }
         
@@ -68,10 +68,10 @@ class MissionModel:NSObject{
         didSet{
              notify()
             
-            if speedList.count > 10{
-                speedList.removeAll(keepCapacity: false)
-                
-            }
+//            if speedList.count > 10{
+//                speedList.removeAll(keepCapacity: false)
+//                
+//            }
             
            
                     }
@@ -81,10 +81,10 @@ class MissionModel:NSObject{
         didSet{
             notify()
             
-            if altitudeList.count > 10{
-                altitudeList.removeAll(keepCapacity: false)
-                
-            }
+//            if altitudeList.count > 10{
+//                altitudeList.removeAll(keepCapacity: false)
+//                
+//            }
             
             
         }
