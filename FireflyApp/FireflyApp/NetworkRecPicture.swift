@@ -12,7 +12,6 @@ import CoreData
 
 class NetworkRecPicture {
     
-    
     var imageList:[UIImage] = [UIImage]()
     var client:TCPClient?
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -34,7 +33,6 @@ class NetworkRecPicture {
         }
     }
     
-    var size:[UInt8] = [UInt8]()
     func receiveAndSavePicture(){
         let fetchRequest = NSFetchRequest(entityName: "Log")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
@@ -47,16 +45,9 @@ class NetworkRecPicture {
         if size != nil {
             var cleanedSize = (NSString(bytes: size!, length: size!.count, encoding: NSUTF8StringEncoding) as! String).toInt()!
             if(cleanedSize > 0){
-                var packets: Int = cleanedSize/1024
-                for(var i:Int = 0; i<packets; i++){
-                    recPicture += client!.read(1024)!
-                }
-                recPicture += client!.read(cleanedSize%1024)!
+                recPicture += client!.read(cleanedSize)!
             }
         }
-        
-    
-        
         
         if recPicture.count > 0{
             let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
@@ -66,17 +57,12 @@ class NetworkRecPicture {
             let imageName = "/\(counter).png"
             let pathToFile = newDir.stringByAppendingString(imageName)
             
-            
             let fileManager = NSFileManager.defaultManager()
             fileManager.createDirectoryAtPath(newDir, withIntermediateDirectories: true, attributes: nil, error: nil)
-            
             
             var image = UIImage( data: NSData(bytes: recPicture, length: recPicture.count))
             var file = UIImagePNGRepresentation(image)
             file.writeToFile(pathToFile, atomically: true)
-            
-            
-            
             
             var newPicture = NSEntityDescription.insertNewObjectForEntityForName("Picture", inManagedObjectContext: self.context!) as! Picture
             newPicture.id = counter
