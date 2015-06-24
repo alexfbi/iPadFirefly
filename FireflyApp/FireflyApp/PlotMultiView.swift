@@ -117,7 +117,7 @@ class PlotMultiView: UIView {
             if (maxX == 0){
                 maxX = 1
             }
-            var point = CGPoint( x: xPosMin + ( point1.x * xDiff / maxX  )  , y: yPosMin - (point1.y * yDiff / maxY  ))
+            var point = CGPoint( x: xPosMin + ( point1.x * xDiff / maxX  )  , y: yPosMin - (point1.y * yDiff /  maxY    ))
             
             NSLog("%@", " Point: \(point)")
             

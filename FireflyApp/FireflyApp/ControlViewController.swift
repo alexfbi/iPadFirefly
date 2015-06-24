@@ -17,6 +17,8 @@ protocol ControlViewDelegate {
     func getWaypoints() -> [Waypoint]
 }
 
+
+
 class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocationManagerDelegate  {
    
     
@@ -217,6 +219,10 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
     @IBAction func refreshButtonPressed(sender: AnyObject) {
          NSLog("%@", "refreshButtonPressed")
         displayData()
+        
+       
+        
+        
     }
     
 
@@ -408,20 +414,9 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
         var points = [CGPoint]()
         var output:[Int : [CGPoint] ]  = [0: [CGPoint](), 1 : [CGPoint](), 2: [CGPoint]()]
         
-//        let eintraegeCount = mission.batterieList.count
-//        
-//      var  batterieList = mission.batterieList
-      
-        
-        
-        
-    //    var batteries = getXLastStatusEntries(1, count: 1)
+
         
         var valuesStatus:[Int : [Double]] = [0: mission.batterieList, 1: mission.speedList, 2: mission.altitudeList]
-       
-        
-        
-    //    NSLog("%@", " eintraegeCount: \(eintraegeCount) ")
       
         var maxX = 0.0
         var maxY = 0.0
@@ -430,28 +425,19 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
             
         var status = valuesStatus[j]!
          maxX = Double(status.count)
-       
-       
-        
-        
+    
         if status.count > 1
         {
-           
-            
-            for i in 0...status.count - 1
+           for i in 0...status.count - 1
             {
-             
-              
+            
                 if ( maxY < status[i] )
                 {
                     maxY = status[i]
                 }
-                
-                
-
+            
                 let x = CGFloat(i )
                 let y = CGFloat( status[i]   )
-                
                 let point = CGPoint(x: x, y: y)
                 
                 output[j]!.append(point)
@@ -461,16 +447,16 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
             
         }
         else{
-        
-           
-        
-        NSLog("%@", "Points size: \(output[0]!.count) ")
+    
+            NSLog("%@", "Points size: \(output[j]!.count) ")
         
         }
         }
         
         return (output[0]!,output[1]!,output[2]!, maxX, maxY)
     }
+    
+    
     
     /**
     Get all IFAdresses.
@@ -549,19 +535,6 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
     }
     
     
-    func getXLastStatusEntries(startIndex: Int, count: Int) -> [Double] {
-        var running:Bool = true
-        
-        
-        while( running){
-        }
-        
-         
-
-        
-        
-        
-        }
     
 }
 

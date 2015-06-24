@@ -37,25 +37,7 @@ class NetworkRecPicture {
         let fetchRequest = NSFetchRequest(entityName: "Log")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         fetchRequest.fetchLimit = 1
-        
-        var logs = context?.executeFetchRequest(fetchRequest, error: nil) as! [Log]
-       
-        var log:Log!
-        
-        if (logs.count > 0)
-        {
-        log = logs.last!
-        }
-        else{
-            return
-        }
-        
-       
-        
-        if client == nil {
-            println("Fehler Client pictures")
-            return
-        }
+        var log: Log = (context?.executeFetchRequest(fetchRequest, error: nil) as! [Log])[0]
         
         var packet:[UInt8] = client!.read(buffersize)!
         
@@ -63,17 +45,21 @@ class NetworkRecPicture {
             var posOfDelimiter:Int = 0
             
             var packetTemp:[UInt8] = packet
-            for (var i = 1; i<packetTemp.count; i++) {
-                var sign:UInt8 = packetTemp.removeAtIndex(0)
-                if ( 59 == sign){
+            for (var i = 0; i<packetTemp.count; ++i) {
+           //     var sign:UInt8 = packetTemp.removeAtIndex(0)
+                if ( 59 == packetTemp[i]){
                     posOfDelimiter = i
                     break;
                 }
             }
             
-            var size = (NSString(bytes: packet, length: posOfDelimiter-1, encoding: NSUTF8StringEncoding) as! String).toInt()!
+            var size = (NSString(bytes: packet, length: posOfDelimiter, encoding: NSUTF8StringEncoding) as! String).toInt()!
             
-            for (var i = 0; i<(buffersize-posOfDelimiter-size); i++){
+            if (size > 0 )
+            {
+                
+            
+            for (var i = 0; i<(buffersize - posOfDelimiter - size); i++){
                 packet.removeLast()
             }
             
@@ -109,6 +95,7 @@ class NetworkRecPicture {
             packet.removeAll(keepCapacity: false)
             notify()
         }
+            }
     }
     
     func notify(){

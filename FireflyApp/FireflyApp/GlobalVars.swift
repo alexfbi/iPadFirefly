@@ -8,7 +8,7 @@
 
 import Foundation
 
-var status:String = ""
+var status:String?
 var statusCounter:Int = 0
 var pictureCounter:Int = 0
     
