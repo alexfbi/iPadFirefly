@@ -12,7 +12,7 @@ import CoreData
 
 class NetworkRecPicture {
     
-    var buffersize:Int = 200000
+    var buffersize:Int = 200704
     var imageList:[UIImage] = [UIImage]()
     var client:TCPClient?
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -44,58 +44,54 @@ class NetworkRecPicture {
         if packet.count > 0 {
             var posOfDelimiter:Int = 0
             
-            var packetTemp:[UInt8] = packet
-            for (var i = 0; i<packetTemp.count; ++i) {
-           //     var sign:UInt8 = packetTemp.removeAtIndex(0)
-                if ( 59 == packetTemp[i]){
+            for (var i = 1; i<packet.count; i++) {
+                if ( 59 == packet[i-1]){
                     posOfDelimiter = i
                     break;
                 }
             }
             
-            var size = (NSString(bytes: packet, length: posOfDelimiter, encoding: NSUTF8StringEncoding) as! String).toInt()!
+            var size = (NSString(bytes: packet, length: posOfDelimiter-1, encoding: NSUTF8StringEncoding) as! String).toInt()!
             
             if (size > 0 )
             {
+                for (var i = 1; i<=(buffersize - posOfDelimiter - size); i++){
+                    packet.removeLast()
+                }
                 
-            
-            for (var i = 0; i<(buffersize - posOfDelimiter - size); i++){
-                packet.removeLast()
+                for (var i = 1; i<=posOfDelimiter; i++){
+                    packet.removeAtIndex(0)
+                }
+                
+                let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
+                    .UserDomainMask, true)
+                let docsDir = dirPaths[0] as! String
+                let newDir = docsDir.stringByAppendingPathComponent("/Images/\(log.id)")
+                let imageName = "/\(pictureCounter).jpg"
+                let pathToFile = newDir.stringByAppendingString(imageName)
+                
+                let fileManager = NSFileManager.defaultManager()
+                fileManager.createDirectoryAtPath(newDir, withIntermediateDirectories: true, attributes: nil, error: nil)
+                
+                var data = NSData(bytes: packet, length: packet.count)
+                var image = UIImage(data: data)
+                var file = UIImageJPEGRepresentation(image, 1.0)
+                file.writeToFile(pathToFile, atomically: true)
+                
+                var newPicture = NSEntityDescription.insertNewObjectForEntityForName("Picture", inManagedObjectContext: self.context!) as! Picture
+                newPicture.id = pictureCounter
+                newPicture.name = log.name
+                newPicture.path = pathToFile
+                newPicture.log = log
+                self.context?.save(nil)
+                
+                pictureCounter++
+                
+                imageList.append(image!)
+                packet.removeAll(keepCapacity: false)
+                notify()
             }
-            
-            
-            for (var i = 0; i<posOfDelimiter; i++){
-                packet.removeAtIndex(0)
-            }
-            
-            let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-                .UserDomainMask, true)
-            let docsDir = dirPaths[0] as! String
-            let newDir = docsDir.stringByAppendingPathComponent("/Images/\(log.id)")
-            let imageName = "/\(pictureCounter).png"
-            let pathToFile = newDir.stringByAppendingString(imageName)
-            
-            let fileManager = NSFileManager.defaultManager()
-            fileManager.createDirectoryAtPath(newDir, withIntermediateDirectories: true, attributes: nil, error: nil)
-            
-            var image = UIImage( data: NSData(bytes: packet, length: packet.count))
-            var file = UIImagePNGRepresentation(image)
-            file.writeToFile(pathToFile, atomically: true)
-            
-            var newPicture = NSEntityDescription.insertNewObjectForEntityForName("Picture", inManagedObjectContext: self.context!) as! Picture
-            newPicture.id = pictureCounter
-            newPicture.name = log.name
-            newPicture.path = pathToFile
-            newPicture.log = log
-            self.context?.save(nil)
-            
-            pictureCounter++
-            
-            imageList.append(image!)
-            packet.removeAll(keepCapacity: false)
-            notify()
         }
-            }
     }
     
     func notify(){
