@@ -16,6 +16,7 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var startStopButton: UIButton!
     @IBOutlet weak var picturesFromDrone: UIImageView!
+    @IBOutlet weak var connectionStatus: UIButton!
     
     // MARK: - Variables
     
@@ -229,6 +230,7 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
             self.mapView.removeAnnotation(self.currentDronePosition)
             var dronePosition = MKPointAnnotation()
             dronePosition.coordinate = CLLocationCoordinate2D(latitude: gpsPositions.last!.x, longitude: gpsPositions.last!.y)
+            println("Current position: \(gpsPositions.last!.x), \(gpsPositions.last!.x)");
             dronePosition.title = "Current position of the drone"
             currentDronePosition = dronePosition
             self.mapView.addAnnotation(dronePosition)
@@ -300,6 +302,18 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
             var selectedWaypoints = self.mapView.selectedAnnotations as! [Waypoint]
             for selectedWaypoint in selectedWaypoints {
                 self.mapView.deselectAnnotation(selectedWaypoint, animated: true)
+            }
+        }
+    }
+    
+    func setConnectionLabel(isConnected: Bool) {
+        dispatch_async(dispatch_get_main_queue()) {
+            if isConnected {
+                self.connectionStatus.setTitle("Connected", forState: .Normal)
+                self.connectionStatus.setTitleColor(UIColor.greenColor(), forState: .Normal)
+            } else {
+                self.connectionStatus.setTitle("Not Connected", forState: .Normal)
+                self.connectionStatus.setTitleColor(UIColor.redColor(), forState: .Normal)
             }
         }
     }

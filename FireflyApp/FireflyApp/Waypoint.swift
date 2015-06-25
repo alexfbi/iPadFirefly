@@ -17,8 +17,8 @@ class Waypoint: NSObject, MKAnnotation {
     init(coordinate: CLLocationCoordinate2D, waypointNumber: Int) {
         self._coordinate = coordinate
         self.waypointNumber = waypointNumber
-        self.speed = 10
-        self.height = 3000
+        self.speed = 30
+        self.height = 10
         super.init()
     }
     
@@ -32,5 +32,5 @@ class Waypoint: NSObject, MKAnnotation {
     
     var waypointNumber:Int
     var speed:Int  // %
-    var height:Int //mm
+    var height:Int //m
 }

@@ -15,6 +15,8 @@ import CoreLocation
 protocol ControlViewDelegate {
     func drawLine(gpsList: [GPS_Struct])
     func getWaypoints() -> [Waypoint]
+    // TODO: Anzeige Verbindungsstatus
+    func setConnectionLabel(isConnected: Bool)
 }
 
 
@@ -262,29 +264,25 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
         // timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("displayData"), userInfo: nil, repeats: true)
         
         
-        
-        // ToDo: threading nicht mehr nötig, aber empfholen, da sonst verklemmungen auftreten könnten
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
-            //self.networkSender!.start("141.100.75.214")
-            
-            self.networkSender!.start(self.getIFAddresses().last!)
-        }
-           //  var networkRecProp = NetworkRecProp()
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
-            //self.networkRecProp!.start("141.100.75.214")
-          
-            self.networkRecProp!.start(self.getIFAddresses().last!)
-            while (true) {
-                self.networkRecProp!.receiveMessage()
+        if (self.getIFAddresses().count > 0) {
+            // ToDo: threading nicht mehr nötig, aber empfholen, da sonst verklemmungen auftreten könnten
+            dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
+                self.networkSender!.start(self.getIFAddresses().last!)
+                self.delegate?.setConnectionLabel(true)
             }
-        }
-        
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
-            //self.networkRecPicture!.start("141.100.75.214")
             
-            self.networkRecPicture!.start(self.getIFAddresses().last!)
-             while (true) {
-                self.networkRecPicture!.receiveAndSavePicture()
+            dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
+                self.networkRecProp!.start(self.getIFAddresses().last!)
+                while (true) {
+                    self.networkRecProp!.receiveMessage()
+                }
+            }
+            
+            dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
+                self.networkRecPicture!.start(self.getIFAddresses().last!)
+                 while (true) {
+                    self.networkRecPicture!.receiveAndSavePicture()
+                }
             }
         }
     }
@@ -328,7 +326,8 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
     */
     @IBAction func startSwitchChanged(sender: AnyObject) {
         if (self.startSwitch.on) {
-           self.networkSender?.sendMission(delegate!.getWaypoints())
+            self.networkSender?.sendMission(delegate!.getWaypoints())
+            //self.networkSender?.sendCommand("start")
             
             saveWayPointsInDB(delegate!.getWaypoints())
             saveNewMissionOnDB()
@@ -341,7 +340,7 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
               NSLog("%@", " Switch turned off")
             
             //ToDO Welche Befehle, wie sind die Befehle aufgebaut ?????
-            self.networkSender?.sendCommand("Stop")
+            self.networkSender?.sendCommand("stop")
             
             haunterModeSwitch.hidden = false
             labelHauntedMode.hidden = false
@@ -531,6 +530,7 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
         
             
             self.networkSender?.sendCommand(str)
+            self.networkSender?.sendCommand("start")
         }
     }
     
