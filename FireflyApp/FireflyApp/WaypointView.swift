@@ -71,7 +71,7 @@ class WaypointView: MKPinAnnotationView, UITextFieldDelegate {
     */
     @IBAction func heightChanged(sender: AnyObject) {
         var heightMilli = self.heightText.text.toInt()
-        var height = heightMilli!*1000
+        var height = heightMilli!
         waypoint!.height = height
     }
     
@@ -115,7 +115,7 @@ class WaypointView: MKPinAnnotationView, UITextFieldDelegate {
             
             // Show the waypoint information
             self.label.text = "Waypoint \(waypoint!.waypointNumber)"
-            self.heightText.text = "\(waypoint!.height/1000)"
+            self.heightText.text = "\(waypoint!.height)"
             self.speedText.text = "\(waypoint!.speed)"
             
             addSubview(calloutView!)

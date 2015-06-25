@@ -333,7 +333,7 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
     @IBAction func startSwitchChanged(sender: AnyObject) {
         if (self.startSwitch.on) {
             self.networkSender?.sendMission(delegate!.getWaypoints())
-            self.networkSender?.sendCommand("start")
+            //self.networkSender?.sendCommand("start")
             
             saveWayPointsInDB(delegate!.getWaypoints())
             saveNewMissionOnDB()
