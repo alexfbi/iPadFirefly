@@ -215,6 +215,7 @@
                                 <exclude reference="kpl-jl-zHr"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="MNB-8k-t8U"/>
                                 <exclude reference="7ln-mv-DL1"/>
                                 <exclude reference="HP8-P6-qIh"/>
                                 <exclude reference="KX4-Y4-NpP"/>
@@ -222,7 +223,6 @@
                                 <exclude reference="f86-6e-iNp"/>
                                 <exclude reference="jAF-ek-VA5"/>
                                 <exclude reference="o5a-Hj-D6K"/>
-                                <exclude reference="MNB-8k-t8U"/>
                                 <exclude reference="fNf-YR-b8R"/>
                             </mask>
                         </variation>
@@ -231,6 +231,7 @@
                                 <include reference="kpl-jl-zHr"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="MNB-8k-t8U"/>
                                 <include reference="7ln-mv-DL1"/>
                                 <include reference="HP8-P6-qIh"/>
                                 <include reference="KX4-Y4-NpP"/>
@@ -240,7 +241,6 @@
                                 <include reference="f86-6e-iNp"/>
                                 <exclude reference="jAF-ek-VA5"/>
                                 <exclude reference="o5a-Hj-D6K"/>
-                                <include reference="MNB-8k-t8U"/>
                                 <include reference="fNf-YR-b8R"/>
                             </mask>
                         </variation>
@@ -388,8 +388,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qvd-8r-DLg">
-                                <rect key="frame" x="-6" y="20" width="612" height="586"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qvd-8r-DLg">
+                                <rect key="frame" x="-6" y="64" width="612" height="542"/>
                             </mapView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="11" translatesAutoresizingMaskIntoConstraints="NO" id="vdi-6a-cYY">
                                 <rect key="frame" x="360" y="64" width="240" height="128"/>
@@ -410,8 +410,20 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="R7g-lz-an4"/>
-                    <navigationItem key="navigationItem" title="Livemode" id="04g-oR-hRd"/>
+                    <navigationItem key="navigationItem" title="Livemode" id="04g-oR-hRd">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="9Kc-x4-9u0">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7qo-0U-nbc">
+                                <rect key="frame" x="-23" y="-15" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Not Connected">
+                                    <color key="titleColor" red="1" green="0.070585794782736744" blue="0.06312532036021179" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="connectionStatus" destination="7qo-0U-nbc" id="K1X-sD-6fy"/>
                         <outlet property="mapView" destination="qvd-8r-DLg" id="KCZ-8V-xDQ"/>
                         <outlet property="picturesFromDrone" destination="vdi-6a-cYY" id="KyI-eq-cZh"/>
                     </connections>

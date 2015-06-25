@@ -15,6 +15,8 @@ import CoreLocation
 protocol ControlViewDelegate {
     func drawLine(gpsList: [GPS_Struct])
     func getWaypoints() -> [Waypoint]
+    // TODO: Anzeige Verbindungsstatus
+    func setConnectionLabel(isConnected: Bool)
 }
 
 
@@ -265,27 +267,19 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
         if (self.getIFAddresses().count > 0) {
             // ToDo: threading nicht mehr nötig, aber empfholen, da sonst verklemmungen auftreten könnten
             dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
-                //self.networkSender!.start("141.100.75.214")
-                
                 self.networkSender!.start(self.getIFAddresses().last!)
-                //self.networkSender!.start("127.0.0.1")
+                self.delegate?.setConnectionLabel(true)
             }
-               //  var networkRecProp = NetworkRecProp()
+            
             dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
-                //self.networkRecProp!.start("141.100.75.214")
-              
                 self.networkRecProp!.start(self.getIFAddresses().last!)
-                //self.networkRecProp!.start("127.0.0.1")
                 while (true) {
                     self.networkRecProp!.receiveMessage()
                 }
             }
             
             dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
-                //self.networkRecPicture!.start("141.100.75.214")
-                
                 self.networkRecPicture!.start(self.getIFAddresses().last!)
-                //self.networkRecPicture!.start("127.0.0.1")
                  while (true) {
                     self.networkRecPicture!.receiveAndSavePicture()
                 }
