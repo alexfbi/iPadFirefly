@@ -72,7 +72,6 @@ class NetworkRecProp:NSObject {
                 notify()
                 break;
             case "missionover":
-                status = ""
                 statusCounter = 0
                 pictureCounter = 0
                 break;
