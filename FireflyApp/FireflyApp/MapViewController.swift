@@ -15,7 +15,6 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var startStopButton: UIButton!
-    @IBOutlet weak var picturesFromDrone: UIImageView!
     @IBOutlet weak var connectionStatus: UIButton!
     
     // MARK: - Variables

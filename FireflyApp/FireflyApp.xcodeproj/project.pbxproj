@@ -43,7 +43,7 @@
 		FE3BB5E21B15B4FB0045687C /* ysocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3BB5E11B15B4FB0045687C /* ysocket.swift */; };
 		FE3BB5E51B15B5290045687C /* ytcpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = FE3BB5E41B15B5290045687C /* ytcpsocket.c */; };
 		FE411DB01B0C72F60079B7C3 /* WaypointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE411DAF1B0C72F60079B7C3 /* WaypointView.swift */; };
-		FE5146EE1B25942500F5FA3C /* MasterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5146ED1B25942500F5FA3C /* MasterTableView.swift */; };
+		FE5146EE1B25942500F5FA3C /* MasterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5146ED1B25942500F5FA3C /* MasterTableViewController.swift */; };
 		FE6DE7141B03443C007617BA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE6DE7131B03443C007617BA /* MapKit.framework */; };
 		FE6FB2521AFA1499009AE8ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2511AFA1499009AE8ED /* AppDelegate.swift */; };
 		FE6FB2541AFA1499009AE8ED /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2531AFA1499009AE8ED /* MapViewController.swift */; };
@@ -51,7 +51,6 @@
 		FE6FB25E1AFA1499009AE8ED /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE6FB25C1AFA1499009AE8ED /* LaunchScreen.xib */; };
 		FE6FB26A1AFA1499009AE8ED /* FireflyAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6FB2691AFA1499009AE8ED /* FireflyAppTests.swift */; };
 		FEB3411A1B0BC75D00ACEB41 /* CallOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB341191B0BC75D00ACEB41 /* CallOutView.swift */; };
-		FEC531171B2C5B2F00F038F6 /* WaypointTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC531161B2C5B2F00F038F6 /* WaypointTableDelegate.swift */; };
 		FEC79DE51B262C7500E9028B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEC79DE31B262C7500E9028B /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -103,7 +102,7 @@
 		FE3BB5E31B15B5280045687C /* FireflyApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FireflyApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		FE3BB5E41B15B5290045687C /* ytcpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ytcpsocket.c; sourceTree = "<group>"; };
 		FE411DAF1B0C72F60079B7C3 /* WaypointView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaypointView.swift; sourceTree = "<group>"; };
-		FE5146ED1B25942500F5FA3C /* MasterTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterTableView.swift; sourceTree = "<group>"; };
+		FE5146ED1B25942500F5FA3C /* MasterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterTableViewController.swift; sourceTree = "<group>"; };
 		FE6DE7131B03443C007617BA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FE6FB24C1AFA1499009AE8ED /* FireflyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireflyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE6FB2501AFA1499009AE8ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -115,7 +114,6 @@
 		FE6FB2681AFA1499009AE8ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE6FB2691AFA1499009AE8ED /* FireflyAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireflyAppTests.swift; sourceTree = "<group>"; };
 		FEB341191B0BC75D00ACEB41 /* CallOutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallOutView.swift; sourceTree = "<group>"; };
-		FEC531161B2C5B2F00F038F6 /* WaypointTableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaypointTableDelegate.swift; sourceTree = "<group>"; };
 		FEC79DE41B262C7500E9028B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -225,8 +223,7 @@
 				FEB341191B0BC75D00ACEB41 /* CallOutView.swift */,
 				FE411DAF1B0C72F60079B7C3 /* WaypointView.swift */,
 				41EB77111B1153C600A1732B /* Waypoint.swift */,
-				FE5146ED1B25942500F5FA3C /* MasterTableView.swift */,
-				FEC531161B2C5B2F00F038F6 /* WaypointTableDelegate.swift */,
+				FE5146ED1B25942500F5FA3C /* MasterTableViewController.swift */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -433,7 +430,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE5146EE1B25942500F5FA3C /* MasterTableView.swift in Sources */,
+				FE5146EE1B25942500F5FA3C /* MasterTableViewController.swift in Sources */,
 				0699CF4A1B1E15C100EF305E /* Picture.swift in Sources */,
 				412C9F9F1B1E205E00C16B79 /* Log.swift in Sources */,
 				4102B0341B30E4110080C597 /* MissionModel.swift in Sources */,
@@ -466,7 +463,6 @@
 				412C9FDD1B1E388C00C16B79 /* PlotterViewController.swift in Sources */,
 				FE3BB5E21B15B4FB0045687C /* ysocket.swift in Sources */,
 				412C9FE21B1E38AD00C16B79 /* PlotView.swift in Sources */,
-				FEC531171B2C5B2F00F038F6 /* WaypointTableDelegate.swift in Sources */,
 				412C9FDF1B1E388C00C16B79 /* ControlTestDatenModel.swift in Sources */,
 				412C9FE01B1E388C00C16B79 /* BatterieTableViewController.swift in Sources */,
 				FE047DA01B0A1338003FF9C9 /* AFC1.xcdatamodeld in Sources */,

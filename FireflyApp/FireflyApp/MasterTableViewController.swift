@@ -9,7 +9,50 @@
 import UIKit
 import MapKit
 
-class MasterTableView: UIViewController, UITableViewDelegate, UITableViewDataSource{
+// MARK: - Delegate
+
+protocol WaypointTableDelegate: class {
+    /**
+    Tells the delegate that a waypoint was deleted.
+    
+    :param: waypointNumber  Number of deleted waypoint.
+    */
+    func deleteWaypoint(waypointNumber: Int)
+    
+    /**
+    Tells the delegate that a waypoint was selected.
+    
+    :param: wayointNumber   Number of selected waypoint.
+    */
+    func waypointWasSelected(waypointNumber: Int)
+    
+    /**
+    Tells the delegate that the waypoints were reordered.
+    
+    :param: waypointNumber  Number of reordered waypoint.
+    :param: toPosition  New position of reordered waypoint.
+    */
+    func waypointsWereReordered(waypointNumber: Int, toPosition: Int)
+    
+    /**
+    Tells the delegate to return the placed waypoints
+    
+    :returns: Array of waypoints placed by the user
+    */
+    func getWaypoints() -> [Waypoint]
+    
+    /**
+    Tells the delegate to deselect all selected waypoints
+    */
+    func deselectWaypoints()
+}
+
+// MARK: - Class
+
+/**
+This class gives an overview of all placed waypoints in an UITableView. The class also provides methods for deleting and reordering the waypoints.
+*/
+class MasterTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var changeOrderButton: UIButton!

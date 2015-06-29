@@ -327,7 +327,7 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource {
         }
             
         else {
-              NSLog("%@", " Switch turned off")
+            NSLog("%@", " Switch turned off")
             
             //ToDO Welche Befehle, wie sind die Befehle aufgebaut ?????
             self.networkSender?.sendCommand("stop")
