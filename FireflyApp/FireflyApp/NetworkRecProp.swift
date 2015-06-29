@@ -45,7 +45,7 @@ class NetworkRecProp:NSObject {
     func receiveMessage(){
         
         if(client == nil){
-            println("Fehler client")
+            //println("Fehler client")
             return;
         }
         

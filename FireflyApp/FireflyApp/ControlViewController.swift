@@ -15,7 +15,7 @@ import CoreLocation
 protocol ControlViewDelegate {
     func drawLine(gpsList: [GPS_Struct])
     func getWaypoints() -> [Waypoint]
-    // TODO: Anzeige Verbindungsstatus
+    // TODO: Anzeige Verbindungsstatus -> zurück auf offline
     func setConnectionLabel(isConnected: Bool)
 }
 
@@ -42,7 +42,6 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
     
     var mission:MissionModel = MissionModel()
     var locationManager  = CLLocationManager()
-    var haunterMode = false
     
      // MARK: - Outlets
     @IBOutlet weak var startSwitch: UISwitch!
@@ -56,7 +55,6 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
     
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var buttonCreateData: UIButton!
-    @IBOutlet weak var labelHauntedMode: UILabel!
     @IBOutlet weak var labelRouteMode: UILabel!
     
     @IBOutlet weak var plotView: PlotMultiView!
@@ -244,8 +242,8 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
         
         self.startSwitch.on = false
         
-       
-      
+        self.startSwitch.hidden = true
+        self.labelRouteMode.hidden = true
         
         // Starting the network sever
         self.networkRecProp = NetworkRecProp()
@@ -269,6 +267,8 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
             dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
                 self.networkSender!.start(self.getIFAddresses().last!)
                 self.delegate?.setConnectionLabel(true)
+                self.startSwitch.hidden = false
+                self.labelRouteMode.hidden = false
             }
             
             dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
@@ -331,23 +331,14 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
             
             saveWayPointsInDB(delegate!.getWaypoints())
             saveNewMissionOnDB()
-
-            haunterModeSwitch.hidden = true
-            labelHauntedMode.hidden = true
-            
         }
-        else{
+            
+        else {
               NSLog("%@", " Switch turned off")
             
             //ToDO Welche Befehle, wie sind die Befehle aufgebaut ?????
             self.networkSender?.sendCommand("stop")
-            
-            haunterModeSwitch.hidden = false
-            labelHauntedMode.hidden = false
         }
-        
-        
-        
     }
     
     
@@ -495,46 +486,5 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
         
         return addresses
     }
-    
-    
-    @IBOutlet weak var haunterModeSwitch: UISwitch!
-    
-    
-    @IBAction func haunterModeChanged(sender: AnyObject) {
-        if (haunterModeSwitch.on){
-            haunterMode = true
-            saveNewMissionOnDB()
-            
-            startSwitch.hidden = true
-            labelRouteMode.hidden = true
-        }
-        else{
-            haunterMode = false
-            
-            startSwitch.hidden = false
-            labelRouteMode.hidden = false
-        }
-        
-    }
-    
-   
-    
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-       
-        if ( haunterMode == true){
-             let location = locations[0] as! CLLocation
-            
-                println(location.coordinate.latitude)
-                println(location.coordinate.longitude)
-                var str = "\(location.coordinate.latitude) , \(location.coordinate.longitude)"
-        
-            
-            self.networkSender?.sendCommand(str)
-            self.networkSender?.sendCommand("start")
-        }
-    }
-    
-    
-    
 }
 
