@@ -10,7 +10,6 @@
 import UIKit
 import Foundation
 import CoreData
-import CoreLocation
 
 protocol ControlViewDelegate {
     func drawLine(gpsList: [GPS_Struct])
@@ -21,7 +20,7 @@ protocol ControlViewDelegate {
 
 
 
-class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocationManagerDelegate  {
+class ControlViewController:  UIViewController, PlotMultiViewDataSource {
    
     
     
@@ -41,7 +40,6 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
     var networkRecPicture:NetworkRecPicture?
     
     var mission:MissionModel = MissionModel()
-    var locationManager  = CLLocationManager()
     
      // MARK: - Outlets
     @IBOutlet weak var startSwitch: UISwitch!
@@ -234,11 +232,6 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource, CLLocat
         super.viewDidLoad()
      
         //Startring GPS localization
-       
-        locationManager.delegate = self;
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
         
         self.startSwitch.on = false
         
