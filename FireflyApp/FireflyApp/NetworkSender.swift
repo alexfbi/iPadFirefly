@@ -45,7 +45,6 @@ class NetworkSender {
         }
         if client != nil {
             self.client!.send(str: message)
-            status = "inMission"
         }
     }
     
@@ -64,17 +63,6 @@ class NetworkSender {
         // example: 0,1
         // example: 1,1
         var message: String = "toggle;" + message + ";end"
-        while(message.dataUsingEncoding(NSUTF8StringEncoding)?.length < buffersize){
-            message.append(" " as Character)
-        }
-        if client != nil {
-            self.client!.send(str: message)
-        }
-    }
-    
-    func sendGPS(message: String){
-        // parameter: x,y,z
-        var message: String = "gps;" + message + ";end"
         while(message.dataUsingEncoding(NSUTF8StringEncoding)?.length < buffersize){
             message.append(" " as Character)
         }
