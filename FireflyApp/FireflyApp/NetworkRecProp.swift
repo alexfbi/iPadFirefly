@@ -74,6 +74,7 @@ class NetworkRecProp:NSObject {
             case "missionover":
                 statusCounter = 0
                 pictureCounter = 0
+                NSNotificationCenter.defaultCenter().postNotificationName("MissionEnd", object: self )
                 break;
             default:
                 println("error in message-worker")

@@ -249,6 +249,8 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("displayAfterNotification:"), name: "Mission", object: nil)
     
         NSNotificationCenter.defaultCenter().addObserver(self,selector: Selector("updateMissionModel:"), name: "MissionUpdate", object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,selector: Selector("missionFinished:"), name: "MissionEnd", object: nil)
        
         
         // Updates the View every 5 seconds
@@ -285,6 +287,10 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource {
         super.didReceiveMemoryWarning()
         
         // Dispose of any resources that can be recreated.
+    }
+    
+    func missionFinished() {
+        self.startSwitch.on = false
     }
     
     func saveWayPointsInDB(waypoints: [Waypoint]){
