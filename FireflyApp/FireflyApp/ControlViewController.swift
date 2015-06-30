@@ -298,15 +298,25 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource {
         
          }
    
-    
+    /**
+    Save a new Mission in DB
+    */
+
     func saveNewMissionOnDB() {
         
         let fetchRequestSpeed = NSFetchRequest(entityName: "Log")
         
         
-         var log = context?.executeFetchRequest(fetchRequestSpeed, error: nil) as! [Log]
+        var logs = context?.executeFetchRequest(fetchRequestSpeed, error: nil) as! [Log]
         
-        var id = log.count + 1
+        log = logs.last
+        var id = 1
+        
+        if (log != nil){
+          
+            id = Int(log!.id) + 1
+        }
+        
         
         var newLog = NSEntityDescription.insertNewObjectForEntityForName("Log", inManagedObjectContext: self.context!) as! Log
         
