@@ -12,7 +12,7 @@ import CoreData
 
 class NetworkRecPicture {
     
-    var buffersize:Int = 200704
+    var buffersize:Int = 133120
     var imageList:[UIImage] = [UIImage]()
     var client:TCPClient?
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -41,7 +41,13 @@ class NetworkRecPicture {
         
         if (client != nil) {
         
-            var packet:[UInt8] = client!.read(buffersize)!
+//            var packet:[UInt8] = client!.read(buffersize)!
+            
+            var packet:[UInt8] = []
+            
+            for(var i = 0; i<buffersize; i++){
+                packet = packet + client!.read(1)!
+            }
             
             if packet.count > 0 {
                 var posOfDelimiter:Int = 0
