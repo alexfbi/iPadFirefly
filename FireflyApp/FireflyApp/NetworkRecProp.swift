@@ -11,7 +11,7 @@ import UIKit
 import CoreData
 
 /**
-This class contains the controll for use the ServerClasses. The Class initialize the connection to the client and controll the receiving of Informations such as GPS Data from the Client. The Class has a funciton for parsing this Informations and save the data into the Database.
+This class contains the controll for use the ServerClasses. The class initialize the connection to the client and controll the receiving of informations such as gps data from the client. The class has a function for parsing this informations and save the data into the database.
 */
 class NetworkRecProp:NSObject {
     
@@ -98,7 +98,7 @@ class NetworkRecProp:NSObject {
     }
     
     /**
-    Saving the GPS data
+    saving the gps data
     
     :param: gps data
     :param: log for reference
@@ -107,7 +107,7 @@ class NetworkRecProp:NSObject {
         //seperate the gps data
         var gpsArray = coordinates.componentsSeparatedByString(",")
         
-        // create new GPS database Entry
+        // create new GPS database entry
         var newGPS = NSEntityDescription.insertNewObjectForEntityForName("GPS", inManagedObjectContext: self.context!) as! GPS
         newGPS.id = statusCounter
         newGPS.valueX = (gpsArray[0] as! NSString).doubleValue
@@ -116,25 +116,25 @@ class NetworkRecProp:NSObject {
         newGPS.date = NSDate()
         newGPS.log = log
         
-        // save the Database
+        // save the database
         self.context?.save(nil)
         
         var gps:GPS_Struct = GPS_Struct(x: newGPS.valueX , y: newGPS.valueY)
         
-        // push the GPS Data into the gps array.
+        // push the gps object into the gps array.
         gpsList.append(gps)
         altitudeList.append(Double(newGPS.valueZ))
     }
     
     /**
-    Saving the batterystatus
+    saving the batterystatus
     
     :param: battery data
     :param: log for reference
     */
     private func saveBattery(charge: NSString, log: Log){
         
-        // create new Battery database Entry
+        // create new Battery database entry
         var newBattery = NSEntityDescription.insertNewObjectForEntityForName("Battery", inManagedObjectContext: self.context!) as! Battery
         var str: NSString = charge
         newBattery.value = str.doubleValue
@@ -142,22 +142,22 @@ class NetworkRecProp:NSObject {
         newBattery.id = statusCounter
         newBattery.log = log
         
-        // save the Database
+        // save the database
         self.context?.save(nil)
         
-        // push the battery Data into the battery array.
+        // push the battery data into the battery array.
         batteryList.append(Double(newBattery.value))
     }
     
     /**
-    Saving the speed data
+    saving the speed data
     
     :param: speed data
     :param: log for reference
     */
     private func saveSpeed(speed: NSString, log: Log){
         
-        // create new Speed database Entry
+        // create new Speed database entry
         var newSpeed = NSEntityDescription.insertNewObjectForEntityForName("Speed", inManagedObjectContext: self.context!) as! Speed
         var str: String = speed as! String
         newSpeed.value = str.toInt()!
@@ -165,10 +165,10 @@ class NetworkRecProp:NSObject {
         newSpeed.id = statusCounter
         newSpeed.log = log
         
-        // save the Database
+        // save the database
         self.context?.save(nil)
         
-        // push the speed Data into the battery array.
+        // push the speed data into the battery array.
         speedList.append(Double(newSpeed.value))
     }
     

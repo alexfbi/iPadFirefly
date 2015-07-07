@@ -9,7 +9,7 @@
 import Foundation
 
 /**
-Function Hooking for binding functions from a c-library on swift functions.
+Function hooking for binding functions from a c-library on swift functions.
 */
 @asmname("ytcpsocket_send") func c_ytcpsocket_send(fd:Int32, buff:UnsafePointer<UInt8>, len:Int32) -> Int32
 @asmname("ytcpsocket_pull") func c_ytcpsocket_pull(fd:Int32, buff:UnsafePointer<UInt8>, len:Int32) -> Int32
@@ -79,7 +79,9 @@ public class TCPcommunication:SocketInformations{
     /**
     This function is sending the delivered string to the client
     
-    :return: the TCPcommunication object for the later communication
+    :param: a string to send
+    :return: a value for success or fails
+    :return: a message for success or not
     */
     public func send(str:String)->(Bool, String){
         if let fd:Int32=fd{
@@ -95,8 +97,9 @@ public class TCPcommunication:SocketInformations{
     }
     
     /**
-    This function is reading the delivered string from the client
+    This function is reading data from the client
     
+    :param: the buffersize for read process
     :return: the readed bytes in a array or nil if failed
     */
     public func read(buffersize:Int)->[UInt8]?{

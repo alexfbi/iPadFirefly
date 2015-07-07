@@ -11,7 +11,7 @@ import UIKit
 import CoreData
 
 /**
-This class contains the controll for use the ServerClasses. The Class initialize the connection to the client and controll the receiving of the pictures and the picture data. The Class has a funciton for parsing this Informations and save the data into the Database and on the filesystem.
+This class contains the controll for use the ServerClasses. The class initialize the connection to the client and controll the receiving of the pictures and the picture data. The class has a function for parsing this informations and save the data into the database and in the filesystem.
 */
 
 class NetworkRecPicture {
@@ -91,7 +91,7 @@ class NetworkRecPicture {
                         packet.removeLast()
                     }
                     
-                    // remove the size plus delimiter
+                    // remove the size informations plus delimiter
                     for (var i = 1; i<=posOfDelimiter; i++){
                         packet.removeAtIndex(0)
                     }
@@ -115,24 +115,24 @@ class NetworkRecPicture {
                     var file = UIImageJPEGRepresentation(image, 1.0)
                     file.writeToFile(pathToFile, atomically: true)
                     
-                    // create new Picture database Entry. Its for the Informations about the Picture.
+                    // create new Picture database entry. Its for the informations about the picture.
                     var newPicture = NSEntityDescription.insertNewObjectForEntityForName("Picture", inManagedObjectContext: self.context!) as! Picture
                     newPicture.id = pictureCounter
                     newPicture.name = log.name
                     newPicture.path = pathToFile
                     newPicture.log = log
-        
-                    // save the Database
+                    
+                    // save the database
                     self.context?.save(nil)
                     
                     pictureCounter++
                     
-                    // push the Image into the Image array. Its for the View.
+                    // push the Image into the Image array. Its for the view.
                     imageList.append(image!)
                     
                     //clear packet
                     packet.removeAll(keepCapacity: false)
-                
+                    
                     //send Broadcast about change
                     notify()
                 }

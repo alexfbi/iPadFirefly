@@ -9,7 +9,7 @@
 import Foundation
 
 /**
-This class contains the controll for use the ServerClasses. The Class initialize the connection to the client and controll the send of Data to the Client.
+This class contains the controll for use the ServerClasses. The class initialize the connection to the client and controll the send of data to the client.
 */
 class NetworkSender {
     
@@ -42,12 +42,12 @@ class NetworkSender {
     /**
     This function is parsing and sending the missiondata to the client
     
-    :params: Array of Missiondata
+    :params: array of missiondata
     */
     func sendMission(waypointsForMission: [Waypoint]){
         for waypoint in waypointsForMission{
             
-            // parsing the Missiondata into a string and appending space characters to fill the buffersize for the client
+            // parsing a waypoint of the missiondata array into a string and appending space characters to fill the buffersize for the client
             var message: String = "mission;\(waypoint.coordinate.latitude), \(waypoint.coordinate.longitude), \(waypoint.speed), \(waypoint.height);end"
             while(message.dataUsingEncoding(NSUTF8StringEncoding)?.length < buffersize){
                 message.append(" " as Character)
@@ -95,6 +95,7 @@ class NetworkSender {
         // parameter: l, r
         // example: 0, 1
         // example: 1, 1
+        
         // parsing the message into a toggle message for the client and appending space characters to fill the buffersize for the client
         var message: String = "toggle;" + message + ";end"
         while(message.dataUsingEncoding(NSUTF8StringEncoding)?.length < buffersize){
