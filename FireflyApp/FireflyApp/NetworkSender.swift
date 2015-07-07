@@ -1,9 +1,9 @@
 //
-//  NetworkSender.swift
-//  FireflyApp
+// NetworkSender.swift
+// FireflyApp
 //
-//  Created by Christian Adam on 13.05.15.
-//  Copyright (c) 2015 Hochschule Darmstadt. All rights reserved.
+// Created by Christian Adam on 13.05.15.
+// Copyright (c) 2015 Hochschule Darmstadt. All rights reserved.
 //
 
 import Foundation
@@ -16,7 +16,7 @@ class NetworkSender {
     func start(ip: String){
         var server:TCPServer = TCPServer(ip: ip, port: 60000)
         println("Server started")
-        var (success,msg)=server.listen()
+        var (success, msg)=server.listen()
         if success{
             self.client = server.accept()
             if client != nil {
@@ -31,7 +31,7 @@ class NetworkSender {
     
     func sendMission(waypointsForMission: [Waypoint]){
         for waypoint in waypointsForMission{
-            var message: String = "mission;\(waypoint.coordinate.latitude),\(waypoint.coordinate.longitude),\(waypoint.speed),\(waypoint.height);end"
+            var message: String = "mission;\(waypoint.coordinate.latitude), \(waypoint.coordinate.longitude), \(waypoint.speed), \(waypoint.height);end"
             while(message.dataUsingEncoding(NSUTF8StringEncoding)?.length < buffersize){
                 message.append(" " as Character)
             }
@@ -59,9 +59,9 @@ class NetworkSender {
     }
     
     func sendToggle(message: String){
-        // parameter: l,r
-        // example: 0,1
-        // example: 1,1
+        // parameter: l, r
+        // example: 0, 1
+        // example: 1, 1
         var message: String = "toggle;" + message + ";end"
         while(message.dataUsingEncoding(NSUTF8StringEncoding)?.length < buffersize){
             message.append(" " as Character)
