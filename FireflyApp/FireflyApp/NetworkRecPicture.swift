@@ -40,13 +40,11 @@ class NetworkRecPicture {
         var log: Log = (context?.executeFetchRequest(fetchRequest, error: nil) as! [Log])[0]
         
         if (client != nil) {
-        
-//            var packet:[UInt8] = client!.read(buffersize)!
             
             var packet:[UInt8] = []
             
-            for(var i = 0; i<buffersize; i++){
-                packet = packet + client!.read(1)!
+            for(var i = 0; i<(buffersize/1024); i++){
+                packet = packet + client!.read(1024)!
             }
             
             if packet.count > 0 {

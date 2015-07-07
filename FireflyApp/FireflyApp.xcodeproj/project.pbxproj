@@ -137,6 +137,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		062147311B4BD5C8007B1011 /* skysent */ = {
+			isa = PBXGroup;
+			children = (
+				FE3BB5DF1B15B4F10045687C /* TCPClient.swift */,
+				FE3BB5E11B15B4FB0045687C /* ysocket.swift */,
+				FE3BB5E41B15B5290045687C /* ytcpsocket.c */,
+			);
+			name = skysent;
+			sourceTree = "<group>";
+		};
 		4125E2EA1B37AE8F00E3FDB4 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,9 +244,7 @@
 				063F8E441B1F100400F1CEFD /* NetworkRecProp.swift */,
 				063F8E461B1F101F00F1CEFD /* NetworkRecPicture.swift */,
 				063F8E481B1F103100F1CEFD /* NetworkSender.swift */,
-				FE3BB5DF1B15B4F10045687C /* TCPClient.swift */,
-				FE3BB5E11B15B4FB0045687C /* ysocket.swift */,
-				FE3BB5E41B15B5290045687C /* ytcpsocket.c */,
+				062147311B4BD5C8007B1011 /* skysent */,
 				FE3BB5E31B15B5280045687C /* FireflyApp-Bridging-Header.h */,
 				06C1E18D1B398DE400BF41DD /* GlobalVars.swift */,
 			);
