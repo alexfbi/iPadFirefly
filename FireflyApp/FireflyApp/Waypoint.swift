@@ -9,6 +9,9 @@
 import Foundation
 import MapKit
 
+/**
+This class defines our custom annotation. 
+*/
 class Waypoint: NSObject, MKAnnotation {
     
     init(coordinate: CLLocationCoordinate2D, waypointNumber: Int) {

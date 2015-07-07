@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+This class describes our SplitViewController and initializes the delegates of the master and detail views. Also it provides a method to resolve the conflict between the swipe gestures of the MapView.
+*/
 class SplitViewController: UISplitViewController {
     
     var log: Log?

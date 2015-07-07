@@ -9,6 +9,9 @@
 import Foundation
 import MapKit
 
+/**
+The WaypointViewDelegate defines methods to receive commands from a WaypointView.
+*/
 protocol WaypointViewDelegate {
     /**
     Calls the delegate to delete the waypoint from the array
@@ -18,6 +21,9 @@ protocol WaypointViewDelegate {
     func deleteWaypoint(waypointNumber: Int)
 }
 
+/**
+This class defines the custom AnnotationView for our Waypoint class. It provides methods to delete and edit the waypoints as well es showing the callout view. It also contains the functionality to react to a users tap in the right way.
+*/
 class WaypointView: MKPinAnnotationView, UITextFieldDelegate {
     
     // MARK: - Outlets

@@ -9,6 +9,9 @@
 import UIKit
 import MapKit
 
+/**
+This class contains the MapView and provides functions to set, delete and drag waypoints. Also it contains the functionality to show the user location and the location of the drone as well as the route that was flown by the drone
+*/
 class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationManagerDelegate, WaypointTableDelegate, ControlViewDelegate, WaypointViewDelegate {
     
     // MARK: - Outlets
@@ -100,7 +103,8 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
         if (annotation is MKUserLocation) {
             return nil
         }
-            
+        
+        // The position of the drone is shown as a purple pin
         if (annotation is MKPointAnnotation) {
             var pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "dronePosition")
             pin.pinColor = MKPinAnnotationColor.Purple
@@ -109,12 +113,13 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
             return pin
         }
             
+        // A waypoint returns our custom WaypointView
         else {
             var pin = WaypointView(annotation: annotation, reuseIdentifier: "myPin")
             pin.waypointViewDelegate = self
             pin.animatesDrop = true
             pin.draggable = true
-            pin.canShowCallout = false
+            pin.canShowCallout = false // do not show the default callout view
             
             return pin
         }
@@ -171,54 +176,51 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
     // MARK: - Draw route of drone
     
     func drawLine(gpsList: [GPS_Struct]) {
-        self.gpsPositions = gpsList
+        self.gpsPositions = gpsList // triggers createPolyline()
+        
+        // set the position of the drone on the map
         dispatch_async(dispatch_get_main_queue()) {
             self.setDronePosition()
         }
     }
     
+    /**
+    Draws the route flown by the drone.
+    */
     func createPolyline() {
         NSLog("%@", " createPolyLine: ")
         
         if (gpsPositions.count > 0){
-            
-//            let location = CLLocationCoordinate2D(
-//                latitude: gpsPositions[0].x,
-//                longitude: gpsPositions[0].y)
-//            
-//            let span = MKCoordinateSpanMake(0.01, 0.01)
-//            let region = MKCoordinateRegion(center: location, span: span)
-//            
-//            mapView.setRegion(region, animated: true)
-            
             var locations = [CLLocation]()
-            
             for i in 0...gpsPositions.count - 1 {
-                
                 locations += [CLLocation(latitude: gpsPositions[i].x, longitude:   gpsPositions[i].y)]
-                
-                
             }
             var coordinates = locations.map({(location: CLLocation!) -> CLLocationCoordinate2D in return location.coordinate})
-            
             var polyline = MKPolyline(coordinates: &coordinates, count: locations.count)
             
-            
+            // add the overlay to the map
             dispatch_async(dispatch_get_main_queue()) {
                 self.mapView.addOverlay(polyline)
             }
-            
       }
     }
     
+    /**
+    Sets the position of the drone on the map
+    */
     func setDronePosition() {
         if (gpsPositions.count > 0) {
+            // remove old position of the drone
             self.mapView.removeAnnotation(self.currentDronePosition)
+            
+            // create the annotation
             var dronePosition = MKPointAnnotation()
             dronePosition.coordinate = CLLocationCoordinate2D(latitude: gpsPositions.last!.x, longitude: gpsPositions.last!.y)
-            println("Current position: \(gpsPositions.last!.x), \(gpsPositions.last!.x)");
             dronePosition.title = "Current position of the drone"
+            
+            // save the current drone position so it can be deleted later
             currentDronePosition = dronePosition
+            
             self.mapView.addAnnotation(dronePosition)
         }
     }
@@ -238,11 +240,14 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
         return nil
     }
     
-    func updateUI(){
+    /**
+    Updates the UI
+    */
+    func updateUI() {
         mapView?.setNeedsDisplay()
     }
     
-    // MARK: - Implement delegates
+    // MARK: - Implement delegate functions
     
     /**
     Delete waypoint.
@@ -277,12 +282,19 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
         waypoints.insert(reorderedWaypoint, atIndex: toPosition)
         self.updateNumeration()
     }
+
+    /**
+    Returns the waypoints set by the user.
     
-    // MARK: - Implement ControlViewDelegate
+    :returns: An array of waypoints.
+    */
     func getWaypoints() -> [Waypoint] {
         return self.waypoints
     }
     
+    /**
+    Deselects all selected waypoints.
+    */
     func deselectWaypoints() {
         if (self.mapView.selectedAnnotations != nil) {
             var selectedWaypoints = self.mapView.selectedAnnotations as! [Waypoint]
@@ -292,6 +304,11 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
         }
     }
     
+    /**
+    Changes the connection label to the current connectios status.
+    
+    :param: isConnected Describes wether the iPad is connected or not. 
+    */
     func setConnectionLabel(isConnected: Bool) {
         dispatch_async(dispatch_get_main_queue()) {
             if isConnected {
