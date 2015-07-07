@@ -16,6 +16,10 @@ struct GPS_Struct{
   //  var z:Double
 }
 
+/**
+This class contains the Model for the mission, the class notifies by Broadcast
+*/
+
 class MissionModel:NSObject{
     
 

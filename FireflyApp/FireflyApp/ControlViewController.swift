@@ -245,7 +245,7 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource {
 
     
     /**
-    
+    Starts the server to recieve and send data
     */
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -312,6 +312,10 @@ class ControlViewController:  UIViewController, PlotMultiViewDataSource {
         self.startSwitch.on = false
     }
     
+    
+    /**
+    TODO: save the way points in the db.
+    */
     func saveWayPointsInDB(waypoints: [Waypoint]){
         
         

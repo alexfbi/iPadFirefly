@@ -11,6 +11,10 @@ import UIKit
 import AVKit
 import AVFoundation
 
+/**
+The Controller navigates to the destination controller
+*/
+
 class CategorieTableViewController: UITableViewController {
     
     override func viewDidLoad() {

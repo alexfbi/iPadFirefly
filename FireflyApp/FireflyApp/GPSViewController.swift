@@ -11,7 +11,10 @@ import MapKit
 import CoreLocation
 import CoreData
 
+/**
+The controller is used to create the GPS polyline on the map
 
+*/
 
 class GPSViewController: ContentViewController, MKMapViewDelegate  {
     
@@ -38,7 +41,9 @@ class GPSViewController: ContentViewController, MKMapViewDelegate  {
         
     }
     
-    
+    /**
+    Creates polyline, overlay for the map.
+    */
    
     
     func createPolyline() {
@@ -74,7 +79,10 @@ class GPSViewController: ContentViewController, MKMapViewDelegate  {
         
       
 }
-
+    /**
+    Draws the overlay on the map.
+    
+    */
 
    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
     
@@ -99,14 +107,5 @@ class GPSViewController: ContentViewController, MKMapViewDelegate  {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

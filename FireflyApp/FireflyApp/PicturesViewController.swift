@@ -10,7 +10,9 @@ import UIKit
 import Foundation
 import CoreData
 
-
+/**
+The controller animates the images, the NSTimeInterval = 10
+*/
 
 class PicturesViewController: ContentViewController {
 
@@ -35,7 +37,7 @@ class PicturesViewController: ContentViewController {
         controlDBModell.loadDataFromDB(log)
         controlDBModell.loadImagesFromFolder()
         imageList =  controlDBModell.imageList
-    startAnimation()
+        startAnimation()
     }
    
   

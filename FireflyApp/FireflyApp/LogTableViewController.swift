@@ -9,6 +9,11 @@
 import UIKit
 import CoreData
 
+/**
+
+The controller loads the logs from the database and show the logs in tables
+*/
+
 class LogTableViewController: UITableViewController {
         
     
@@ -41,7 +46,9 @@ class LogTableViewController: UITableViewController {
             return logs.count
         }
     
-        /*Table view output*/
+        /**
+        Table view output
+        */
         override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
             
             
@@ -69,7 +76,8 @@ class LogTableViewController: UITableViewController {
             return true
         }
         
-        /* Deletes a Log form filesystem and Database
+        /** 
+        Deletes a Log form filesystem and Database
         */
         override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
             
