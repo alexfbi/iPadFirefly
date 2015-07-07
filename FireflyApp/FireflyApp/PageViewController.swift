@@ -10,11 +10,11 @@ import UIKit
 import CoreData
 
 /**
-This class contains the Page View, but the class is not used in this project
+This class contains the Page View. The Page View is used to wipe through the map, plot and images, but the class is not used anymore in this project
 */
 class PageViewController: UIViewController, UIPageViewControllerDataSource {
     
-     // MARK: - Variable
+     // MARK: -Variable
     
    
     var pageViewController: UIPageViewController!
@@ -25,7 +25,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     
-    // MARK: - Outlet
+    // MARK: -Outlet
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var showHideButton: UIButton!
 

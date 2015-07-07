@@ -9,7 +9,7 @@
 import UIKit
 
 /**
-This controller is used for the pageviewController.
+This controller is used for the pageviewController, but the pageviewController is not used
 */
 
 class ContentViewController: UIViewController {

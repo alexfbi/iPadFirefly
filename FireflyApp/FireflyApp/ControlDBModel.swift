@@ -28,12 +28,18 @@ class ControlDBModel {
 
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
-
+    // MARK: - INIT
     init(){
       
         self.batterieList = [Battery]()
         
     }
+    
+    // MARK: - Load Data
+    
+    /**
+    Load Data from DB
+    */
     
     func loadDataFromDB() {
         if log != nil{
@@ -123,8 +129,8 @@ func loadImagesFromFolder(){
     
     /**
     Load image from folder
-    @param: path to file
-    @return: image
+    :param: path to file
+    :return: image
     */
 
 
@@ -151,10 +157,15 @@ func loadImageFromDocumentsFolder(pathToFile: String) -> UIImage? {
     
     return nil
     
+    
+    
 }
+    
+    // MARK: - Delete data
+    
     /**
     Delete all GPS from db
-    @param: log
+    :param: log
     */
     
     
@@ -174,7 +185,7 @@ func loadImageFromDocumentsFolder(pathToFile: String) -> UIImage? {
     }
     /**
     Delete all images from db
-    
+    :param: log
     */
     func deleteAllBilderFromDB(log:Log)
     {
