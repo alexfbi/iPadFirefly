@@ -9,7 +9,9 @@
 import UIKit
 import CoreData
 
-
+/**
+This class contains the Page View, but the class is not used
+*/
 class PageViewController: UIViewController, UIPageViewControllerDataSource {
     
     @IBOutlet weak var statusLabel: UILabel!

@@ -9,6 +9,10 @@
 import UIKit
 import CoreData
 
+/**
+The controller loads data from the controlDBModell and show the values in a table view
+*/
+
 class BatterieTableViewController: UITableViewController {
     
     

@@ -13,9 +13,9 @@ protocol PlotMultiViewDataSource: class{
     
 }
 
-//Scale to MAX fullscreen
-// MAX = 2
-
+/**
+Plots the speed, akku and altitude status information.
+*/
 
 class PlotMultiView: UIView {
     

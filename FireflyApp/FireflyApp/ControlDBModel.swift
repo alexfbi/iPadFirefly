@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 import CoreData
 
+/**
+This Class is used to save and load the data in the database
+*/
+
 class ControlDBModel {
     
     var imageList = [UIImage]()
@@ -81,7 +85,11 @@ class ControlDBModel {
   
          return false
 }
+  
     
+    /**
+    Load image from folder
+    */
 
 
 func loadImagesFromFolder(){
@@ -111,6 +119,12 @@ func loadImagesFromFolder(){
    
     
 }
+    
+    /**
+    Load image from folder
+    @param: path to file
+    @return: image
+    */
 
 
 func loadImageFromDocumentsFolder(pathToFile: String) -> UIImage? {
@@ -137,6 +151,11 @@ func loadImageFromDocumentsFolder(pathToFile: String) -> UIImage? {
     return nil
     
 }
+    /**
+    Delete all GPS from db
+    @param: log
+    */
+    
     
     func deleteAllGpsFromDB(log:Log)
     {
@@ -152,7 +171,10 @@ func loadImageFromDocumentsFolder(pathToFile: String) -> UIImage? {
         gpsList.removeAll(keepCapacity: false)
         
     }
+    /**
+    Delete all images from db
     
+    */
     func deleteAllBilderFromDB(log:Log)
     {
         loadDataFromDB(log)

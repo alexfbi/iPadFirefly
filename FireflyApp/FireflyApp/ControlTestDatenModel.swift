@@ -9,7 +9,9 @@
 import Foundation
 import UIKit
 import CoreData
-
+/**
+This class create the test data for the output of the status information
+*/
 class ControlTestDatenModel {
     
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -46,7 +48,7 @@ class ControlTestDatenModel {
     
     
     /**
-    
+    Creates and save images in folder
     */
     
    private func writeImagesToFolder(){
@@ -97,7 +99,7 @@ class ControlTestDatenModel {
     }
     
     /**
-    
+    Writes images to Folder
     */
     
     private   func saveFileToDocumentsFolder(image: UIImage, pathToFile: String){
@@ -122,7 +124,7 @@ class ControlTestDatenModel {
         
     }
     /**
-    
+    Creates all test data
     */
     
     func createData(){
@@ -145,7 +147,7 @@ class ControlTestDatenModel {
         
     }
     /**
-    
+    Creates log
     */
     private func createTestDatenLog(){
         
@@ -162,7 +164,7 @@ class ControlTestDatenModel {
         self.context?.save(nil)
     }
     /**
-    
+    Creates speed test data
     */
   private  func createTestDatenSpeed(){
         var speed = NSEntityDescription.insertNewObjectForEntityForName("Speed", inManagedObjectContext: self.context!) as! Speed
@@ -181,8 +183,7 @@ class ControlTestDatenModel {
         
     }
     /**
-    
-    */
+     Creates image test data       */
   private  func createTestDatenImage(){
         let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
@@ -220,7 +221,7 @@ class ControlTestDatenModel {
     }
     
     /**
-    
+    Creates battery test data
     */
  private   func createTestDatenBatterie(){
         
@@ -242,7 +243,7 @@ class ControlTestDatenModel {
         
     }
     /**
-    
+     Creates gps test data
     */
  private func createTestGPSDataToDB(x: Double, y: Double, z: Double){
         NSLog("%@", " saveTestDataToDB")

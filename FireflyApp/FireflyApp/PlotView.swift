@@ -8,13 +8,21 @@
 
 import UIKit
 
+
+
 protocol PlotViewDataSource: class{
+    /**
+    Set the points to be plottet
+    @return: Array with status infomation, minimum and maximum value
+    */
     func setPoints( sender: PlotView) -> ([CGPoint?], Double, Double)
     
 }
 
-//Scale to MAX fullscreen
-// MAX = 2
+/**
+Plots one status information.
+
+*/
 var scale:CGFloat = 1.5
 
 class PlotView: UIView {

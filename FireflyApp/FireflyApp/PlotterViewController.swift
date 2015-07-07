@@ -9,6 +9,10 @@
 import UIKit
 import CoreData
 
+/**
+
+The controller converts and sets the points for the plot.
+*/
 class PlotterViewController: ContentViewController, PlotViewDataSource {
 
     
