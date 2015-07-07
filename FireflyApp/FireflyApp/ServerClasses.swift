@@ -1,5 +1,5 @@
 //
-// ComponentClasses.swift
+// ServerClasses.swift
 // FireflyApp
 //
 // Created by Christian Adam on 12.05.15.
