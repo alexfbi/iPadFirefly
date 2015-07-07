@@ -18,7 +18,7 @@ class NetworkRecPicture {
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     func start(ip: String){
-        var server:TCPServer = TCPServer(addr: ip, port: 51000)
+        var server:TCPServer = TCPServer(ip: ip, port: 51000)
         println("Server started")
         var (success,msg)=server.listen()
         if success{

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		062147331B4BDFCA007B1011 /* ComponentClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062147321B4BDFCA007B1011 /* ComponentClasses.swift */; };
 		063F8E451B1F100400F1CEFD /* NetworkRecProp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063F8E441B1F100400F1CEFD /* NetworkRecProp.swift */; };
 		063F8E471B1F101F00F1CEFD /* NetworkRecPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063F8E461B1F101F00F1CEFD /* NetworkRecPicture.swift */; };
 		063F8E491B1F103100F1CEFD /* NetworkSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063F8E481B1F103100F1CEFD /* NetworkSender.swift */; };
@@ -39,8 +40,6 @@
 		FE00CBB21B0BC02D00D79628 /* CallOutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE00CBB11B0BC02D00D79628 /* CallOutView.xib */; };
 		FE047D9D1B0A12F3003FF9C9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE047D9C1B0A12F3003FF9C9 /* CoreData.framework */; };
 		FE047DA01B0A1338003FF9C9 /* AFC1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE047D9E1B0A1338003FF9C9 /* AFC1.xcdatamodeld */; };
-		FE3BB5E01B15B4F10045687C /* TCPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3BB5DF1B15B4F10045687C /* TCPClient.swift */; };
-		FE3BB5E21B15B4FB0045687C /* ysocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3BB5E11B15B4FB0045687C /* ysocket.swift */; };
 		FE3BB5E51B15B5290045687C /* ytcpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = FE3BB5E41B15B5290045687C /* ytcpsocket.c */; };
 		FE411DB01B0C72F60079B7C3 /* WaypointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE411DAF1B0C72F60079B7C3 /* WaypointView.swift */; };
 		FE5146EE1B25942500F5FA3C /* MasterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5146ED1B25942500F5FA3C /* MasterTableViewController.swift */; };
@@ -65,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		062147321B4BDFCA007B1011 /* ComponentClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentClasses.swift; sourceTree = "<group>"; };
 		063F8E441B1F100400F1CEFD /* NetworkRecProp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRecProp.swift; sourceTree = "<group>"; };
 		063F8E461B1F101F00F1CEFD /* NetworkRecPicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRecPicture.swift; sourceTree = "<group>"; };
 		063F8E481B1F103100F1CEFD /* NetworkSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSender.swift; sourceTree = "<group>"; };
@@ -97,8 +97,6 @@
 		FE00CBB11B0BC02D00D79628 /* CallOutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CallOutView.xib; sourceTree = "<group>"; };
 		FE047D9C1B0A12F3003FF9C9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FE047D9F1B0A1338003FF9C9 /* AFC1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AFC1.xcdatamodel; sourceTree = "<group>"; };
-		FE3BB5DF1B15B4F10045687C /* TCPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCPClient.swift; sourceTree = "<group>"; };
-		FE3BB5E11B15B4FB0045687C /* ysocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ysocket.swift; sourceTree = "<group>"; };
 		FE3BB5E31B15B5280045687C /* FireflyApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FireflyApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		FE3BB5E41B15B5290045687C /* ytcpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ytcpsocket.c; sourceTree = "<group>"; };
 		FE411DAF1B0C72F60079B7C3 /* WaypointView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaypointView.swift; sourceTree = "<group>"; };
@@ -140,8 +138,6 @@
 		062147311B4BD5C8007B1011 /* skysent */ = {
 			isa = PBXGroup;
 			children = (
-				FE3BB5DF1B15B4F10045687C /* TCPClient.swift */,
-				FE3BB5E11B15B4FB0045687C /* ysocket.swift */,
 				FE3BB5E41B15B5290045687C /* ytcpsocket.c */,
 			);
 			name = skysent;
@@ -241,6 +237,7 @@
 		41F983201B1E520800592590 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				062147321B4BDFCA007B1011 /* ComponentClasses.swift */,
 				063F8E441B1F100400F1CEFD /* NetworkRecProp.swift */,
 				063F8E461B1F101F00F1CEFD /* NetworkRecPicture.swift */,
 				063F8E481B1F103100F1CEFD /* NetworkSender.swift */,
@@ -455,13 +452,13 @@
 				412C9FE41B1E38C100C16B79 /* LogTableViewController.swift in Sources */,
 				412C9FE61B1E38F800C16B79 /* CategorieTableViewController.swift in Sources */,
 				06C1E18E1B398DE400BF41DD /* GlobalVars.swift in Sources */,
-				FE3BB5E01B15B4F10045687C /* TCPClient.swift in Sources */,
 				416D2A621B259D99006A9BF0 /* SplitViewController.swift in Sources */,
 				FE6FB2521AFA1499009AE8ED /* AppDelegate.swift in Sources */,
 				41F9831C1B1E3C0200592590 /* ContentViewController.swift in Sources */,
 				412C9FDE1B1E388C00C16B79 /* ControlDBModel.swift in Sources */,
 				41EB77121B1153C600A1732B /* Waypoint.swift in Sources */,
 				412C9FDB1B1E388C00C16B79 /* GPSViewController.swift in Sources */,
+				062147331B4BDFCA007B1011 /* ComponentClasses.swift in Sources */,
 				063F8E451B1F100400F1CEFD /* NetworkRecProp.swift in Sources */,
 				063F8E471B1F101F00F1CEFD /* NetworkRecPicture.swift in Sources */,
 				412C9FA31B1E205F00C16B79 /* Speed.swift in Sources */,
@@ -469,7 +466,6 @@
 				FE411DB01B0C72F60079B7C3 /* WaypointView.swift in Sources */,
 				FE6FB2541AFA1499009AE8ED /* MapViewController.swift in Sources */,
 				412C9FDD1B1E388C00C16B79 /* PlotterViewController.swift in Sources */,
-				FE3BB5E21B15B4FB0045687C /* ysocket.swift in Sources */,
 				412C9FE21B1E38AD00C16B79 /* PlotView.swift in Sources */,
 				412C9FDF1B1E388C00C16B79 /* ControlTestDatenModel.swift in Sources */,
 				412C9FE01B1E388C00C16B79 /* BatterieTableViewController.swift in Sources */,

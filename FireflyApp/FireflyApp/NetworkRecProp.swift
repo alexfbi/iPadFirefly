@@ -10,12 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-
-
 class NetworkRecProp:NSObject {
-    
-    
-    
     
     var gpsList:[GPS_Struct] = [GPS_Struct]()
     var batteryList:[Double] = [Double]()
@@ -27,7 +22,7 @@ class NetworkRecProp:NSObject {
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     func start(ip: String){
-        var server:TCPServer = TCPServer(addr: ip, port: 50000)
+        var server:TCPServer = TCPServer(ip: ip, port: 50000)
         println("Server started")
         var (success,msg)=server.listen()
         if success{

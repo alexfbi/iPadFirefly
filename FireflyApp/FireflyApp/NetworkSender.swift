@@ -14,7 +14,7 @@ class NetworkSender {
     var client:TCPClient?
     
     func start(ip: String){
-        var server:TCPServer = TCPServer(addr: ip, port: 60000)
+        var server:TCPServer = TCPServer(ip: ip, port: 60000)
         println("Server started")
         var (success,msg)=server.listen()
         if success{
@@ -36,7 +36,7 @@ class NetworkSender {
                 message.append(" " as Character)
             }
             if client != nil {
-                self.client!.send(str: message)
+                self.client!.send(message)
             }
         }
         var message: String = "mission;start;end"
@@ -44,7 +44,7 @@ class NetworkSender {
             message.append(" " as Character)
         }
         if client != nil {
-            self.client!.send(str: message)
+            self.client!.send(message)
         }
     }
     
@@ -54,7 +54,7 @@ class NetworkSender {
             message.append(" " as Character)
         }
         if client != nil {
-            self.client!.send(str: message)
+            self.client!.send(message)
         }
     }
     
@@ -67,7 +67,7 @@ class NetworkSender {
             message.append(" " as Character)
         }
         if client != nil {
-            self.client!.send(str: message)
+            self.client!.send(message)
         }
     }
     
