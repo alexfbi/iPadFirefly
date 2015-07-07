@@ -11,10 +11,29 @@ import UIKit
 import Foundation
 import CoreData
 
+/**
+The ControlViewDelegate defines methods to receive commands from a ControlViewController.
+*/
 protocol ControlViewDelegate {
+    /**
+    Tells the delegate to draw the line of the flown route.
+    
+    :param: gpsList    The list of gps coordinates
+    */
     func drawLine(gpsList: [GPS_Struct])
+
+    /**
+    Tells the delegate to return the placed waypoints
+    
+    :returns: Array of waypoints placed by the user
+    */
     func getWaypoints() -> [Waypoint]
-    // TODO: Anzeige Verbindungsstatus -> zurück auf offline
+
+    /**
+    Tells the delegate to set the connection label to the current connection status.
+    
+    :param: isConnected A bool that describes wether the app is connected or not. 
+    */
     func setConnectionLabel(isConnected: Bool)
 }
 

@@ -11,6 +11,9 @@ import MapKit
 
 // MARK: - Delegate
 
+/**
+The WaypointTableDelegate defines methods to receive commands from a WaypointTableViewController.
+*/
 protocol WaypointTableDelegate: class {
     /**
     Tells the delegate that a waypoint was deleted.
@@ -54,11 +57,16 @@ This class gives an overview of all placed waypoints in an UITableView. The clas
 */
 class MasterTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
+    // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var changeOrderButton: UIButton!
+    
+    // MARK: - Variables
     var refreshControl:UIRefreshControl!
     var waypoints:[Waypoint]?
     weak var waypointTableDelegate:WaypointTableDelegate?
+    
+    // MARK:
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +75,8 @@ class MasterTableViewController: UIViewController, UITableViewDelegate, UITableV
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshTable:", name:"refresh", object: nil)
     }
+    
+    // MARK: - UITableViewDelegate and UITableViewDataSource methods
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         waypoints = waypointTableDelegate?.getWaypoints()
@@ -84,21 +94,11 @@ class MasterTableViewController: UIViewController, UITableViewDelegate, UITableV
         
         return cell!
     }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-    }
-    
-    func refreshTable(notification: NSNotification) {
-        println("Refreshing Table")
-        self.tableView.reloadData()
-    }
-    
     func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
         waypointTableDelegate!.waypointWasSelected(indexPath.row)
     }
     
-    // Delete the waypoint item
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
@@ -106,18 +106,6 @@ class MasterTableViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             waypointTableDelegate?.deleteWaypoint(indexPath.row)
-        }
-    }
-    
-    // Reorder the waypoint items
-    @IBAction func changeOrderButtonPressed(sender: AnyObject) {
-        if (changeOrderButton.titleLabel!.text == "Change Order") {
-            waypointTableDelegate!.deselectWaypoints()
-            self.tableView.setEditing(true, animated: true)
-            changeOrderButton.setTitle("Done", forState: .Normal)
-        } else {
-            self.tableView.setEditing(false, animated: true)
-            changeOrderButton.setTitle("Change Order", forState: .Normal)
         }
     }
     
@@ -130,5 +118,27 @@ class MasterTableViewController: UIViewController, UITableViewDelegate, UITableV
         self.tableView.reloadData()
     }
     
+    // MARK: - Own methods
+    
+    /**
+    Reorder the waypoints items
+    */
+    @IBAction func changeOrderButtonPressed(sender: AnyObject) {
+        if (changeOrderButton.titleLabel!.text == "Change Order") {
+            waypointTableDelegate!.deselectWaypoints()
+            self.tableView.setEditing(true, animated: true)
+            changeOrderButton.setTitle("Done", forState: .Normal)
+        } else {
+            self.tableView.setEditing(false, animated: true)
+            changeOrderButton.setTitle("Change Order", forState: .Normal)
+        }
+    }
+    
+    /**
+    Refresh the table
+    */
+    func refreshTable(notification: NSNotification) {
+        self.tableView.reloadData()
+    }
     
 }
