@@ -10,4 +10,3 @@ import Foundation
 
 var statusCounter:Int = 0
 var pictureCounter:Int = 0
-    

@@ -1,9 +1,9 @@
 //
-//  NetworkRecPicture.swift
-//  FireflyApp
+// NetworkRecPicture.swift
+// FireflyApp
 //
-//  Created by Christian Adam on 27.05.15.
-//  Copyright (c) 2015 Hochschule Darmstadt. All rights reserved.
+// Created by Christian Adam on 27.05.15.
+// Copyright (c) 2015 Hochschule Darmstadt. All rights reserved.
 //
 
 import Foundation
@@ -12,7 +12,7 @@ import CoreData
 
 class NetworkRecPicture {
     
-    var buffersize:Int = 133120
+    var buffersize:Int = 200704
     var imageList:[UIImage] = [UIImage]()
     var client:TCPClient?
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -20,7 +20,7 @@ class NetworkRecPicture {
     func start(ip: String){
         var server:TCPServer = TCPServer(ip: ip, port: 51000)
         println("Server started")
-        var (success,msg)=server.listen()
+        var (success, msg)=server.listen()
         if success{
             client = server.accept()
             if client != nil {

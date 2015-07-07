@@ -1,9 +1,9 @@
 //
-//  NetworkRecProp.swift
-//  FireflyApp
+// NetworkRecProp.swift
+// FireflyApp
 //
-//  Created by Christian Adam on 27.05.15.
-//  Copyright (c) 2015 Hochschule Darmstadt. All rights reserved.
+// Created by Christian Adam on 27.05.15.
+// Copyright (c) 2015 Hochschule Darmstadt. All rights reserved.
 //
 
 import Foundation
@@ -24,7 +24,7 @@ class NetworkRecProp:NSObject {
     func start(ip: String){
         var server:TCPServer = TCPServer(ip: ip, port: 50000)
         println("Server started")
-        var (success,msg)=server.listen()
+        var (success, msg)=server.listen()
         if success{
             client = server.accept()
             if client != nil {
@@ -79,7 +79,7 @@ class NetworkRecProp:NSObject {
     }
     
     private func saveGPS(coordinates: NSString, log: Log){
-        var gpsArray = coordinates.componentsSeparatedByString(",")
+        var gpsArray = coordinates.componentsSeparatedByString(", ")
         
         var newGPS = NSEntityDescription.insertNewObjectForEntityForName("GPS", inManagedObjectContext: self.context!) as! GPS
         newGPS.id = statusCounter
@@ -92,7 +92,7 @@ class NetworkRecProp:NSObject {
         
         
         
-        var gps:GPS_Struct = GPS_Struct(x: newGPS.valueX ,y: newGPS.valueY)
+        var gps:GPS_Struct = GPS_Struct(x: newGPS.valueX , y: newGPS.valueY)
         gpsList.append(gps)
         altitudeList.append(Double(newGPS.valueZ))
         
@@ -126,7 +126,7 @@ class NetworkRecProp:NSObject {
     
     /**
     Broadcast about changes
-    @brief  NSNotification: MissionUpdate
+    @brief NSNotification: MissionUpdate
     */
     
     func notify(){
