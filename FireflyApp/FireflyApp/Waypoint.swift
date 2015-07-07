@@ -11,25 +11,21 @@ import MapKit
 
 class Waypoint: NSObject, MKAnnotation {
     
-    @objc var coordinate: CLLocationCoordinate2D { return _coordinate }
-    private var _coordinate: CLLocationCoordinate2D
-    
     init(coordinate: CLLocationCoordinate2D, waypointNumber: Int) {
-        self._coordinate = coordinate
+        self.coordinate = coordinate
         self.waypointNumber = waypointNumber
         self.speed = 30
         self.height = 10
         super.init()
     }
     
-    func setCoordinate(newCoordinate: CLLocationCoordinate2D) {
-        self._coordinate = newCoordinate
-    }
+    // Coordinates of the waypoint
+    var coordinate: CLLocationCoordinate2D
     
-    // Title and subtitle for use by selection UI.
+    // Title for use by selection UI.
     var title: String!
-    var subtitle: String!
-    
+
+    // Custom attributes for the waypoint
     var waypointNumber:Int
     var speed:Int  // %
     var height:Int //m

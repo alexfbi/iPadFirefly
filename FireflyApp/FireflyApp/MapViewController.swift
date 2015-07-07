@@ -105,6 +105,7 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
             var pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "dronePosition")
             pin.pinColor = MKPinAnnotationColor.Purple
             pin.canShowCallout = true
+            
             return pin
         }
             
@@ -127,20 +128,6 @@ class MapViewController: ContentViewController, MKMapViewDelegate, CLLocationMan
             }
         }
     }
-    
-    // TODO: Just needed if the coordinates were shown as text
-    /*
-    func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, didChangeDragState newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState) {
-        
-        if (newState == MKAnnotationViewDragState.Ending)
-        {
-            var droppedAt = view.annotation.coordinate
-            var latitudeString = String(stringInterpolationSegment: droppedAt.latitude)
-            var longitudeString = String(stringInterpolationSegment: droppedAt.longitude)
-            var annotation = view.annotation as! Waypoint
-            annotation.subtitle = "Latitude: \(latitudeString), Longitude: \(longitudeString)"
-        }
-    } */
     
     /**
     Action to place a waypoint. Triggerd by a long tap.

@@ -28,6 +28,9 @@ class WaypointView: MKPinAnnotationView, UITextFieldDelegate {
     
     // MARK: - Variables
     var hitOutside:Bool = true
+    var preventDeselection:Bool {
+        return !hitOutside
+    }
     var waypoint:Waypoint?
     var waypointViewDelegate:WaypointViewDelegate?
     
@@ -141,7 +144,4 @@ class WaypointView: MKPinAnnotationView, UITextFieldDelegate {
         return hitView;
     }
     
-    var preventDeselection:Bool {
-        return !hitOutside
-    }
 }

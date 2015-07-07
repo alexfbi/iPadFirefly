@@ -34,7 +34,7 @@ class SplitViewController: UISplitViewController {
         let location = touch.locationInView(self.view)
         
         // Just allow the master view to appear if swipe gesture was performed at the left edge of the screen
-        if (location.x < 100) {
+        if (location.x < 150) {
             self.presentsWithGesture = true
         } else {
             self.presentsWithGesture = false
