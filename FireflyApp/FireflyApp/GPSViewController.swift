@@ -19,12 +19,13 @@ The controller is used to create the GPS polyline on the map
 class GPSViewController: ContentViewController, MKMapViewDelegate  {
     
   //  var log : Log!
+    
+    // MARK: - Variable
     var controlDBModell:ControlDBModel =  ControlDBModel()
    
     var gpsPositions = [GPS]()
     
-    
-    
+   // MARK: - Outlets
     @IBOutlet weak var mapKit: MKMapView!
     
     override func viewDidLoad() {

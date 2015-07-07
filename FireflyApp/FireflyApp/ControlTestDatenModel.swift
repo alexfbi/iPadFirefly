@@ -13,7 +13,7 @@ import CoreData
 This class create the test data for the output of the status information
 */
 class ControlTestDatenModel {
-    
+     // MARK: - Variable
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
   
     var countCreateData: Int
@@ -22,9 +22,8 @@ class ControlTestDatenModel {
     
     var log:Log?
    
-    /**
-    
-    */
+   
+     // MARK: - Init
     init(){
         self.countCreateData = 1
         self.pictureCountOld = 0
@@ -45,7 +44,8 @@ class ControlTestDatenModel {
       //  writeImagesToFolder()
     }
     
-    
+   
+    // MARK: - Create test data
     
     /**
     Creates and save images in folder
@@ -123,6 +123,8 @@ class ControlTestDatenModel {
         
         
     }
+    
+    
     /**
     Creates all test data
     */
@@ -183,7 +185,8 @@ class ControlTestDatenModel {
         
     }
     /**
-     Creates image test data       */
+     Creates image test data       
+    */
   private  func createTestDatenImage(){
         let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
@@ -244,6 +247,9 @@ class ControlTestDatenModel {
     }
     /**
      Creates gps test data
+    :param: Double, Latitude
+    :param: Double, Longitude
+    :param: Double, Altitude
     */
  private func createTestGPSDataToDB(x: Double, y: Double, z: Double){
         NSLog("%@", " saveTestDataToDB")

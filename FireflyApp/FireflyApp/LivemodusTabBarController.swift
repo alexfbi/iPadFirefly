@@ -8,6 +8,7 @@
 
 import UIKit
 /**
+Pushes the LogNavigatoinView over the Livemodus
 */
 class LivemodusTabBarController: UITabBarController {
     

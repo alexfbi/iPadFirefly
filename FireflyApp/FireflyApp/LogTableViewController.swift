@@ -16,19 +16,29 @@ The controller loads the logs from the database and show the logs in tables
 
 class LogTableViewController: UITableViewController {
         
-    
+      // MARK: - Variable
     
         var logs = [Log]()
         
         let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-        
+    
+      // MARK: - IBAction
+    
+    @IBAction func livemodusButtonPressed(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+      // MARK: - ViewDidLoad
         override func viewDidLoad() {
             super.viewDidLoad()
             loadDataFromDB()
             
         }
-        
-        
+  
+    
+    /**
+    Load data from DB
+    */
         func loadDataFromDB(){
             let fetchRequest = NSFetchRequest(entityName: "Log")
             logs = context?.executeFetchRequest(fetchRequest, error: nil) as! [Log]
@@ -37,7 +47,7 @@ class LogTableViewController: UITableViewController {
         }
         
         
-        
+         // MARK: - Table View
         
         
         override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -70,7 +80,7 @@ class LogTableViewController: UITableViewController {
             return cell
         }
         
-        
+    
         
         override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
             return true
@@ -134,9 +144,7 @@ class LogTableViewController: UITableViewController {
         
     }
     
-    @IBAction func livemodusButtonPressed(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
+   
     
     
 }

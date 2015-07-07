@@ -9,6 +9,14 @@
 import UIKit
 
 protocol PlotMultiViewDataSource: class{
+    /**
+    Set points for the view
+    :param: List of speed
+    :param: List of battery
+    :param: List of altitude
+    :param: maximum x-axis
+    :param: maximum y-axis
+    */
     func setPoints( sender: PlotMultiView) -> ([CGPoint],[CGPoint], [CGPoint], Double, Double)
     
 }
