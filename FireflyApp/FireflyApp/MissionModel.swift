@@ -112,7 +112,7 @@ class MissionModel:NSObject{
     
     /**
         Broadcast about changes
-        @brief  NSNotification: MissionUpdate
+        :brief:  NSNotification: MissionUpdate
     */
     
   private func notify(){

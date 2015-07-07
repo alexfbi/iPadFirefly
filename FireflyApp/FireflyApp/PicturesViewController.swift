@@ -11,13 +11,14 @@ import Foundation
 import CoreData
 
 /**
-The controller animates the images, the NSTimeInterval = 10
+The controller animates the images, the NSTimeInterval = 10.
 */
 
 class PicturesViewController: ContentViewController {
 
    //  var log : Log!
     
+    // MARK: - Variable
     var imageList = [UIImage]()
     var pictures  = [Picture]()
     
@@ -25,13 +26,13 @@ class PicturesViewController: ContentViewController {
    
     var controlDBModell:ControlDBModel =  ControlDBModel()
 
-    
+    // MARK: - Outlets
     @IBOutlet weak var myImageView: UIImageView!
    
     @IBOutlet weak var playButton: UIButton!
  
     
-    
+    // MARK: - IBAction
     @IBAction func playButtonPressed(sender: AnyObject) {
         
         controlDBModell.loadDataFromDB(log)

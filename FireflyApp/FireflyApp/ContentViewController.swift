@@ -8,22 +8,26 @@
 
 import UIKit
 
+/**
+This controller is used for the pageviewController.
+*/
+
 class ContentViewController: UIViewController {
 
-  
-    
-    @IBOutlet weak var titelLabel: UILabel!
-    
-    
+   // MARK: - Variable
     
     var pageIndex: Int!
     var titelText: String!
     var log : Log!
+   
+     // MARK: - Outlet
+     @IBOutlet weak var titelLabel: UILabel!
+   
     
+     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
         
    //     self.titelLabel.text   = self.titelText
         
@@ -36,9 +40,6 @@ class ContentViewController: UIViewController {
     }
     
    
-    
-
-
     /*
     // MARK: - Navigation
 

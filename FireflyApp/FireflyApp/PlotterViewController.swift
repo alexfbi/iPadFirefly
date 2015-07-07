@@ -15,13 +15,16 @@ The controller converts and sets the points for the plot.
 */
 class PlotterViewController: ContentViewController, PlotViewDataSource {
 
+      // MARK: - Variable
     
-  //  let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    //  let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var batterieList = [Battery]()
- //   var log : Log!
+    //   var log : Log!
     
      var controlDBModell:ControlDBModel =  ControlDBModel()
    
+      // MARK: - Outlets
+    
     @IBOutlet weak var plotView: PlotView!
         {
             didSet{

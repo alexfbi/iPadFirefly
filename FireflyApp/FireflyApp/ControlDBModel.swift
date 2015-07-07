@@ -16,6 +16,7 @@ This Class is used to save and load the data in the database
 
 class ControlDBModel {
     
+     // MARK: - Variable
     var imageList = [UIImage]()
     var pictures  = [Picture]()
     var gpsList = [GPS]()

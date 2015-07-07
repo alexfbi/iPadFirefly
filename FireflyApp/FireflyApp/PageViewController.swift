@@ -10,25 +10,43 @@ import UIKit
 import CoreData
 
 /**
-This class contains the Page View, but the class is not used
+This class contains the Page View, but the class is not used in this project
 */
 class PageViewController: UIViewController, UIPageViewControllerDataSource {
     
-    @IBOutlet weak var statusLabel: UILabel!
+     // MARK: - Variable
+    
+   
     var pageViewController: UIPageViewController!
     var pageTitel: NSArray!
     
     var logs = [Log]()
     
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-
+    
+    
+    // MARK: - Outlet
+    @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var showHideButton: UIButton!
 
-    func loadDataFromDB(){
-        let fetchRequest = NSFetchRequest(entityName: "Log")
-        logs = context?.executeFetchRequest(fetchRequest, error: nil) as! [Log]
-        NSLog("%@", "Count logs: \(logs.count)")
+    
+    @IBAction func showOrHideSidebar(sender: AnyObject) {
+        var button = sender as! UIButton
+        var splitView = self.parentViewController?.parentViewController as! UISplitViewController
+        
+        if (button.currentTitle == "Hide Sidebar") {
+            splitView.preferredDisplayMode = UISplitViewControllerDisplayMode.PrimaryHidden
+            button.setTitle("Show Sidebar", forState: .Normal)
+        }
+            
+        else if (button.currentTitle == "Show Sidebar") {
+            splitView.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
+            button.setTitle("Hide Sidebar", forState: .Normal)
+        }
     }
+    
+    
+   
     
     
     override func viewDidLoad() {
@@ -52,6 +70,12 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
         
         self.setupPageControl()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationChanged", name: UIDeviceOrientationDidChangeNotification, object: nil)
+    }
+    
+    func loadDataFromDB(){
+        let fetchRequest = NSFetchRequest(entityName: "Log")
+        logs = context?.executeFetchRequest(fetchRequest, error: nil) as! [Log]
+        NSLog("%@", "Count logs: \(logs.count)")
     }
     
     private func setupPageControl() {
@@ -199,20 +223,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
     }
     
     
-    @IBAction func showOrHideSidebar(sender: AnyObject) {
-        var button = sender as! UIButton
-        var splitView = self.parentViewController?.parentViewController as! UISplitViewController
-        
-        if (button.currentTitle == "Hide Sidebar") {
-            splitView.preferredDisplayMode = UISplitViewControllerDisplayMode.PrimaryHidden
-            button.setTitle("Show Sidebar", forState: .Normal)
-        }
-        
-        else if (button.currentTitle == "Show Sidebar") {
-            splitView.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
-            button.setTitle("Hide Sidebar", forState: .Normal)
-        }
-    }
+    
     
 }
 

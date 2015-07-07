@@ -12,18 +12,18 @@ import AVKit
 import AVFoundation
 
 /**
-The Controller navigates to the destination controller
+The Controller navigates the log to the destination controller
 */
 
 class CategorieTableViewController: UITableViewController {
-    
+     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Logs"
     }
     
     var log: Log?
-    
+    // MARK: - Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         let ident = String(segue.identifier!)

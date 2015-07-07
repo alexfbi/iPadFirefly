@@ -13,7 +13,7 @@ import CoreData
 This class create the test data for the output of the status information
 */
 class ControlTestDatenModel {
-    
+     // MARK: - Variable
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
   
     var countCreateData: Int
@@ -22,9 +22,7 @@ class ControlTestDatenModel {
     
     var log:Log?
    
-    /**
-    
-    */
+   
     init(){
         self.countCreateData = 1
         self.pictureCountOld = 0

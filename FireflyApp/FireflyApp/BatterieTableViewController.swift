@@ -15,12 +15,12 @@ The controller loads data from the controlDBModell and show the values in a tabl
 
 class BatterieTableViewController: UITableViewController {
     
-    
+      // MARK: - Variable
     var log: Log?
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var batterieList = [Battery]()
     
-      var controlDBModell:ControlDBModel =  ControlDBModel()
+    var controlDBModell:ControlDBModel =  ControlDBModel()
     
     override func viewDidLoad() {
         
@@ -32,7 +32,7 @@ class BatterieTableViewController: UITableViewController {
     }
     
    
-    
+      // MARK: - Tableview
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return batterieList.count
