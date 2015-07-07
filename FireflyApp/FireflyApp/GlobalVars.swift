@@ -8,5 +8,7 @@
 
 import Foundation
 
+
+// Variables for the Entrynumber for the Database-Entrys
 var statusCounter:Int = 0
 var pictureCounter:Int = 0
